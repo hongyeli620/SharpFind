@@ -45,43 +45,43 @@ namespace SharpFind.Classes
         /// <summary>
         /// Retrieves a handle to the application instance.
         /// </summary>
-        public const int GWL_HINSTANCE = (-6);
+        public const int GWL_HINSTANCE = -6;
 
         /// <summary>
         /// Retrieves the identifier of the window.
         /// </summary>
-        public const int GWL_ID = (-12);
+        public const int GWL_ID = -12;
 
         /// <summary>
         /// Retrieves the window styles.
         /// </summary>
-        public const int GWL_STYLE = (-16);
+        public const int GWL_STYLE = -16;
 
         /// <summary>
         /// Retrieves the extended window styles.
         /// </summary>
-        public const int GWL_EXSTYLE = (-20);
+        public const int GWL_EXSTYLE = -20;
 
         /// <summary>
         /// Retrieves the user data associated with the window.
         /// </summary>
-        public const int GWL_USERDATA = (-21);
+        public const int GWL_USERDATA = -21;
 
         // GetClassLong flags
         /// <summary>
         /// Retrieves a handle to the background brush associated with the class.
         /// </summary>
-        public const int GCL_HBRBACKGROUND = (-10);
+        public const int GCL_HBRBACKGROUND = -10;
 
         /// <summary>
         /// Retrieves a handle to the cursor associated with the class.
         /// </summary>
-        public const int GCL_HCURSOR = (-12);
+        public const int GCL_HCURSOR = -12;
 
         /// <summary>
         /// Retrieves a handle to the icon associated with the class.
         /// </summary>
-        public const int GCL_HICON = (-14);
+        public const int GCL_HICON = -14;
        
         /// <summary>
         /// Retrieves the size, in bytes, of the extra window memory associated with
@@ -92,27 +92,27 @@ namespace SharpFind.Classes
         /// <summary>
         /// Retrieves the size, in bytes, of the extra memory associated with the class.
         /// </summary>
-        public const int GCL_CBCLSEXTRA = (-20);
+        public const int GCL_CBCLSEXTRA = -20;
 
         /// <summary>
         /// Retrieves the address of the window procedure associated with the class.
         /// </summary>
-        public const int GCL_WNDPROC = (-24);
+        public const int GCL_WNDPROC = -24;
 
         /// <summary>
         /// Retrieves the window-class style bits.
         /// </summary>
-        public const int GCL_STYLE = (-26);
+        public const int GCL_STYLE = -26;
 
         /// <summary>
         /// Retrieves an ATOM value that uniquely identifies the window class.
         /// </summary>
-        public const int GCW_ATOM = (-32);
+        public const int GCW_ATOM = -32;
 
         /// <summary>
         /// Retrieves a handle to the small icon associated with the class.
         /// </summary>
-        public const int GCL_HICONSM = (-34);
+        public const int GCL_HICONSM = -34;
 
         #endregion
         #region Enumerations
