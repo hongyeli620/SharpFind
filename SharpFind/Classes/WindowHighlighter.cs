@@ -1,5 +1,5 @@
 ﻿using System;
-using static SharpFind.Classes.WinAPI;
+using static SharpFind.Classes.NativeMethods;
 
 namespace SharpFind.Classes
 {
@@ -57,7 +57,10 @@ namespace SharpFind.Classes
         {
             InvalidateRect(hWnd, IntPtr.Zero, true);
             UpdateWindow(hWnd);
-            RedrawWindow(hWnd, IntPtr.Zero, IntPtr.Zero, RDW_FRAME | RDW_INVALIDATE | RDW_UPDATENOW | RDW_ALLCHILDREN);              
+            RedrawWindow(hWnd, IntPtr.Zero, IntPtr.Zero, RDW_FRAME |
+                                                         RDW_INVALIDATE |
+                                                         RDW_UPDATENOW |
+                                                         RDW_ALLCHILDREN);              
         }
     }
 }
