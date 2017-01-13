@@ -175,7 +175,7 @@ namespace SharpFind.Classes
         }
 
         #endregion
-        #region user32.dll Functions
+        #region user32.dll
 
         /// <summary>
         /// Retrieves the specified value from the WNDCLASSEX structure associated
@@ -628,7 +628,7 @@ namespace SharpFind.Classes
         internal static extern IntPtr WindowFromPoint(Point point);
 
         #endregion
-        #region gdi32.dll Functions
+        #region gdi32.dll
 
         /// <summary>
         /// Paints the specified rectangle using the brush that is currently
@@ -670,7 +670,7 @@ namespace SharpFind.Classes
         internal static extern bool PatBlt(IntPtr hdc, int nXLeft, int nYLeft, int nWidth, int nHeight, RasterOperations dwRop);
 
         #endregion
-        #region kernel32.dll Functions
+        #region kernel32.dll
 
         /// <summary>
         /// Retrieves the process identifier of the calling process.
@@ -698,6 +698,36 @@ namespace SharpFind.Classes
         /// </returns>
         [DllImport("kernel32.dll")]
         internal static extern uint GetPriorityClass(IntPtr hProcess);
+
+        #endregion
+        #region uxtheme.dll
+
+        /// <summary>
+        /// Causes a window to use a different set of visual style information
+        /// than its class normally uses. In this context, it will be used to
+        /// apply the native Window ListView theme.
+        /// </summary>
+        /// 
+        /// <param name="hWnd">
+        /// Handle to the window whose visual style information is to be changed.
+        /// </param>
+        /// 
+        /// <param name="pszSubAppName">
+        /// Pointer to a string that contains the application name to use in place
+        /// of the calling application's name.
+        /// </param>
+        /// 
+        /// <param name="pszSubIdList">
+        /// Pointer to a string that contains a semicolon-separated list of CLSID
+        /// names to use in place of the actual list passed by the window's class.
+        /// </param>
+        /// 
+        /// <returns>
+        /// If this function succeeds, it returns S_OK. Otherwise, it returns an
+        /// HRESULT error code.
+        /// </returns>
+        [DllImport("uxtheme.dll", ExactSpelling = true, CharSet = CharSet.Unicode)]
+        internal static extern int SetWindowTheme(IntPtr hWnd, string pszSubAppName, string pszSubIdList);
 
         #endregion
         #region Nested Classes
