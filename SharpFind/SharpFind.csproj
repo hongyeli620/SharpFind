@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\WindowMenu.cs" />
-    <Compile Include="Classes\WinAPI.cs" />
+    <Compile Include="Classes\NativeMethods.cs" />
     <Compile Include="Classes\WindowHighlighter.cs" />
     <Compile Include="Controls\ListViewEx.cs">
       <SubType>Component</SubType>
