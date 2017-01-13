@@ -77,7 +77,8 @@ namespace SharpFind
             GetClassName(hWnd, sb, 256);
         
             var value = sb.ToString();
-            if (IsUnicode(hWnd)) { value = value + " (Unicode)"; }
+            if (IsUnicode(hWnd))
+                value = value + " (Unicode)";
 
             return value;
         }
@@ -471,7 +472,8 @@ namespace SharpFind
                     CMB_ClassStyles.Items.Add("CS_VREDRAW");
                 
                 // Select the first index, if any
-                if (CMB_ClassStyles.Items.Count != 0) CMB_ClassStyles.SelectedIndex = 0;
+                if (CMB_ClassStyles.Items.Count != 0)
+                    CMB_ClassStyles.SelectedIndex = 0;
             }
 
             return GetClassLongPtr(hWnd, GCL_STYLE).ToString("X8");
@@ -496,7 +498,8 @@ namespace SharpFind
                 value = Math.Max(value - 4, 0);
             } 
             
-            if (CMB_ClassBytes.Items.Count != 0) CMB_ClassBytes.SelectedIndex = 0;
+            if (CMB_ClassBytes.Items.Count != 0)
+                CMB_ClassBytes.SelectedIndex = 0;
 
             return GetClassLongPtr(hWnd, GCL_CBCLSEXTRA).ToString();
         }
@@ -526,9 +529,9 @@ namespace SharpFind
         private static string getCursorHandle(IntPtr hWnd)
         {
             var value = GetClassLongPtr(hWnd, GCL_HCURSOR).ToString("X");
-
-                // Hex handles for Windows XP and below
             if (Environment.OSVersion.Version.Major <= 5.1)
+            {
+                // Hex handles for Windows XP and below
                 if (value == "0")     return "(None)";
                 if (value == "10011") return value + " (IDC_ARROW)";
                 if (value == "10013") return value + " (IDC_IBEAM)";
@@ -543,8 +546,10 @@ namespace SharpFind
                 if (value == "10025") return value + " (IDC_NO)";
                 if (value == "10027") return value + " (IDC_APPSTARTING)";
                 if (value == "10029") return value + " (IDC_HELP)";
-                // Hex handles for Windows Vista and above
+            }
             else if (Environment.OSVersion.Version.Major >= 6)
+            {
+                // Hex handles for Windows Vista and above
                 if (value == "0")     return "(None)";
                 if (value == "10003") return value + " (IDC_ARROW)";
                 if (value == "10005") return value + " (IDC_IBEAM)";
@@ -559,6 +564,7 @@ namespace SharpFind
                 if (value == "10017") return value + " (IDC_NO)";
                 if (value == "10019") return value + " (IDC_APPSTARTING)";
                 if (value == "1001B") return value + " (IDC_HELP)";
+            }
 
             return value;
         }
@@ -569,12 +575,12 @@ namespace SharpFind
             int n;
 
             /* Apparently, the return value of <0> is shared between <hBrush.None>
-             * and <hBrush.COLOR_SCROLLBAR>.
-             * 
-             * The only way to distinguish between the two is by treating <0> as a
-             * value for <hBrush.None> and <1> as a value for <hBrush.COLOR_SCROLLBAR>.
-             * Then subtract 1 from each return value afterwards to show a correct
-             * output in the TextBox.
+            ** and <hBrush.COLOR_SCROLLBAR>.
+            ** 
+            ** The only way to distinguish between the two is by treating <0> as a
+            ** value for <hBrush.None> and <1> as a value for <hBrush.COLOR_SCROLLBAR>.
+            ** Then subtract 1 from each return value afterwards to show a correct
+            ** output in the TextBox.
             */
 
             // This is going to be long way down. I could have minified it, but the
@@ -696,6 +702,7 @@ namespace SharpFind
             var procId = 0;
             GetWindowThreadProcessId(hWnd, ref procId);
             var proc = Process.GetProcessById(procId);
+
             return proc.MainModule.ModuleName;
         }
 
@@ -704,6 +711,7 @@ namespace SharpFind
             var procId = 0;
             GetWindowThreadProcessId(hWnd, ref procId);
             var proc = Process.GetProcessById(procId);
+
             return proc.MainModule.FileName;
         }
 
@@ -712,6 +720,7 @@ namespace SharpFind
             var pid = 0;
             GetWindowThreadProcessId(hWnd, ref pid);
             var process = Process.GetProcessById(pid);
+
             return process.Id.ToString("X8") + " (" + process.Id + ")";
         }
 
@@ -720,6 +729,7 @@ namespace SharpFind
             var pid = 0;
             GetWindowThreadProcessId(hWnd, ref pid);
             var process = Process.GetProcessById(pid);
+
             return process.Id;
         }
 
@@ -851,30 +861,37 @@ namespace SharpFind
                     hPreviousWindow = IntPtr.Zero;
                 }
             }
-
             isCapturing = captured;
         }
         
         private void HandleMouseMovement()
         {
-            if (!isCapturing) { return; }
-
+            if (!isCapturing) return;
             try
             {
                 hWnd = WindowFromPoint(Cursor.Position);
-                if (hPreviousWindow != IntPtr.Zero && hPreviousWindow != hWnd) { WindowHighlighter.Refresh(hPreviousWindow); }
+                if (hPreviousWindow != IntPtr.Zero && hPreviousWindow != hWnd)
+                    WindowHighlighter.Refresh(hPreviousWindow);
 
-                if (hWnd == IntPtr.Zero) return;
+                if (hWnd == IntPtr.Zero)
+                    return;
+
                 hPreviousWindow = hWnd;
 
                 // Prevent retrieving information about the program itself, just like Spy++
                 var pid = getProcessIdDecimal(hWnd);
-                if   (GetCurrentProcessId() == pid) { handleIsNull = true; return; }
+                if (GetCurrentProcessId() == pid)
+                {
+                    handleIsNull = true;
+                    return;
+                }
+
                 handleIsNull = false;
 
                 // General Information tab
                 TB_WindowCaption.Text = getWindowCaption(hWnd);
                 TB_WindowHandle.Text = hWnd.ToInt32().ToString("X8") + " (" + hWnd.ToInt32() + ")";
+
                 TB_Class.Text = getClass(hWnd);
                 TB_Style.Text = getStyle(hWnd);
                 TB_Rectangle.Text = getWindowRect(hWnd);
@@ -924,12 +941,14 @@ namespace SharpFind
 
         private void PB_Tool_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { CaptureMouse(true); }
+            if (e.Button == MouseButtons.Left)
+                CaptureMouse(true);
         }
 
         private void frm_Main_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right) { CaptureMouse(false); }
+            if (e.Button == MouseButtons.Right)
+                CaptureMouse(false);
         }
 
         private void BTN_Close_Click(object sender, EventArgs e)
