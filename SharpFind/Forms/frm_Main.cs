@@ -673,7 +673,9 @@ namespace SharpFind
                     value = GetClassLongPtr(hWnd, GCL_HBRBACKGROUND).ToString("X");
                     break;
             }
-            if   (value.StartsWith("FFFFFFFF")) { value = value.Substring(8); }
+
+            if (value.StartsWith("FFFFFFFF"))
+                value = value.Substring(8);
             
             return value;
         }
@@ -702,7 +704,7 @@ namespace SharpFind
             var pid = 0;
             GetWindowThreadProcessId(hWnd, ref pid);
             var process = Process.GetProcessById(pid);
-            return process.Id.ToString("X8") + " (" + process.Id.ToString() + ")";
+            return process.Id.ToString("X8") + " (" + process.Id + ")";
         }
 
         private static int getProcessIdDecimal(IntPtr hWnd)
