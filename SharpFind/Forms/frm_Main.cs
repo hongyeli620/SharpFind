@@ -6,7 +6,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Text;
 using SharpFind.Controls;
-using static SharpFind.Classes.WinAPI;
+using static SharpFind.Classes.NativeMethods;
 using static SharpFind.Classes.WindowMenu;
 
 namespace SharpFind
