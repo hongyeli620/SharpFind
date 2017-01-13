@@ -5,7 +5,7 @@ using System;
 
 namespace SharpFind.Classes
 {
-    public class WinAPI
+    internal static class NativeMethods
     {
         #region Constants
 
