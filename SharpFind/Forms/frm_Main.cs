@@ -5,7 +5,6 @@ using System.Text;
 using System.Windows.Forms;
 using System;
 using SharpFind.Classes;
-using SharpFind.Controls;
 using SharpFind.Properties;
 
 // <using static> is a C#6 feature. See:
@@ -764,13 +763,6 @@ namespace SharpFind
             Height = 107;
             PNL_Bottom.Visible = false;
 
-            // Use the native Explorer ListView theme for Windows Vista and upper
-            if (Environment.OSVersion.Version.Major >= 6) 
-            {
-                ListViewEx.SetWindowTheme(LV_WindowStyles.Handle, "explorer", null);
-                ListViewEx.SetWindowTheme(LV_ExtendedStyles.Handle, "explorer", null);
-            }
-
             // Add Window Menu items
             var handle = GetSystemMenu(Handle, false);
             InsertMenu(handle, 05, MF_BYPOSITION | MF_SEPARATOR, 0, null);
@@ -948,7 +940,7 @@ namespace SharpFind
                 CaptureMouse(true);
         }
 
-        private void frm_Main_MouseDown(object sender, MouseEventArgs e)
+        private void Frm_Main_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
                 CaptureMouse(false);

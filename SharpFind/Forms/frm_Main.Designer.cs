@@ -999,7 +999,7 @@
             this.Name = "Frm_Main";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Frm_Main_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frm_Main_MouseDown);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_Main_MouseDown);
             this.GB_Tool.ResumeLayout(false);
             this.GB_Tool.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Tool)).EndInit();
