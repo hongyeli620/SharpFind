@@ -56,16 +56,16 @@
     <Compile Include="Controls\Separator.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Forms\frm_Main.cs">
+    <Compile Include="Forms\Frm_Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm_Main.Designer.cs">
-      <DependentUpon>frm_Main.cs</DependentUpon>
+    <Compile Include="Forms\Frm_Main.Designer.cs">
+      <DependentUpon>Frm_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\frm_Main.resx">
-      <DependentUpon>frm_Main.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Frm_Main.resx">
+      <DependentUpon>Frm_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

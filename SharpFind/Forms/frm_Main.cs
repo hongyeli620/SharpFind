@@ -200,7 +200,6 @@ namespace SharpFind
         private static string getWindowRect(IntPtr hWnd)
         {
             var wRect = new RECT();
-            string value = null;
             GetWindowRect(hWnd, out wRect);
             return string.Format("({2},{3}) - ({4},{5}), {0} x {1}", wRect.right - wRect.left,
                                                                      wRect.bottom - wRect.top,
@@ -213,7 +212,6 @@ namespace SharpFind
         private static string getClientRect(IntPtr hWnd)
         {
             var cRect = new RECT();
-            string value = null;
             GetClientRect(hWnd, out cRect);
             return string.Format("({2},{3}) - ({4},{5}), {0} x {1}", cRect.right - cRect.left,
                                                                      cRect.bottom - cRect.top,
