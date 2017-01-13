@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System;
 using SharpFind.Classes;
 using SharpFind.Controls;
+using SharpFind.Properties;
 
 // <using static> is a C#6 feature. See:
 // https://blogs.msdn.microsoft.com/csharpfaq/2014/11/20/new-features-in-c-6/
@@ -29,7 +30,7 @@ namespace SharpFind
             FormBorderStyle = FormBorderStyle.FixedSingle;
             StartPosition = FormStartPosition.CenterScreen;
 
-            using (var ms = new MemoryStream(Properties.Resources.finder))
+            using (var ms = new MemoryStream(Resources.finder))
             {
                 _cursorDefault = Cursor.Current;
                 _cursorFinder = new Cursor(ms);
