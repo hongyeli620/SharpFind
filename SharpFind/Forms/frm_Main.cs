@@ -835,7 +835,7 @@ namespace SharpFind
                 SetCapture(Handle);
 
                 Cursor.Current = _cursorFinder;
-                PB_Tool.Image = Properties.Resources.finder_out;
+                PB_Tool.Image = Resources.finder_out;
                 
                 if (CMNU_Minimize.Checked)
                 {
@@ -848,7 +848,7 @@ namespace SharpFind
                 ReleaseCapture();
 
                 Cursor.Current = _cursorDefault;
-                PB_Tool.Image = Properties.Resources.finder_in;
+                PB_Tool.Image = Resources.finder_in;
 
                 if (!handleIsNull)
                 {
@@ -937,7 +937,7 @@ namespace SharpFind
             {
                 MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 Cursor.Current = _cursorDefault;
-                PB_Tool.Image = Properties.Resources.finder_in;
+                PB_Tool.Image = Resources.finder_in;
             }
         }
 
