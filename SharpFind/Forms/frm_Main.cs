@@ -9,6 +9,7 @@ using SharpFind.Controls;
 
 // <using static> is a C#6 feature. See:
 // https://blogs.msdn.microsoft.com/csharpfaq/2014/11/20/new-features-in-c-6/
+// C#6 IDE support starts at Visual Studio 2013 and up
 using static SharpFind.Classes.NativeMethods;
 using static SharpFind.Classes.WindowMenu;
 
