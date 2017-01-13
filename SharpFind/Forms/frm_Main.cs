@@ -871,13 +871,6 @@ namespace SharpFind
             try
             {
                 hWnd = WindowFromPoint(Cursor.Position);
-                if (hPreviousWindow != IntPtr.Zero && hPreviousWindow != hWnd)
-                    WindowHighlighter.Refresh(hPreviousWindow);
-
-                if (hWnd == IntPtr.Zero)
-                    return;
-
-                hPreviousWindow = hWnd;
 
                 // Prevent retrieving information about the program itself, just like Spy++
                 var pid = getProcessIdDecimal(hWnd);
@@ -888,6 +881,14 @@ namespace SharpFind
                 }
 
                 handleIsNull = false;
+
+                if (hPreviousWindow != IntPtr.Zero && hPreviousWindow != hWnd)
+                    WindowHighlighter.Refresh(hPreviousWindow);
+
+                if (hWnd == IntPtr.Zero)
+                    return;
+
+                hPreviousWindow = hWnd;
 
                 // General Information tab
                 TB_WindowCaption.Text = getWindowCaption(hWnd);
