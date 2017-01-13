@@ -926,7 +926,8 @@ namespace SharpFind
                 Text = Application.ProductName + " - " + TB_WindowHandle.Text.Split('(')[0];
 
                 // The flickering shall not pass
-                if (hWndOld == hWnd) return;
+                if (hWndOld == hWnd)
+                    return;
 
                 WindowHighlighter.Highlight(hWnd);
                 hWndOld = hWnd;
