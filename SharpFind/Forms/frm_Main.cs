@@ -1,17 +1,16 @@
-﻿using System;
-using System.Windows.Forms;
-using SharpFind.Classes;
-using System.Reflection;
+﻿using System.Diagnostics;
 using System.IO;
-using System.Diagnostics;
+using System.Reflection;
 using System.Text;
+using System.Windows.Forms;
+using System;
+using SharpFind.Classes;
 using SharpFind.Controls;
 
 // <using static> is a C#6 feature. See:
 // https://blogs.msdn.microsoft.com/csharpfaq/2014/11/20/new-features-in-c-6/
 // C#6 IDE support starts at Visual Studio 2013 and up
 using static SharpFind.Classes.NativeMethods;
-using static SharpFind.Classes.WindowMenu;
 
 namespace SharpFind
 {
@@ -49,6 +48,11 @@ namespace SharpFind
         private IntPtr hWnd;
         private IntPtr hWndOld;
         private bool handleIsNull;
+
+        // Single window menu items
+        private const int MNU_ABOUT = 1000;
+        private const int MNU_LICENSE = 1001;
+        private const int MNU_CHANGELOG = 1002;
 
         #endregion
         #region Functions

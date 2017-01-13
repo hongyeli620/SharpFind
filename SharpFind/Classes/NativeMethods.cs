@@ -31,6 +31,7 @@ namespace SharpFind.Classes
         /// </summary>
         public const int RDW_FRAME = 0x400;
 
+
         // SetWindowPos flags
         /// <summary>
         /// Applies new frame styles set using the SetWindowLong function.
@@ -41,78 +42,90 @@ namespace SharpFind.Classes
         /// </summary>
         public const int SWP_NOOWNERZORDER = 0x200;
 
+
         // GetWindowLong flags
         /// <summary>
         /// Retrieves a handle to the application instance.
         /// </summary>
         public const int GWL_HINSTANCE = -6;
-
         /// <summary>
         /// Retrieves the identifier of the window.
         /// </summary>
         public const int GWL_ID = -12;
-
         /// <summary>
         /// Retrieves the window styles.
         /// </summary>
         public const int GWL_STYLE = -16;
-
         /// <summary>
         /// Retrieves the extended window styles.
         /// </summary>
         public const int GWL_EXSTYLE = -20;
-
         /// <summary>
         /// Retrieves the user data associated with the window.
         /// </summary>
         public const int GWL_USERDATA = -21;
+
 
         // GetClassLong flags
         /// <summary>
         /// Retrieves a handle to the background brush associated with the class.
         /// </summary>
         public const int GCL_HBRBACKGROUND = -10;
-
         /// <summary>
         /// Retrieves a handle to the cursor associated with the class.
         /// </summary>
         public const int GCL_HCURSOR = -12;
-
         /// <summary>
         /// Retrieves a handle to the icon associated with the class.
         /// </summary>
         public const int GCL_HICON = -14;
-       
         /// <summary>
         /// Retrieves the size, in bytes, of the extra window memory associated with
         /// each window in the class.
         /// </summary>
         public const int GCL_CBWNDEXTRA = (-18);
-
         /// <summary>
         /// Retrieves the size, in bytes, of the extra memory associated with the class.
         /// </summary>
         public const int GCL_CBCLSEXTRA = -20;
-
         /// <summary>
         /// Retrieves the address of the window procedure associated with the class.
         /// </summary>
         public const int GCL_WNDPROC = -24;
-
         /// <summary>
         /// Retrieves the window-class style bits.
         /// </summary>
         public const int GCL_STYLE = -26;
-
         /// <summary>
         /// Retrieves an ATOM value that uniquely identifies the window class.
         /// </summary>
         public const int GCW_ATOM = -32;
-
         /// <summary>
         /// Retrieves a handle to the small icon associated with the class.
         /// </summary>
         public const int GCL_HICONSM = -34;
+
+
+        // Menu flags
+        /// <summary>
+        /// A window receives this message when the user chooses a command from
+        /// the Window menu or when the user chooses the maximize button, minimize
+        /// button, restore button, or close button.
+        /// </summary>
+        public const int WM_SYSCOMMAND = 0x112;
+        /// <summary>
+        /// Specifies that the menu item opens a drop-down menu or submenu.
+        /// </summary>
+        public const int MF_POPUP = 0x010;
+        /// <summary>
+        /// Indicates that uPosition gives the zero-based relative position of the
+        /// menu item.
+        /// </summary>
+        public const int MF_BYPOSITION = 0x400;
+        /// <summary>
+        /// Draws a horizontal dividing line.
+        /// </summary>
+        public const int MF_SEPARATOR = 0x800;
 
         #endregion
         #region Enumerations
@@ -233,6 +246,32 @@ namespace SharpFind.Classes
         internal static extern bool GetClientRect(IntPtr hWnd, out RECT lpRect);
 
         /// <summary>
+        /// Enables the application to access the window menu for copying and
+        /// modifying.
+        /// </summary>
+        /// 
+        /// <param name="hWnd">
+        /// A handle to the window that will own a copy of the window menu.
+        /// </param>
+        /// 
+        /// <param name="bRevert">
+        /// The action to be taken. If this parameter is FALSE, GetSystemMenu
+        /// returns a handle to the copy of the window menu currently in use.
+        /// The copy is initially identical to the window menu, but it can be
+        /// modified. If this parameter is TRUE, GetSystemMenu resets the window
+        /// menu back to the default state. The previous window menu, if any, is
+        /// destroyed.
+        /// </param>
+        /// 
+        /// <returns>
+        /// If the bRevert parameter is FALSE, the return value is a handle to a
+        /// copy of the window menu. If the bRevert parameter is TRUE, the return
+        /// value is NULL.
+        /// </returns>
+        [DllImport("user32.dll")]
+        internal static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
+
+        /// <summary>
         /// Retrieves the device context (DC) for the entire window, including
         /// title bar, menus, and scroll bars. A window device context permits
         /// painting anywhere in a window, because the origin of the device
@@ -279,7 +318,7 @@ namespace SharpFind.Classes
         /// Same as GetWindowLong, but for compatibility with both 32-bit and
         /// 64-bit versions of Windows
         /// </summary>
-        [DllImport("user32", SetLastError = true, EntryPoint = "GetWindowLongA")]
+        [DllImport("user32.dll", SetLastError = true, EntryPoint = "GetWindowLongA")]
         internal static extern int GetWindowLongPtr(IntPtr hwnd, int nIndex);
 
         /// <summary>
@@ -346,6 +385,40 @@ namespace SharpFind.Classes
         /// </returns>
         [DllImport("user32.dll")]
         internal static extern uint GetWindowThreadProcessId(IntPtr hWnd, ref int lpdwProcessId);
+
+        /// <summary>
+        /// Inserts a new menu item into a menu, moving other items down the menu.
+        /// </summary>
+        /// 
+        /// <param name="hMenu">
+        /// A handle to the menu to be changed.
+        /// </param>
+        /// 
+        /// <param name="uPosition">
+        /// The menu item before which the new menu item is to be inserted, as
+        /// determined by the uFlags parameter.
+        /// </param>
+        /// 
+        /// <param name="uFlags">
+        /// Controls the interpretation of the uPosition parameter and the
+        /// content, appearance, and behavior of the new menu item. This parameter
+        /// must include one of the following required values.
+        /// </param>
+        /// 
+        /// <param name="uIDNewItem">
+        /// The identifier of the new menu item or, if the uFlags parameter has 
+        /// the MF_POPUP flag set, a handle to the drop-down menu or submenu.
+        /// </param>
+        /// 
+        /// <param name="lpNewItem">
+        /// The content of the new menu item.
+        /// </param>
+        /// 
+        /// <returns>
+        /// If the function succeeds, the return value is nonzero.
+        /// </returns>
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        internal static extern bool InsertMenu(IntPtr hMenu, uint uPosition, uint uFlags, uint uIDNewItem, [MarshalAs(UnmanagedType.LPTStr)]string lpNewItem);
 
         /// <summary>
         /// The InvalidateRect function adds a rectangle to the specified window's
