@@ -15,9 +15,9 @@ using static SharpFind.Classes.WindowMenu;
 
 namespace SharpFind
 {
-    public partial class frm_Main : Form
+    public partial class Frm_Main : Form
     {
-        public frm_Main()
+        public Frm_Main()
         {
             InitializeComponent();
 
@@ -744,7 +744,7 @@ namespace SharpFind
 
         #endregion
 
-        private void frm_Main_Load(object sender, EventArgs e)
+        private void Frm_Main_Load(object sender, EventArgs e)
         {
             Height = 107;
             PNL_Bottom.Visible = false;
@@ -775,14 +775,14 @@ namespace SharpFind
                 {
                     case MNU_ABOUT:
                         var entryAssembly = Assembly.GetEntryAssembly();
-                        var version = Application.ProductVersion;
-                        var buildDate = new FileInfo(entryAssembly.Location).LastWriteTime;
-                        var author = Application.CompanyName;
-                        var info =   "Version: " + version
-                                     + "\nBuild Date: " + buildDate
-                                     + "\n\nAuthor: " + author
-                                     + "\nPage: http://github.com/ei" 
-                                     + "\n\nThis open-source project is licensed under the MIT license. See the license file for details.";
+                        var version       = Application.ProductVersion;
+                        var buildDate     = new FileInfo(entryAssembly.Location).LastWriteTime;
+                        var author        = Application.CompanyName;
+                        var info = "Version: " + version
+                                   + "\nBuild Date: " + buildDate
+                                   + "\n\nAuthor: " + author
+                                   + "\nPage: http://github.com/ei" 
+                                   + "\n\nThis open-source project is licensed under the MIT license. See the license file for details.";
 
                         MessageBox.Show(info, "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         break;
