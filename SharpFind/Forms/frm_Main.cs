@@ -6,6 +6,9 @@ using System.IO;
 using System.Diagnostics;
 using System.Text;
 using SharpFind.Controls;
+
+// <using static> is a C#6 feature. See:
+// https://blogs.msdn.microsoft.com/csharpfaq/2014/11/20/new-features-in-c-6/
 using static SharpFind.Classes.NativeMethods;
 using static SharpFind.Classes.WindowMenu;
 
@@ -26,9 +29,11 @@ namespace SharpFind
             FormBorderStyle = FormBorderStyle.FixedSingle;
             StartPosition = FormStartPosition.CenterScreen;
 
-            var ms = new MemoryStream(Properties.Resources.finder);
-            _cursorDefault = Cursor.Current;
-            _cursorFinder = new Cursor(ms);
+            using (var ms = new MemoryStream(Properties.Resources.finder))
+            {
+                _cursorDefault = Cursor.Current;
+                _cursorFinder = new Cursor(ms);
+            }
         }
 
         #region Variables
