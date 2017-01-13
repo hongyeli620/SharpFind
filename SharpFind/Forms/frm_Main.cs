@@ -795,13 +795,13 @@ namespace SharpFind
                         break;
                     case MNU_CHANGELOG:
                         var changelogPath = Application.StartupPath + "\\Changelog.txt";
-                        if   (File.Exists(changelogPath)) { Process.Start(changelogPath); }
-                        else { MessageBox.Show("The following file was not found:\n" + changelogPath, "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+                        if   (File.Exists(changelogPath)) Process.Start(changelogPath);
+                        else MessageBox.Show("The following file was not found:\n" + changelogPath, "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         break;
                     case MNU_LICENSE:
                         var licensePath = Application.StartupPath + "\\License.txt";
-                        if   (File.Exists(licensePath)) { Process.Start(licensePath); }
-                        else { MessageBox.Show("The following file was not found:\n" + licensePath, "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+                        if   (File.Exists(licensePath)) Process.Start(licensePath);
+                        else MessageBox.Show("The following file was not found:\n" + licensePath, "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         break;
                 }
             }
