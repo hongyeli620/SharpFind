@@ -440,7 +440,7 @@
             this.columnHeader3,
             this.columnHeader4});
             this.LV_ExtendedStyles.FullRowSelect = true;
-            this.LV_ExtendedStyles.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.LV_ExtendedStyles.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.LV_ExtendedStyles.Location = new System.Drawing.Point(6, 146);
             this.LV_ExtendedStyles.MultiSelect = false;
             this.LV_ExtendedStyles.Name = "LV_ExtendedStyles";
@@ -465,7 +465,7 @@
             this.columnHeader1,
             this.columnHeader2});
             this.LV_WindowStyles.FullRowSelect = true;
-            this.LV_WindowStyles.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.LV_WindowStyles.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.LV_WindowStyles.Location = new System.Drawing.Point(7, 32);
             this.LV_WindowStyles.MultiSelect = false;
             this.LV_WindowStyles.Name = "LV_WindowStyles";
