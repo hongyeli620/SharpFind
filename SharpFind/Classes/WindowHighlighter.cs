@@ -14,7 +14,8 @@ namespace SharpFind.Classes
             var rect = new RECT();
             var hDC = GetWindowDC(hWnd);
 
-            if (hWnd == IntPtr.Zero || !IsWindow(hWnd)) return;
+            if (hWnd == IntPtr.Zero || !IsWindow(hWnd))
+                return;
 
             GetWindowRect(hWnd, out rect);
             OffsetRect(ref rect, -rect.left, -rect.top);
@@ -22,7 +23,8 @@ namespace SharpFind.Classes
             // The thickness of the frame
             const int width = 3;
 
-            if (hDC == IntPtr.Zero) return;
+            if (hDC == IntPtr.Zero)
+                return;
 
             if (!IsRectEmpty(ref rect))
             {
