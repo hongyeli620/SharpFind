@@ -1,7 +1,7 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using System;
 
 namespace SharpFind.Controls
 {
@@ -18,8 +18,16 @@ namespace SharpFind.Controls
             set
             {
                 _Shape = value;
-                if (value == _Orientation.Horizontal) { Width = Height; Height = 10; }
-                else if (value == _Orientation.Vertical) { Height = Width; Width = 10; }
+                if (value == _Orientation.Horizontal)
+                {
+                    Width = Height;
+                    Height = 10;
+                }
+                else if (value == _Orientation.Vertical)
+                {
+                    Height = Width;
+                    Width = 10;
+                }
                 Invalidate();
             }
         }
