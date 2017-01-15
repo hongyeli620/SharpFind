@@ -824,6 +824,42 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Based on Windows Kits\8.1\WinUser.h
+        /// </summary>
+        internal static class ButtonControlStyles
+        {
+            internal static readonly long
+            BS_PUSHBUTTON      = 0x00000000L,
+            BS_DEFPUSHBUTTON   = 0x00000001L,
+            BS_CHECKBOX        = 0x00000002L,
+            BS_AUTOCHECKBOX    = 0x00000003L,
+            BS_RADIOBUTTON     = 0x00000004L,
+            BS_3STATE          = 0x00000005L,
+            BS_AUTO3STATE      = 0x00000006L,
+            BS_GROUPBOX        = 0x00000007L,
+            BS_USERBUTTON      = 0x00000008L,
+            BS_AUTORADIOBUTTON = 0x00000009L,
+            BS_PUSHBOX         = 0x0000000AL,
+            BS_OWNERDRAW       = 0x0000000BL,
+            BS_TYPEMASK        = 0x0000000FL,
+            BS_LEFTTEXT        = 0x00000020L,
+            BS_TEXT            = 0x00000000L,
+            BS_ICON            = 0x00000040L,
+            BS_BITMAP          = 0x00000080L,
+            BS_LEFT            = 0x00000100L,
+            BS_RIGHT           = 0x00000200L,
+            BS_CENTER          = 0x00000300L,
+            BS_TOP             = 0x00000400L,
+            BS_BOTTOM          = 0x00000800L,
+            BS_VCENTER         = 0x00000C00L,
+            BS_PUSHLIKE        = 0x00001000L,
+            BS_MULTILINE       = 0x00002000L,
+            BS_NOTIFY          = 0x00004000L,
+            BS_FLAT            = 0x00008000L,
+            BS_RIGHTBUTTON     = BS_LEFTTEXT;
+        }
+
+        /// <summary>
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
         internal static class CommonControlStyles
