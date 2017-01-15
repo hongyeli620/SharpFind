@@ -972,6 +972,36 @@ namespace SharpFind.Classes
         /// <summary>
         /// Based on Windows Kits\8.1\Include\um\WinUser.h
         /// </summary>
+        internal static class ListViewStyles
+        {
+            internal static readonly int
+            LVS_ICON            = 0x0000,
+            LVS_REPORT          = 0x0001,
+            LVS_SMALLICON       = 0x0002,
+            LVS_LIST            = 0x0003,
+            LVS_TYPEMASK        = 0x0003,
+            LVS_SINGLESEL       = 0x0004,
+            LVS_SHOWSELALWAYS   = 0x0008,
+            LVS_SORTASCENDING   = 0x0010,
+            LVS_SORTDESCENDING  = 0x0020,
+            LVS_SHAREIMAGELISTS = 0x0040,
+            LVS_NOLABELWRAP     = 0x0080,
+            LVS_AUTOARRANGE     = 0x0100,
+            LVS_EDITLABELS      = 0x0200,
+            LVS_OWNERDATA       = 0x1000,
+            LVS_NOSCROLL        = 0x2000,
+            LVS_TYPESTYLEMASK   = 0xFC00,
+            LVS_ALIGNTOP        = 0x0000,
+            LVS_ALIGNLEFT       = 0x0800,
+            LVS_ALIGNMASK       = 0x0C00,
+            LVS_OWNERDRAWFIXED  = 0x0400,
+            LVS_NOCOLUMNHEADER  = 0x4000,
+            LVS_NOSORTHEADER    = 0x8000;
+        }
+
+        /// <summary>
+        /// Based on Windows Kits\8.1\Include\um\WinUser.h
+        /// </summary>
         internal static class ScrollbarStyles
         {
             internal static readonly long
