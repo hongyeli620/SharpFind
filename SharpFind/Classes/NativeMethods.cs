@@ -881,6 +881,7 @@ namespace SharpFind.Classes
         /// <summary>
         /// Based on Windows Kits\8.1\WinUser.h
         /// </summary>
+        internal static class DialogBoxStyles
         {
             internal static readonly long
             DS_ABSALIGN      = 0x01L,
