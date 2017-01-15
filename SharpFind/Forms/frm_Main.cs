@@ -158,120 +158,120 @@ namespace SharpFind
             if (n != 0)
             {
                 ListViewItem item;
-                if ((n & WindowStylesFlags.WS_BORDER) != 0)
+                if ((n & WindowStyles.WS_BORDER) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_BORDER");
-                    item.SubItems.Add(WindowStylesFlags.WS_BORDER.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_BORDER.ToString("X8"));
                 }
-                if ((n & WindowStylesFlags.WS_CAPTION) != 0)
+                if ((n & WindowStyles.WS_CAPTION) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_CAPTION");
-                    item.SubItems.Add(WindowStylesFlags.WS_CAPTION.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_CAPTION.ToString("X8"));
                 }
-                if ((n & WindowStylesFlags.WS_CHILD) != 0)
+                if ((n & WindowStyles.WS_CHILD) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_CHILD");
-                    item.SubItems.Add(WindowStylesFlags.WS_CHILD.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_CHILD.ToString("X8"));
                 }
 //              if ((n & WindowStylesFlags.WS_CHILDWINDOW) != 0)
 //              {
 //                  item = LV_WindowStyles.Items.Add("WS_CHILDWINDOW");
 //                  item.SubItems.Add(WindowStylesFlags.WS_CHILDWINDOW.ToString("X8"));
 //              }
-                if ((n & WindowStylesFlags.WS_CLIPCHILDREN) != 0)
+                if ((n & WindowStyles.WS_CLIPCHILDREN) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_CLIPCHILDREN");
-                    item.SubItems.Add(WindowStylesFlags.WS_CLIPCHILDREN.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_CLIPCHILDREN.ToString("X8"));
                 }
-                if ((n & WindowStylesFlags.WS_CLIPSIBLINGS) != 0)
+                if ((n & WindowStyles.WS_CLIPSIBLINGS) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_CLIPSIBLINGS");
-                    item.SubItems.Add(WindowStylesFlags.WS_CLIPSIBLINGS.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_CLIPSIBLINGS.ToString("X8"));
                 }
-                if ((n & WindowStylesFlags.WS_DISABLED) != 0)
+                if ((n & WindowStyles.WS_DISABLED) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_DISABLED");
-                    item.SubItems.Add(WindowStylesFlags.WS_DISABLED.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_DISABLED.ToString("X8"));
                 }
-                if ((n & WindowStylesFlags.WS_DLGFRAME) != 0)
+                if ((n & WindowStyles.WS_DLGFRAME) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_DLGFRAME");
-                    item.SubItems.Add(WindowStylesFlags.WS_DLGFRAME.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_DLGFRAME.ToString("X8"));
                 }
 //              if ((n & WindowStylesFlags.WS_GROUP) != 0)
 //              {
 //                  item = LV_WindowStyles.Items.Add("WS_GROUP");
 //                  item.SubItems.Add(WindowStylesFlags.WS_GROUP.ToString("X8"));
 //              }
-                if ((n & WindowStylesFlags.WS_HSCROLL) != 0)
+                if ((n & WindowStyles.WS_HSCROLL) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_HSCROLL");
-                    item.SubItems.Add(WindowStylesFlags.WS_HSCROLL.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_HSCROLL.ToString("X8"));
                 }
 //              if ((n & WindowStylesFlags.WS_ICONIC) != 0)
 //              {
 //                  item = LV_WindowStyles.Items.Add("WS_ICONIC");
 //                  item.SubItems.Add(WindowStylesFlags.WS_ICONIC.ToString("X8"));
 //              }
-                if ((n & WindowStylesFlags.WS_MAXIMIZE) != 0)
+                if ((n & WindowStyles.WS_MAXIMIZE) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_MAXIMIZE");
-                    item.SubItems.Add(WindowStylesFlags.WS_MAXIMIZE.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_MAXIMIZE.ToString("X8"));
                 }
-                if ((n & WindowStylesFlags.WS_MAXIMIZEBOX) != 0)
+                if ((n & WindowStyles.WS_MAXIMIZEBOX) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_MAXIMIZEBOX");
-                    item.SubItems.Add(WindowStylesFlags.WS_MAXIMIZEBOX.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_MAXIMIZEBOX.ToString("X8"));
                 }
-                if ((n & WindowStylesFlags.WS_MINIMIZE) != 0)
+                if ((n & WindowStyles.WS_MINIMIZE) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_MINIMIZE");
-                    item.SubItems.Add(WindowStylesFlags.WS_MINIMIZE.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_MINIMIZE.ToString("X8"));
                 }
-                if ((n & WindowStylesFlags.WS_MINIMIZEBOX) != 0)
+                if ((n & WindowStyles.WS_MINIMIZEBOX) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_MINIMIZEBOX");
-                    item.SubItems.Add(WindowStylesFlags.WS_MINIMIZEBOX.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_MINIMIZEBOX.ToString("X8"));
                 }
-                if ((n & WindowStylesFlags.WS_OVERLAPPED) != 0)
+                if ((n & WindowStyles.WS_OVERLAPPED) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_OVERLAPPED");
-                    item.SubItems.Add(WindowStylesFlags.WS_OVERLAPPED.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_OVERLAPPED.ToString("X8"));
                 }
-                if ((n & WindowStylesFlags.WS_OVERLAPPEDWINDOW) != 0)
+                if ((n & WindowStyles.WS_OVERLAPPEDWINDOW) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_OVERLAPPEDWINDOW");
-                    item.SubItems.Add(WindowStylesFlags.WS_OVERLAPPEDWINDOW.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_OVERLAPPEDWINDOW.ToString("X8"));
                 }
-                if ((n & WindowStylesFlags.WS_POPUP) != 0)
+                if ((n & WindowStyles.WS_POPUP) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_POPUP");
-                    item.SubItems.Add(WindowStylesFlags.WS_POPUP.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_POPUP.ToString("X8"));
                 }
-                if ((n & WindowStylesFlags.WS_POPUPWINDOW) != 0)
+                if ((n & WindowStyles.WS_POPUPWINDOW) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_POPUPWINDOW");
-                    item.SubItems.Add(WindowStylesFlags.WS_POPUPWINDOW.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_POPUPWINDOW.ToString("X8"));
                 }
 //              if ((n & WindowStylesFlags.WS_SIZEBOX) != 0)
 //              {
 //                  item = LV_WindowStyles.Items.Add("WS_SIZEBOX");
 //                  item.SubItems.Add(WindowStylesFlags.WS_SIZEBOX.ToString("X8"));
 //              }
-                if ((n & WindowStylesFlags.WS_SYSMENU) != 0)
+                if ((n & WindowStyles.WS_SYSMENU) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_SYSMENU");
-                    item.SubItems.Add(WindowStylesFlags.WS_SYSMENU.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_SYSMENU.ToString("X8"));
                 }
 //              if ((n & WindowStylesFlags.WS_TABSTOP) != 0)
 //              {
 //                  item = LV_WindowStyles.Items.Add("WS_TABSTOP");
 //                  item.SubItems.Add(WindowStylesFlags.WS_TABSTOP.ToString("X8"));
 //              }
-                if ((n & WindowStylesFlags.WS_THICKFRAME) != 0)
+                if ((n & WindowStyles.WS_THICKFRAME) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_THICKFRAME");
-                    item.SubItems.Add(WindowStylesFlags.WS_THICKFRAME.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_THICKFRAME.ToString("X8"));
                 }
 //              if ((n & WindowStylesFlags.WS_TILED) != 0)
 //              {
@@ -283,15 +283,15 @@ namespace SharpFind
 //                  item = LV_WindowStyles.Items.Add("WS_TILEDWINDOW");
 //                  item.SubItems.Add(WindowStylesFlags.WS_TILEDWINDOW.ToString("X8"));
 //              }
-                if ((n & WindowStylesFlags.WS_VISIBLE) != 0)
+                if ((n & WindowStyles.WS_VISIBLE) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_VISIBLE");
-                    item.SubItems.Add(WindowStylesFlags.WS_VISIBLE.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_VISIBLE.ToString("X8"));
                 }
-                if ((n & WindowStylesFlags.WS_VSCROLL) != 0)
+                if ((n & WindowStyles.WS_VSCROLL) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_VSCROLL");
-                    item.SubItems.Add(WindowStylesFlags.WS_VSCROLL.ToString("X8"));
+                    item.SubItems.Add(WindowStyles.WS_VSCROLL.ToString("X8"));
                 }
 
                 // Common Control Styles
@@ -369,125 +369,140 @@ namespace SharpFind
             {
                 ListViewItem item;
 
-                if ((n & ExtendedStylesFlags.WS_EX_ACCEPTFILES) != 0)
+                if ((n & ExtendedStyles.WS_EX_ACCEPTFILES) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_ACCEPTFILES");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_ACCEPTFILES.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_ACCEPTFILES.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_APPWINDOW) != 0)
+                if ((n & ExtendedStyles.WS_EX_APPWINDOW) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_APPWINDOW");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_APPWINDOW.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_APPWINDOW.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_CLIENTEDGE) != 0)
+                if ((n & ExtendedStyles.WS_EX_CLIENTEDGE) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_CLIENTEDGE");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_CLIENTEDGE.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_CLIENTEDGE.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_COMPOSITED) != 0)
+                if ((n & ExtendedStyles.WS_EX_COMPOSITED) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_COMPOSITED");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_COMPOSITED.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_COMPOSITED.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_CONTEXTHELP) != 0)
+                if ((n & ExtendedStyles.WS_EX_CONTEXTHELP) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_CONTEXTHELP");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_CONTEXTHELP.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_CONTEXTHELP.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_CONTROLPARENT) != 0)
+                if ((n & ExtendedStyles.WS_EX_CONTROLPARENT) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_CONTROLPARENT");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_CONTROLPARENT.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_CONTROLPARENT.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_DLGMODALFRAME) != 0)
+                if ((n & ExtendedStyles.WS_EX_DLGMODALFRAME) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_DLGMODALFRAME");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_DLGMODALFRAME.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_DLGMODALFRAME.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_LAYERED) != 0)
+                if ((n & ExtendedStyles.WS_EX_LAYERED) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_LAYERED");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_LAYERED.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_LAYERED.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_LAYOUTRTL) != 0)
+                if ((n & ExtendedStyles.WS_EX_LAYOUTRTL) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_LAYOUTRTL");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_LAYOUTRTL.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_LAYOUTRTL.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_LEFT) != 0)
+                if ((n & ExtendedStyles.WS_EX_LEFT) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_LEFT");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_LEFT.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_LEFT.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_LEFTSCROLLBAR) != 0)
+                if ((n & ExtendedStyles.WS_EX_LEFTSCROLLBAR) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_LEFTSCROLLBAR");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_LEFTSCROLLBAR.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_LEFTSCROLLBAR.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_LTRREADING) != 0)
+                if ((n & ExtendedStyles.WS_EX_LTRREADING) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_LTRREADING");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_LTRREADING.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_LTRREADING.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_MDICHILD) != 0)
+                if ((n & ExtendedStyles.WS_EX_MDICHILD) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_MDICHILD");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_MDICHILD.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_MDICHILD.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_NOACTIVATE) != 0)
+                if ((n & ExtendedStyles.WS_EX_NOACTIVATE) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_NOACTIVATE");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_NOACTIVATE.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_NOACTIVATE.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_NOINHERITLAYOUT) != 0)
+                if ((n & ExtendedStyles.WS_EX_NOINHERITLAYOUT) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_NOINHERITLAYOUT");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_NOINHERITLAYOUT.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_NOINHERITLAYOUT.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_NOPARENTNOTIFY) != 0)
+                if ((n & ExtendedStyles.WS_EX_NOPARENTNOTIFY) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_NOPARENTNOTIFY");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_NOPARENTNOTIFY.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_NOPARENTNOTIFY.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_RIGHT) != 0)
+                if ((n & ExtendedStyles.WS_EX_NOREDIRECTIONBITMAP) != 0)
+                {
+                    item = LV_ExtendedStyles.Items.Add("WS_EX_NOREDIRECTIONBITMAP");
+                    item.SubItems.Add(ExtendedStyles.WS_EX_NOREDIRECTIONBITMAP.ToString("X8"));
+                }
+//              if ((n & ExtendedStyles.WS_EX_OVERLAPPEDWINDOW) != 0)
+//              {
+//                  item = LV_ExtendedStyles.Items.Add("WS_EX_OVERLAPPEDWINDOW");
+//                  item.SubItems.Add(ExtendedStyles.WS_EX_OVERLAPPEDWINDOW.ToString("X8"));
+//              }
+//              if ((n & ExtendedStyles.WS_EX_PALETTEWINDOW) != 0)
+//              {
+//                  item = LV_ExtendedStyles.Items.Add("WS_EX_PALETTEWINDOW");
+//                  item.SubItems.Add(ExtendedStyles.WS_EX_PALETTEWINDOW.ToString("X8"));
+//              }
+                if ((n & ExtendedStyles.WS_EX_RIGHT) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_RIGHT");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_RIGHT.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_RIGHT.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_RIGHTSCROLLBAR) != 0)
+                if ((n & ExtendedStyles.WS_EX_RIGHTSCROLLBAR) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_RIGHTSCROLLBAR");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_RIGHTSCROLLBAR.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_RIGHTSCROLLBAR.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_RTLREADING) != 0)
+                if ((n & ExtendedStyles.WS_EX_RTLREADING) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_RTLREADING");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_RTLREADING.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_RTLREADING.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_STATICEDGE) != 0)
+                if ((n & ExtendedStyles.WS_EX_STATICEDGE) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_STATICEDGE");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_STATICEDGE.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_STATICEDGE.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_TOOLWINDOW) != 0)
+                if ((n & ExtendedStyles.WS_EX_TOOLWINDOW) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_TOOLWINDOW");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_TOOLWINDOW.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_TOOLWINDOW.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_TOPMOST) != 0)
+                if ((n & ExtendedStyles.WS_EX_TOPMOST) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_TOPMOST");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_TOPMOST.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_TOPMOST.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_TRANSPARENT) != 0)
+                if ((n & ExtendedStyles.WS_EX_TRANSPARENT) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_TRANSPARENT");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_TRANSPARENT.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_TRANSPARENT.ToString("X8"));
                 }
-                if ((n & ExtendedStylesFlags.WS_EX_WINDOWEDGE) != 0)
+                if ((n & ExtendedStyles.WS_EX_WINDOWEDGE) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_WINDOWEDGE");
-                    item.SubItems.Add(ExtendedStylesFlags.WS_EX_WINDOWEDGE.ToString("X8"));
+                    item.SubItems.Add(ExtendedStyles.WS_EX_WINDOWEDGE.ToString("X8"));
                 }
             }
 
