@@ -945,6 +945,30 @@ namespace SharpFind.Classes
             ES_NUMBER      = 0x2000L;
         }
 
+        /// <summary>
+        /// Based on Windows Kits\8.1\Include\um\WinUser.h
+        /// </summary>
+        internal static class ListBoxStyles
+        {
+            internal static readonly long
+            LBS_NOTIFY            = 0x0001L,
+            LBS_SORT              = 0x0002L,
+            LBS_NOREDRAW          = 0x0004L,
+            LBS_MULTIPLESEL       = 0x0008L,
+            LBS_OWNERDRAWFIXED    = 0x0010L,
+            LBS_OWNERDRAWVARIABLE = 0x0020L,
+            LBS_HASSTRINGS        = 0x0040L,
+            LBS_USETABSTOPS       = 0x0080L,
+            LBS_NOINTEGRALHEIGHT  = 0x0100L,
+            LBS_MULTICOLUMN       = 0x0200L,
+            LBS_WANTKEYBOARDINPUT = 0x0400L,
+            LBS_EXTENDEDSEL       = 0x0800L,
+            LBS_DISABLENOSCROLL   = 0x1000L,
+            LBS_NODATA            = 0x2000L,
+            LBS_NOSEL             = 0x4000L,
+            LBS_COMBOBOX          = 0x8000L;
+        }
+
         #endregion
         #region Process Priority Definitions
 
