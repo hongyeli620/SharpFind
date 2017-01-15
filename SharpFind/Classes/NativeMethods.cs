@@ -730,7 +730,28 @@ namespace SharpFind.Classes
         internal static extern int SetWindowTheme(IntPtr hWnd, string pszSubAppName, string pszSubIdList);
 
         #endregion
-        #region Nested Classes
+        #region WinUser.h & CommCtrl.h Definitions
+        
+        /// <summary>
+        /// Based on Windows Kits\8.1\Include\um\WinUser.h
+        /// </summary>
+        internal static class ClassStyles
+        {
+            internal static readonly int
+            CS_VREDRAW         = 0x0001,
+            CS_HREDRAW         = 0x0002,
+            CS_DBLCLKS         = 0x0008,
+            CS_OWNDC           = 0x0020,
+            CS_CLASSDC         = 0x0040,
+            CS_PARENTDC        = 0x0080,
+            CS_NOCLOSE         = 0x0200,
+            CS_SAVEBITS        = 0x0800,
+            CS_BYTEALIGNCLIENT = 0x1000,
+            CS_BYTEALIGNWINDOW = 0x2000,
+            CS_GLOBALCLASS     = 0x4000,
+            CS_IME             = 0x00010000,
+            CS_DROPSHADOW      = 0x00020000;
+        }
 
         /// <summary>
         /// Based on Windows Kits\8.1\Include\um\WinUser.h
@@ -821,6 +842,9 @@ namespace SharpFind.Classes
             CCS_NOMOVEX       = CCS_VERT | CCS_NOMOVEY;
         }
 
+        #endregion
+        #region Process Priority Definitions
+
         /// <summary>
         /// As documented on:
         /// https://msdn.microsoft.com/en-us/library/windows/desktop/ms683211(v=vs.85).aspx
@@ -836,28 +860,6 @@ namespace SharpFind.Classes
             ABOVE_NORMAL_PRIORITY_CLASS   = 0x8000,
             PROCESS_MODE_BACKGROUND_BEGIN = 0x100000,
             PROCESS_MODE_BACKGROUND_END   = 0x200000;
-        }
-
-        /// <summary>
-        /// As documented on:
-        /// https://msdn.microsoft.com/en-us/library/windows/desktop/ff729176(v=vs.85).aspx
-        /// </summary>
-        internal static class ClassStyles
-        {
-            internal static readonly int
-            CS_VREDRAW         = 0x0001,
-            CS_HREDRAW         = 0x0002,
-            CS_DBLCLKS         = 0x0008,
-            CS_OWNDC           = 0x0020,
-            CS_CLASSDC         = 0x0040,
-            CS_PARENTDC        = 0x0080,
-            CS_NOCLOSE         = 0x0200,
-            CS_SAVEBITS        = 0x0800,
-            CS_BYTEALIGNCLIENT = 0x1000,
-            CS_BYTEALIGNWINDOW = 0x2000,
-            CS_GLOBALCLASS     = 0x4000,
-            CS_IME             = 0x00010000,
-            CS_DROPSHADOW      = 0x00020000;
         }
 
         #endregion
