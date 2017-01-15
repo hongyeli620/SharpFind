@@ -1017,6 +1017,62 @@ namespace SharpFind.Classes
             SBS_SIZEGRIP                = 0x0010L;
         }
 
+        /// <summary>
+        /// Based on Windows Kits\8.1\Include\um\WinUser.h
+        /// </summary>
+        internal static class StaticControlStyles
+        {
+            internal static readonly long
+            SS_LEFT             = 0x00000000L,
+            SS_CENTER           = 0x00000001L,
+            SS_RIGHT            = 0x00000002L,
+            SS_ICON             = 0x00000003L,
+            SS_BLACKRECT        = 0x00000004L,
+            SS_GRAYRECT         = 0x00000005L,
+            SS_WHITERECT        = 0x00000006L,
+            SS_BLACKFRAME       = 0x00000007L,
+            SS_GRAYFRAME        = 0x00000008L,
+            SS_WHITEFRAME       = 0x00000009L,
+            SS_USERITEM         = 0x0000000AL,
+            SS_SIMPLE           = 0x0000000BL,
+            SS_LEFTNOWORDWRAP   = 0x0000000CL,
+            SS_OWNERDRAW        = 0x0000000DL,
+            SS_BITMAP           = 0x0000000EL,
+            SS_ENHMETAFILE      = 0x0000000FL,
+            SS_ETCHEDHORZ       = 0x00000010L,
+            SS_ETCHEDVERT       = 0x00000011L,
+            SS_ETCHEDFRAME      = 0x00000012L,
+            SS_TYPEMASK         = 0x0000001FL,
+            SS_REALSIZECONTROL  = 0x00000040L,
+            SS_NOPREFIX         = 0x00000080L,
+            SS_NOTIFY           = 0x00000100L,
+            SS_CENTERIMAGE      = 0x00000200L,
+            SS_RIGHTJUST        = 0x00000400L,
+            SS_REALSIZEIMAGE    = 0x00000800L,
+            SS_SUNKEN           = 0x00001000L,
+            SS_EDITCONTROL      = 0x00002000L,
+            SS_ENDELLIPSIS      = 0x00004000L,
+            SS_PATHELLIPSIS     = 0x00008000L,
+            SS_WORDELLIPSIS     = 0x0000C000L,
+            SS_ELLIPSISMASK     = 0x0000C000L;
+        }
+
+        /// <summary>
+        /// Based on Windows Kits\8.1\Include\um\WinUser.h
+        /// </summary>
+        internal static class ToolbarControlStyles
+        {
+            internal static readonly int
+            TBSTYLE_TOOLTIPS     = 0x0100,
+            TBSTYLE_WRAPABLE     = 0x0200,
+            TBSTYLE_ALTDRAG      = 0x0400,
+            TBSTYLE_FLAT         = 0x0800,
+            TBSTYLE_LIST         = 0x1000,
+            TBSTYLE_CUSTOMERASE  = 0x2000,
+            TBSTYLE_REGISTERDROP = 0x4000,
+            TBSTYLE_TRANSPARENT  = 0x8000;
+        }
+
         #endregion
         #region Process Priority Definitions
 
