@@ -457,6 +457,7 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "Value";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader4.Width = 120;
             // 
             // LV_WindowStyles
@@ -469,7 +470,6 @@
             this.LV_WindowStyles.Location = new System.Drawing.Point(7, 32);
             this.LV_WindowStyles.MultiSelect = false;
             this.LV_WindowStyles.Name = "LV_WindowStyles";
-            this.LV_WindowStyles.ShowGroups = false;
             this.LV_WindowStyles.Size = new System.Drawing.Size(307, 83);
             this.LV_WindowStyles.TabIndex = 8;
             this.LV_WindowStyles.UseCompatibleStateImageBehavior = false;
@@ -483,6 +483,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Value";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader2.Width = 120;
             // 
             // TB_ExtendedStyles
