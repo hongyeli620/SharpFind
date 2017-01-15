@@ -799,6 +799,27 @@ namespace SharpFind.Classes
 
         /// <summary>
         /// As documented on:
+        /// https://msdn.microsoft.com/en-us/library/windows/desktop/bb775498(v=vs.85).aspx
+        /// Based on Windows Kits\8.1
+        /// </summary>
+        internal static class CommonControlStyles
+        {
+            internal static readonly int
+            CCS_TOP           = 0x0001,
+            CCS_NOMOVEY       = 0x0002,
+            CCS_BOTTOM        = 0x0003,
+            CCS_NORESIZE      = 0x0004,
+            CCS_NOPARENTALIGN = 0x0008,
+            CCS_ADJUSTABLE    = 0x0020,
+            CCS_NODIVIDER     = 0x0040,
+            CCS_VERT          = 0x0080,
+            CCS_LEFT          = CCS_VERT | CCS_TOP,
+            CCS_RIGHT         = CCS_VERT | CCS_BOTTOM,
+            CCS_NOMOVEX       = CCS_VERT | CCS_NOMOVEY;
+        }
+
+        /// <summary>
+        /// As documented on:
         /// https://msdn.microsoft.com/en-us/library/windows/desktop/ms683211(v=vs.85).aspx
         /// </summary>
         internal static class PriorityClass
