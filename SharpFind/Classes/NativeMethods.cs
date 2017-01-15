@@ -799,20 +799,19 @@ namespace SharpFind.Classes
 
         /// <summary>
         /// As documented on:
-        /// https://msdn.microsoft.com/en-us/library/windows/desktop/bb775498(v=vs.85).aspx
-        /// Based on Windows Kits\8.1
+        /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
         internal static class CommonControlStyles
         {
-            internal static readonly int
-            CCS_TOP           = 0x0001,
-            CCS_NOMOVEY       = 0x0002,
-            CCS_BOTTOM        = 0x0003,
-            CCS_NORESIZE      = 0x0004,
-            CCS_NOPARENTALIGN = 0x0008,
-            CCS_ADJUSTABLE    = 0x0020,
-            CCS_NODIVIDER     = 0x0040,
-            CCS_VERT          = 0x0080,
+            internal static readonly long
+            CCS_TOP           = 0x00000001L,
+            CCS_NOMOVEY       = 0x00000002L,
+            CCS_BOTTOM        = 0x00000003L,
+            CCS_NORESIZE      = 0x00000004L,
+            CCS_NOPARENTALIGN = 0x00000008L,
+            CCS_ADJUSTABLE    = 0x00000020L,
+            CCS_NODIVIDER     = 0x00000040L,
+            CCS_VERT          = 0x00000080L,
             CCS_LEFT          = CCS_VERT | CCS_TOP,
             CCS_RIGHT         = CCS_VERT | CCS_BOTTOM,
             CCS_NOMOVEX       = CCS_VERT | CCS_NOMOVEY;
