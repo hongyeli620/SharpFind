@@ -171,8 +171,13 @@ namespace SharpFind
                 if ((n & WindowStylesFlags.WS_CHILD) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_CHILD");
-                    item.SubItems.Add(WindowStylesFlags.WS_CAPTION.ToString("X8"));
+                    item.SubItems.Add(WindowStylesFlags.WS_CHILD.ToString("X8"));
                 }
+//              if ((n & WindowStylesFlags.WS_CHILDWINDOW) != 0)
+//              {
+//                  item = LV_WindowStyles.Items.Add("WS_CHILDWINDOW");
+//                  item.SubItems.Add(WindowStylesFlags.WS_CHILDWINDOW.ToString("X8"));
+//              }
                 if ((n & WindowStylesFlags.WS_CLIPCHILDREN) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_CLIPCHILDREN");
@@ -193,21 +198,21 @@ namespace SharpFind
                     item = LV_WindowStyles.Items.Add("WS_DLGFRAME");
                     item.SubItems.Add(WindowStylesFlags.WS_DLGFRAME.ToString("X8"));
                 }
-                if ((n & WindowStylesFlags.WS_GROUP) != 0)
-                {
-                    item = LV_WindowStyles.Items.Add("WS_GROUP");
-                    item.SubItems.Add(WindowStylesFlags.WS_GROUP.ToString("X8"));
-                }
+//              if ((n & WindowStylesFlags.WS_GROUP) != 0)
+//              {
+//                  item = LV_WindowStyles.Items.Add("WS_GROUP");
+//                  item.SubItems.Add(WindowStylesFlags.WS_GROUP.ToString("X8"));
+//              }
                 if ((n & WindowStylesFlags.WS_HSCROLL) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_HSCROLL");
                     item.SubItems.Add(WindowStylesFlags.WS_HSCROLL.ToString("X8"));
                 }
-                if ((n & WindowStylesFlags.WS_ICONIC) != 0)
-                {
-                    item = LV_WindowStyles.Items.Add("WS_ICONIC");
-                    item.SubItems.Add(WindowStylesFlags.WS_ICONIC.ToString("X8"));
-                }
+//              if ((n & WindowStylesFlags.WS_ICONIC) != 0)
+//              {
+//                  item = LV_WindowStyles.Items.Add("WS_ICONIC");
+//                  item.SubItems.Add(WindowStylesFlags.WS_ICONIC.ToString("X8"));
+//              }
                 if ((n & WindowStylesFlags.WS_MAXIMIZE) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_MAXIMIZE");
@@ -233,32 +238,51 @@ namespace SharpFind
                     item = LV_WindowStyles.Items.Add("WS_OVERLAPPED");
                     item.SubItems.Add(WindowStylesFlags.WS_OVERLAPPED.ToString("X8"));
                 }
+                if ((n & WindowStylesFlags.WS_OVERLAPPEDWINDOW) != 0)
+                {
+                    item = LV_WindowStyles.Items.Add("WS_OVERLAPPEDWINDOW");
+                    item.SubItems.Add(WindowStylesFlags.WS_OVERLAPPEDWINDOW.ToString("X8"));
+                }
                 if ((n & WindowStylesFlags.WS_POPUP) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_POPUP");
                     item.SubItems.Add(WindowStylesFlags.WS_POPUP.ToString("X8"));
                 }
-                if ((n & WindowStylesFlags.WS_SIZEBOX) != 0)
+                if ((n & WindowStylesFlags.WS_POPUPWINDOW) != 0)
                 {
-                    item = LV_WindowStyles.Items.Add("WS_SIZEBOX");
-                    item.SubItems.Add(WindowStylesFlags.WS_SIZEBOX.ToString("X8"));
+                    item = LV_WindowStyles.Items.Add("WS_POPUPWINDOW");
+                    item.SubItems.Add(WindowStylesFlags.WS_POPUPWINDOW.ToString("X8"));
                 }
+//              if ((n & WindowStylesFlags.WS_SIZEBOX) != 0)
+//              {
+//                  item = LV_WindowStyles.Items.Add("WS_SIZEBOX");
+//                  item.SubItems.Add(WindowStylesFlags.WS_SIZEBOX.ToString("X8"));
+//              }
                 if ((n & WindowStylesFlags.WS_SYSMENU) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_SYSMENU");
                     item.SubItems.Add(WindowStylesFlags.WS_SYSMENU.ToString("X8"));
-
                 }
-                if ((n & WindowStylesFlags.WS_TABSTOP) != 0)
+//              if ((n & WindowStylesFlags.WS_TABSTOP) != 0)
+//              {
+//                  item = LV_WindowStyles.Items.Add("WS_TABSTOP");
+//                  item.SubItems.Add(WindowStylesFlags.WS_TABSTOP.ToString("X8"));
+//              }
+                if ((n & WindowStylesFlags.WS_THICKFRAME) != 0)
                 {
-                    item = LV_WindowStyles.Items.Add("WS_TABSTOP");
-                    item.SubItems.Add(WindowStylesFlags.WS_TABSTOP.ToString("X8"));
+                    item = LV_WindowStyles.Items.Add("WS_THICKFRAME");
+                    item.SubItems.Add(WindowStylesFlags.WS_THICKFRAME.ToString("X8"));
                 }
-                if ((n & WindowStylesFlags.WS_TILED) != 0)
-                {
-                    item = LV_WindowStyles.Items.Add("WS_TILED");
-                    item.SubItems.Add(WindowStylesFlags.WS_TILED.ToString("X8"));
-                }
+//              if ((n & WindowStylesFlags.WS_TILED) != 0)
+//              {
+//                  item = LV_WindowStyles.Items.Add("WS_TILED");
+//                  item.SubItems.Add(WindowStylesFlags.WS_TILED.ToString("X8"));
+//              }
+//              if ((n & WindowStylesFlags.WS_TILEDWINDOW) != 0)
+//              {
+//                  item = LV_WindowStyles.Items.Add("WS_TILEDWINDOW");
+//                  item.SubItems.Add(WindowStylesFlags.WS_TILEDWINDOW.ToString("X8"));
+//              }
                 if ((n & WindowStylesFlags.WS_VISIBLE) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_VISIBLE");
@@ -269,7 +293,6 @@ namespace SharpFind
                     item = LV_WindowStyles.Items.Add("WS_VSCROLL");
                     item.SubItems.Add(WindowStylesFlags.WS_VSCROLL.ToString("X8"));
                 }
-
 
                 // Common Control Styles
                 if (TB_Class.Text.StartsWith("ReBarWindow32") || TB_Class.Text.StartsWith("SysHeader32") || TB_Class.Text.StartsWith("ToolbarWindow32") || TB_Class.Text.StartsWith("msctls_statusbar32"))
@@ -345,6 +368,7 @@ namespace SharpFind
             if (n != 0)
             {
                 ListViewItem item;
+
                 if ((n & ExtendedStylesFlags.WS_EX_ACCEPTFILES) != 0)
                 {
                     item = LV_ExtendedStyles.Items.Add("WS_EX_ACCEPTFILES");
