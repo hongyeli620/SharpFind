@@ -824,7 +824,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
-        /// Based on Windows Kits\8.1\WinUser.h
+        /// Based on Windows Kits\8.1\Include\um\WinUser.h
         /// </summary>
         internal static class ButtonControlStyles
         {
@@ -860,6 +860,27 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Based on Windows Kits\8.1\Include\um\WinUser.h
+        /// </summary>
+        internal static class ComboBoxStyles
+        {
+            internal static readonly long
+            CBS_SIMPLE            = 0x0001L,
+            CBS_DROPDOWN          = 0x0002L,
+            CBS_DROPDOWNLIST      = 0x0003L,
+            CBS_OWNERDRAWFIXED    = 0x0010L,
+            CBS_OWNERDRAWVARIABLE = 0x0020L,
+            CBS_AUTOHSCROLL       = 0x0040L,
+            CBS_OEMCONVERT        = 0x0080L,
+            CBS_SORT              = 0x0100L,
+            CBS_HASSTRINGS        = 0x0200L,
+            CBS_NOINTEGRALHEIGHT  = 0x0400L,
+            CBS_DISABLENOSCROLL   = 0x0800L,
+            CBS_UPPERCASE         = 0x2000L,
+            CBS_LOWERCASE         = 0x4000L;
+        }
+
+        /// <summary>
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
         internal static class CommonControlStyles
@@ -879,7 +900,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
-        /// Based on Windows Kits\8.1\WinUser.h
+        /// Based on Windows Kits\8.1\Include\um\WinUser.h
         /// </summary>
         internal static class DialogBoxStyles
         {
@@ -903,7 +924,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
-        /// Based on Windows Kits\8.1\WinUser.h
+        /// Based on Windows Kits\8.1\Include\um\WinUser.h
         /// </summary>
         internal static class EditControlStyles
         {
