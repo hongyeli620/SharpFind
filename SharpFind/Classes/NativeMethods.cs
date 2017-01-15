@@ -733,8 +733,7 @@ namespace SharpFind.Classes
         #region Nested Classes
 
         /// <summary>
-        /// As documented on:
-        /// https://msdn.microsoft.com/en-us/library/windows/desktop/ms632600(v=vs.85).aspx
+        /// Based on Windows Kits\8.1\Include\um\WinUser.h
         /// </summary>
         internal static class WindowStyles
         {
@@ -769,8 +768,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
-        /// As documented on:
-        /// https://msdn.microsoft.com/en-us/library/windows/desktop/ff700543(v=vs.85).aspx
+        /// Based on Windows Kits\8.1\Include\um\WinUser.h
         /// </summary>
         internal static class ExtendedStyles
         {
@@ -805,7 +803,6 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
-        /// As documented on:
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
         internal static class CommonControlStyles
