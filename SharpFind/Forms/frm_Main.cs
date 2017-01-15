@@ -293,67 +293,6 @@ namespace SharpFind
                     item = LV_WindowStyles.Items.Add("WS_VSCROLL");
                     item.SubItems.Add(WindowStyles.WS_VSCROLL.ToString("X8"));
                 }
-
-                // Common Control Styles
-                if (TB_Class.Text.StartsWith("ReBarWindow32") || TB_Class.Text.StartsWith("SysHeader32") || TB_Class.Text.StartsWith("ToolbarWindow32") || TB_Class.Text.StartsWith("msctls_statusbar32"))
-                {
-                    if ((n & CommonControlStyles.CCS_ADJUSTABLE) != 0)
-                    {
-                        item = LV_WindowStyles.Items.Add("CCS_ADJUSTABLE");
-                        item.SubItems.Add(CommonControlStyles.CCS_ADJUSTABLE.ToString("X8"));
-                    }
-                    if ((n & CommonControlStyles.CCS_BOTTOM) != 0)
-                    {
-                        item = LV_WindowStyles.Items.Add("CCS_BOTTOM");
-                        item.SubItems.Add(CommonControlStyles.CCS_BOTTOM.ToString("X8"));
-                    }
-                    if ((n & CommonControlStyles.CCS_LEFT) != 0)
-                    {
-                        item = LV_WindowStyles.Items.Add("CCS_LEFT");
-                        item.SubItems.Add(CommonControlStyles.CCS_LEFT.ToString("X8"));
-                    }
-                    if ((n & CommonControlStyles.CCS_NODIVIDER) != 0)
-                    {
-                        item = LV_WindowStyles.Items.Add("CCS_NODIVIDER");
-                        item.SubItems.Add(CommonControlStyles.CCS_NODIVIDER.ToString("X8"));
-                    }
-                    if ((n & CommonControlStyles.CCS_NOMOVEX) != 0)
-                    {
-                        item = LV_WindowStyles.Items.Add("CCS_NOMOVEX");
-                        item.SubItems.Add(CommonControlStyles.CCS_NOMOVEX.ToString("X8"));
-                    }
-                    if ((n & CommonControlStyles.CCS_NOMOVEY) != 0)
-                    {
-                        item = LV_WindowStyles.Items.Add("CCS_NOMOVEY");
-                        item.SubItems.Add(CommonControlStyles.CCS_NOMOVEY.ToString("X8"));
-                    }
-                    if ((n & CommonControlStyles.CCS_NOPARENTALIGN) != 0)
-                    {
-                        item = LV_WindowStyles.Items.Add("CCS_NOPARENTALIGN");
-                        item.SubItems.Add(CommonControlStyles.CCS_NOPARENTALIGN.ToString("X8"));
-                    }
-                    if ((n & CommonControlStyles.CCS_NORESIZE) != 0)
-                    {
-                        item = LV_WindowStyles.Items.Add("CCS_NORESIZE");
-                        item.SubItems.Add(CommonControlStyles.CCS_NORESIZE.ToString("X8"));
-                    }
-                    if ((n & CommonControlStyles.CCS_RIGHT) != 0)
-                    {
-                        item = LV_WindowStyles.Items.Add("CCS_RIGHT");
-                        item.SubItems.Add(CommonControlStyles.CCS_RIGHT.ToString("X8"));
-                    }
-                    if ((n & CommonControlStyles.CCS_TOP) != 0)
-                    {
-                        item = LV_WindowStyles.Items.Add("CCS_TOP");
-                        item.SubItems.Add(CommonControlStyles.CCS_TOP.ToString("X8"));
-                    }
-                    if ((n & CommonControlStyles.CCS_VERT) != 0)
-                    {
-                        item = LV_WindowStyles.Items.Add("CCS_VERT");
-                        item.SubItems.Add(CommonControlStyles.CCS_VERT.ToString("X8"));
-                    }
-                }
-                
             }
 
             return GetWindowLong(hWnd, GWL_STYLE).ToString("X8");
