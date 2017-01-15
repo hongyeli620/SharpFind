@@ -902,6 +902,28 @@ namespace SharpFind.Classes
             DS_SHELLFONT     = DS_SETFONT | DS_FIXEDSYS;
         }
 
+        /// <summary>
+        /// Based on Windows Kits\8.1\WinUser.h
+        /// </summary>
+        internal static class EditControlStyles
+        {
+            internal static readonly long
+            ES_LEFT        = 0x0000L,
+            ES_CENTER      = 0x0001L,
+            ES_RIGHT       = 0x0002L,
+            ES_MULTILINE   = 0x0004L,
+            ES_UPPERCASE   = 0x0008L,
+            ES_LOWERCASE   = 0x0010L,
+            ES_PASSWORD    = 0x0020L,
+            ES_AUTOVSCROLL = 0x0040L,
+            ES_AUTOHSCROLL = 0x0080L,
+            ES_NOHIDESEL   = 0x0100L,
+            ES_OEMCONVERT  = 0x0400L,
+            ES_READONLY    = 0x0800L,
+            ES_WANTRETURN  = 0x1000L,
+            ES_NUMBER      = 0x2000L;
+        }
+
         #endregion
         #region Process Priority Definitions
 
