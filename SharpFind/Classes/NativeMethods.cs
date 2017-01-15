@@ -878,6 +878,29 @@ namespace SharpFind.Classes
             CCS_NOMOVEX       = CCS_VERT | CCS_NOMOVEY;
         }
 
+        /// <summary>
+        /// Based on Windows Kits\8.1\WinUser.h
+        /// </summary>
+        {
+            internal static readonly long
+            DS_ABSALIGN      = 0x01L,
+            DS_SYSMODAL      = 0x02L,
+            DS_LOCALEDIT     = 0x20L,
+            DS_SETFONT       = 0x40L,
+            DS_MODALFRAME    = 0x80L,
+            DS_NOIDLEMSG     = 0x100L,
+            DS_SETFOREGROUND = 0x200L,
+            DS_3DLOOK        = 0x0004L,
+            DS_FIXEDSYS      = 0x0008L,
+            DS_NOFAILCREATE  = 0x0010L,
+            DS_CONTROL       = 0x0400L,
+            DS_CENTER        = 0x0800L,
+            DS_CENTERMOUSE   = 0x1000L,
+            DS_CONTEXTHELP   = 0x2000L,
+            DS_USEPIXELS     = 0x8000L,
+            DS_SHELLFONT     = DS_SETFONT | DS_FIXEDSYS;
+        }
+
         #endregion
         #region Process Priority Definitions
 
