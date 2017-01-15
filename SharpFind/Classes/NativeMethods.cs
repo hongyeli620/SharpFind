@@ -969,6 +969,24 @@ namespace SharpFind.Classes
             LBS_COMBOBOX          = 0x8000L;
         }
 
+        /// <summary>
+        /// Based on Windows Kits\8.1\Include\um\WinUser.h
+        /// </summary>
+        internal static class ScrollbarStyles
+        {
+            internal static readonly long
+            SBS_HORZ                    = 0x0000L,
+            SBS_VERT                    = 0x0001L,
+            SBS_TOPALIGN                = 0x0002L,
+            SBS_LEFTALIGN               = 0x0002L,
+            SBS_BOTTOMALIGN             = 0x0004L,
+            SBS_RIGHTALIGN              = 0x0004L,
+            SBS_SIZEBOXTOPLEFTALIGN     = 0x0002L,
+            SBS_SIZEBOXBOTTOMRIGHTALIGN = 0x0004L,
+            SBS_SIZEBOX                 = 0x0008L,
+            SBS_SIZEGRIP                = 0x0010L;
+        }
+
         #endregion
         #region Process Priority Definitions
 
