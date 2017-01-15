@@ -770,7 +770,7 @@ namespace SharpFind.Classes
         /// <summary>
         /// Based on Windows Kits\8.1\Include\um\WinUser.h
         /// </summary>
-        internal static class ExtendedStyles
+        internal static class ExtendedWindowStyles
         {
             internal static readonly long
             WS_EX_DLGMODALFRAME       = 0x00000001L,
