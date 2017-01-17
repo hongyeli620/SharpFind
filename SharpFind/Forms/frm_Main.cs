@@ -92,12 +92,12 @@ namespace SharpFind
             string winState = IsZoomed(hWnd) ? " (Maximized)" : string.Empty;
 
             return string.Format("({2},{3}) - ({4},{5}), {0} x {1}{6}", wRect.right - wRect.left,
-                                                                     wRect.bottom - wRect.top,
-                                                                     wRect.left,
-                                                                     wRect.top,
-                                                                     wRect.right,
-                                                                     wRect.bottom,
-                                                                     winState);
+                                                                        wRect.bottom - wRect.top,
+                                                                        wRect.left,
+                                                                        wRect.top,
+                                                                        wRect.right,
+                                                                        wRect.bottom,
+                                                                        winState);
         }
 
         private static string getClientRect(IntPtr hWnd)
