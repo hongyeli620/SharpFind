@@ -59,14 +59,14 @@ namespace SharpFind
 
         #region General
 
-        private static bool isWindowUnicode(IntPtr hWnd)
-        {
-            return IsWindowUnicode(hWnd);
-        }
-
         private static bool isWindowEnabled(IntPtr hWnd)
         {
             return IsWindowEnabled(hWnd);
+        }
+
+        private static bool isWindowUnicode(IntPtr hWnd)
+        {
+            return IsWindowUnicode(hWnd);
         }
 
         private static bool isWindowVisible(IntPtr hWnd)
