@@ -1018,6 +1018,17 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Based on Windows Kits\8.1\CommCtrl.h
+        /// </summary>
+        internal static class StatusBarStyles
+        {
+            internal static readonly int
+            SBARS_SIZEGRIP = 0x0100,
+            SBARS_TOOLTIPS = 0x0800,
+            SBT_TOOLTIPS   = 0x0800;
+        }
+
+        /// <summary>
         /// Based on Windows Kits\8.1\Include\um\WinUser.h
         /// </summary>
         internal static class StaticControlStyles
