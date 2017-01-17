@@ -1089,6 +1089,31 @@ namespace SharpFind.Classes
             RBS_DBLCLKTOGGLE    = 0x00008000;
         }
 
+        /// <summary>
+        /// Based on Windows Kits\8.1\CommCtrl.h
+        /// </summary>
+        internal static class TrackbarControlStyles
+        {
+            internal static readonly int
+            TBS_AUTOTICKS        = 0x0001,
+            TBS_VERT             = 0x0002,
+            TBS_HORZ             = 0x0000,
+            TBS_TOP              = 0x0004,
+            TBS_BOTTOM           = 0x0000,
+            TBS_LEFT             = 0x0004,
+            TBS_RIGHT            = 0x0000,
+            TBS_BOTH             = 0x0008,
+            TBS_NOTICKS          = 0x0010,
+            TBS_ENABLESELRANGE   = 0x0020,
+            TBS_FIXEDLENGTH      = 0x0040,
+            TBS_NOTHUMB          = 0x0080,
+            TBS_TOOLTIPS         = 0x0100,
+            TBS_REVERSED         = 0x0200,
+            TBS_DOWNISLEFT       = 0x0400,
+            TBS_NOTIFYBEFOREMOVE = 0x0800,
+            TBS_TRANSPARENTBKGND = 0x1000;
+        }
+
         #endregion
         #region Process Priority Definitions
 
