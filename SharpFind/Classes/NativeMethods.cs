@@ -1019,6 +1019,16 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Based on Windows Kits\8.1\CommCtrl.h
+        /// </summary>
+        internal static class ProgressControlStyles
+        {
+            internal static readonly int
+            PBS_SMOOTH   = 0x01,
+            PBS_VERTICAL = 0x04;
+        }
+
+        /// <summary>
         /// Based on Windows Kits\8.1\Include\um\WinUser.h
         /// </summary>
         internal static class ScrollbarStyles
