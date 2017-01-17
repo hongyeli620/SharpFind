@@ -900,6 +900,22 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Based on Windows Kits\8.1\CommCtrl.h
+        /// </summary>
+        internal static class DateTimeControlStyles
+        {
+            internal static readonly int
+            DTS_UPDOWN                 = 0x0001,
+            DTS_SHOWNONE               = 0x0002,
+            DTS_SHORTDATEFORMAT        = 0x0000,
+            DTS_LONGDATEFORMAT         = 0x0004,
+            DTS_SHORTDATECENTURYFORMAT = 0x000C,
+            DTS_TIMEFORMAT             = 0x0009,
+            DTS_APPCANPARSE            = 0x0010,
+            DTS_RIGHTALIGN             = 0x0020;
+        }
+
+        /// <summary>
         /// Based on Windows Kits\8.1\Include\um\WinUser.h
         /// </summary>
         internal static class DialogBoxStyles
