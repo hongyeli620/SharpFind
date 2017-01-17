@@ -1053,6 +1053,18 @@ namespace SharpFind.Classes
         /// <summary>
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
+        internal static class PagerControlStyles
+        {
+            internal static readonly int
+            PGS_VERT       = 0x00000000,
+            PGS_HORZ       = 0x00000001,
+            PGS_AUTOSCROLL = 0x00000002,
+            PGS_DRAGNDROP  = 0x00000004;
+        }
+
+        /// <summary>
+        /// Based on Windows Kits\8.1\CommCtrl.h
+        /// </summary>
         internal static class ProgressControlStyles
         {
             internal static readonly int
