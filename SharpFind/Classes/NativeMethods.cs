@@ -1164,6 +1164,32 @@ namespace SharpFind.Classes
         /// <summary>
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
+        internal static class AnimationControlStyles
+        {
+            internal static readonly int
+            ACS_CENTER      = 0x0001,
+            ACS_TRANSPARENT = 0x0002,
+            ACS_AUTOPLAY    = 0x0004,
+            ACS_TIMER       = 0x0008;
+        }
+
+        /// <summary>
+        /// Based on Windows Kits\8.1\CommCtrl.h
+        /// </summary>
+        internal static class SysLinkControlStyles
+        {
+            internal static readonly int
+            LWS_TRANSPARENT     = 0x0001,
+            LWS_IGNORERETURN    = 0x0002,
+            LWS_NOPREFIX        = 0x0004,
+            LWS_USEVISUALSTYLE  = 0x0008,
+            LWS_USECUSTOMTEXT   = 0x0010,
+            LWS_RIGHT           = 0x0020;
+        }
+
+        /// <summary>
+        /// Based on Windows Kits\8.1\CommCtrl.h
+        /// </summary>
         internal static class TabControlStyles
         {
             internal static readonly int
