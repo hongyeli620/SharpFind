@@ -25,7 +25,7 @@ namespace SharpFind
             ControlBox = true;
             MinimizeBox = true;
             MaximizeBox = false;
-            ShowIcon = true;
+            ShowIcon = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             StartPosition = FormStartPosition.CenterScreen;
 

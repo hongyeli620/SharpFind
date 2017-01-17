@@ -146,7 +146,8 @@
             this.LBL_HowTo.Name = "LBL_HowTo";
             this.LBL_HowTo.Size = new System.Drawing.Size(246, 29);
             this.LBL_HowTo.TabIndex = 1;
-            this.LBL_HowTo.Text = "Drag the crosshair over a window to select it then release the mouse button.";
+            this.LBL_HowTo.Text = "Drag the crosshair over a window to select it then release the mouse button to ge" +
+    "t hWnd details.";
             // 
             // TC_Details
             // 
