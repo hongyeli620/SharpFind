@@ -1037,6 +1037,22 @@ namespace SharpFind.Classes
         /// <summary>
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
+        internal static class MonthCalendarControlStyles
+        {
+            internal static readonly int
+            MCS_DAYSTATE         = 0x0001,
+            MCS_MULTISELECT      = 0x0002,
+            MCS_WEEKNUMBERS      = 0x0004,
+            MCS_NOTODAYCIRCLE    = 0x0008,
+            MCS_NOTODAY          = 0x0010,
+            MCS_NOTRAILINGDATES  = 0x0040,
+            MCS_SHORTDAYSOFWEEK  = 0x0080,
+            MCS_NOSELCHANGEONNAV = 0x0100;
+        }
+
+        /// <summary>
+        /// Based on Windows Kits\8.1\CommCtrl.h
+        /// </summary>
         internal static class ProgressControlStyles
         {
             internal static readonly int
