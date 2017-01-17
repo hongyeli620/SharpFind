@@ -59,9 +59,19 @@ namespace SharpFind
 
         #region General
 
-        private static bool IsUnicode(IntPtr hWnd)
+        private static bool isWindowUnicode(IntPtr hWnd)
         {
             return IsWindowUnicode(hWnd);
+        }
+
+        private static bool isWindowEnabled(IntPtr hWnd)
+        {
+            return IsWindowEnabled(hWnd);
+        }
+
+        private static bool isWindowVisible(IntPtr hWnd)
+        {
+            return IsWindowVisible(hWnd);
         }
 
         private static string getWindowCaption(IntPtr hWnd)
@@ -77,7 +87,7 @@ namespace SharpFind
             GetClassName(hWnd, sb, 256);
         
             var value = sb.ToString();
-            if (IsUnicode(hWnd))
+            if (isWindowUnicode(hWnd))
                 value = value + " (Unicode)";
 
             return value;
