@@ -1103,6 +1103,49 @@ namespace SharpFind.Classes
         /// <summary>
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
+        internal static class TabControlStyles
+        {
+            internal static readonly int
+            TCS_SCROLLOPPOSITE    = 0x0001,
+            TCS_BOTTOM            = 0x0002,
+            TCS_RIGHT             = 0x0002,
+            TCS_MULTISELECT       = 0x0004,
+            TCS_FLATBUTTONS       = 0x0008,
+            TCS_FORCEICONLEFT     = 0x0010,
+            TCS_FORCELABELLEFT    = 0x0020,
+            TCS_HOTTRACK          = 0x0040,
+            TCS_VERTICAL          = 0x0080,
+            TCS_TABS              = 0x0000,
+            TCS_BUTTONS           = 0x0100,
+            TCS_SINGLELINE        = 0x0000,
+            TCS_MULTILINE         = 0x0200,
+            TCS_RIGHTJUSTIFY      = 0x0000,
+            TCS_FIXEDWIDTH        = 0x0400,
+            TCS_RAGGEDRIGHT       = 0x0800,
+            TCS_FOCUSONBUTTONDOWN = 0x1000,
+            TCS_OWNERDRAWFIXED    = 0x2000,
+            TCS_TOOLTIPS          = 0x4000,
+            TCS_FOCUSNEVER        = 0x8000;
+        }
+
+        /// <summary>
+        /// Based on Windows Kits\8.1\CommCtrl.h
+        /// </summary>
+        internal static class TooltipStyles
+        {
+            internal static readonly int
+            TTS_ALWAYSTIP      = 0x01,
+            TTS_NOPREFIX       = 0x02,
+            TTS_NOANIMATE      = 0x10,
+            TTS_NOFADE         = 0x20,
+            TTS_BALLOON        = 0x40,
+            TTS_CLOSE          = 0x80,
+            TTS_USEVISUALSTYLE = 0x100;
+        }
+
+        /// <summary>
+        /// Based on Windows Kits\8.1\CommCtrl.h
+        /// </summary>
         internal static class TrackbarControlStyles
         {
             internal static readonly int
@@ -1166,21 +1209,6 @@ namespace SharpFind.Classes
             HDS_CHECKBOXES = 0x0400,
             HDS_NOSIZING   = 0x0800,
             HDS_OVERFLOW   = 0x1000;
-        }
-
-        /// <summary>
-        /// Based on Windows Kits\8.1\CommCtrl.h
-        /// </summary>
-        internal static class TooltipStyles
-        {
-            internal static readonly int
-            TTS_ALWAYSTIP      = 0x01,
-            TTS_NOPREFIX       = 0x02,
-            TTS_NOANIMATE      = 0x10,
-            TTS_NOFADE         = 0x20,
-            TTS_BALLOON        = 0x40,
-            TTS_CLOSE          = 0x80,
-            TTS_USEVISUALSTYLE = 0x100;
         }
 
         #endregion
