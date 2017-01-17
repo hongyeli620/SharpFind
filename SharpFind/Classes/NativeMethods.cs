@@ -1138,6 +1138,40 @@ namespace SharpFind.Classes
             TVS_NOHSCROLL       = 0x8000;
         }
 
+        /// <summary>
+        /// Based on Windows Kits\8.1\CommCtrl.h
+        /// </summary>
+        internal static class HeaderControlStyles
+        {
+            internal static readonly int
+            HDS_HORZ       = 0x0000,
+            HDS_BUTTONS    = 0x0002,
+            HDS_HOTTRACK   = 0x0004,
+            HDS_HIDDEN     = 0x0008,
+            HDS_DRAGDROP   = 0x0040,
+            HDS_FULLDRAG   = 0x0080,
+            HDS_FILTERBAR  = 0x0100,
+            HDS_FLAT       = 0x0200,
+            HDS_CHECKBOXES = 0x0400,
+            HDS_NOSIZING   = 0x0800,
+            HDS_OVERFLOW   = 0x1000;
+        }
+
+        /// <summary>
+        /// Based on Windows Kits\8.1\CommCtrl.h
+        /// </summary>
+        internal static class TooltipStyles
+        {
+            internal static readonly int
+            TTS_ALWAYSTIP      = 0x01,
+            TTS_NOPREFIX       = 0x02,
+            TTS_NOANIMATE      = 0x10,
+            TTS_NOFADE         = 0x20,
+            TTS_BALLOON        = 0x40,
+            TTS_CLOSE          = 0x80,
+            TTS_USEVISUALSTYLE = 0x100;
+        }
+
         #endregion
         #region Process Priority Definitions
 
