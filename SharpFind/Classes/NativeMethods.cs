@@ -946,6 +946,25 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Based on Windows Kits\8.1\CommCtrl.h
+        /// </summary>
+        internal static class HeaderControlStyles
+        {
+            internal static readonly int
+            HDS_HORZ       = 0x0000,
+            HDS_BUTTONS    = 0x0002,
+            HDS_HOTTRACK   = 0x0004,
+            HDS_HIDDEN     = 0x0008,
+            HDS_DRAGDROP   = 0x0040,
+            HDS_FULLDRAG   = 0x0080,
+            HDS_FILTERBAR  = 0x0100,
+            HDS_FLAT       = 0x0200,
+            HDS_CHECKBOXES = 0x0400,
+            HDS_NOSIZING   = 0x0800,
+            HDS_OVERFLOW   = 0x1000;
+        }
+
+        /// <summary>
         /// Based on Windows Kits\8.1\Include\um\WinUser.h
         /// </summary>
         internal static class ListBoxStyles
@@ -1195,20 +1214,18 @@ namespace SharpFind.Classes
         /// <summary>
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
-        internal static class HeaderControlStyles
+        internal static class UpDownControlStyles
         {
             internal static readonly int
-            HDS_HORZ       = 0x0000,
-            HDS_BUTTONS    = 0x0002,
-            HDS_HOTTRACK   = 0x0004,
-            HDS_HIDDEN     = 0x0008,
-            HDS_DRAGDROP   = 0x0040,
-            HDS_FULLDRAG   = 0x0080,
-            HDS_FILTERBAR  = 0x0100,
-            HDS_FLAT       = 0x0200,
-            HDS_CHECKBOXES = 0x0400,
-            HDS_NOSIZING   = 0x0800,
-            HDS_OVERFLOW   = 0x1000;
+            UDS_WRAP        = 0x0001,
+            UDS_SETBUDDYINT = 0x0002,
+            UDS_ALIGNRIGHT  = 0x0004,
+            UDS_ALIGNLEFT   = 0x0008,
+            UDS_AUTOBUDDY   = 0x0010,
+            UDS_ARROWKEYS   = 0x0020,
+            UDS_HORZ        = 0x0040,
+            UDS_NOTHOUSANDS = 0x0080,
+            UDS_HOTTRACK    = 0x0100;
         }
 
         #endregion
