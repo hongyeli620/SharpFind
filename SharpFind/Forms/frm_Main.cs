@@ -87,12 +87,17 @@ namespace SharpFind
         {
             var wRect = new RECT();
             GetWindowRect(hWnd, out wRect);
-            return string.Format("({2},{3}) - ({4},{5}), {0} x {1}", wRect.right - wRect.left,
+
+            var maximized = string.Empty;
+            string winState = IsZoomed(hWnd) ? " (Maximized)" : string.Empty;
+
+            return string.Format("({2},{3}) - ({4},{5}), {0} x {1}{6}", wRect.right - wRect.left,
                                                                      wRect.bottom - wRect.top,
                                                                      wRect.left,
                                                                      wRect.top,
                                                                      wRect.right,
-                                                                     wRect.bottom);
+                                                                     wRect.bottom,
+                                                                     winState);
         }
 
         private static string getClientRect(IntPtr hWnd)

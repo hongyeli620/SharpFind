@@ -490,6 +490,21 @@ namespace SharpFind.Classes
         internal static extern bool IsWindowUnicode(IntPtr hWnd);
 
         /// <summary>
+        /// Determines whether a window is maximized.
+        /// </summary>
+        /// 
+        /// <param name="hWnd">
+        /// A handle to the window to be tested.
+        /// </param>
+        /// 
+        /// <returns>
+        /// If the window is zoomed, the return value is nonzero.
+        /// If the window is not zoomed, the return value is zero.
+        /// </returns>
+        [DllImport("user32.dll")]
+        internal static extern bool IsZoomed(IntPtr hWnd);
+        
+        /// <summary>
         /// The OffsetRect function moves the specified rectangle by the specified
         /// offsets.
         /// </summary>
