@@ -21,7 +21,7 @@ namespace SharpFind
             InitializeComponent();
 
             // Form appearance
-            Text = Application.ProductName; // Pronounced Sharp Find
+            Text = Application.ProductName;
             ControlBox = true;
             MinimizeBox = true;
             MaximizeBox = false;
@@ -88,7 +88,7 @@ namespace SharpFind
         
             var value = sb.ToString();
             if (isWindowUnicode(hWnd))
-                value = value + " (Unicode)";
+                value = value + " (unicode)";
 
             return value;
         }
@@ -97,9 +97,7 @@ namespace SharpFind
         {
             var wRect = new RECT();
             GetWindowRect(hWnd, out wRect);
-
-            var maximized = string.Empty;
-            string winState = IsZoomed(hWnd) ? " (Maximized)" : string.Empty;
+            var winState = IsZoomed(hWnd) ? " (maximized)" : string.Empty;
 
             return string.Format("({2},{3}) - ({4},{5}), {0} x {1}{6}", wRect.right - wRect.left,
                                                                         wRect.bottom - wRect.top,
@@ -310,7 +308,11 @@ namespace SharpFind
                 }
             }
 
-            return GetWindowLong(hWnd, GWL_STYLE).ToString("X8");
+            var isEnabled = IsWindowEnabled(hWnd) ? "enabled" : "disabled";
+            var isVisible = IsWindowVisible(hWnd) ? "visible" : "hidden";
+
+            return string.Format("{0} ({1}, {2})", GetWindowLong(hWnd, GWL_STYLE).ToString("X8"),
+                                                   isEnabled,isVisible);
         }
 
         private string getExtendedStyles(IntPtr hWnd)
