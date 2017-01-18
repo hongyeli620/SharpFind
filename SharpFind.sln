@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C# Express 2010
+Microsoft Visual Studio Solution File, Format Version 14.00
+# Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpFind", "SharpFind\SharpFind.csproj", "{DD2F36F6-6BCE-44D7-A9AB-C6D27889018E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CursorHandles", "CursorHandles\CursorHandles.csproj", "{EB311583-DC38-4BCB-AEF6-66C2473B5E8E}"
