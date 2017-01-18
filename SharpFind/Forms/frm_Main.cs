@@ -164,7 +164,7 @@ namespace SharpFind
 
         private string getStyle(IntPtr hWnd)
         {
-            var i = GetWindowLong(hWnd, GWL_STYLE);
+            var i = GetWindowLongPtr(hWnd, GWL_STYLE);
             LV_WindowStyles.Items.Clear();
 
             if (i != 0)
