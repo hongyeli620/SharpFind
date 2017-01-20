@@ -802,7 +802,10 @@ namespace SharpFind
 
         private void Frm_Main_Load(object sender, EventArgs e)
         {
-            Height = 107;
+            Height = 133;
+            LV_WindowStyles.Columns[0].Width = 250;
+            LV_WindowStyles.Columns[1].Width = 250;
+
             PNL_Bottom.Visible = false;
 
             // Add Window Menu items
@@ -848,6 +851,8 @@ namespace SharpFind
                 }
             }
 
+            const int WM_PAINT = 0xF;
+
             // Handle the Finder Tool drag & release
             switch (m.Msg)
             {
@@ -856,6 +861,13 @@ namespace SharpFind
                     break;
                 case (int)WindowsMessages.MOUSEMOVE:
                     HandleMouseMovement();
+                    break;
+                case WM_PAINT:
+                    if (LV_WindowStyles.View == View.Details && LV_WindowStyles.Columns.Count > 0)
+                        LV_WindowStyles.Columns[LV_WindowStyles.Columns.Count - 1].Width = -2;
+
+                    if (LV_ExtendedStyles.View == View.Details && LV_ExtendedStyles.Columns.Count > 0)
+                        LV_ExtendedStyles.Columns[LV_ExtendedStyles.Columns.Count - 1].Width = -2;
                     break;
             }
             
@@ -874,7 +886,7 @@ namespace SharpFind
                 if (CMNU_Minimize.Checked)
                 {
                     PNL_Bottom.Visible = false;
-                    Height = 107; 
+                    Height = 133; 
                 }
             }
             else
@@ -887,7 +899,7 @@ namespace SharpFind
                 if (!handleIsNull)
                 {
                     PNL_Bottom.Visible = true;
-                    Height = 421;
+                    Height = 520;
                 }
 
                 if (hPreviousWindow != IntPtr.Zero)
