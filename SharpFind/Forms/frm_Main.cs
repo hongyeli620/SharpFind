@@ -179,6 +179,12 @@ namespace SharpFind
                 {
                     item = LV_WindowStyles.Items.Add("WS_CAPTION");
                     item.SubItems.Add(WindowStyles.WS_CAPTION.ToString("X8"));
+
+                    if ((i & WindowStyles.WS_SYSMENU) != 0)
+                    {
+                        item = LV_WindowStyles.Items.Add("WS_SYSMENU");
+                        item.SubItems.Add(WindowStyles.WS_SYSMENU.ToString("X8"));
+                    }
                 }
                 if ((i & WindowStyles.WS_CHILD) != 0)
                 {
@@ -279,11 +285,6 @@ namespace SharpFind
 //                  item = LV_WindowStyles.Items.Add("WS_SIZEBOX");
 //                  item.SubItems.Add(WindowStylesFlags.WS_SIZEBOX.ToString("X8"));
 //              }
-                if ((i & WindowStyles.WS_SYSMENU) != 0)
-                {
-                    item = LV_WindowStyles.Items.Add("WS_SYSMENU");
-                    item.SubItems.Add(WindowStyles.WS_SYSMENU.ToString("X8"));
-                }
                 if ((i & WindowStyles.WS_THICKFRAME) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_THICKFRAME");
