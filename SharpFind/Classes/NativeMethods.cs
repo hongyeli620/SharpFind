@@ -808,6 +808,7 @@ namespace SharpFind.Classes
 
         /// <summary>
         /// Based on Windows Kits\8.1\Include\um\WinUser.h
+        /// See: https://msdn.microsoft.com/en-us/library/windows/desktop/ms632600(v=vs.85).aspx
         /// </summary>
         internal static class WindowStyles
         {
