@@ -209,15 +209,18 @@ namespace SharpFind
                         item = LV_WindowStyles.Items.Add("WS_POPUP");
                         item.SubItems.Add(WindowStyles.WS_POPUP.ToString("X8"));
                     }
-                    if ((i & WindowStyles.WS_MINIMIZEBOX) != 0)
+                    if ((i & WindowStyles.WS_SYSMENU) != 0)
                     {
-                        item = LV_WindowStyles.Items.Add("WS_MINIMIZEBOX");
-                        item.SubItems.Add(WindowStyles.WS_MINIMIZEBOX.ToString("X8"));
-                    }
-                    if ((i & WindowStyles.WS_MAXIMIZEBOX) != 0)
-                    {
-                        item = LV_WindowStyles.Items.Add("WS_MAXIMIZEBOX");
-                        item.SubItems.Add(WindowStyles.WS_MAXIMIZEBOX.ToString("X8"));
+                        if ((i & WindowStyles.WS_MINIMIZEBOX) != 0)
+                        {
+                            item = LV_WindowStyles.Items.Add("WS_MINIMIZEBOX");
+                            item.SubItems.Add(WindowStyles.WS_MINIMIZEBOX.ToString("X8"));
+                        }
+                        if ((i & WindowStyles.WS_MAXIMIZEBOX) != 0)
+                        {
+                            item = LV_WindowStyles.Items.Add("WS_MAXIMIZEBOX");
+                            item.SubItems.Add(WindowStyles.WS_MAXIMIZEBOX.ToString("X8"));
+                        }
                     }
                 }
                 if ((i & WindowStyles.WS_CLIPCHILDREN) != 0)
