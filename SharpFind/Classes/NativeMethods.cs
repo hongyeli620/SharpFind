@@ -810,7 +810,7 @@ namespace SharpFind.Classes
         /// Based on Windows Kits\8.1\Include\um\WinUser.h
         /// See: https://msdn.microsoft.com/en-us/library/windows/desktop/ms632600(v=vs.85).aspx
         /// </summary>
-        internal static class WindowStyles
+        internal abstract class WindowStyles
         {
             internal static readonly long
             WS_OVERLAPPED       = 0x00000000L,
