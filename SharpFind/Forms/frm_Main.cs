@@ -284,33 +284,33 @@ namespace SharpFind
 
             if (i != 0)
             {
-                if ((i & ExtendedWindowStyles.WS_EX_ACCEPTFILES)         != 0) DumpStyleEx("WS_EX_ACCEPTFILES",         ExtendedWindowStyles.WS_EX_ACCEPTFILES.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_APPWINDOW)           != 0) DumpStyleEx("WS_EX_APPWINDOW",           ExtendedWindowStyles.WS_EX_APPWINDOW.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_CLIENTEDGE)          != 0) DumpStyleEx("WS_EX_CLIENTEDGE",          ExtendedWindowStyles.WS_EX_CLIENTEDGE.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_COMPOSITED)          != 0) DumpStyleEx("WS_EX_COMPOSITED",          ExtendedWindowStyles.WS_EX_COMPOSITED.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_CONTEXTHELP)         != 0) DumpStyleEx("WS_EX_CONTEXTHELP",         ExtendedWindowStyles.WS_EX_CONTEXTHELP.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_CONTROLPARENT)       != 0) DumpStyleEx("WS_EX_CONTROLPARENT",       ExtendedWindowStyles.WS_EX_CONTROLPARENT.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_DLGMODALFRAME)       != 0) DumpStyleEx("WS_EX_DLGMODALFRAME",       ExtendedWindowStyles.WS_EX_DLGMODALFRAME.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_LAYERED)             != 0) DumpStyleEx("WS_EX_LAYERED",             ExtendedWindowStyles.WS_EX_LAYERED.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_LAYOUTRTL)           != 0) DumpStyleEx("WS_EX_LAYOUTRTL",           ExtendedWindowStyles.WS_EX_LAYOUTRTL.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_LEFT)                != 0) DumpStyleEx("WS_EX_LEFT",                ExtendedWindowStyles.WS_EX_LEFT.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_LEFTSCROLLBAR)       != 0) DumpStyleEx("WS_EX_LEFTSCROLLBAR",       ExtendedWindowStyles.WS_EX_LEFTSCROLLBAR.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_LTRREADING)          != 0) DumpStyleEx("WS_EX_LTRREADING",          ExtendedWindowStyles.WS_EX_LTRREADING.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_MDICHILD)            != 0) DumpStyleEx("WS_EX_MDICHILD",            ExtendedWindowStyles.WS_EX_MDICHILD.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_NOACTIVATE)          != 0) DumpStyleEx("WS_EX_NOACTIVATE",          ExtendedWindowStyles.WS_EX_NOACTIVATE.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_NOINHERITLAYOUT)     != 0) DumpStyleEx("WS_EX_NOINHERITLAYOUT",     ExtendedWindowStyles.WS_EX_NOINHERITLAYOUT.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_NOPARENTNOTIFY)      != 0) DumpStyleEx("WS_EX_NOPARENTNOTIFY",      ExtendedWindowStyles.WS_EX_NOPARENTNOTIFY.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_NOREDIRECTIONBITMAP) != 0) DumpStyleEx("WS_EX_NOREDIRECTIONBITMAP", ExtendedWindowStyles.WS_EX_NOREDIRECTIONBITMAP.ToString("X8"));
-//              if ((n & ExtendedStyles.WS_EX_OVERLAPPEDWINDOW)          != 0) DumpStyleEx("WS_EX_OVERLAPPEDWINDOW",    ExtendedWindowStyles.WS_EX_OVERLAPPEDWINDOW.ToString("X8"));
-//              if ((n & ExtendedStyles.WS_EX_PALETTEWINDOW)             != 0) DumpStyleEx("WS_EX_PALETTEWINDOW",       ExtendedWindowStyles.WS_EX_PALETTEWINDOW.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_RIGHT)               != 0) DumpStyleEx("WS_EX_RIGHT",               ExtendedWindowStyles.WS_EX_RIGHT.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_RIGHTSCROLLBAR)      != 0) DumpStyleEx("WS_EX_RIGHTSCROLLBAR",      ExtendedWindowStyles.WS_EX_RIGHTSCROLLBAR.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_RTLREADING)          != 0) DumpStyleEx("WS_EX_RTLREADING",          ExtendedWindowStyles.WS_EX_RTLREADING.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_STATICEDGE)          != 0) DumpStyleEx("WS_EX_STATICEDGE",          ExtendedWindowStyles.WS_EX_STATICEDGE.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_TOOLWINDOW)          != 0) DumpStyleEx("WS_EX_TOOLWINDOW",          ExtendedWindowStyles.WS_EX_TOOLWINDOW.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_TOPMOST)             != 0) DumpStyleEx("WS_EX_TOPMOST",             ExtendedWindowStyles.WS_EX_TOPMOST.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_TRANSPARENT)         != 0) DumpStyleEx("WS_EX_TRANSPARENT",         ExtendedWindowStyles.WS_EX_TRANSPARENT.ToString("X8"));
-                if ((i & ExtendedWindowStyles.WS_EX_WINDOWEDGE)          != 0) DumpStyleEx("WS_EX_WINDOWEDGE",          ExtendedWindowStyles.WS_EX_WINDOWEDGE.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_ACCEPTFILES)         != 0) DumpStyleEx("WS_EX_ACCEPTFILES",         WindowStylesEx.WS_EX_ACCEPTFILES.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_APPWINDOW)           != 0) DumpStyleEx("WS_EX_APPWINDOW",           WindowStylesEx.WS_EX_APPWINDOW.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_CLIENTEDGE)          != 0) DumpStyleEx("WS_EX_CLIENTEDGE",          WindowStylesEx.WS_EX_CLIENTEDGE.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_COMPOSITED)          != 0) DumpStyleEx("WS_EX_COMPOSITED",          WindowStylesEx.WS_EX_COMPOSITED.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_CONTEXTHELP)         != 0) DumpStyleEx("WS_EX_CONTEXTHELP",         WindowStylesEx.WS_EX_CONTEXTHELP.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_CONTROLPARENT)       != 0) DumpStyleEx("WS_EX_CONTROLPARENT",       WindowStylesEx.WS_EX_CONTROLPARENT.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_DLGMODALFRAME)       != 0) DumpStyleEx("WS_EX_DLGMODALFRAME",       WindowStylesEx.WS_EX_DLGMODALFRAME.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_LAYERED)             != 0) DumpStyleEx("WS_EX_LAYERED",             WindowStylesEx.WS_EX_LAYERED.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_LAYOUTRTL)           != 0) DumpStyleEx("WS_EX_LAYOUTRTL",           WindowStylesEx.WS_EX_LAYOUTRTL.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_LEFT)                != 0) DumpStyleEx("WS_EX_LEFT",                WindowStylesEx.WS_EX_LEFT.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_LEFTSCROLLBAR)       != 0) DumpStyleEx("WS_EX_LEFTSCROLLBAR",       WindowStylesEx.WS_EX_LEFTSCROLLBAR.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_LTRREADING)          != 0) DumpStyleEx("WS_EX_LTRREADING",          WindowStylesEx.WS_EX_LTRREADING.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_MDICHILD)            != 0) DumpStyleEx("WS_EX_MDICHILD",            WindowStylesEx.WS_EX_MDICHILD.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_NOACTIVATE)          != 0) DumpStyleEx("WS_EX_NOACTIVATE",          WindowStylesEx.WS_EX_NOACTIVATE.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_NOINHERITLAYOUT)     != 0) DumpStyleEx("WS_EX_NOINHERITLAYOUT",     WindowStylesEx.WS_EX_NOINHERITLAYOUT.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_NOPARENTNOTIFY)      != 0) DumpStyleEx("WS_EX_NOPARENTNOTIFY",      WindowStylesEx.WS_EX_NOPARENTNOTIFY.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_NOREDIRECTIONBITMAP) != 0) DumpStyleEx("WS_EX_NOREDIRECTIONBITMAP", WindowStylesEx.WS_EX_NOREDIRECTIONBITMAP.ToString("X8"));
+//              if ((n & ExtendedStyles.WS_EX_OVERLAPPEDWINDOW)    != 0) DumpStyleEx("WS_EX_OVERLAPPEDWINDOW",    ExtendedWindowStyles.WS_EX_OVERLAPPEDWINDOW.ToString("X8"));
+//              if ((n & ExtendedStyles.WS_EX_PALETTEWINDOW)       != 0) DumpStyleEx("WS_EX_PALETTEWINDOW",       ExtendedWindowStyles.WS_EX_PALETTEWINDOW.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_RIGHT)               != 0) DumpStyleEx("WS_EX_RIGHT",               WindowStylesEx.WS_EX_RIGHT.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_RIGHTSCROLLBAR)      != 0) DumpStyleEx("WS_EX_RIGHTSCROLLBAR",      WindowStylesEx.WS_EX_RIGHTSCROLLBAR.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_RTLREADING)          != 0) DumpStyleEx("WS_EX_RTLREADING",          WindowStylesEx.WS_EX_RTLREADING.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_STATICEDGE)          != 0) DumpStyleEx("WS_EX_STATICEDGE",          WindowStylesEx.WS_EX_STATICEDGE.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_TOOLWINDOW)          != 0) DumpStyleEx("WS_EX_TOOLWINDOW",          WindowStylesEx.WS_EX_TOOLWINDOW.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_TOPMOST)             != 0) DumpStyleEx("WS_EX_TOPMOST",             WindowStylesEx.WS_EX_TOPMOST.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_TRANSPARENT)         != 0) DumpStyleEx("WS_EX_TRANSPARENT",         WindowStylesEx.WS_EX_TRANSPARENT.ToString("X8"));
+                if ((i & WindowStylesEx.WS_EX_WINDOWEDGE)          != 0) DumpStyleEx("WS_EX_WINDOWEDGE",          WindowStylesEx.WS_EX_WINDOWEDGE.ToString("X8"));
             }
 
             return GetWindowLong(hWnd, GWL_EXSTYLE).ToString("X8");
