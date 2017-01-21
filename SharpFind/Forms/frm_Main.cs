@@ -840,7 +840,7 @@ namespace SharpFind
                 TB_ThreadID.Text      = getThreadID(hWnd);
                 TB_PriorityClass.Text = getPriorityClass(Process.GetProcessById(pid).Handle);
 
-                Text = appName + " - " + TB_WindowHandle.Text.Split('(')[0];
+                Text = appName + " - " + TB_WindowHandle.Text.Split('(')[0].TrimEnd();
 
                 // The flickering shall not pass
                 if (hWndOld == hWnd)
