@@ -220,11 +220,6 @@ namespace SharpFind
                         item.SubItems.Add(WindowStyles.WS_MAXIMIZEBOX.ToString("X8"));
                     }
                 }
-//              if ((n & WindowStylesFlags.WS_CHILDWINDOW) != 0)
-//              {
-//                  item = LV_WindowStyles.Items.Add("WS_CHILDWINDOW");
-//                  item.SubItems.Add(WindowStylesFlags.WS_CHILDWINDOW.ToString("X8"));
-//              }
                 if ((i & WindowStyles.WS_CLIPCHILDREN) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_CLIPCHILDREN");
@@ -250,11 +245,6 @@ namespace SharpFind
                     item = LV_WindowStyles.Items.Add("WS_HSCROLL");
                     item.SubItems.Add(WindowStyles.WS_HSCROLL.ToString("X8"));
                 }
-//              if ((n & WindowStylesFlags.WS_ICONIC) != 0)
-//              {
-//                  item = LV_WindowStyles.Items.Add("WS_ICONIC");
-//                  item.SubItems.Add(WindowStylesFlags.WS_ICONIC.ToString("X8"));
-//              }
                 if ((i & WindowStyles.WS_MAXIMIZE) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_MAXIMIZE");
@@ -280,26 +270,11 @@ namespace SharpFind
                     item = LV_WindowStyles.Items.Add("WS_POPUPWINDOW");
                     item.SubItems.Add(WindowStyles.WS_POPUPWINDOW.ToString("X8"));
                 }
-//              if ((n & WindowStylesFlags.WS_SIZEBOX) != 0)
-//              {
-//                  item = LV_WindowStyles.Items.Add("WS_SIZEBOX");
-//                  item.SubItems.Add(WindowStylesFlags.WS_SIZEBOX.ToString("X8"));
-//              }
                 if ((i & WindowStyles.WS_THICKFRAME) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_THICKFRAME");
                     item.SubItems.Add(WindowStyles.WS_THICKFRAME.ToString("X8"));
                 }
-//              if ((n & WindowStylesFlags.WS_TILED) != 0)
-//              {
-//                  item = LV_WindowStyles.Items.Add("WS_TILED");
-//                  item.SubItems.Add(WindowStylesFlags.WS_TILED.ToString("X8"));
-//              }
-//              if ((n & WindowStylesFlags.WS_TILEDWINDOW) != 0)
-//              {
-//                  item = LV_WindowStyles.Items.Add("WS_TILEDWINDOW");
-//                  item.SubItems.Add(WindowStylesFlags.WS_TILEDWINDOW.ToString("X8"));
-//              }
                 if ((i & WindowStyles.WS_VISIBLE) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_VISIBLE");
