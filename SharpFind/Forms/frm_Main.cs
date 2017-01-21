@@ -46,13 +46,12 @@ namespace SharpFind
         private readonly Cursor _cursorDefault;
         private readonly Cursor _cursorFinder;
 
+        private bool isHandleNull;
         private bool isCapturing;
         private IntPtr hPreviousWindow;
-
         private IntPtr hWnd;
         private IntPtr hWndOld;
-        private bool isHandleNull;
-
+        
         // Single window menu items
         private const int MNU_ABOUT = 1000;
         private const int MNU_LICENSE = 1001;
