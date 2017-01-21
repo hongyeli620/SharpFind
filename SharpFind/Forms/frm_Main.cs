@@ -39,10 +39,10 @@ namespace SharpFind
             }
             else
             {
-                formHeightCollapsed = 133;
-                formHeightExtended = 520;
-                LV_WindowStyles.Columns[0].Width = 215;
-                LV_ExtendedStyles.Columns[0].Width = 215;
+                formHeightCollapsed = 123;
+                formHeightExtended = 510;
+                LV_WindowStyles.Columns[0].Width = 300;
+                LV_ExtendedStyles.Columns[0].Width = 300;
             }
 
             Height = formHeightCollapsed;
@@ -208,14 +208,16 @@ namespace SharpFind
         {
             ListViewItem item;
             item = LV_WindowStyles.Items.Add(style);
-            item.SubItems.Add(styleValue);
+            item.UseItemStyleForSubItems = false;
+            item.SubItems.Add(styleValue).ForeColor =  SystemColors.GrayText;
         }
 
         private void DumpStyleEx(string style, string styleValue)
         {
             ListViewItem item;
             item = LV_ExtendedStyles.Items.Add(style);
-            item.SubItems.Add(styleValue);
+            item.UseItemStyleForSubItems = false;
+            item.SubItems.Add(styleValue).ForeColor = SystemColors.GrayText;
         }
 
         private string getStyle(IntPtr hWnd)
