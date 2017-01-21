@@ -11,6 +11,7 @@ using SharpFind.Properties;
 // https://blogs.msdn.microsoft.com/csharpfaq/2014/11/20/new-features-in-c-6/
 // C#6 IDE support starts at Visual Studio 2013 and up
 using static SharpFind.Classes.NativeMethods;
+using System.Drawing;
 
 namespace SharpFind
 {
@@ -29,9 +30,22 @@ namespace SharpFind
             FormBorderStyle = FormBorderStyle.FixedSingle;
             StartPosition = FormStartPosition.CenterScreen;
 
-            Height = 133;
-            LV_WindowStyles.Columns[0].Width = 215;
-            LV_ExtendedStyles.Columns[0].Width = 215;
+            if (IsDpi96())
+            {
+                formHeightCollapsed = 100;
+                formHeightExtended = 413;
+                LV_WindowStyles.Columns[0].Width = 215;
+                LV_ExtendedStyles.Columns[0].Width = 215;
+            }
+            else
+            {
+                formHeightCollapsed = 133;
+                formHeightExtended = 520;
+                LV_WindowStyles.Columns[0].Width = 215;
+                LV_ExtendedStyles.Columns[0].Width = 215;
+            }
+
+            Height = formHeightCollapsed;
 
             using (var ms = new MemoryStream(Resources.finder))
             {
@@ -41,6 +55,9 @@ namespace SharpFind
         }
 
         #region Variables
+
+        private int formHeightCollapsed = 100;
+        private int formHeightExtended = 215;
 
         // Cursors to be used
         private readonly Cursor _cursorDefault;
@@ -56,6 +73,28 @@ namespace SharpFind
         private const int MNU_ABOUT = 1000;
         private const int MNU_LICENSE = 1001;
         private const int MNU_CHANGELOG = 1002;
+
+        #endregion
+        #region Get Font DPI
+
+        public static Point GetSystemDpi()
+        {
+            var result = new Point();
+            var hDC = GetDC(IntPtr.Zero);
+
+            result.X = GetDeviceCaps(hDC, 88);
+            result.Y = GetDeviceCaps(hDC, 90);
+
+            ReleaseDC(IntPtr.Zero, hDC);
+
+            return result;
+        }
+
+        public static bool IsDpi96()
+        {
+            var result = GetSystemDpi();
+            return result.X == 96 || result.Y == 96;
+        }
 
         #endregion
         #region Functions
@@ -694,7 +733,7 @@ namespace SharpFind
                 if (CMNU_Minimize.Checked)
                 {
                     PNL_Bottom.Visible = false;
-                    Height = 133; 
+                    Height = formHeightCollapsed; 
                 }
             }
             else
@@ -707,7 +746,7 @@ namespace SharpFind
                 if (!isHandleNull)
                 {
                     PNL_Bottom.Visible = true;
-                    Height = 520;
+                    Height = formHeightExtended;
                 }
 
                 if (hPreviousWindow != IntPtr.Zero)
