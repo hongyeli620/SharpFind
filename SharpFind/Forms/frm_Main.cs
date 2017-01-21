@@ -198,6 +198,11 @@ namespace SharpFind
                 }
                 else
                 {
+                    if ((i & WindowStyles.WS_POPUP) != 0)
+                    {
+                        item = LV_WindowStyles.Items.Add("WS_POPUP");
+                        item.SubItems.Add(WindowStyles.WS_POPUP.ToString("X8"));
+                    }
                     if ((i & WindowStyles.WS_MINIMIZEBOX) != 0)
                     {
                         item = LV_WindowStyles.Items.Add("WS_MINIMIZEBOX");
@@ -263,11 +268,6 @@ namespace SharpFind
                 {
                     item = LV_WindowStyles.Items.Add("WS_OVERLAPPEDWINDOW");
                     item.SubItems.Add(WindowStyles.WS_OVERLAPPEDWINDOW.ToString("X8"));
-                }
-                if ((i & WindowStyles.WS_POPUP) != 0)
-                {
-                    item = LV_WindowStyles.Items.Add("WS_POPUP");
-                    item.SubItems.Add(WindowStyles.WS_POPUP.ToString("X8"));
                 }
                 if ((i & WindowStyles.WS_POPUPWINDOW) != 0)
                 {
