@@ -53,7 +53,7 @@ namespace SharpFind
                 formHeightExtended = 510;
 
                 PB_Tool.Location = new Point(13, 24);
-                LBL_HowTo.Location = new Point(54, 23);
+                LBL_HowTo.Location = new Point(54, 22);
                 LBL_HowTo.Size = new Size(373, 36);
 
                 LV_WindowStyles.Columns[0].Width = 300;
