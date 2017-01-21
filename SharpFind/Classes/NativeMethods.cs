@@ -246,6 +246,23 @@ namespace SharpFind.Classes
         internal static extern bool GetClientRect(IntPtr hWnd, out RECT lpRect);
 
         /// <summary>
+        /// Retrieves a handle to a device context (DC) for the client area of
+        /// a specified window or for the entire screen.
+        /// </summary>
+        /// 
+        /// <param name="hWnd">
+        /// A handle to the window whose DC is to be retrieved. If this value
+        /// is NULL, GetDC retrieves the DC for the entire screen.
+        /// </param>
+        /// 
+        /// <returns>
+        /// If the function succeeds, the return value is a handle to the DC
+        /// for the specified window's client area.
+        /// </returns>
+        [DllImport("user32.dll")]
+        internal static extern IntPtr GetDC(IntPtr hWnd);
+
+        /// <summary>
         /// Enables the application to access the window menu for copying and
         /// modifying.
         /// </summary>
@@ -682,6 +699,28 @@ namespace SharpFind.Classes
 
         #endregion
         #region gdi32.dll
+
+        /// <summary>
+        /// The GetDeviceCaps function retrieves device-specific information for
+        /// the specified device.
+        /// </summary>
+        /// 
+        /// <param name="hdc">
+        /// A handle to the DC.
+        /// </param>
+        /// 
+        /// <param name="nIndex">
+        /// The item to be returned. This parameter can be one of the following
+        /// values.
+        /// </param>
+        /// 
+        /// <returns>
+        /// The return value specifies the value of the desired item.
+        /// When nIndex is BITSPIXEL and the device has 15bpp or 16bpp, the
+        /// return value is 16.
+        /// </returns>
+        [DllImport("gdi32.dll")]
+        internal static extern int GetDeviceCaps(IntPtr hdc, int nIndex);
 
         /// <summary>
         /// Paints the specified rectangle using the brush that is currently
