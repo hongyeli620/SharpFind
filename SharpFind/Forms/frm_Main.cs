@@ -698,18 +698,16 @@ namespace SharpFind
                 }
             }
 
-            const int WM_PAINT = 0xF;
-
             // Handle the Finder Tool drag & release
             switch (m.Msg)
             {
-                case (int)WindowsMessages.LBUTTONUP:
+                case (int)WindowsMessages.WM_LBUTTONUP:
                     CaptureMouse(false);
                     break;
-                case (int)WindowsMessages.MOUSEMOVE:
+                case (int)WindowsMessages.WM_MOUSEMOVE:
                     HandleMouseMovement();
                     break;
-                case WM_PAINT:
+                case (int)WindowsMessages.WM_PAINT:
                     if (LV_WindowStyles.View == View.Details && LV_WindowStyles.Columns.Count > 0)
                         LV_WindowStyles.Columns[LV_WindowStyles.Columns.Count - 1].Width = -2;
 

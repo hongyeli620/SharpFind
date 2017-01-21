@@ -134,9 +134,10 @@ namespace SharpFind.Classes
         // used by the program
         internal enum WindowsMessages : uint
         {
-            NULL      = 0x00,
-            MOUSEMOVE = 0x200,
-            LBUTTONUP = 0x202
+            WM_NULL      = 0x00,
+            WM_PAINT     = 0xF,
+            WM_MOUSEMOVE = 0x200,
+            WM_LBUTTONUP = 0x202,
         }
 
         internal enum RasterOperations : uint
