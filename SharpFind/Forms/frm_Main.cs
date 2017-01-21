@@ -314,7 +314,7 @@ namespace SharpFind
             var isEnabled = IsWindowEnabled(hWnd) ? "enabled" : "disabled";
             var isVisible = IsWindowVisible(hWnd) ? "visible" : "hidden";
 
-            return string.Format("{0} ({1}, {2})", GetWindowLong(hWnd, GWL_STYLE).ToString("X4"),
+            return string.Format("{0} ({1}, {2})", GetWindowLong(hWnd, GWL_STYLE).ToString("X8"),
                                                    isEnabled, isVisible);
         }
 
