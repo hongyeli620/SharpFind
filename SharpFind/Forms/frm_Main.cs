@@ -51,7 +51,7 @@ namespace SharpFind
 
         private IntPtr hWnd;
         private IntPtr hWndOld;
-        private bool handleIsNull;
+        private bool isHandleNull;
 
         // Single window menu items
         private const int MNU_ABOUT = 1000;
@@ -705,7 +705,7 @@ namespace SharpFind
                 Cursor.Current = _cursorDefault;
                 PB_Tool.Image = Resources.finder_in;
 
-                if (!handleIsNull)
+                if (!isHandleNull)
                 {
                     PNL_Bottom.Visible = true;
                     Height = 520;
@@ -731,11 +731,11 @@ namespace SharpFind
                 var pid = getProcessIdDecimal(hWnd);
                 if (GetCurrentProcessId() == pid)
                 {
-                    handleIsNull = true;
+                    isHandleNull = true;
                     return;
                 }
 
-                handleIsNull = false;
+                isHandleNull = false;
 
                 if (hPreviousWindow != IntPtr.Zero && hPreviousWindow != hWnd)
                     WindowHighlighter.Refresh(hPreviousWindow);
@@ -759,7 +759,7 @@ namespace SharpFind
                 getWindowBytesCombo(hWnd);
 
                 //Styles tab
-                TB_WindowStyles.Text = TB_Style.Text;
+                TB_WindowStyles.Text = TB_Style.Text.Split('(')[0].TrimEnd();
                 TB_ExtendedStyles.Text = getExtendedStyles(hWnd);
 
                 // Class tab
