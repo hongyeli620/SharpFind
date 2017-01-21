@@ -1,9 +1,12 @@
 ﻿using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Reflection;
+using System.Security.Principal;
 using System.Text;
 using System.Windows.Forms;
 using System;
+
 using SharpFind.Classes;
 using SharpFind.Properties;
 
@@ -11,7 +14,6 @@ using SharpFind.Properties;
 // https://blogs.msdn.microsoft.com/csharpfaq/2014/11/20/new-features-in-c-6/
 // C#6 IDE support starts at Visual Studio 2013 and up
 using static SharpFind.Classes.NativeMethods;
-using System.Drawing;
 
 namespace SharpFind
 {
@@ -22,7 +24,10 @@ namespace SharpFind
             InitializeComponent();
 
             // Form appearance
-            Text = Application.ProductName;
+            var appName = IsRunningAsAdmin() ? Text = Application.ProductName + " (admin)" :
+                                               Text = Application.ProductName;
+            Text = appName;
+
             ControlBox = true;
             MinimizeBox = true;
             MaximizeBox = false;
@@ -34,6 +39,11 @@ namespace SharpFind
             {
                 formHeightCollapsed = 99;
                 formHeightExtended = 413;
+
+                PB_Tool.Location = new Point(10, 18);
+                LBL_HowTo.Location = new Point(53, 19);
+                LBL_HowTo.Size = new Size(267, 29);
+
                 LV_WindowStyles.Columns[0].Width = 215;
                 LV_ExtendedStyles.Columns[0].Width = 215;
             }
@@ -41,6 +51,11 @@ namespace SharpFind
             {
                 formHeightCollapsed = 123;
                 formHeightExtended = 510;
+
+                PB_Tool.Location = new Point(13, 24);
+                LBL_HowTo.Location = new Point(54, 23);
+                LBL_HowTo.Size = new Size(373, 36);
+
                 LV_WindowStyles.Columns[0].Width = 300;
                 LV_ExtendedStyles.Columns[0].Width = 300;
             }
@@ -98,6 +113,11 @@ namespace SharpFind
 
         #endregion
         #region Functions
+
+        private static bool IsRunningAsAdmin()
+        {
+            return (new WindowsPrincipal(WindowsIdentity.GetCurrent())).IsInRole(WindowsBuiltInRole.Administrator);
+        }
 
         #region General
 
