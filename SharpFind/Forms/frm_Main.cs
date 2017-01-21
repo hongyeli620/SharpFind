@@ -29,6 +29,10 @@ namespace SharpFind
             FormBorderStyle = FormBorderStyle.FixedSingle;
             StartPosition = FormStartPosition.CenterScreen;
 
+            Height = 133;
+            LV_WindowStyles.Columns[0].Width = 215;
+            LV_ExtendedStyles.Columns[0].Width = 215;
+
             using (var ms = new MemoryStream(Resources.finder))
             {
                 _cursorDefault = Cursor.Current;
@@ -785,10 +789,6 @@ namespace SharpFind
 
         private void Frm_Main_Load(object sender, EventArgs e)
         {
-            Height = 133;
-            LV_WindowStyles.Columns[0].Width = 250;
-            LV_WindowStyles.Columns[1].Width = 250;
-
             PNL_Bottom.Visible = false;
 
             // Add Window Menu items

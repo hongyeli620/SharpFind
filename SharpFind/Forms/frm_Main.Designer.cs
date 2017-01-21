@@ -54,6 +54,12 @@
             this.TB_ClientRect = new System.Windows.Forms.TextBox();
             this.LBL_InstanceHandle = new System.Windows.Forms.Label();
             this.TP_Styles = new System.Windows.Forms.TabPage();
+            this.LV_ExtendedStyles = new SharpFind.Controls.ListViewEx();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LV_WindowStyles = new SharpFind.Controls.ListViewEx();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TB_ExtendedStyles = new System.Windows.Forms.TextBox();
             this.LBL_ExtendedStyles = new System.Windows.Forms.Label();
             this.TB_WindowStyles = new System.Windows.Forms.TextBox();
@@ -95,14 +101,8 @@
             this.CMNU_Minimize = new System.Windows.Forms.MenuItem();
             this.PNL_Top = new System.Windows.Forms.Panel();
             this.PNL_Bottom = new System.Windows.Forms.Panel();
-            this.BTN_Close = new System.Windows.Forms.Button();
             this.separator1 = new SharpFind.Controls.Separator();
-            this.LV_ExtendedStyles = new SharpFind.Controls.ListViewEx();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.LV_WindowStyles = new SharpFind.Controls.ListViewEx();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.BTN_Close = new System.Windows.Forms.Button();
             this.GB_Tool.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Tool)).BeginInit();
             this.TC_Details.SuspendLayout();
@@ -120,11 +120,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GB_Tool.Controls.Add(this.PB_Tool);
             this.GB_Tool.Controls.Add(this.LBL_HowTo);
-            this.GB_Tool.Location = new System.Drawing.Point(11, 10);
-            this.GB_Tool.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GB_Tool.Location = new System.Drawing.Point(8, 8);
             this.GB_Tool.Name = "GB_Tool";
-            this.GB_Tool.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.GB_Tool.Size = new System.Drawing.Size(435, 71);
+            this.GB_Tool.Size = new System.Drawing.Size(326, 58);
             this.GB_Tool.TabIndex = 0;
             this.GB_Tool.TabStop = false;
             this.GB_Tool.Text = "Finder Tool";
@@ -132,8 +130,7 @@
             // PB_Tool
             // 
             this.PB_Tool.Image = global::SharpFind.Properties.Resources.finder_in;
-            this.PB_Tool.Location = new System.Drawing.Point(13, 25);
-            this.PB_Tool.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PB_Tool.Location = new System.Drawing.Point(10, 20);
             this.PB_Tool.Name = "PB_Tool";
             this.PB_Tool.Size = new System.Drawing.Size(31, 28);
             this.PB_Tool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -147,10 +144,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LBL_HowTo.AutoEllipsis = true;
             this.LBL_HowTo.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_HowTo.Location = new System.Drawing.Point(56, 23);
-            this.LBL_HowTo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_HowTo.Location = new System.Drawing.Point(53, 19);
             this.LBL_HowTo.Name = "LBL_HowTo";
-            this.LBL_HowTo.Size = new System.Drawing.Size(371, 36);
+            this.LBL_HowTo.Size = new System.Drawing.Size(267, 29);
             this.LBL_HowTo.TabIndex = 1;
             this.LBL_HowTo.Text = "Drag the crosshair over a window to select it then release the mouse button to ge" +
     "t hWnd details.";
@@ -161,12 +157,11 @@
             this.TC_Details.Controls.Add(this.TP_Styles);
             this.TC_Details.Controls.Add(this.TP_Class);
             this.TC_Details.Controls.Add(this.TP_Process);
-            this.TC_Details.Location = new System.Drawing.Point(9, 7);
-            this.TC_Details.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TC_Details.Location = new System.Drawing.Point(7, 6);
             this.TC_Details.Multiline = true;
             this.TC_Details.Name = "TC_Details";
             this.TC_Details.SelectedIndex = 0;
-            this.TC_Details.Size = new System.Drawing.Size(440, 343);
+            this.TC_Details.Size = new System.Drawing.Size(330, 279);
             this.TC_Details.TabIndex = 2;
             // 
             // TP_General
@@ -192,11 +187,10 @@
             this.TP_General.Controls.Add(this.LBL_ClientRect);
             this.TP_General.Controls.Add(this.TB_ClientRect);
             this.TP_General.Controls.Add(this.LBL_InstanceHandle);
-            this.TP_General.Location = new System.Drawing.Point(4, 25);
-            this.TP_General.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TP_General.Location = new System.Drawing.Point(4, 22);
             this.TP_General.Name = "TP_General";
-            this.TP_General.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.TP_General.Size = new System.Drawing.Size(432, 314);
+            this.TP_General.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.TP_General.Size = new System.Drawing.Size(322, 253);
             this.TP_General.TabIndex = 0;
             this.TP_General.Text = "General Information";
             // 
@@ -205,10 +199,9 @@
             this.CMB_WindowBytes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CMB_WindowBytes.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.CMB_WindowBytes.FormattingEnabled = true;
-            this.CMB_WindowBytes.Location = new System.Drawing.Point(151, 270);
-            this.CMB_WindowBytes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CMB_WindowBytes.Location = new System.Drawing.Point(113, 219);
             this.CMB_WindowBytes.Name = "CMB_WindowBytes";
-            this.CMB_WindowBytes.Size = new System.Drawing.Size(264, 24);
+            this.CMB_WindowBytes.Size = new System.Drawing.Size(199, 21);
             this.CMB_WindowBytes.TabIndex = 23;
             // 
             // label1
@@ -216,10 +209,9 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label1.Location = new System.Drawing.Point(8, 273);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(6, 222);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 17);
+            this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 22;
             this.label1.Text = "Window Bytes";
             // 
@@ -229,11 +221,10 @@
             this.TB_Style.BackColor = System.Drawing.Color.White;
             this.TB_Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_Style.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_Style.Location = new System.Drawing.Point(156, 108);
-            this.TB_Style.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_Style.Location = new System.Drawing.Point(117, 88);
             this.TB_Style.Name = "TB_Style";
             this.TB_Style.ReadOnly = true;
-            this.TB_Style.Size = new System.Drawing.Size(260, 15);
+            this.TB_Style.Size = new System.Drawing.Size(195, 13);
             this.TB_Style.TabIndex = 21;
             // 
             // LBL_Style
@@ -241,10 +232,9 @@
             this.LBL_Style.AutoSize = true;
             this.LBL_Style.BackColor = System.Drawing.Color.White;
             this.LBL_Style.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_Style.Location = new System.Drawing.Point(8, 108);
-            this.LBL_Style.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_Style.Location = new System.Drawing.Point(6, 88);
             this.LBL_Style.Name = "LBL_Style";
-            this.LBL_Style.Size = new System.Drawing.Size(39, 17);
+            this.LBL_Style.Size = new System.Drawing.Size(30, 13);
             this.LBL_Style.TabIndex = 20;
             this.LBL_Style.Text = "Style";
             // 
@@ -254,11 +244,10 @@
             this.TB_WindowHandle.BackColor = System.Drawing.Color.White;
             this.TB_WindowHandle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_WindowHandle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_WindowHandle.Location = new System.Drawing.Point(156, 52);
-            this.TB_WindowHandle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_WindowHandle.Location = new System.Drawing.Point(117, 42);
             this.TB_WindowHandle.Name = "TB_WindowHandle";
             this.TB_WindowHandle.ReadOnly = true;
-            this.TB_WindowHandle.Size = new System.Drawing.Size(260, 15);
+            this.TB_WindowHandle.Size = new System.Drawing.Size(195, 13);
             this.TB_WindowHandle.TabIndex = 1;
             // 
             // TB_Class
@@ -267,11 +256,10 @@
             this.TB_Class.BackColor = System.Drawing.Color.White;
             this.TB_Class.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_Class.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_Class.Location = new System.Drawing.Point(156, 85);
-            this.TB_Class.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_Class.Location = new System.Drawing.Point(117, 69);
             this.TB_Class.Name = "TB_Class";
             this.TB_Class.ReadOnly = true;
-            this.TB_Class.Size = new System.Drawing.Size(260, 15);
+            this.TB_Class.Size = new System.Drawing.Size(195, 13);
             this.TB_Class.TabIndex = 8;
             // 
             // LBL_WindowHandle
@@ -279,10 +267,9 @@
             this.LBL_WindowHandle.AutoSize = true;
             this.LBL_WindowHandle.BackColor = System.Drawing.Color.White;
             this.LBL_WindowHandle.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_WindowHandle.Location = new System.Drawing.Point(8, 52);
-            this.LBL_WindowHandle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_WindowHandle.Location = new System.Drawing.Point(6, 42);
             this.LBL_WindowHandle.Name = "LBL_WindowHandle";
-            this.LBL_WindowHandle.Size = new System.Drawing.Size(106, 17);
+            this.LBL_WindowHandle.Size = new System.Drawing.Size(83, 13);
             this.LBL_WindowHandle.TabIndex = 0;
             this.LBL_WindowHandle.Text = "Window Handle";
             // 
@@ -291,10 +278,9 @@
             this.LBL_UserData.AutoSize = true;
             this.LBL_UserData.BackColor = System.Drawing.Color.White;
             this.LBL_UserData.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_UserData.Location = new System.Drawing.Point(8, 240);
-            this.LBL_UserData.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_UserData.Location = new System.Drawing.Point(6, 195);
             this.LBL_UserData.Name = "LBL_UserData";
-            this.LBL_UserData.Size = new System.Drawing.Size(72, 17);
+            this.LBL_UserData.Size = new System.Drawing.Size(55, 13);
             this.LBL_UserData.TabIndex = 19;
             this.LBL_UserData.Text = "User Data";
             // 
@@ -303,10 +289,9 @@
             this.LBL_Class.AutoSize = true;
             this.LBL_Class.BackColor = System.Drawing.Color.White;
             this.LBL_Class.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_Class.Location = new System.Drawing.Point(8, 85);
-            this.LBL_Class.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_Class.Location = new System.Drawing.Point(6, 69);
             this.LBL_Class.Name = "LBL_Class";
-            this.LBL_Class.Size = new System.Drawing.Size(42, 17);
+            this.LBL_Class.Size = new System.Drawing.Size(32, 13);
             this.LBL_Class.TabIndex = 7;
             this.LBL_Class.Text = "Class";
             // 
@@ -315,11 +300,10 @@
             this.TB_WindowCaption.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_WindowCaption.BackColor = System.Drawing.Color.White;
             this.TB_WindowCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_WindowCaption.Location = new System.Drawing.Point(156, 12);
-            this.TB_WindowCaption.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_WindowCaption.Location = new System.Drawing.Point(117, 10);
             this.TB_WindowCaption.Name = "TB_WindowCaption";
             this.TB_WindowCaption.ReadOnly = true;
-            this.TB_WindowCaption.Size = new System.Drawing.Size(259, 22);
+            this.TB_WindowCaption.Size = new System.Drawing.Size(195, 20);
             this.TB_WindowCaption.TabIndex = 3;
             // 
             // LBL_WindowCaption
@@ -327,10 +311,9 @@
             this.LBL_WindowCaption.AutoSize = true;
             this.LBL_WindowCaption.BackColor = System.Drawing.Color.White;
             this.LBL_WindowCaption.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_WindowCaption.Location = new System.Drawing.Point(8, 16);
-            this.LBL_WindowCaption.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_WindowCaption.Location = new System.Drawing.Point(6, 13);
             this.LBL_WindowCaption.Name = "LBL_WindowCaption";
-            this.LBL_WindowCaption.Size = new System.Drawing.Size(109, 17);
+            this.LBL_WindowCaption.Size = new System.Drawing.Size(85, 13);
             this.LBL_WindowCaption.TabIndex = 2;
             this.LBL_WindowCaption.Text = "Window Caption";
             // 
@@ -339,10 +322,9 @@
             this.LBL_ControlID.AutoSize = true;
             this.LBL_ControlID.BackColor = System.Drawing.Color.White;
             this.LBL_ControlID.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_ControlID.Location = new System.Drawing.Point(8, 217);
-            this.LBL_ControlID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_ControlID.Location = new System.Drawing.Point(6, 176);
             this.LBL_ControlID.Name = "LBL_ControlID";
-            this.LBL_ControlID.Size = new System.Drawing.Size(70, 17);
+            this.LBL_ControlID.Size = new System.Drawing.Size(54, 13);
             this.LBL_ControlID.TabIndex = 17;
             this.LBL_ControlID.Text = "Control ID";
             // 
@@ -352,11 +334,10 @@
             this.TB_UserData.BackColor = System.Drawing.Color.White;
             this.TB_UserData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_UserData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_UserData.Location = new System.Drawing.Point(156, 240);
-            this.TB_UserData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_UserData.Location = new System.Drawing.Point(117, 195);
             this.TB_UserData.Name = "TB_UserData";
             this.TB_UserData.ReadOnly = true;
-            this.TB_UserData.Size = new System.Drawing.Size(260, 15);
+            this.TB_UserData.Size = new System.Drawing.Size(195, 13);
             this.TB_UserData.TabIndex = 18;
             // 
             // LBL_Rectangle
@@ -364,10 +345,9 @@
             this.LBL_Rectangle.AutoSize = true;
             this.LBL_Rectangle.BackColor = System.Drawing.Color.White;
             this.LBL_Rectangle.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_Rectangle.Location = new System.Drawing.Point(8, 142);
-            this.LBL_Rectangle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_Rectangle.Location = new System.Drawing.Point(6, 115);
             this.LBL_Rectangle.Name = "LBL_Rectangle";
-            this.LBL_Rectangle.Size = new System.Drawing.Size(72, 17);
+            this.LBL_Rectangle.Size = new System.Drawing.Size(56, 13);
             this.LBL_Rectangle.TabIndex = 9;
             this.LBL_Rectangle.Text = "Rectangle";
             // 
@@ -377,11 +357,10 @@
             this.TB_InstanceHandle.BackColor = System.Drawing.Color.White;
             this.TB_InstanceHandle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_InstanceHandle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_InstanceHandle.Location = new System.Drawing.Point(156, 193);
-            this.TB_InstanceHandle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_InstanceHandle.Location = new System.Drawing.Point(117, 157);
             this.TB_InstanceHandle.Name = "TB_InstanceHandle";
             this.TB_InstanceHandle.ReadOnly = true;
-            this.TB_InstanceHandle.Size = new System.Drawing.Size(260, 15);
+            this.TB_InstanceHandle.Size = new System.Drawing.Size(195, 13);
             this.TB_InstanceHandle.TabIndex = 13;
             // 
             // TB_ControlID
@@ -390,11 +369,10 @@
             this.TB_ControlID.BackColor = System.Drawing.Color.White;
             this.TB_ControlID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_ControlID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_ControlID.Location = new System.Drawing.Point(156, 217);
-            this.TB_ControlID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_ControlID.Location = new System.Drawing.Point(117, 176);
             this.TB_ControlID.Name = "TB_ControlID";
             this.TB_ControlID.ReadOnly = true;
-            this.TB_ControlID.Size = new System.Drawing.Size(260, 15);
+            this.TB_ControlID.Size = new System.Drawing.Size(195, 13);
             this.TB_ControlID.TabIndex = 16;
             // 
             // TB_Rectangle
@@ -403,11 +381,10 @@
             this.TB_Rectangle.BackColor = System.Drawing.Color.White;
             this.TB_Rectangle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_Rectangle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_Rectangle.Location = new System.Drawing.Point(156, 142);
-            this.TB_Rectangle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_Rectangle.Location = new System.Drawing.Point(117, 115);
             this.TB_Rectangle.Name = "TB_Rectangle";
             this.TB_Rectangle.ReadOnly = true;
-            this.TB_Rectangle.Size = new System.Drawing.Size(260, 15);
+            this.TB_Rectangle.Size = new System.Drawing.Size(195, 13);
             this.TB_Rectangle.TabIndex = 10;
             // 
             // LBL_ClientRect
@@ -415,10 +392,9 @@
             this.LBL_ClientRect.AutoSize = true;
             this.LBL_ClientRect.BackColor = System.Drawing.Color.White;
             this.LBL_ClientRect.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_ClientRect.Location = new System.Drawing.Point(8, 165);
-            this.LBL_ClientRect.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_ClientRect.Location = new System.Drawing.Point(6, 134);
             this.LBL_ClientRect.Name = "LBL_ClientRect";
-            this.LBL_ClientRect.Size = new System.Drawing.Size(76, 17);
+            this.LBL_ClientRect.Size = new System.Drawing.Size(59, 13);
             this.LBL_ClientRect.TabIndex = 14;
             this.LBL_ClientRect.Text = "Client Rect";
             // 
@@ -428,11 +404,10 @@
             this.TB_ClientRect.BackColor = System.Drawing.Color.White;
             this.TB_ClientRect.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_ClientRect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_ClientRect.Location = new System.Drawing.Point(156, 165);
-            this.TB_ClientRect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_ClientRect.Location = new System.Drawing.Point(117, 134);
             this.TB_ClientRect.Name = "TB_ClientRect";
             this.TB_ClientRect.ReadOnly = true;
-            this.TB_ClientRect.Size = new System.Drawing.Size(260, 15);
+            this.TB_ClientRect.Size = new System.Drawing.Size(195, 13);
             this.TB_ClientRect.TabIndex = 15;
             // 
             // LBL_InstanceHandle
@@ -440,10 +415,9 @@
             this.LBL_InstanceHandle.AutoSize = true;
             this.LBL_InstanceHandle.BackColor = System.Drawing.Color.White;
             this.LBL_InstanceHandle.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_InstanceHandle.Location = new System.Drawing.Point(8, 193);
-            this.LBL_InstanceHandle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_InstanceHandle.Location = new System.Drawing.Point(6, 157);
             this.LBL_InstanceHandle.Name = "LBL_InstanceHandle";
-            this.LBL_InstanceHandle.Size = new System.Drawing.Size(110, 17);
+            this.LBL_InstanceHandle.Size = new System.Drawing.Size(85, 13);
             this.LBL_InstanceHandle.TabIndex = 12;
             this.LBL_InstanceHandle.Text = "Instance Handle";
             // 
@@ -456,13 +430,64 @@
             this.TP_Styles.Controls.Add(this.LBL_ExtendedStyles);
             this.TP_Styles.Controls.Add(this.TB_WindowStyles);
             this.TP_Styles.Controls.Add(this.LBL_WindowStyles);
-            this.TP_Styles.Location = new System.Drawing.Point(4, 25);
-            this.TP_Styles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TP_Styles.Location = new System.Drawing.Point(4, 22);
             this.TP_Styles.Name = "TP_Styles";
-            this.TP_Styles.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.TP_Styles.Size = new System.Drawing.Size(432, 314);
+            this.TP_Styles.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.TP_Styles.Size = new System.Drawing.Size(322, 253);
             this.TP_Styles.TabIndex = 3;
             this.TP_Styles.Text = "Styles";
+            // 
+            // LV_ExtendedStyles
+            // 
+            this.LV_ExtendedStyles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3,
+            this.columnHeader4});
+            this.LV_ExtendedStyles.FullRowSelect = true;
+            this.LV_ExtendedStyles.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.LV_ExtendedStyles.Location = new System.Drawing.Point(6, 146);
+            this.LV_ExtendedStyles.MultiSelect = false;
+            this.LV_ExtendedStyles.Name = "LV_ExtendedStyles";
+            this.LV_ExtendedStyles.Size = new System.Drawing.Size(308, 83);
+            this.LV_ExtendedStyles.TabIndex = 9;
+            this.LV_ExtendedStyles.UseCompatibleStateImageBehavior = false;
+            this.LV_ExtendedStyles.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Name";
+            this.columnHeader3.Width = 153;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Value";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeader4.Width = 120;
+            // 
+            // LV_WindowStyles
+            // 
+            this.LV_WindowStyles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.LV_WindowStyles.FullRowSelect = true;
+            this.LV_WindowStyles.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.LV_WindowStyles.Location = new System.Drawing.Point(7, 32);
+            this.LV_WindowStyles.MultiSelect = false;
+            this.LV_WindowStyles.Name = "LV_WindowStyles";
+            this.LV_WindowStyles.Size = new System.Drawing.Size(307, 83);
+            this.LV_WindowStyles.TabIndex = 8;
+            this.LV_WindowStyles.UseCompatibleStateImageBehavior = false;
+            this.LV_WindowStyles.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Name";
+            this.columnHeader1.Width = 153;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Value";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeader2.Width = 120;
             // 
             // TB_ExtendedStyles
             // 
@@ -470,11 +495,10 @@
             this.TB_ExtendedStyles.BackColor = System.Drawing.Color.White;
             this.TB_ExtendedStyles.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_ExtendedStyles.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_ExtendedStyles.Location = new System.Drawing.Point(156, 156);
-            this.TB_ExtendedStyles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_ExtendedStyles.Location = new System.Drawing.Point(117, 127);
             this.TB_ExtendedStyles.Name = "TB_ExtendedStyles";
             this.TB_ExtendedStyles.ReadOnly = true;
-            this.TB_ExtendedStyles.Size = new System.Drawing.Size(247, 15);
+            this.TB_ExtendedStyles.Size = new System.Drawing.Size(185, 13);
             this.TB_ExtendedStyles.TabIndex = 6;
             // 
             // LBL_ExtendedStyles
@@ -482,10 +506,9 @@
             this.LBL_ExtendedStyles.AutoSize = true;
             this.LBL_ExtendedStyles.BackColor = System.Drawing.Color.White;
             this.LBL_ExtendedStyles.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_ExtendedStyles.Location = new System.Drawing.Point(8, 156);
-            this.LBL_ExtendedStyles.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_ExtendedStyles.Location = new System.Drawing.Point(6, 127);
             this.LBL_ExtendedStyles.Name = "LBL_ExtendedStyles";
-            this.LBL_ExtendedStyles.Size = new System.Drawing.Size(109, 17);
+            this.LBL_ExtendedStyles.Size = new System.Drawing.Size(83, 13);
             this.LBL_ExtendedStyles.TabIndex = 5;
             this.LBL_ExtendedStyles.Text = "Extended Styles";
             // 
@@ -495,11 +518,10 @@
             this.TB_WindowStyles.BackColor = System.Drawing.Color.White;
             this.TB_WindowStyles.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_WindowStyles.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_WindowStyles.Location = new System.Drawing.Point(156, 16);
-            this.TB_WindowStyles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_WindowStyles.Location = new System.Drawing.Point(117, 13);
             this.TB_WindowStyles.Name = "TB_WindowStyles";
             this.TB_WindowStyles.ReadOnly = true;
-            this.TB_WindowStyles.Size = new System.Drawing.Size(247, 15);
+            this.TB_WindowStyles.Size = new System.Drawing.Size(185, 13);
             this.TB_WindowStyles.TabIndex = 3;
             // 
             // LBL_WindowStyles
@@ -507,10 +529,9 @@
             this.LBL_WindowStyles.AutoSize = true;
             this.LBL_WindowStyles.BackColor = System.Drawing.Color.White;
             this.LBL_WindowStyles.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_WindowStyles.Location = new System.Drawing.Point(8, 16);
-            this.LBL_WindowStyles.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_WindowStyles.Location = new System.Drawing.Point(6, 13);
             this.LBL_WindowStyles.Name = "LBL_WindowStyles";
-            this.LBL_WindowStyles.Size = new System.Drawing.Size(99, 17);
+            this.LBL_WindowStyles.Size = new System.Drawing.Size(77, 13);
             this.LBL_WindowStyles.TabIndex = 2;
             this.LBL_WindowStyles.Text = "Window Styles";
             // 
@@ -537,11 +558,10 @@
             this.TP_Class.Controls.Add(this.LBL_ClassStyles);
             this.TP_Class.Controls.Add(this.TB_ClassName);
             this.TP_Class.Controls.Add(this.LBL_ClassName);
-            this.TP_Class.Location = new System.Drawing.Point(4, 25);
-            this.TP_Class.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TP_Class.Location = new System.Drawing.Point(4, 22);
             this.TP_Class.Name = "TP_Class";
-            this.TP_Class.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.TP_Class.Size = new System.Drawing.Size(432, 314);
+            this.TP_Class.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.TP_Class.Size = new System.Drawing.Size(322, 253);
             this.TP_Class.TabIndex = 2;
             this.TP_Class.Text = "Class";
             // 
@@ -551,10 +571,9 @@
             this.CMB_ClassBytes.DropDownWidth = 122;
             this.CMB_ClassBytes.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.CMB_ClassBytes.FormattingEnabled = true;
-            this.CMB_ClassBytes.Location = new System.Drawing.Point(235, 81);
-            this.CMB_ClassBytes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CMB_ClassBytes.Location = new System.Drawing.Point(176, 66);
             this.CMB_ClassBytes.Name = "CMB_ClassBytes";
-            this.CMB_ClassBytes.Size = new System.Drawing.Size(180, 24);
+            this.CMB_ClassBytes.Size = new System.Drawing.Size(136, 21);
             this.CMB_ClassBytes.TabIndex = 28;
             // 
             // LBL_IconHandleSM
@@ -562,10 +581,9 @@
             this.LBL_IconHandleSM.AutoSize = true;
             this.LBL_IconHandleSM.BackColor = System.Drawing.Color.White;
             this.LBL_IconHandleSM.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_IconHandleSM.Location = new System.Drawing.Point(8, 217);
-            this.LBL_IconHandleSM.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_IconHandleSM.Location = new System.Drawing.Point(6, 176);
             this.LBL_IconHandleSM.Name = "LBL_IconHandleSM";
-            this.LBL_IconHandleSM.Size = new System.Drawing.Size(115, 17);
+            this.LBL_IconHandleSM.Size = new System.Drawing.Size(87, 13);
             this.LBL_IconHandleSM.TabIndex = 27;
             this.LBL_IconHandleSM.Text = "Icon Handle (sm)";
             // 
@@ -575,11 +593,10 @@
             this.TB_IconHandleSM.BackColor = System.Drawing.Color.White;
             this.TB_IconHandleSM.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_IconHandleSM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_IconHandleSM.Location = new System.Drawing.Point(156, 217);
-            this.TB_IconHandleSM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_IconHandleSM.Location = new System.Drawing.Point(117, 176);
             this.TB_IconHandleSM.Name = "TB_IconHandleSM";
             this.TB_IconHandleSM.ReadOnly = true;
-            this.TB_IconHandleSM.Size = new System.Drawing.Size(260, 15);
+            this.TB_IconHandleSM.Size = new System.Drawing.Size(195, 13);
             this.TB_IconHandleSM.TabIndex = 26;
             // 
             // LBL_BkgndBrush
@@ -587,10 +604,9 @@
             this.LBL_BkgndBrush.AutoSize = true;
             this.LBL_BkgndBrush.BackColor = System.Drawing.Color.White;
             this.LBL_BkgndBrush.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_BkgndBrush.Location = new System.Drawing.Point(8, 273);
-            this.LBL_BkgndBrush.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_BkgndBrush.Location = new System.Drawing.Point(6, 222);
             this.LBL_BkgndBrush.Name = "LBL_BkgndBrush";
-            this.LBL_BkgndBrush.Size = new System.Drawing.Size(89, 17);
+            this.LBL_BkgndBrush.Size = new System.Drawing.Size(68, 13);
             this.LBL_BkgndBrush.TabIndex = 25;
             this.LBL_BkgndBrush.Text = "Bkgnd Brush";
             // 
@@ -600,11 +616,10 @@
             this.TB_BkgndBrush.BackColor = System.Drawing.Color.White;
             this.TB_BkgndBrush.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_BkgndBrush.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_BkgndBrush.Location = new System.Drawing.Point(156, 273);
-            this.TB_BkgndBrush.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_BkgndBrush.Location = new System.Drawing.Point(117, 222);
             this.TB_BkgndBrush.Name = "TB_BkgndBrush";
             this.TB_BkgndBrush.ReadOnly = true;
-            this.TB_BkgndBrush.Size = new System.Drawing.Size(260, 15);
+            this.TB_BkgndBrush.Size = new System.Drawing.Size(195, 13);
             this.TB_BkgndBrush.TabIndex = 24;
             // 
             // LBL_CursorHandle
@@ -612,10 +627,9 @@
             this.LBL_CursorHandle.AutoSize = true;
             this.LBL_CursorHandle.BackColor = System.Drawing.Color.White;
             this.LBL_CursorHandle.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_CursorHandle.Location = new System.Drawing.Point(8, 240);
-            this.LBL_CursorHandle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_CursorHandle.Location = new System.Drawing.Point(6, 195);
             this.LBL_CursorHandle.Name = "LBL_CursorHandle";
-            this.LBL_CursorHandle.Size = new System.Drawing.Size(99, 17);
+            this.LBL_CursorHandle.Size = new System.Drawing.Size(74, 13);
             this.LBL_CursorHandle.TabIndex = 23;
             this.LBL_CursorHandle.Text = "Cursor Handle";
             // 
@@ -625,11 +639,10 @@
             this.TB_CursorHandle.BackColor = System.Drawing.Color.White;
             this.TB_CursorHandle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_CursorHandle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_CursorHandle.Location = new System.Drawing.Point(156, 240);
-            this.TB_CursorHandle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_CursorHandle.Location = new System.Drawing.Point(117, 195);
             this.TB_CursorHandle.Name = "TB_CursorHandle";
             this.TB_CursorHandle.ReadOnly = true;
-            this.TB_CursorHandle.Size = new System.Drawing.Size(260, 15);
+            this.TB_CursorHandle.Size = new System.Drawing.Size(195, 13);
             this.TB_CursorHandle.TabIndex = 22;
             // 
             // LBL_IconHandle
@@ -637,10 +650,9 @@
             this.LBL_IconHandle.AutoSize = true;
             this.LBL_IconHandle.BackColor = System.Drawing.Color.White;
             this.LBL_IconHandle.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_IconHandle.Location = new System.Drawing.Point(8, 193);
-            this.LBL_IconHandle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_IconHandle.Location = new System.Drawing.Point(6, 157);
             this.LBL_IconHandle.Name = "LBL_IconHandle";
-            this.LBL_IconHandle.Size = new System.Drawing.Size(83, 17);
+            this.LBL_IconHandle.Size = new System.Drawing.Size(65, 13);
             this.LBL_IconHandle.TabIndex = 21;
             this.LBL_IconHandle.Text = "Icon Handle";
             // 
@@ -650,11 +662,10 @@
             this.TB_IconHandle.BackColor = System.Drawing.Color.White;
             this.TB_IconHandle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_IconHandle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_IconHandle.Location = new System.Drawing.Point(156, 193);
-            this.TB_IconHandle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_IconHandle.Location = new System.Drawing.Point(117, 157);
             this.TB_IconHandle.Name = "TB_IconHandle";
             this.TB_IconHandle.ReadOnly = true;
-            this.TB_IconHandle.Size = new System.Drawing.Size(260, 15);
+            this.TB_IconHandle.Size = new System.Drawing.Size(195, 13);
             this.TB_IconHandle.TabIndex = 20;
             // 
             // CMB_ClassStyles
@@ -663,10 +674,9 @@
             this.CMB_ClassStyles.DropDownWidth = 122;
             this.CMB_ClassStyles.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.CMB_ClassStyles.FormattingEnabled = true;
-            this.CMB_ClassStyles.Location = new System.Drawing.Point(235, 48);
-            this.CMB_ClassStyles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CMB_ClassStyles.Location = new System.Drawing.Point(176, 39);
             this.CMB_ClassStyles.Name = "CMB_ClassStyles";
-            this.CMB_ClassStyles.Size = new System.Drawing.Size(180, 24);
+            this.CMB_ClassStyles.Size = new System.Drawing.Size(136, 21);
             this.CMB_ClassStyles.TabIndex = 19;
             // 
             // TB_ClassBytes
@@ -675,11 +685,10 @@
             this.TB_ClassBytes.BackColor = System.Drawing.Color.White;
             this.TB_ClassBytes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_ClassBytes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_ClassBytes.Location = new System.Drawing.Point(156, 85);
-            this.TB_ClassBytes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_ClassBytes.Location = new System.Drawing.Point(117, 69);
             this.TB_ClassBytes.Name = "TB_ClassBytes";
             this.TB_ClassBytes.ReadOnly = true;
-            this.TB_ClassBytes.Size = new System.Drawing.Size(76, 15);
+            this.TB_ClassBytes.Size = new System.Drawing.Size(57, 13);
             this.TB_ClassBytes.TabIndex = 18;
             // 
             // LBL_ClassBytes
@@ -687,10 +696,9 @@
             this.LBL_ClassBytes.AutoSize = true;
             this.LBL_ClassBytes.BackColor = System.Drawing.Color.White;
             this.LBL_ClassBytes.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_ClassBytes.Location = new System.Drawing.Point(8, 85);
-            this.LBL_ClassBytes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_ClassBytes.Location = new System.Drawing.Point(6, 69);
             this.LBL_ClassBytes.Name = "LBL_ClassBytes";
-            this.LBL_ClassBytes.Size = new System.Drawing.Size(81, 17);
+            this.LBL_ClassBytes.Size = new System.Drawing.Size(61, 13);
             this.LBL_ClassBytes.TabIndex = 17;
             this.LBL_ClassBytes.Text = "Class Bytes";
             // 
@@ -700,11 +708,10 @@
             this.TB_WindowBytes.BackColor = System.Drawing.Color.White;
             this.TB_WindowBytes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_WindowBytes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_WindowBytes.Location = new System.Drawing.Point(156, 159);
-            this.TB_WindowBytes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_WindowBytes.Location = new System.Drawing.Point(117, 129);
             this.TB_WindowBytes.Name = "TB_WindowBytes";
             this.TB_WindowBytes.ReadOnly = true;
-            this.TB_WindowBytes.Size = new System.Drawing.Size(260, 15);
+            this.TB_WindowBytes.Size = new System.Drawing.Size(195, 13);
             this.TB_WindowBytes.TabIndex = 16;
             // 
             // LBL_WindowBytes
@@ -712,10 +719,9 @@
             this.LBL_WindowBytes.AutoSize = true;
             this.LBL_WindowBytes.BackColor = System.Drawing.Color.White;
             this.LBL_WindowBytes.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_WindowBytes.Location = new System.Drawing.Point(8, 159);
-            this.LBL_WindowBytes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_WindowBytes.Location = new System.Drawing.Point(6, 129);
             this.LBL_WindowBytes.Name = "LBL_WindowBytes";
-            this.LBL_WindowBytes.Size = new System.Drawing.Size(96, 17);
+            this.LBL_WindowBytes.Size = new System.Drawing.Size(75, 13);
             this.LBL_WindowBytes.TabIndex = 15;
             this.LBL_WindowBytes.Text = "Window Bytes";
             // 
@@ -725,11 +731,10 @@
             this.TB_ClassAtom.BackColor = System.Drawing.Color.White;
             this.TB_ClassAtom.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_ClassAtom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_ClassAtom.Location = new System.Drawing.Point(156, 126);
-            this.TB_ClassAtom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_ClassAtom.Location = new System.Drawing.Point(117, 102);
             this.TB_ClassAtom.Name = "TB_ClassAtom";
             this.TB_ClassAtom.ReadOnly = true;
-            this.TB_ClassAtom.Size = new System.Drawing.Size(260, 15);
+            this.TB_ClassAtom.Size = new System.Drawing.Size(195, 13);
             this.TB_ClassAtom.TabIndex = 14;
             // 
             // LBL_ClassAtom
@@ -737,10 +742,9 @@
             this.LBL_ClassAtom.AutoSize = true;
             this.LBL_ClassAtom.BackColor = System.Drawing.Color.White;
             this.LBL_ClassAtom.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_ClassAtom.Location = new System.Drawing.Point(8, 126);
-            this.LBL_ClassAtom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_ClassAtom.Location = new System.Drawing.Point(6, 102);
             this.LBL_ClassAtom.Name = "LBL_ClassAtom";
-            this.LBL_ClassAtom.Size = new System.Drawing.Size(78, 17);
+            this.LBL_ClassAtom.Size = new System.Drawing.Size(59, 13);
             this.LBL_ClassAtom.TabIndex = 13;
             this.LBL_ClassAtom.Text = "Class Atom";
             // 
@@ -750,11 +754,10 @@
             this.TB_ClassStyles.BackColor = System.Drawing.Color.White;
             this.TB_ClassStyles.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_ClassStyles.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_ClassStyles.Location = new System.Drawing.Point(156, 52);
-            this.TB_ClassStyles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_ClassStyles.Location = new System.Drawing.Point(117, 42);
             this.TB_ClassStyles.Name = "TB_ClassStyles";
             this.TB_ClassStyles.ReadOnly = true;
-            this.TB_ClassStyles.Size = new System.Drawing.Size(76, 15);
+            this.TB_ClassStyles.Size = new System.Drawing.Size(57, 13);
             this.TB_ClassStyles.TabIndex = 12;
             // 
             // LBL_ClassStyles
@@ -762,10 +765,9 @@
             this.LBL_ClassStyles.AutoSize = true;
             this.LBL_ClassStyles.BackColor = System.Drawing.Color.White;
             this.LBL_ClassStyles.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_ClassStyles.Location = new System.Drawing.Point(8, 52);
-            this.LBL_ClassStyles.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_ClassStyles.Location = new System.Drawing.Point(6, 42);
             this.LBL_ClassStyles.Name = "LBL_ClassStyles";
-            this.LBL_ClassStyles.Size = new System.Drawing.Size(84, 17);
+            this.LBL_ClassStyles.Size = new System.Drawing.Size(63, 13);
             this.LBL_ClassStyles.TabIndex = 11;
             this.LBL_ClassStyles.Text = "Class Styles";
             // 
@@ -774,11 +776,10 @@
             this.TB_ClassName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_ClassName.BackColor = System.Drawing.Color.White;
             this.TB_ClassName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_ClassName.Location = new System.Drawing.Point(156, 12);
-            this.TB_ClassName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_ClassName.Location = new System.Drawing.Point(117, 10);
             this.TB_ClassName.Name = "TB_ClassName";
             this.TB_ClassName.ReadOnly = true;
-            this.TB_ClassName.Size = new System.Drawing.Size(259, 22);
+            this.TB_ClassName.Size = new System.Drawing.Size(195, 20);
             this.TB_ClassName.TabIndex = 10;
             // 
             // LBL_ClassName
@@ -786,10 +787,9 @@
             this.LBL_ClassName.AutoSize = true;
             this.LBL_ClassName.BackColor = System.Drawing.Color.White;
             this.LBL_ClassName.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_ClassName.Location = new System.Drawing.Point(8, 16);
-            this.LBL_ClassName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_ClassName.Location = new System.Drawing.Point(6, 13);
             this.LBL_ClassName.Name = "LBL_ClassName";
-            this.LBL_ClassName.Size = new System.Drawing.Size(83, 17);
+            this.LBL_ClassName.Size = new System.Drawing.Size(63, 13);
             this.LBL_ClassName.TabIndex = 9;
             this.LBL_ClassName.Text = "Class Name";
             // 
@@ -806,11 +806,10 @@
             this.TP_Process.Controls.Add(this.LBL_ModulePath);
             this.TP_Process.Controls.Add(this.TB_ModuleName);
             this.TP_Process.Controls.Add(this.LBL_ModuleName);
-            this.TP_Process.Location = new System.Drawing.Point(4, 25);
-            this.TP_Process.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TP_Process.Location = new System.Drawing.Point(4, 22);
             this.TP_Process.Name = "TP_Process";
-            this.TP_Process.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.TP_Process.Size = new System.Drawing.Size(432, 314);
+            this.TP_Process.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.TP_Process.Size = new System.Drawing.Size(322, 253);
             this.TP_Process.TabIndex = 1;
             this.TP_Process.Text = "Process";
             // 
@@ -821,11 +820,10 @@
             this.TB_PriorityClass.BackColor = System.Drawing.Color.White;
             this.TB_PriorityClass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_PriorityClass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_PriorityClass.Location = new System.Drawing.Point(156, 142);
-            this.TB_PriorityClass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_PriorityClass.Location = new System.Drawing.Point(117, 115);
             this.TB_PriorityClass.Name = "TB_PriorityClass";
             this.TB_PriorityClass.ReadOnly = true;
-            this.TB_PriorityClass.Size = new System.Drawing.Size(260, 15);
+            this.TB_PriorityClass.Size = new System.Drawing.Size(195, 13);
             this.TB_PriorityClass.TabIndex = 16;
             // 
             // LBL_PriorityClass
@@ -833,10 +831,9 @@
             this.LBL_PriorityClass.AutoSize = true;
             this.LBL_PriorityClass.BackColor = System.Drawing.Color.White;
             this.LBL_PriorityClass.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_PriorityClass.Location = new System.Drawing.Point(8, 142);
-            this.LBL_PriorityClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_PriorityClass.Location = new System.Drawing.Point(6, 115);
             this.LBL_PriorityClass.Name = "LBL_PriorityClass";
-            this.LBL_PriorityClass.Size = new System.Drawing.Size(90, 17);
+            this.LBL_PriorityClass.Size = new System.Drawing.Size(66, 13);
             this.LBL_PriorityClass.TabIndex = 15;
             this.LBL_PriorityClass.Text = "Priority Class";
             // 
@@ -847,11 +844,10 @@
             this.TB_ThreadID.BackColor = System.Drawing.Color.White;
             this.TB_ThreadID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_ThreadID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_ThreadID.Location = new System.Drawing.Point(156, 108);
-            this.TB_ThreadID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_ThreadID.Location = new System.Drawing.Point(117, 88);
             this.TB_ThreadID.Name = "TB_ThreadID";
             this.TB_ThreadID.ReadOnly = true;
-            this.TB_ThreadID.Size = new System.Drawing.Size(260, 15);
+            this.TB_ThreadID.Size = new System.Drawing.Size(195, 13);
             this.TB_ThreadID.TabIndex = 14;
             // 
             // LBL_ThreadID
@@ -859,10 +855,9 @@
             this.LBL_ThreadID.AutoSize = true;
             this.LBL_ThreadID.BackColor = System.Drawing.Color.White;
             this.LBL_ThreadID.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_ThreadID.Location = new System.Drawing.Point(8, 108);
-            this.LBL_ThreadID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_ThreadID.Location = new System.Drawing.Point(6, 88);
             this.LBL_ThreadID.Name = "LBL_ThreadID";
-            this.LBL_ThreadID.Size = new System.Drawing.Size(71, 17);
+            this.LBL_ThreadID.Size = new System.Drawing.Size(55, 13);
             this.LBL_ThreadID.TabIndex = 13;
             this.LBL_ThreadID.Text = "Thread ID";
             // 
@@ -873,11 +868,10 @@
             this.TB_ProcessID.BackColor = System.Drawing.Color.White;
             this.TB_ProcessID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_ProcessID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_ProcessID.Location = new System.Drawing.Point(156, 85);
-            this.TB_ProcessID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_ProcessID.Location = new System.Drawing.Point(117, 69);
             this.TB_ProcessID.Name = "TB_ProcessID";
             this.TB_ProcessID.ReadOnly = true;
-            this.TB_ProcessID.Size = new System.Drawing.Size(260, 15);
+            this.TB_ProcessID.Size = new System.Drawing.Size(195, 13);
             this.TB_ProcessID.TabIndex = 12;
             // 
             // LBL_ProcessID
@@ -885,10 +879,9 @@
             this.LBL_ProcessID.AutoSize = true;
             this.LBL_ProcessID.BackColor = System.Drawing.Color.White;
             this.LBL_ProcessID.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_ProcessID.Location = new System.Drawing.Point(8, 85);
-            this.LBL_ProcessID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_ProcessID.Location = new System.Drawing.Point(6, 69);
             this.LBL_ProcessID.Name = "LBL_ProcessID";
-            this.LBL_ProcessID.Size = new System.Drawing.Size(76, 17);
+            this.LBL_ProcessID.Size = new System.Drawing.Size(59, 13);
             this.LBL_ProcessID.TabIndex = 11;
             this.LBL_ProcessID.Text = "Process ID";
             // 
@@ -899,11 +892,10 @@
             this.TB_ModulePath.BackColor = System.Drawing.Color.White;
             this.TB_ModulePath.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_ModulePath.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_ModulePath.Location = new System.Drawing.Point(156, 52);
-            this.TB_ModulePath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_ModulePath.Location = new System.Drawing.Point(117, 42);
             this.TB_ModulePath.Name = "TB_ModulePath";
             this.TB_ModulePath.ReadOnly = true;
-            this.TB_ModulePath.Size = new System.Drawing.Size(260, 15);
+            this.TB_ModulePath.Size = new System.Drawing.Size(195, 13);
             this.TB_ModulePath.TabIndex = 5;
             // 
             // LBL_ModulePath
@@ -911,10 +903,9 @@
             this.LBL_ModulePath.AutoSize = true;
             this.LBL_ModulePath.BackColor = System.Drawing.Color.White;
             this.LBL_ModulePath.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_ModulePath.Location = new System.Drawing.Point(8, 52);
-            this.LBL_ModulePath.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_ModulePath.Location = new System.Drawing.Point(6, 42);
             this.LBL_ModulePath.Name = "LBL_ModulePath";
-            this.LBL_ModulePath.Size = new System.Drawing.Size(87, 17);
+            this.LBL_ModulePath.Size = new System.Drawing.Size(67, 13);
             this.LBL_ModulePath.TabIndex = 4;
             this.LBL_ModulePath.Text = "Module Path";
             // 
@@ -924,11 +915,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_ModuleName.BackColor = System.Drawing.Color.White;
             this.TB_ModuleName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_ModuleName.Location = new System.Drawing.Point(156, 12);
-            this.TB_ModuleName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_ModuleName.Location = new System.Drawing.Point(117, 10);
             this.TB_ModuleName.Name = "TB_ModuleName";
             this.TB_ModuleName.ReadOnly = true;
-            this.TB_ModuleName.Size = new System.Drawing.Size(259, 22);
+            this.TB_ModuleName.Size = new System.Drawing.Size(195, 20);
             this.TB_ModuleName.TabIndex = 3;
             // 
             // LBL_ModuleName
@@ -936,10 +926,9 @@
             this.LBL_ModuleName.AutoSize = true;
             this.LBL_ModuleName.BackColor = System.Drawing.Color.White;
             this.LBL_ModuleName.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_ModuleName.Location = new System.Drawing.Point(8, 16);
-            this.LBL_ModuleName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_ModuleName.Location = new System.Drawing.Point(6, 13);
             this.LBL_ModuleName.Name = "LBL_ModuleName";
-            this.LBL_ModuleName.Size = new System.Drawing.Size(95, 17);
+            this.LBL_ModuleName.Size = new System.Drawing.Size(73, 13);
             this.LBL_ModuleName.TabIndex = 2;
             this.LBL_ModuleName.Text = "Module Name";
             // 
@@ -967,10 +956,9 @@
             this.PNL_Top.Controls.Add(this.GB_Tool);
             this.PNL_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.PNL_Top.Location = new System.Drawing.Point(0, 0);
-            this.PNL_Top.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PNL_Top.Name = "PNL_Top";
-            this.PNL_Top.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.PNL_Top.Size = new System.Drawing.Size(456, 87);
+            this.PNL_Top.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.PNL_Top.Size = new System.Drawing.Size(342, 71);
             this.PNL_Top.TabIndex = 3;
             // 
             // PNL_Bottom
@@ -979,97 +967,39 @@
             this.PNL_Bottom.Controls.Add(this.BTN_Close);
             this.PNL_Bottom.Controls.Add(this.TC_Details);
             this.PNL_Bottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PNL_Bottom.Location = new System.Drawing.Point(0, 87);
-            this.PNL_Bottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PNL_Bottom.Location = new System.Drawing.Point(0, 71);
             this.PNL_Bottom.Name = "PNL_Bottom";
-            this.PNL_Bottom.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.PNL_Bottom.Size = new System.Drawing.Size(456, 398);
+            this.PNL_Bottom.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.PNL_Bottom.Size = new System.Drawing.Size(342, 323);
             this.PNL_Bottom.TabIndex = 4;
+            // 
+            // separator1
+            // 
+            this.separator1.Location = new System.Drawing.Point(8, 297);
+            this.separator1.Name = "separator1";
+            this.separator1.Orientation = SharpFind.Controls.Separator._Orientation.Horizontal;
+            this.separator1.Size = new System.Drawing.Size(244, 10);
+            this.separator1.TabIndex = 4;
+            this.separator1.Text = "separator1";
             // 
             // BTN_Close
             // 
             this.BTN_Close.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.BTN_Close.Location = new System.Drawing.Point(348, 358);
-            this.BTN_Close.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BTN_Close.Location = new System.Drawing.Point(261, 291);
             this.BTN_Close.Name = "BTN_Close";
-            this.BTN_Close.Size = new System.Drawing.Size(100, 28);
+            this.BTN_Close.Size = new System.Drawing.Size(75, 23);
             this.BTN_Close.TabIndex = 3;
             this.BTN_Close.Text = "&Close";
             this.BTN_Close.UseVisualStyleBackColor = true;
             this.BTN_Close.Click += new System.EventHandler(this.BTN_Close_Click);
             // 
-            // separator1
-            // 
-            this.separator1.Location = new System.Drawing.Point(11, 366);
-            this.separator1.Margin = new System.Windows.Forms.Padding(4);
-            this.separator1.Name = "separator1";
-            this.separator1.Orientation = SharpFind.Controls.Separator._Orientation.Horizontal;
-            this.separator1.Size = new System.Drawing.Size(325, 10);
-            this.separator1.TabIndex = 4;
-            this.separator1.Text = "separator1";
-            // 
-            // LV_ExtendedStyles
-            // 
-            this.LV_ExtendedStyles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3,
-            this.columnHeader4});
-            this.LV_ExtendedStyles.FullRowSelect = true;
-            this.LV_ExtendedStyles.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.LV_ExtendedStyles.Location = new System.Drawing.Point(8, 180);
-            this.LV_ExtendedStyles.Margin = new System.Windows.Forms.Padding(4);
-            this.LV_ExtendedStyles.MultiSelect = false;
-            this.LV_ExtendedStyles.Name = "LV_ExtendedStyles";
-            this.LV_ExtendedStyles.Size = new System.Drawing.Size(409, 101);
-            this.LV_ExtendedStyles.TabIndex = 9;
-            this.LV_ExtendedStyles.UseCompatibleStateImageBehavior = false;
-            this.LV_ExtendedStyles.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Name";
-            this.columnHeader3.Width = 153;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Value";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeader4.Width = 120;
-            // 
-            // LV_WindowStyles
-            // 
-            this.LV_WindowStyles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.LV_WindowStyles.FullRowSelect = true;
-            this.LV_WindowStyles.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.LV_WindowStyles.Location = new System.Drawing.Point(9, 39);
-            this.LV_WindowStyles.Margin = new System.Windows.Forms.Padding(4);
-            this.LV_WindowStyles.MultiSelect = false;
-            this.LV_WindowStyles.Name = "LV_WindowStyles";
-            this.LV_WindowStyles.Size = new System.Drawing.Size(408, 101);
-            this.LV_WindowStyles.TabIndex = 8;
-            this.LV_WindowStyles.UseCompatibleStateImageBehavior = false;
-            this.LV_WindowStyles.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Name";
-            this.columnHeader1.Width = 153;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Value";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeader2.Width = 120;
-            // 
             // Frm_Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 485);
+            this.ClientSize = new System.Drawing.Size(342, 394);
             this.Controls.Add(this.PNL_Bottom);
             this.Controls.Add(this.PNL_Top);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Frm_Main";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Frm_Main_Load);
