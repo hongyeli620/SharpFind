@@ -232,6 +232,7 @@ namespace SharpFind
             item = LV_WindowStyles.Items.Add(style);
             item.UseItemStyleForSubItems = false;
             item.SubItems.Add(styleValue).ForeColor =  SystemColors.GrayText;
+            item.SubItems[1].Font = new Font("Lucida Sans Typewriter", 8F, FontStyle.Regular);
         }
 
         private void DumpStyleEx(string style, string styleValue)
@@ -240,6 +241,7 @@ namespace SharpFind
             item = LV_ExtendedStyles.Items.Add(style);
             item.UseItemStyleForSubItems = false;
             item.SubItems.Add(styleValue).ForeColor = SystemColors.GrayText;
+            item.SubItems[1].Font = new Font("Lucida Sans Typewriter", 8F, FontStyle.Regular);
         }
 
         private string getStyle(IntPtr hWnd)
