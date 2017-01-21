@@ -32,7 +32,7 @@ namespace SharpFind
 
             if (IsDpi96())
             {
-                formHeightCollapsed = 100;
+                formHeightCollapsed = 99;
                 formHeightExtended = 413;
                 LV_WindowStyles.Columns[0].Width = 215;
                 LV_ExtendedStyles.Columns[0].Width = 215;
