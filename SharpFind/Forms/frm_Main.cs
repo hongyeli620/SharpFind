@@ -24,8 +24,8 @@ namespace SharpFind
             InitializeComponent();
 
             // Form appearance
-            var appName = IsRunningAsAdmin() ? Text = Application.ProductName + " (admin)" :
-                                               Text = Application.ProductName;
+            appName = IsRunningAsAdmin() ? Text = Application.ProductName + " (admin)" :
+                                           Text = Application.ProductName;
             Text = appName;
 
             ControlBox = true;
@@ -70,6 +70,8 @@ namespace SharpFind
         }
 
         #region Variables
+
+        private string appName;
 
         private int formHeightCollapsed = 100;
         private int formHeightExtended = 215;
@@ -838,7 +840,7 @@ namespace SharpFind
                 TB_ThreadID.Text      = getThreadID(hWnd);
                 TB_PriorityClass.Text = getPriorityClass(Process.GetProcessById(pid).Handle);
 
-                Text = Application.ProductName + " - " + TB_WindowHandle.Text.Split('(')[0];
+                Text = appName + " - " + TB_WindowHandle.Text.Split('(')[0];
 
                 // The flickering shall not pass
                 if (hWndOld == hWnd)
