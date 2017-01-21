@@ -120,17 +120,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GB_Tool.Controls.Add(this.PB_Tool);
             this.GB_Tool.Controls.Add(this.LBL_HowTo);
-            this.GB_Tool.Location = new System.Drawing.Point(8, 8);
+            this.GB_Tool.Location = new System.Drawing.Point(8, 3);
             this.GB_Tool.Name = "GB_Tool";
             this.GB_Tool.Size = new System.Drawing.Size(326, 58);
             this.GB_Tool.TabIndex = 0;
             this.GB_Tool.TabStop = false;
-            this.GB_Tool.Text = "Finder Tool";
             // 
             // PB_Tool
             // 
             this.PB_Tool.Image = global::SharpFind.Properties.Resources.finder_in;
-            this.PB_Tool.Location = new System.Drawing.Point(10, 20);
+            this.PB_Tool.Location = new System.Drawing.Point(10, 18);
             this.PB_Tool.Name = "PB_Tool";
             this.PB_Tool.Size = new System.Drawing.Size(31, 28);
             this.PB_Tool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -189,7 +188,7 @@
             this.TP_General.Controls.Add(this.LBL_InstanceHandle);
             this.TP_General.Location = new System.Drawing.Point(4, 22);
             this.TP_General.Name = "TP_General";
-            this.TP_General.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.TP_General.Padding = new System.Windows.Forms.Padding(3);
             this.TP_General.Size = new System.Drawing.Size(322, 253);
             this.TP_General.TabIndex = 0;
             this.TP_General.Text = "General Information";
@@ -432,7 +431,7 @@
             this.TP_Styles.Controls.Add(this.LBL_WindowStyles);
             this.TP_Styles.Location = new System.Drawing.Point(4, 22);
             this.TP_Styles.Name = "TP_Styles";
-            this.TP_Styles.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.TP_Styles.Padding = new System.Windows.Forms.Padding(3);
             this.TP_Styles.Size = new System.Drawing.Size(322, 253);
             this.TP_Styles.TabIndex = 3;
             this.TP_Styles.Text = "Styles";
@@ -560,7 +559,7 @@
             this.TP_Class.Controls.Add(this.LBL_ClassName);
             this.TP_Class.Location = new System.Drawing.Point(4, 22);
             this.TP_Class.Name = "TP_Class";
-            this.TP_Class.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.TP_Class.Padding = new System.Windows.Forms.Padding(3);
             this.TP_Class.Size = new System.Drawing.Size(322, 253);
             this.TP_Class.TabIndex = 2;
             this.TP_Class.Text = "Class";
@@ -808,7 +807,7 @@
             this.TP_Process.Controls.Add(this.LBL_ModuleName);
             this.TP_Process.Location = new System.Drawing.Point(4, 22);
             this.TP_Process.Name = "TP_Process";
-            this.TP_Process.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.TP_Process.Padding = new System.Windows.Forms.Padding(3);
             this.TP_Process.Size = new System.Drawing.Size(322, 253);
             this.TP_Process.TabIndex = 1;
             this.TP_Process.Text = "Process";
@@ -957,8 +956,8 @@
             this.PNL_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.PNL_Top.Location = new System.Drawing.Point(0, 0);
             this.PNL_Top.Name = "PNL_Top";
-            this.PNL_Top.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.PNL_Top.Size = new System.Drawing.Size(342, 71);
+            this.PNL_Top.Padding = new System.Windows.Forms.Padding(5);
+            this.PNL_Top.Size = new System.Drawing.Size(342, 65);
             this.PNL_Top.TabIndex = 3;
             // 
             // PNL_Bottom
@@ -967,10 +966,10 @@
             this.PNL_Bottom.Controls.Add(this.BTN_Close);
             this.PNL_Bottom.Controls.Add(this.TC_Details);
             this.PNL_Bottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PNL_Bottom.Location = new System.Drawing.Point(0, 71);
+            this.PNL_Bottom.Location = new System.Drawing.Point(0, 65);
             this.PNL_Bottom.Name = "PNL_Bottom";
-            this.PNL_Bottom.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.PNL_Bottom.Size = new System.Drawing.Size(342, 323);
+            this.PNL_Bottom.Padding = new System.Windows.Forms.Padding(5);
+            this.PNL_Bottom.Size = new System.Drawing.Size(342, 329);
             this.PNL_Bottom.TabIndex = 4;
             // 
             // separator1
