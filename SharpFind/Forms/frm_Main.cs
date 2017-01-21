@@ -75,7 +75,7 @@ namespace SharpFind
         private const int MNU_CHANGELOG = 1002;
 
         #endregion
-        #region Get Font DPI
+        #region DPI Check
 
         public static Point GetSystemDpi()
         {
@@ -227,7 +227,7 @@ namespace SharpFind
             {
                 if ((i & WindowStyles.WS_BORDER) != 0)
                     DumpStyle("WS_BORDER", WindowStyles.WS_BORDER.ToString("X8"));
-                if ((i & WindowStyles.WS_CAPTION) != 0)
+                if ((i & WindowStyles.WS_CAPTION) == WindowStyles.WS_CAPTION)
                 {
                     DumpStyle("WS_CAPTION", WindowStyles.WS_CAPTION.ToString("X8"));
                     if ((i & WindowStyles.WS_SYSMENU) != 0)
@@ -785,37 +785,37 @@ namespace SharpFind
 
                 // General Information tab
                 TB_WindowCaption.Text = getWindowCaption(hWnd);
-                TB_WindowHandle.Text = hWnd.ToInt32().ToString("X8") + " (" + hWnd.ToInt32() + ")";
+                TB_WindowHandle.Text  = hWnd.ToInt32().ToString("X8") + " (" + hWnd.ToInt32() + ")";
 
-                TB_Class.Text = getClass(hWnd);
-                TB_Style.Text = getStyle(hWnd);
-                TB_Rectangle.Text = getWindowRect(hWnd);
-                TB_ClientRect.Text = getClientRect(hWnd);
+                TB_Class.Text          = getClass(hWnd);
+                TB_Style.Text          = getStyle(hWnd);
+                TB_Rectangle.Text      = getWindowRect(hWnd);
+                TB_ClientRect.Text     = getClientRect(hWnd);
                 TB_InstanceHandle.Text = getInstanceHandle(hWnd);
-                TB_ControlID.Text = getControlID(hWnd);
-                TB_UserData.Text = getUserData(hWnd);
+                TB_ControlID.Text      = getControlID(hWnd);
+                TB_UserData.Text       = getUserData(hWnd);
                 getWindowBytesCombo(hWnd);
 
                 //Styles tab
-                TB_WindowStyles.Text = TB_Style.Text.Split('(')[0].TrimEnd();
+                TB_WindowStyles.Text   = TB_Style.Text.Split('(')[0].TrimEnd();
                 TB_ExtendedStyles.Text = getExtendedStyles(hWnd);
 
                 // Class tab
-                TB_ClassName.Text = getClassName(hWnd);
-                TB_ClassStyles.Text = getClassStyles(hWnd);
-                TB_ClassBytes.Text = getClassBytes(hWnd);
-                TB_ClassAtom.Text = getClassAtom(hWnd);
-                TB_WindowBytes.Text = getWindowBytes(hWnd);
-                TB_IconHandle.Text = getIconHandle(hWnd);
+                TB_ClassName.Text    = getClassName(hWnd);
+                TB_ClassStyles.Text  = getClassStyles(hWnd);
+                TB_ClassBytes.Text   = getClassBytes(hWnd);
+                TB_ClassAtom.Text    = getClassAtom(hWnd);
+                TB_WindowBytes.Text  = getWindowBytes(hWnd);
+                TB_IconHandle.Text   = getIconHandle(hWnd);
                 TB_IconHandleSM.Text = getIconHandleSM(hWnd);
                 TB_CursorHandle.Text = getCursorHandle(hWnd);
-                TB_BkgndBrush.Text = getBkgndBrush(hWnd);
+                TB_BkgndBrush.Text   = getBkgndBrush(hWnd);
 
                 // Process tab
-                TB_ModuleName.Text = getModuleName(hWnd);
-                TB_ModulePath.Text = getModulePath(hWnd);
-                TB_ProcessID.Text = getProcessId(hWnd);
-                TB_ThreadID.Text = getThreadID(hWnd);
+                TB_ModuleName.Text    = getModuleName(hWnd);
+                TB_ModulePath.Text    = getModulePath(hWnd);
+                TB_ProcessID.Text     = getProcessId(hWnd);
+                TB_ThreadID.Text      = getThreadID(hWnd);
                 TB_PriorityClass.Text = getPriorityClass(Process.GetProcessById(pid).Handle);
 
                 Text = Application.ProductName + " - " + TB_WindowHandle.Text.Split('(')[0];
