@@ -813,11 +813,11 @@ namespace SharpFind
                         var version       = Application.ProductVersion;
                         var buildDate     = new FileInfo(entryAssembly.Location).LastWriteTime;
                         var author        = Application.CompanyName;
-                        var info = "Version: " + version
-                                   + "\nBuild Date: " + buildDate
-                                   + "\n\nAuthor: " + author
-                                   + "\nPage: http://github.com/ei" 
-                                   + "\n\nThis open-source project is licensed under the MIT license. See the license file for details.";
+                        var info          = "Version: " + version
+                                            + "\nBuild Date: " + buildDate
+                                            + "\n\nAuthor: " + author
+                                            + "\nPage: http://github.com/ei" 
+                                            + "\n\nThis open-source project is licensed under the MIT license. See the license file for details.";
 
                         MessageBox.Show(info, "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         break;
