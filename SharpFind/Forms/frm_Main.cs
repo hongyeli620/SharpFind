@@ -184,6 +184,30 @@ namespace SharpFind
                 {
                     item = LV_WindowStyles.Items.Add("WS_CHILD");
                     item.SubItems.Add(WindowStyles.WS_CHILD.ToString("X8"));
+
+                    if ((i & WindowStyles.WS_TABSTOP) != 0)
+                    {
+                        item = LV_WindowStyles.Items.Add("WS_TABSTOP");
+                        item.SubItems.Add(WindowStyles.WS_TABSTOP.ToString("X8"));
+                    }
+                    if ((i & WindowStyles.WS_GROUP) != 0)
+                    {
+                        item = LV_WindowStyles.Items.Add("WS_GROUP");
+                        item.SubItems.Add(WindowStyles.WS_GROUP.ToString("X8"));
+                    }
+                }
+                else
+                {
+                    if ((i & WindowStyles.WS_MINIMIZEBOX) != 0)
+                    {
+                        item = LV_WindowStyles.Items.Add("WS_MINIMIZEBOX");
+                        item.SubItems.Add(WindowStyles.WS_MINIMIZEBOX.ToString("X8"));
+                    }
+                    if ((i & WindowStyles.WS_MAXIMIZEBOX) != 0)
+                    {
+                        item = LV_WindowStyles.Items.Add("WS_MAXIMIZEBOX");
+                        item.SubItems.Add(WindowStyles.WS_MAXIMIZEBOX.ToString("X8"));
+                    }
                 }
 //              if ((n & WindowStylesFlags.WS_CHILDWINDOW) != 0)
 //              {
@@ -210,11 +234,6 @@ namespace SharpFind
                     item = LV_WindowStyles.Items.Add("WS_DLGFRAME");
                     item.SubItems.Add(WindowStyles.WS_DLGFRAME.ToString("X8"));
                 }
-//              if ((n & WindowStylesFlags.WS_GROUP) != 0)
-//              {
-//                  item = LV_WindowStyles.Items.Add("WS_GROUP");
-//                  item.SubItems.Add(WindowStylesFlags.WS_GROUP.ToString("X8"));
-//              }
                 if ((i & WindowStyles.WS_HSCROLL) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_HSCROLL");
@@ -230,20 +249,10 @@ namespace SharpFind
                     item = LV_WindowStyles.Items.Add("WS_MAXIMIZE");
                     item.SubItems.Add(WindowStyles.WS_MAXIMIZE.ToString("X8"));
                 }
-                if ((i & WindowStyles.WS_MAXIMIZEBOX) != 0)
-                {
-                    item = LV_WindowStyles.Items.Add("WS_MAXIMIZEBOX");
-                    item.SubItems.Add(WindowStyles.WS_MAXIMIZEBOX.ToString("X8"));
-                }
                 if ((i & WindowStyles.WS_MINIMIZE) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_MINIMIZE");
                     item.SubItems.Add(WindowStyles.WS_MINIMIZE.ToString("X8"));
-                }
-                if ((i & WindowStyles.WS_MINIMIZEBOX) != 0)
-                {
-                    item = LV_WindowStyles.Items.Add("WS_MINIMIZEBOX");
-                    item.SubItems.Add(WindowStyles.WS_MINIMIZEBOX.ToString("X8"));
                 }
                 if ((i & WindowStyles.WS_OVERLAPPED) != 0)
                 {
@@ -275,11 +284,6 @@ namespace SharpFind
                     item = LV_WindowStyles.Items.Add("WS_SYSMENU");
                     item.SubItems.Add(WindowStyles.WS_SYSMENU.ToString("X8"));
                 }
-//              if ((n & WindowStylesFlags.WS_TABSTOP) != 0)
-//              {
-//                  item = LV_WindowStyles.Items.Add("WS_TABSTOP");
-//                  item.SubItems.Add(WindowStylesFlags.WS_TABSTOP.ToString("X8"));
-//              }
                 if ((i & WindowStyles.WS_THICKFRAME) != 0)
                 {
                     item = LV_WindowStyles.Items.Add("WS_THICKFRAME");
@@ -310,7 +314,7 @@ namespace SharpFind
             var isEnabled = IsWindowEnabled(hWnd) ? "enabled" : "disabled";
             var isVisible = IsWindowVisible(hWnd) ? "visible" : "hidden";
 
-            return string.Format("{0} ({1}, {2})", GetWindowLong(hWnd, GWL_STYLE).ToString("X8"),
+            return string.Format("{0} ({1}, {2})", GetWindowLong(hWnd, GWL_STYLE).ToString("X4"),
                                                    isEnabled, isVisible);
         }
 
