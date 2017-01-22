@@ -293,22 +293,25 @@ namespace SharpFind
                 if ((i & WindowStyles.WS_VISIBLE)          != 0) DumpStyle("WS_VISIBLE",          WindowStyles.WS_VISIBLE.ToString("X8"));
                 if ((i & WindowStyles.WS_VSCROLL)          != 0) DumpStyle("WS_VSCROLL",          WindowStyles.WS_VSCROLL.ToString("X8"));
 
-                if ((i & TreeViewControlStyles.TVS_CHECKBOXES)      != 0) DumpStyle("TVS_CHECKBOXES",      TreeViewControlStyles.TVS_CHECKBOXES.ToString("X8"));
-                if ((i & TreeViewControlStyles.TVS_DISABLEDRAGDROP) != 0) DumpStyle("TVS_DISABLEDRAGDROP", TreeViewControlStyles.TVS_DISABLEDRAGDROP.ToString("X8"));
-                if ((i & TreeViewControlStyles.TVS_EDITLABELS)      != 0) DumpStyle("TVS_EDITLABELS",      TreeViewControlStyles.TVS_EDITLABELS.ToString("X8"));
-                if ((i & TreeViewControlStyles.TVS_FULLROWSELECT)   != 0) DumpStyle("TVS_FULLROWSELECT",   TreeViewControlStyles.TVS_FULLROWSELECT.ToString("X8"));
-                if ((i & TreeViewControlStyles.TVS_HASBUTTONS)      != 0) DumpStyle("TVS_HASBUTTONS",      TreeViewControlStyles.TVS_HASBUTTONS.ToString("X8"));
-                if ((i & TreeViewControlStyles.TVS_HASLINES)        != 0) DumpStyle("TVS_HASLINES",        TreeViewControlStyles.TVS_HASLINES.ToString("X8"));
-                if ((i & TreeViewControlStyles.TVS_INFOTIP)         != 0) DumpStyle("TVS_INFOTIP",         TreeViewControlStyles.TVS_INFOTIP.ToString("X8"));
-                if ((i & TreeViewControlStyles.TVS_LINESATROOT)     != 0) DumpStyle("TVS_LINESATROOT",     TreeViewControlStyles.TVS_LINESATROOT.ToString("X8"));
-                if ((i & TreeViewControlStyles.TVS_NOHSCROLL)       != 0) DumpStyle("TVS_NOHSCROLL",       TreeViewControlStyles.TVS_NOHSCROLL.ToString("X8"));
-                if ((i & TreeViewControlStyles.TVS_NONEVENHEIGHT)   != 0) DumpStyle("TVS_NONEVENHEIGHT",   TreeViewControlStyles.TVS_NONEVENHEIGHT.ToString("X8"));
-                if ((i & TreeViewControlStyles.TVS_NOSCROLL)        != 0) DumpStyle("TVS_NOSCROLL",        TreeViewControlStyles.TVS_NOSCROLL.ToString("X8"));
-                if ((i & TreeViewControlStyles.TVS_NOTOOLTIPS)      != 0) DumpStyle("TVS_NOTOOLTIPS",      TreeViewControlStyles.TVS_NOTOOLTIPS.ToString("X8"));
-                if ((i & TreeViewControlStyles.TVS_RTLREADING)      != 0) DumpStyle("TVS_RTLREADING",      TreeViewControlStyles.TVS_RTLREADING.ToString("X8"));
-                if ((i & TreeViewControlStyles.TVS_SHOWSELALWAYS)   != 0) DumpStyle("TVS_SHOWSELALWAYS",   TreeViewControlStyles.TVS_SHOWSELALWAYS.ToString("X8"));
-                if ((i & TreeViewControlStyles.TVS_SINGLEEXPAND)    != 0) DumpStyle("TVS_SINGLEEXPAND",    TreeViewControlStyles.TVS_SINGLEEXPAND.ToString("X8"));
-                if ((i & TreeViewControlStyles.TVS_TRACKSELECT)     != 0) DumpStyle("TVS_TRACKSELECT",     TreeViewControlStyles.TVS_TRACKSELECT.ToString("X8"));
+                if (TB_Class.Text.StartsWith("SysTreeView32"))
+                {
+                    if ((i & TreeViewControlStyles.TVS_CHECKBOXES)      != 0) DumpStyle("TVS_CHECKBOXES",      TreeViewControlStyles.TVS_CHECKBOXES.ToString("X8"));
+                    if ((i & TreeViewControlStyles.TVS_DISABLEDRAGDROP) != 0) DumpStyle("TVS_DISABLEDRAGDROP", TreeViewControlStyles.TVS_DISABLEDRAGDROP.ToString("X8"));
+                    if ((i & TreeViewControlStyles.TVS_EDITLABELS)      != 0) DumpStyle("TVS_EDITLABELS",      TreeViewControlStyles.TVS_EDITLABELS.ToString("X8"));
+                    if ((i & TreeViewControlStyles.TVS_FULLROWSELECT)   != 0) DumpStyle("TVS_FULLROWSELECT",   TreeViewControlStyles.TVS_FULLROWSELECT.ToString("X8"));
+                    if ((i & TreeViewControlStyles.TVS_HASBUTTONS)      != 0) DumpStyle("TVS_HASBUTTONS",      TreeViewControlStyles.TVS_HASBUTTONS.ToString("X8"));
+                    if ((i & TreeViewControlStyles.TVS_HASLINES)        != 0) DumpStyle("TVS_HASLINES",        TreeViewControlStyles.TVS_HASLINES.ToString("X8"));
+                    if ((i & TreeViewControlStyles.TVS_INFOTIP)         != 0) DumpStyle("TVS_INFOTIP",         TreeViewControlStyles.TVS_INFOTIP.ToString("X8"));
+                    if ((i & TreeViewControlStyles.TVS_LINESATROOT)     != 0) DumpStyle("TVS_LINESATROOT",     TreeViewControlStyles.TVS_LINESATROOT.ToString("X8"));
+                    if ((i & TreeViewControlStyles.TVS_NOHSCROLL)       != 0) DumpStyle("TVS_NOHSCROLL",       TreeViewControlStyles.TVS_NOHSCROLL.ToString("X8"));
+                    if ((i & TreeViewControlStyles.TVS_NONEVENHEIGHT)   != 0) DumpStyle("TVS_NONEVENHEIGHT",   TreeViewControlStyles.TVS_NONEVENHEIGHT.ToString("X8"));
+                    if ((i & TreeViewControlStyles.TVS_NOSCROLL)        != 0) DumpStyle("TVS_NOSCROLL",        TreeViewControlStyles.TVS_NOSCROLL.ToString("X8"));
+                    if ((i & TreeViewControlStyles.TVS_NOTOOLTIPS)      != 0) DumpStyle("TVS_NOTOOLTIPS",      TreeViewControlStyles.TVS_NOTOOLTIPS.ToString("X8"));
+                    if ((i & TreeViewControlStyles.TVS_RTLREADING)      != 0) DumpStyle("TVS_RTLREADING",      TreeViewControlStyles.TVS_RTLREADING.ToString("X8"));
+                    if ((i & TreeViewControlStyles.TVS_SHOWSELALWAYS)   != 0) DumpStyle("TVS_SHOWSELALWAYS",   TreeViewControlStyles.TVS_SHOWSELALWAYS.ToString("X8"));
+                    if ((i & TreeViewControlStyles.TVS_SINGLEEXPAND)    != 0) DumpStyle("TVS_SINGLEEXPAND",    TreeViewControlStyles.TVS_SINGLEEXPAND.ToString("X8"));
+                    if ((i & TreeViewControlStyles.TVS_TRACKSELECT)     != 0) DumpStyle("TVS_TRACKSELECT",     TreeViewControlStyles.TVS_TRACKSELECT.ToString("X8"));
+                }
             }
 
             var isEnabled = IsWindowEnabled(hWnd) ? "enabled" : "disabled";
