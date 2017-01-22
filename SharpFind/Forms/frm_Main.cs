@@ -14,6 +14,11 @@ using SharpFind.Properties;
 // https://blogs.msdn.microsoft.com/csharpfaq/2014/11/20/new-features-in-c-6/
 // C#6 IDE support starts at Visual Studio 2013 and up
 using static SharpFind.Classes.NativeMethods;
+using static SharpFind.Classes.NativeMethods.WindowStyles;
+using static SharpFind.Classes.NativeMethods.WindowStylesEx;
+using static SharpFind.Classes.NativeMethods.ButtonControlStyles;
+using static SharpFind.Classes.NativeMethods.ComboBoxStyles;
+using static SharpFind.Classes.NativeMethods.TreeViewControlStyles;
 
 namespace SharpFind
 {
@@ -251,116 +256,117 @@ namespace SharpFind
 
             if (i != 0)
             {
-                if ((i & WindowStyles.WS_BORDER) != 0)
-                    DumpStyle("WS_BORDER", WindowStyles.WS_BORDER.ToString("X8"));
-                if ((i & WindowStyles.WS_CAPTION) == WindowStyles.WS_CAPTION)
+                if ((i & WS_BORDER) != 0) DumpStyle("WS_BORDER", WS_BORDER.ToString("X8"));
+                if ((i & WS_CAPTION) == WS_CAPTION)
                 {
-                    DumpStyle("WS_CAPTION", WindowStyles.WS_CAPTION.ToString("X8"));
-                    if ((i & WindowStyles.WS_SYSMENU) != 0)
-                        DumpStyle("WS_SYSMENU", WindowStyles.WS_SYSMENU.ToString("X8"));
+                    DumpStyle("WS_CAPTION", WS_CAPTION.ToString("X8"));
+
+                    if ((i & WS_SYSMENU) != 0)
+                        DumpStyle("WS_SYSMENU", WS_SYSMENU.ToString("X8"));
                 }
-                if ((i & WindowStyles.WS_CHILD) != 0)
+                if ((i & WS_CHILD) != 0)
                 {
-                    DumpStyle("WS_CHILD", WindowStyles.WS_CHILD.ToString("X8"));
-                    if ((i & WindowStyles.WS_TABSTOP) != 0)
-                        DumpStyle("WS_TABSTOP", WindowStyles.WS_TABSTOP.ToString("X8"));
-                    if ((i & WindowStyles.WS_GROUP) != 0)
-                        DumpStyle("WS_GROUP",   WindowStyles.WS_GROUP.ToString("X8"));
+                    DumpStyle("WS_CHILD", WS_CHILD.ToString("X8"));
+
+                    if ((i & WS_TABSTOP) != 0)
+                        DumpStyle("WS_TABSTOP", WS_TABSTOP.ToString("X8"));
+                    if ((i & WS_GROUP) != 0)
+                        DumpStyle("WS_GROUP", WS_GROUP.ToString("X8"));
                 }
                 else
                 {
-                    if ((i & WindowStyles.WS_POPUP) != 0)
-                        DumpStyle("WS_POPUP", WindowStyles.WS_POPUP.ToString("X8"));
-                    if ((i & WindowStyles.WS_SYSMENU) != 0)
+                    if ((i & WS_POPUP) != 0)
+                        DumpStyle("WS_POPUP", WS_POPUP.ToString("X8"));
+                    if ((i & WS_SYSMENU) != 0)
                     {
-                        if ((i & WindowStyles.WS_MINIMIZEBOX) != 0)
-                            DumpStyle("WS_MINIMIZEBOX", WindowStyles.WS_MINIMIZEBOX.ToString("X8"));
-                        if ((i & WindowStyles.WS_MAXIMIZEBOX) != 0)
-                            DumpStyle("WS_MAXIMIZEBOX", WindowStyles.WS_MAXIMIZEBOX.ToString("X8"));
+                        if ((i & WS_MINIMIZEBOX) != 0)
+                            DumpStyle("WS_MINIMIZEBOX", WS_MINIMIZEBOX.ToString("X8"));
+                        if ((i & WS_MAXIMIZEBOX) != 0)
+                            DumpStyle("WS_MAXIMIZEBOX", WS_MAXIMIZEBOX.ToString("X8"));
                     }
                 }
-                if ((i & WindowStyles.WS_CLIPCHILDREN)     != 0) DumpStyle("WS_CLIPCHILDREN",     WindowStyles.WS_CLIPCHILDREN.ToString("X8"));
-                if ((i & WindowStyles.WS_CLIPSIBLINGS)     != 0) DumpStyle("WS_CLIPSIBLINGS",     WindowStyles.WS_CLIPSIBLINGS.ToString("X8"));
-                if ((i & WindowStyles.WS_DISABLED)         != 0) DumpStyle("WS_DISABLED",         WindowStyles.WS_DISABLED.ToString("X8"));
-                if ((i & WindowStyles.WS_DLGFRAME)         != 0) DumpStyle("WS_DLGFRAME",         WindowStyles.WS_DLGFRAME.ToString("X8"));
-                if ((i & WindowStyles.WS_HSCROLL)          != 0) DumpStyle("WS_HSCROLL",          WindowStyles.WS_HSCROLL.ToString("X8"));
-                if ((i & WindowStyles.WS_MAXIMIZE)         != 0) DumpStyle("WS_MAXIMIZE",         WindowStyles.WS_MAXIMIZE.ToString("X8"));
-                if ((i & WindowStyles.WS_MINIMIZE)         != 0) DumpStyle("WS_MINIMIZE",         WindowStyles.WS_MINIMIZE.ToString("X8"));
-                if ((i & WindowStyles.WS_OVERLAPPED)       != 0) DumpStyle("WS_OVERLAPPED",       WindowStyles.WS_OVERLAPPED.ToString("X8"));
-                if ((i & WindowStyles.WS_OVERLAPPEDWINDOW) != 0) DumpStyle("WS_OVERLAPPEDWINDOW", WindowStyles.WS_OVERLAPPEDWINDOW.ToString("X8"));
-                if ((i & WindowStyles.WS_POPUPWINDOW)      != 0) DumpStyle("WS_POPUPWINDOW",      WindowStyles.WS_POPUPWINDOW.ToString("X8"));
-                if ((i & WindowStyles.WS_THICKFRAME)       != 0) DumpStyle("WS_THICKFRAME",       WindowStyles.WS_THICKFRAME.ToString("X8"));
-                if ((i & WindowStyles.WS_VISIBLE)          != 0) DumpStyle("WS_VISIBLE",          WindowStyles.WS_VISIBLE.ToString("X8"));
-                if ((i & WindowStyles.WS_VSCROLL)          != 0) DumpStyle("WS_VSCROLL",          WindowStyles.WS_VSCROLL.ToString("X8"));
+                if ((i & WS_CLIPCHILDREN)     != 0) DumpStyle("WS_CLIPCHILDREN",     WS_CLIPCHILDREN.ToString("X8"));
+                if ((i & WS_CLIPSIBLINGS)     != 0) DumpStyle("WS_CLIPSIBLINGS",     WS_CLIPSIBLINGS.ToString("X8"));
+                if ((i & WS_DISABLED)         != 0) DumpStyle("WS_DISABLED",         WS_DISABLED.ToString("X8"));
+                if ((i & WS_DLGFRAME)         != 0) DumpStyle("WS_DLGFRAME",         WS_DLGFRAME.ToString("X8"));
+                if ((i & WS_HSCROLL)          != 0) DumpStyle("WS_HSCROLL",          WS_HSCROLL.ToString("X8"));
+                if ((i & WS_MAXIMIZE)         != 0) DumpStyle("WS_MAXIMIZE",         WS_MAXIMIZE.ToString("X8"));
+                if ((i & WS_MINIMIZE)         != 0) DumpStyle("WS_MINIMIZE",         WS_MINIMIZE.ToString("X8"));
+                if ((i & WS_OVERLAPPED)       != 0) DumpStyle("WS_OVERLAPPED",       WS_OVERLAPPED.ToString("X8"));
+                if ((i & WS_OVERLAPPEDWINDOW) != 0) DumpStyle("WS_OVERLAPPEDWINDOW", WS_OVERLAPPEDWINDOW.ToString("X8"));
+                if ((i & WS_POPUPWINDOW)      != 0) DumpStyle("WS_POPUPWINDOW",      WS_POPUPWINDOW.ToString("X8"));
+                if ((i & WS_THICKFRAME)       != 0) DumpStyle("WS_THICKFRAME",       WS_THICKFRAME.ToString("X8"));
+                if ((i & WS_VISIBLE)          != 0) DumpStyle("WS_VISIBLE",          WS_VISIBLE.ToString("X8"));
+                if ((i & WS_VSCROLL)          != 0) DumpStyle("WS_VSCROLL",          WS_VSCROLL.ToString("X8"));
 
                 if (TB_Class.Text.StartsWith("Button"))
                 {
-                    if ((i & ButtonControlStyles.BS_BITMAP)      != 0) DumpStyle("BS_BITMAP",          ButtonControlStyles.BS_BITMAP.ToString("X8"));
-                    if ((i & ButtonControlStyles.BS_FLAT)        != 0) DumpStyle("BS_FLAT",            ButtonControlStyles.BS_FLAT.ToString("X8"));
-                    if ((i & ButtonControlStyles.BS_ICON)        != 0) DumpStyle("BS_ICON",            ButtonControlStyles.BS_ICON.ToString("X8"));
-                    if ((i & ButtonControlStyles.BS_LEFTTEXT)    != 0) DumpStyle("BS_LEFTTEXT",        ButtonControlStyles.BS_LEFTTEXT.ToString("X8"));
-                    if ((i & ButtonControlStyles.BS_MULTILINE)   != 0) DumpStyle("BS_MULTILINE",       ButtonControlStyles.BS_MULTILINE.ToString("X8"));
-                    if ((i & ButtonControlStyles.BS_NOTIFY)      != 0) DumpStyle("BS_NOTIFY",          ButtonControlStyles.BS_NOTIFY.ToString("X8"));
-                    if ((i & ButtonControlStyles.BS_PUSHLIKE)    != 0) DumpStyle("BS_PUSHLIKE",        ButtonControlStyles.BS_PUSHLIKE.ToString("X8"));
-                    if ((i & ButtonControlStyles.BS_RIGHTBUTTON) != 0) DumpStyle("BS_RIGHTBUTTON",     ButtonControlStyles.BS_RIGHTBUTTON.ToString("X8"));
-                    if ((i & ButtonControlStyles.BS_TEXT)        != 0) DumpStyle("BS_TEXT",            ButtonControlStyles.BS_TEXT.ToString("X8"));
+                    if ((i & BS_BITMAP)      != 0) DumpStyle("BS_BITMAP",      BS_BITMAP.ToString("X8"));
+                    if ((i & BS_FLAT)        != 0) DumpStyle("BS_FLAT",        BS_FLAT.ToString("X8"));
+                    if ((i & BS_ICON)        != 0) DumpStyle("BS_ICON",        BS_ICON.ToString("X8"));
+                    if ((i & BS_LEFTTEXT)    != 0) DumpStyle("BS_LEFTTEXT",    BS_LEFTTEXT.ToString("X8"));
+                    if ((i & BS_MULTILINE)   != 0) DumpStyle("BS_MULTILINE",   BS_MULTILINE.ToString("X8"));
+                    if ((i & BS_NOTIFY)      != 0) DumpStyle("BS_NOTIFY",      BS_NOTIFY.ToString("X8"));
+                    if ((i & BS_PUSHLIKE)    != 0) DumpStyle("BS_PUSHLIKE",    BS_PUSHLIKE.ToString("X8"));
+                    if ((i & BS_RIGHTBUTTON) != 0) DumpStyle("BS_RIGHTBUTTON", BS_RIGHTBUTTON.ToString("X8"));
+                    if ((i & BS_TEXT)        != 0) DumpStyle("BS_TEXT",        BS_TEXT.ToString("X8"));
 
-                    if ((i & 0xf) == ButtonControlStyles.BS_PUSHBUTTON)      DumpStyle("BS_PUSHBUTTON",      ButtonControlStyles.BS_PUSHBUTTON.ToString("X8"));
-                    if ((i & 0xf) == ButtonControlStyles.BS_DEFPUSHBUTTON)   DumpStyle("BS_DEFPUSHBUTTON",   ButtonControlStyles.BS_DEFPUSHBUTTON.ToString("X8"));
-                    if ((i & 0xf) == ButtonControlStyles.BS_CHECKBOX)        DumpStyle("BS_CHECKBOX",        ButtonControlStyles.BS_CHECKBOX.ToString("X8"));
-                    if ((i & 0xf) == ButtonControlStyles.BS_AUTOCHECKBOX)    DumpStyle("BS_AUTOCHECKBOX",    ButtonControlStyles.BS_AUTOCHECKBOX.ToString("X8"));
-                    if ((i & 0xf) == ButtonControlStyles.BS_RADIOBUTTON)     DumpStyle("BS_RADIOBUTTON",     ButtonControlStyles.BS_RADIOBUTTON.ToString("X8"));
-                    if ((i & 0xf) == ButtonControlStyles.BS_3STATE)          DumpStyle("BS_3STATE",          ButtonControlStyles.BS_3STATE.ToString("X8"));
-                    if ((i & 0xf) == ButtonControlStyles.BS_AUTO3STATE)      DumpStyle("BS_AUTO3STATE",      ButtonControlStyles.BS_AUTO3STATE.ToString("X8"));
-                    if ((i & 0xf) == ButtonControlStyles.BS_GROUPBOX)        DumpStyle("BS_GROUPBOX",        ButtonControlStyles.BS_GROUPBOX.ToString("X8"));
-                    if ((i & 0xf) == ButtonControlStyles.BS_USERBUTTON)      DumpStyle("BS_USERBUTTON",      ButtonControlStyles.BS_USERBUTTON.ToString("X8"));
-                    if ((i & 0xf) == ButtonControlStyles.BS_AUTORADIOBUTTON) DumpStyle("BS_AUTORADIOBUTTON", ButtonControlStyles.BS_AUTORADIOBUTTON.ToString("X8"));
-                    if ((i & 0xf) == ButtonControlStyles.BS_OWNERDRAW)       DumpStyle("BS_OWNERDRAW",       ButtonControlStyles.BS_OWNERDRAW.ToString("X8"));
+                    if ((i & 0xf) == BS_PUSHBUTTON)      DumpStyle("BS_PUSHBUTTON",      BS_PUSHBUTTON.ToString("X8"));
+                    if ((i & 0xf) == BS_DEFPUSHBUTTON)   DumpStyle("BS_DEFPUSHBUTTON",   BS_DEFPUSHBUTTON.ToString("X8"));
+                    if ((i & 0xf) == BS_CHECKBOX)        DumpStyle("BS_CHECKBOX",        BS_CHECKBOX.ToString("X8"));
+                    if ((i & 0xf) == BS_AUTOCHECKBOX)    DumpStyle("BS_AUTOCHECKBOX",    BS_AUTOCHECKBOX.ToString("X8"));
+                    if ((i & 0xf) == BS_RADIOBUTTON)     DumpStyle("BS_RADIOBUTTON",     BS_RADIOBUTTON.ToString("X8"));
+                    if ((i & 0xf) == BS_3STATE)          DumpStyle("BS_3STATE",          BS_3STATE.ToString("X8"));
+                    if ((i & 0xf) == BS_AUTO3STATE)      DumpStyle("BS_AUTO3STATE",      BS_AUTO3STATE.ToString("X8"));
+                    if ((i & 0xf) == BS_GROUPBOX)        DumpStyle("BS_GROUPBOX",        BS_GROUPBOX.ToString("X8"));
+                    if ((i & 0xf) == BS_USERBUTTON)      DumpStyle("BS_USERBUTTON",      BS_USERBUTTON.ToString("X8"));
+                    if ((i & 0xf) == BS_AUTORADIOBUTTON) DumpStyle("BS_AUTORADIOBUTTON", BS_AUTORADIOBUTTON.ToString("X8"));
+                    if ((i & 0xf) == BS_OWNERDRAW)       DumpStyle("BS_OWNERDRAW",       BS_OWNERDRAW.ToString("X8"));
 
-                    if ((i & ButtonControlStyles.BS_BOTTOM)  == ButtonControlStyles.BS_BOTTOM)  DumpStyle("BS_BOTTOM",  ButtonControlStyles.BS_RIGHT.ToString("X8"));
-                    if ((i & ButtonControlStyles.BS_CENTER)  == ButtonControlStyles.BS_CENTER)  DumpStyle("BS_CENTER",  ButtonControlStyles.BS_CENTER.ToString("X8"));
-                    if ((i & ButtonControlStyles.BS_LEFT)    == ButtonControlStyles.BS_LEFT)    DumpStyle("BS_LEFT",    ButtonControlStyles.BS_LEFT.ToString("X8"));
-                    if ((i & ButtonControlStyles.BS_RIGHT)   == ButtonControlStyles.BS_RIGHT)   DumpStyle("BS_RIGHT",   ButtonControlStyles.BS_RIGHT.ToString("X8"));
-                    if ((i & ButtonControlStyles.BS_TOP)     == ButtonControlStyles.BS_TOP)     DumpStyle("BS_TOP",     ButtonControlStyles.BS_LEFT.ToString("X8"));
-                    if ((i & ButtonControlStyles.BS_VCENTER) == ButtonControlStyles.BS_VCENTER) DumpStyle("BS_VCENTER", ButtonControlStyles.BS_CENTER.ToString("X8"));
+                    if ((i & BS_BOTTOM)  == BS_BOTTOM)  DumpStyle("BS_BOTTOM",  BS_RIGHT.ToString("X8"));
+                    if ((i & BS_CENTER)  == BS_CENTER)  DumpStyle("BS_CENTER",  BS_CENTER.ToString("X8"));
+                    if ((i & BS_LEFT)    == BS_LEFT)    DumpStyle("BS_LEFT",    BS_LEFT.ToString("X8"));
+                    if ((i & BS_RIGHT)   == BS_RIGHT)   DumpStyle("BS_RIGHT",   BS_RIGHT.ToString("X8"));
+                    if ((i & BS_TOP)     == BS_TOP)     DumpStyle("BS_TOP",     BS_LEFT.ToString("X8"));
+                    if ((i & BS_VCENTER) == BS_VCENTER) DumpStyle("BS_VCENTER", BS_CENTER.ToString("X8"));
                 }
 
                 if (TB_Class.Text.StartsWith("ComboBox"))
                 {
-                    if ((i & ComboBoxStyles.CBS_AUTOHSCROLL)       != 0) DumpStyle("CBS_AUTOHSCROLL",       ComboBoxStyles.CBS_AUTOHSCROLL.ToString("X8"));
-                    if ((i & ComboBoxStyles.CBS_DISABLENOSCROLL)   != 0) DumpStyle("CBS_DISABLENOSCROLL",   ComboBoxStyles.CBS_DISABLENOSCROLL.ToString("X8"));
-                    if ((i & ComboBoxStyles.CBS_HASSTRINGS)        != 0) DumpStyle("CBS_HASSTRINGS",        ComboBoxStyles.CBS_HASSTRINGS.ToString("X8"));
-                    if ((i & ComboBoxStyles.CBS_LOWERCASE)         != 0) DumpStyle("CBS_LOWERCASE",         ComboBoxStyles.CBS_LOWERCASE.ToString("X8"));
-                    if ((i & ComboBoxStyles.CBS_NOINTEGRALHEIGHT)  != 0) DumpStyle("CBS_NOINTEGRALHEIGHT",  ComboBoxStyles.CBS_NOINTEGRALHEIGHT.ToString("X8"));
-                    if ((i & ComboBoxStyles.CBS_OEMCONVERT)        != 0) DumpStyle("CBS_OEMCONVERT",        ComboBoxStyles.CBS_OEMCONVERT.ToString("X8"));
-                    if ((i & ComboBoxStyles.CBS_OWNERDRAWFIXED)    != 0) DumpStyle("CBS_OWNERDRAWFIXED",    ComboBoxStyles.CBS_OWNERDRAWFIXED.ToString("X8"));
-                    if ((i & ComboBoxStyles.CBS_OWNERDRAWVARIABLE) != 0) DumpStyle("CBS_OWNERDRAWVARIABLE", ComboBoxStyles.CBS_OWNERDRAWVARIABLE.ToString("X8"));
-                    if ((i & ComboBoxStyles.CBS_SORT)              != 0) DumpStyle("CBS_SORT",              ComboBoxStyles.CBS_SORT.ToString("X8"));
-                    if ((i & ComboBoxStyles.CBS_UPPERCASE)         != 0) DumpStyle("CBS_UPPERCASE",         ComboBoxStyles.CBS_UPPERCASE.ToString("X8"));
+                    if ((i & CBS_AUTOHSCROLL)       != 0) DumpStyle("CBS_AUTOHSCROLL",       CBS_AUTOHSCROLL.ToString("X8"));
+                    if ((i & CBS_DISABLENOSCROLL)   != 0) DumpStyle("CBS_DISABLENOSCROLL",   CBS_DISABLENOSCROLL.ToString("X8"));
+                    if ((i & CBS_HASSTRINGS)        != 0) DumpStyle("CBS_HASSTRINGS",        CBS_HASSTRINGS.ToString("X8"));
+                    if ((i & CBS_LOWERCASE)         != 0) DumpStyle("CBS_LOWERCASE",         CBS_LOWERCASE.ToString("X8"));
+                    if ((i & CBS_NOINTEGRALHEIGHT)  != 0) DumpStyle("CBS_NOINTEGRALHEIGHT",  CBS_NOINTEGRALHEIGHT.ToString("X8"));
+                    if ((i & CBS_OEMCONVERT)        != 0) DumpStyle("CBS_OEMCONVERT",        CBS_OEMCONVERT.ToString("X8"));
+                    if ((i & CBS_OWNERDRAWFIXED)    != 0) DumpStyle("CBS_OWNERDRAWFIXED",    CBS_OWNERDRAWFIXED.ToString("X8"));
+                    if ((i & CBS_OWNERDRAWVARIABLE) != 0) DumpStyle("CBS_OWNERDRAWVARIABLE", CBS_OWNERDRAWVARIABLE.ToString("X8"));
+                    if ((i & CBS_SORT)              != 0) DumpStyle("CBS_SORT",              CBS_SORT.ToString("X8"));
+                    if ((i & CBS_UPPERCASE)         != 0) DumpStyle("CBS_UPPERCASE",         CBS_UPPERCASE.ToString("X8"));
 
-                    if ((i & 0x3) == ComboBoxStyles.CBS_SIMPLE)       DumpStyle("CBS_SIMPLE",       ComboBoxStyles.CBS_SIMPLE.ToString("X8"));
-                    if ((i & 0x3) == ComboBoxStyles.CBS_DROPDOWN)     DumpStyle("CBS_DROPDOWN",     ComboBoxStyles.CBS_DROPDOWN.ToString("X8"));
-                    if ((i & 0x3) == ComboBoxStyles.CBS_DROPDOWNLIST) DumpStyle("CBS_DROPDOWNLIST", ComboBoxStyles.CBS_DROPDOWNLIST.ToString("X8"));
+                    if ((i & 0x3) == CBS_SIMPLE)       DumpStyle("CBS_SIMPLE",       CBS_SIMPLE.ToString("X8"));
+                    if ((i & 0x3) == CBS_DROPDOWN)     DumpStyle("CBS_DROPDOWN",     CBS_DROPDOWN.ToString("X8"));
+                    if ((i & 0x3) == CBS_DROPDOWNLIST) DumpStyle("CBS_DROPDOWNLIST", CBS_DROPDOWNLIST.ToString("X8"));
                 }
                 
                 if (TB_Class.Text.StartsWith("SysTreeView32"))
                 {
-                    if ((i & TreeViewControlStyles.TVS_CHECKBOXES)      != 0) DumpStyle("TVS_CHECKBOXES",      TreeViewControlStyles.TVS_CHECKBOXES.ToString("X8"));
-                    if ((i & TreeViewControlStyles.TVS_DISABLEDRAGDROP) != 0) DumpStyle("TVS_DISABLEDRAGDROP", TreeViewControlStyles.TVS_DISABLEDRAGDROP.ToString("X8"));
-                    if ((i & TreeViewControlStyles.TVS_EDITLABELS)      != 0) DumpStyle("TVS_EDITLABELS",      TreeViewControlStyles.TVS_EDITLABELS.ToString("X8"));
-                    if ((i & TreeViewControlStyles.TVS_FULLROWSELECT)   != 0) DumpStyle("TVS_FULLROWSELECT",   TreeViewControlStyles.TVS_FULLROWSELECT.ToString("X8"));
-                    if ((i & TreeViewControlStyles.TVS_HASBUTTONS)      != 0) DumpStyle("TVS_HASBUTTONS",      TreeViewControlStyles.TVS_HASBUTTONS.ToString("X8"));
-                    if ((i & TreeViewControlStyles.TVS_HASLINES)        != 0) DumpStyle("TVS_HASLINES",        TreeViewControlStyles.TVS_HASLINES.ToString("X8"));
-                    if ((i & TreeViewControlStyles.TVS_INFOTIP)         != 0) DumpStyle("TVS_INFOTIP",         TreeViewControlStyles.TVS_INFOTIP.ToString("X8"));
-                    if ((i & TreeViewControlStyles.TVS_LINESATROOT)     != 0) DumpStyle("TVS_LINESATROOT",     TreeViewControlStyles.TVS_LINESATROOT.ToString("X8"));
-                    if ((i & TreeViewControlStyles.TVS_NOHSCROLL)       != 0) DumpStyle("TVS_NOHSCROLL",       TreeViewControlStyles.TVS_NOHSCROLL.ToString("X8"));
-                    if ((i & TreeViewControlStyles.TVS_NONEVENHEIGHT)   != 0) DumpStyle("TVS_NONEVENHEIGHT",   TreeViewControlStyles.TVS_NONEVENHEIGHT.ToString("X8"));
-                    if ((i & TreeViewControlStyles.TVS_NOSCROLL)        != 0) DumpStyle("TVS_NOSCROLL",        TreeViewControlStyles.TVS_NOSCROLL.ToString("X8"));
-                    if ((i & TreeViewControlStyles.TVS_NOTOOLTIPS)      != 0) DumpStyle("TVS_NOTOOLTIPS",      TreeViewControlStyles.TVS_NOTOOLTIPS.ToString("X8"));
-                    if ((i & TreeViewControlStyles.TVS_RTLREADING)      != 0) DumpStyle("TVS_RTLREADING",      TreeViewControlStyles.TVS_RTLREADING.ToString("X8"));
-                    if ((i & TreeViewControlStyles.TVS_SHOWSELALWAYS)   != 0) DumpStyle("TVS_SHOWSELALWAYS",   TreeViewControlStyles.TVS_SHOWSELALWAYS.ToString("X8"));
-                    if ((i & TreeViewControlStyles.TVS_SINGLEEXPAND)    != 0) DumpStyle("TVS_SINGLEEXPAND",    TreeViewControlStyles.TVS_SINGLEEXPAND.ToString("X8"));
-                    if ((i & TreeViewControlStyles.TVS_TRACKSELECT)     != 0) DumpStyle("TVS_TRACKSELECT",     TreeViewControlStyles.TVS_TRACKSELECT.ToString("X8"));
+                    if ((i & TVS_CHECKBOXES)      != 0) DumpStyle("TVS_CHECKBOXES",      TVS_CHECKBOXES.ToString("X8"));
+                    if ((i & TVS_DISABLEDRAGDROP) != 0) DumpStyle("TVS_DISABLEDRAGDROP", TVS_DISABLEDRAGDROP.ToString("X8"));
+                    if ((i & TVS_EDITLABELS)      != 0) DumpStyle("TVS_EDITLABELS",      TVS_EDITLABELS.ToString("X8"));
+                    if ((i & TVS_FULLROWSELECT)   != 0) DumpStyle("TVS_FULLROWSELECT",   TVS_FULLROWSELECT.ToString("X8"));
+                    if ((i & TVS_HASBUTTONS)      != 0) DumpStyle("TVS_HASBUTTONS",      TVS_HASBUTTONS.ToString("X8"));
+                    if ((i & TVS_HASLINES)        != 0) DumpStyle("TVS_HASLINES",        TVS_HASLINES.ToString("X8"));
+                    if ((i & TVS_INFOTIP)         != 0) DumpStyle("TVS_INFOTIP",         TVS_INFOTIP.ToString("X8"));
+                    if ((i & TVS_LINESATROOT)     != 0) DumpStyle("TVS_LINESATROOT",     TVS_LINESATROOT.ToString("X8"));
+                    if ((i & TVS_NOHSCROLL)       != 0) DumpStyle("TVS_NOHSCROLL",       TVS_NOHSCROLL.ToString("X8"));
+                    if ((i & TVS_NONEVENHEIGHT)   != 0) DumpStyle("TVS_NONEVENHEIGHT",   TVS_NONEVENHEIGHT.ToString("X8"));
+                    if ((i & TVS_NOSCROLL)        != 0) DumpStyle("TVS_NOSCROLL",        TVS_NOSCROLL.ToString("X8"));
+                    if ((i & TVS_NOTOOLTIPS)      != 0) DumpStyle("TVS_NOTOOLTIPS",      TVS_NOTOOLTIPS.ToString("X8"));
+                    if ((i & TVS_RTLREADING)      != 0) DumpStyle("TVS_RTLREADING",      TVS_RTLREADING.ToString("X8"));
+                    if ((i & TVS_SHOWSELALWAYS)   != 0) DumpStyle("TVS_SHOWSELALWAYS",   TVS_SHOWSELALWAYS.ToString("X8"));
+                    if ((i & TVS_SINGLEEXPAND)    != 0) DumpStyle("TVS_SINGLEEXPAND",    TVS_SINGLEEXPAND.ToString("X8"));
+                    if ((i & TVS_TRACKSELECT)     != 0) DumpStyle("TVS_TRACKSELECT",     TVS_TRACKSELECT.ToString("X8"));
                 }
             }
 
@@ -378,33 +384,33 @@ namespace SharpFind
 
             if (i != 0)
             {
-                if ((i & WindowStylesEx.WS_EX_ACCEPTFILES)         != 0) DumpStyleEx("WS_EX_ACCEPTFILES",         WindowStylesEx.WS_EX_ACCEPTFILES.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_APPWINDOW)           != 0) DumpStyleEx("WS_EX_APPWINDOW",           WindowStylesEx.WS_EX_APPWINDOW.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_CLIENTEDGE)          != 0) DumpStyleEx("WS_EX_CLIENTEDGE",          WindowStylesEx.WS_EX_CLIENTEDGE.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_COMPOSITED)          != 0) DumpStyleEx("WS_EX_COMPOSITED",          WindowStylesEx.WS_EX_COMPOSITED.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_CONTEXTHELP)         != 0) DumpStyleEx("WS_EX_CONTEXTHELP",         WindowStylesEx.WS_EX_CONTEXTHELP.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_CONTROLPARENT)       != 0) DumpStyleEx("WS_EX_CONTROLPARENT",       WindowStylesEx.WS_EX_CONTROLPARENT.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_DLGMODALFRAME)       != 0) DumpStyleEx("WS_EX_DLGMODALFRAME",       WindowStylesEx.WS_EX_DLGMODALFRAME.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_LAYERED)             != 0) DumpStyleEx("WS_EX_LAYERED",             WindowStylesEx.WS_EX_LAYERED.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_LAYOUTRTL)           != 0) DumpStyleEx("WS_EX_LAYOUTRTL",           WindowStylesEx.WS_EX_LAYOUTRTL.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_LEFT)                != 0) DumpStyleEx("WS_EX_LEFT",                WindowStylesEx.WS_EX_LEFT.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_LEFTSCROLLBAR)       != 0) DumpStyleEx("WS_EX_LEFTSCROLLBAR",       WindowStylesEx.WS_EX_LEFTSCROLLBAR.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_LTRREADING)          != 0) DumpStyleEx("WS_EX_LTRREADING",          WindowStylesEx.WS_EX_LTRREADING.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_MDICHILD)            != 0) DumpStyleEx("WS_EX_MDICHILD",            WindowStylesEx.WS_EX_MDICHILD.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_NOACTIVATE)          != 0) DumpStyleEx("WS_EX_NOACTIVATE",          WindowStylesEx.WS_EX_NOACTIVATE.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_NOINHERITLAYOUT)     != 0) DumpStyleEx("WS_EX_NOINHERITLAYOUT",     WindowStylesEx.WS_EX_NOINHERITLAYOUT.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_NOPARENTNOTIFY)      != 0) DumpStyleEx("WS_EX_NOPARENTNOTIFY",      WindowStylesEx.WS_EX_NOPARENTNOTIFY.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_NOREDIRECTIONBITMAP) != 0) DumpStyleEx("WS_EX_NOREDIRECTIONBITMAP", WindowStylesEx.WS_EX_NOREDIRECTIONBITMAP.ToString("X8"));
-//              if ((n & ExtendedStyles.WS_EX_OVERLAPPEDWINDOW)    != 0) DumpStyleEx("WS_EX_OVERLAPPEDWINDOW",    ExtendedWindowStyles.WS_EX_OVERLAPPEDWINDOW.ToString("X8"));
-//              if ((n & ExtendedStyles.WS_EX_PALETTEWINDOW)       != 0) DumpStyleEx("WS_EX_PALETTEWINDOW",       ExtendedWindowStyles.WS_EX_PALETTEWINDOW.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_RIGHT)               != 0) DumpStyleEx("WS_EX_RIGHT",               WindowStylesEx.WS_EX_RIGHT.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_RIGHTSCROLLBAR)      != 0) DumpStyleEx("WS_EX_RIGHTSCROLLBAR",      WindowStylesEx.WS_EX_RIGHTSCROLLBAR.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_RTLREADING)          != 0) DumpStyleEx("WS_EX_RTLREADING",          WindowStylesEx.WS_EX_RTLREADING.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_STATICEDGE)          != 0) DumpStyleEx("WS_EX_STATICEDGE",          WindowStylesEx.WS_EX_STATICEDGE.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_TOOLWINDOW)          != 0) DumpStyleEx("WS_EX_TOOLWINDOW",          WindowStylesEx.WS_EX_TOOLWINDOW.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_TOPMOST)             != 0) DumpStyleEx("WS_EX_TOPMOST",             WindowStylesEx.WS_EX_TOPMOST.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_TRANSPARENT)         != 0) DumpStyleEx("WS_EX_TRANSPARENT",         WindowStylesEx.WS_EX_TRANSPARENT.ToString("X8"));
-                if ((i & WindowStylesEx.WS_EX_WINDOWEDGE)          != 0) DumpStyleEx("WS_EX_WINDOWEDGE",          WindowStylesEx.WS_EX_WINDOWEDGE.ToString("X8"));
+                if ((i & WS_EX_ACCEPTFILES)         != 0) DumpStyleEx("WS_EX_ACCEPTFILES",         WS_EX_ACCEPTFILES.ToString("X8"));
+                if ((i & WS_EX_APPWINDOW)           != 0) DumpStyleEx("WS_EX_APPWINDOW",           WS_EX_APPWINDOW.ToString("X8"));
+                if ((i & WS_EX_CLIENTEDGE)          != 0) DumpStyleEx("WS_EX_CLIENTEDGE",          WS_EX_CLIENTEDGE.ToString("X8"));
+                if ((i & WS_EX_COMPOSITED)          != 0) DumpStyleEx("WS_EX_COMPOSITED",          WS_EX_COMPOSITED.ToString("X8"));
+                if ((i & WS_EX_CONTEXTHELP)         != 0) DumpStyleEx("WS_EX_CONTEXTHELP",         WS_EX_CONTEXTHELP.ToString("X8"));
+                if ((i & WS_EX_CONTROLPARENT)       != 0) DumpStyleEx("WS_EX_CONTROLPARENT",       WS_EX_CONTROLPARENT.ToString("X8"));
+                if ((i & WS_EX_DLGMODALFRAME)       != 0) DumpStyleEx("WS_EX_DLGMODALFRAME",       WS_EX_DLGMODALFRAME.ToString("X8"));
+                if ((i & WS_EX_LAYERED)             != 0) DumpStyleEx("WS_EX_LAYERED",             WS_EX_LAYERED.ToString("X8"));
+                if ((i & WS_EX_LAYOUTRTL)           != 0) DumpStyleEx("WS_EX_LAYOUTRTL",           WS_EX_LAYOUTRTL.ToString("X8"));
+                if ((i & WS_EX_LEFT)                != 0) DumpStyleEx("WS_EX_LEFT",                WS_EX_LEFT.ToString("X8"));
+                if ((i & WS_EX_LEFTSCROLLBAR)       != 0) DumpStyleEx("WS_EX_LEFTSCROLLBAR",       WS_EX_LEFTSCROLLBAR.ToString("X8"));
+                if ((i & WS_EX_LTRREADING)          != 0) DumpStyleEx("WS_EX_LTRREADING",          WS_EX_LTRREADING.ToString("X8"));
+                if ((i & WS_EX_MDICHILD)            != 0) DumpStyleEx("WS_EX_MDICHILD",            WS_EX_MDICHILD.ToString("X8"));
+                if ((i & WS_EX_NOACTIVATE)          != 0) DumpStyleEx("WS_EX_NOACTIVATE",          WS_EX_NOACTIVATE.ToString("X8"));
+                if ((i & WS_EX_NOINHERITLAYOUT)     != 0) DumpStyleEx("WS_EX_NOINHERITLAYOUT",     WS_EX_NOINHERITLAYOUT.ToString("X8"));
+                if ((i & WS_EX_NOPARENTNOTIFY)      != 0) DumpStyleEx("WS_EX_NOPARENTNOTIFY",      WS_EX_NOPARENTNOTIFY.ToString("X8"));
+                if ((i & WS_EX_NOREDIRECTIONBITMAP) != 0) DumpStyleEx("WS_EX_NOREDIRECTIONBITMAP", WS_EX_NOREDIRECTIONBITMAP.ToString("X8"));
+//              if ((n & WS_EX_OVERLAPPEDWINDOW)    != 0) DumpStyleEx("WS_EX_OVERLAPPEDWINDOW",    WS_EX_OVERLAPPEDWINDOW.ToString("X8"));
+//              if ((n & WS_EX_PALETTEWINDOW)       != 0) DumpStyleEx("WS_EX_PALETTEWINDOW",       WS_EX_PALETTEWINDOW.ToString("X8"));
+                if ((i & WS_EX_RIGHT)               != 0) DumpStyleEx("WS_EX_RIGHT",               WS_EX_RIGHT.ToString("X8"));
+                if ((i & WS_EX_RIGHTSCROLLBAR)      != 0) DumpStyleEx("WS_EX_RIGHTSCROLLBAR",      WS_EX_RIGHTSCROLLBAR.ToString("X8"));
+                if ((i & WS_EX_RTLREADING)          != 0) DumpStyleEx("WS_EX_RTLREADING",          WS_EX_RTLREADING.ToString("X8"));
+                if ((i & WS_EX_STATICEDGE)          != 0) DumpStyleEx("WS_EX_STATICEDGE",          WS_EX_STATICEDGE.ToString("X8"));
+                if ((i & WS_EX_TOOLWINDOW)          != 0) DumpStyleEx("WS_EX_TOOLWINDOW",          WS_EX_TOOLWINDOW.ToString("X8"));
+                if ((i & WS_EX_TOPMOST)             != 0) DumpStyleEx("WS_EX_TOPMOST",             WS_EX_TOPMOST.ToString("X8"));
+                if ((i & WS_EX_TRANSPARENT)         != 0) DumpStyleEx("WS_EX_TRANSPARENT",         WS_EX_TRANSPARENT.ToString("X8"));
+                if ((i & WS_EX_WINDOWEDGE)          != 0) DumpStyleEx("WS_EX_WINDOWEDGE",          WS_EX_WINDOWEDGE.ToString("X8"));
             }
 
             return GetWindowLong(hWnd, GWL_EXSTYLE).ToString("X8");
