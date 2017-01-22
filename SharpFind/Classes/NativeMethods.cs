@@ -1137,6 +1137,16 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: MDIClient
+        /// Based on Windows Kits\8.1\Include\um\WinUser.h
+        /// </summary>
+        internal static class MDIClientStyles
+        {
+            internal static readonly int
+            MDIS_ALLCHILDSTYLES = 0x0001;
+        }
+
+        /// <summary>
         /// Class: SysMonthCal32
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
