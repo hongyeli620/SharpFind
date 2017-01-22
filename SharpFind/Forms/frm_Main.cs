@@ -293,6 +293,24 @@ namespace SharpFind
                 if ((i & WindowStyles.WS_VISIBLE)          != 0) DumpStyle("WS_VISIBLE",          WindowStyles.WS_VISIBLE.ToString("X8"));
                 if ((i & WindowStyles.WS_VSCROLL)          != 0) DumpStyle("WS_VSCROLL",          WindowStyles.WS_VSCROLL.ToString("X8"));
 
+                if (TB_Class.Text.StartsWith("ComboBox"))
+                {
+                    if ((i & ComboBoxStyles.CBS_AUTOHSCROLL)       != 0) DumpStyle("CBS_AUTOHSCROLL",       ComboBoxStyles.CBS_AUTOHSCROLL.ToString("X8"));
+                    if ((i & ComboBoxStyles.CBS_DISABLENOSCROLL)   != 0) DumpStyle("CBS_DISABLENOSCROLL",   ComboBoxStyles.CBS_DISABLENOSCROLL.ToString("X8"));
+                    if ((i & ComboBoxStyles.CBS_HASSTRINGS)        != 0) DumpStyle("CBS_HASSTRINGS",        ComboBoxStyles.CBS_HASSTRINGS.ToString("X8"));
+                    if ((i & ComboBoxStyles.CBS_LOWERCASE)         != 0) DumpStyle("CBS_LOWERCASE",         ComboBoxStyles.CBS_LOWERCASE.ToString("X8"));
+                    if ((i & ComboBoxStyles.CBS_NOINTEGRALHEIGHT)  != 0) DumpStyle("CBS_NOINTEGRALHEIGHT",  ComboBoxStyles.CBS_NOINTEGRALHEIGHT.ToString("X8"));
+                    if ((i & ComboBoxStyles.CBS_OEMCONVERT)        != 0) DumpStyle("CBS_OEMCONVERT",        ComboBoxStyles.CBS_OEMCONVERT.ToString("X8"));
+                    if ((i & ComboBoxStyles.CBS_OWNERDRAWFIXED)    != 0) DumpStyle("CBS_OWNERDRAWFIXED",    ComboBoxStyles.CBS_OWNERDRAWFIXED.ToString("X8"));
+                    if ((i & ComboBoxStyles.CBS_OWNERDRAWVARIABLE) != 0) DumpStyle("CBS_OWNERDRAWVARIABLE", ComboBoxStyles.CBS_OWNERDRAWVARIABLE.ToString("X8"));
+                    if ((i & ComboBoxStyles.CBS_SORT)              != 0) DumpStyle("CBS_SORT",              ComboBoxStyles.CBS_SORT.ToString("X8"));
+                    if ((i & ComboBoxStyles.CBS_UPPERCASE)         != 0) DumpStyle("CBS_UPPERCASE",         ComboBoxStyles.CBS_UPPERCASE.ToString("X8"));
+
+                    if ((i & 3) == ComboBoxStyles.CBS_SIMPLE)       DumpStyle("CBS_SIMPLE",       ComboBoxStyles.CBS_SIMPLE.ToString("X8"));
+                    if ((i & 3) == ComboBoxStyles.CBS_DROPDOWN)     DumpStyle("CBS_DROPDOWN",     ComboBoxStyles.CBS_DROPDOWN.ToString("X8"));
+                    if ((i & 3) == ComboBoxStyles.CBS_DROPDOWNLIST) DumpStyle("CBS_DROPDOWNLIST", ComboBoxStyles.CBS_DROPDOWNLIST.ToString("X8"));
+                }
+                
                 if (TB_Class.Text.StartsWith("SysTreeView32"))
                 {
                     if ((i & TreeViewControlStyles.TVS_CHECKBOXES)      != 0) DumpStyle("TVS_CHECKBOXES",      TreeViewControlStyles.TVS_CHECKBOXES.ToString("X8"));
