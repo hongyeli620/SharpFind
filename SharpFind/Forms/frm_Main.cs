@@ -18,6 +18,7 @@ using static SharpFind.Classes.NativeMethods.WindowStyles;
 using static SharpFind.Classes.NativeMethods.WindowStylesEx;
 using static SharpFind.Classes.NativeMethods.ButtonControlStyles;
 using static SharpFind.Classes.NativeMethods.ComboBoxStyles;
+using static SharpFind.Classes.NativeMethods.MDIClientStyles;
 using static SharpFind.Classes.NativeMethods.TreeViewControlStyles;
 
 namespace SharpFind
@@ -348,7 +349,10 @@ namespace SharpFind
                     if ((i & 0x3) == CBS_DROPDOWN)        DumpStyle("CBS_DROPDOWN",          CBS_DROPDOWN.ToString("X8"));
                     if ((i & 0x3) == CBS_DROPDOWNLIST)    DumpStyle("CBS_DROPDOWNLIST",      CBS_DROPDOWNLIST.ToString("X8"));
                 }
-                
+
+                if (TB_Class.Text.StartsWith("MDIClient"))
+                    if ((i & MDIS_ALLCHILDSTYLES) != 0) DumpStyle("MDIS_ALLCHILDSTYLES", MDIS_ALLCHILDSTYLES.ToString("X8"));
+
                 if (TB_Class.Text.StartsWith("SysTreeView32"))
                 {
                     if ((i & TVS_CHECKBOXES)      != 0) DumpStyle("TVS_CHECKBOXES",      TVS_CHECKBOXES.ToString("X8"));
