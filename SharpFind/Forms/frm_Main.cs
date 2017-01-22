@@ -19,6 +19,7 @@ using static SharpFind.Classes.NativeMethods.WindowStylesEx;
 using static SharpFind.Classes.NativeMethods.ButtonControlStyles;
 using static SharpFind.Classes.NativeMethods.ComboBoxStyles;
 using static SharpFind.Classes.NativeMethods.MDIClientStyles;
+using static SharpFind.Classes.NativeMethods.DateTimeControlStyles;
 using static SharpFind.Classes.NativeMethods.TreeViewControlStyles;
 
 namespace SharpFind
@@ -352,6 +353,23 @@ namespace SharpFind
 
                 if (TB_Class.Text.StartsWith("MDIClient"))
                     if ((i & MDIS_ALLCHILDSTYLES) != 0) DumpStyle("MDIS_ALLCHILDSTYLES", MDIS_ALLCHILDSTYLES.ToString("X8"));
+
+                if (TB_Class.Text.StartsWith("SysDateTimePick32"))
+                {
+                    if ((i & DTS_UPDOWN) != 0)
+                    {
+                        DumpStyle("DTS_UPDOWN", DTS_UPDOWN.ToString("X8"));
+
+                        if ((i & DTS_TIMEFORMAT) == DTS_TIMEFORMAT)
+                            DumpStyle("DTS_TIMEFORMAT", DTS_TIMEFORMAT.ToString("X8"));
+                    }
+
+                    if ((i & DTS_APPCANPARSE)     != 0) DumpStyle("DTS_APPCANPARSE",     DTS_APPCANPARSE.ToString("X8"));
+                    if ((i & DTS_RIGHTALIGN)      != 0) DumpStyle("DTS_RIGHTALIGN",      DTS_RIGHTALIGN.ToString("X8"));
+                    if ((i & DTS_SHOWNONE)        != 0) DumpStyle("DTS_SHOWNONE",        DTS_SHOWNONE.ToString("X8"));
+                    if ((i & DTS_SHORTDATEFORMAT) != 0) DumpStyle("DTS_SHORTDATEFORMAT", DTS_SHORTDATEFORMAT.ToString("X8"));
+                    if ((i & DTS_LONGDATEFORMAT)  != 0) DumpStyle("DTS_LONGDATEFORMAT",  DTS_LONGDATEFORMAT.ToString("X8"));
+                }
 
                 if (TB_Class.Text.StartsWith("SysTreeView32"))
                 {
