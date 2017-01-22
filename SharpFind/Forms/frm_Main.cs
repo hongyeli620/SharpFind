@@ -301,15 +301,15 @@ namespace SharpFind
 
                 if (TB_Class.Text.StartsWith("Button"))
                 {
-                    if ((i & BS_BITMAP)      != 0) DumpStyle("BS_BITMAP",      BS_BITMAP.ToString("X8"));
-                    if ((i & BS_FLAT)        != 0) DumpStyle("BS_FLAT",        BS_FLAT.ToString("X8"));
-                    if ((i & BS_ICON)        != 0) DumpStyle("BS_ICON",        BS_ICON.ToString("X8"));
-                    if ((i & BS_LEFTTEXT)    != 0) DumpStyle("BS_LEFTTEXT",    BS_LEFTTEXT.ToString("X8"));
-                    if ((i & BS_MULTILINE)   != 0) DumpStyle("BS_MULTILINE",   BS_MULTILINE.ToString("X8"));
-                    if ((i & BS_NOTIFY)      != 0) DumpStyle("BS_NOTIFY",      BS_NOTIFY.ToString("X8"));
-                    if ((i & BS_PUSHLIKE)    != 0) DumpStyle("BS_PUSHLIKE",    BS_PUSHLIKE.ToString("X8"));
-                    if ((i & BS_RIGHTBUTTON) != 0) DumpStyle("BS_RIGHTBUTTON", BS_RIGHTBUTTON.ToString("X8"));
-                    if ((i & BS_TEXT)        != 0) DumpStyle("BS_TEXT",        BS_TEXT.ToString("X8"));
+                    if ((i & BS_BITMAP)      != 0)       DumpStyle("BS_BITMAP",          BS_BITMAP.ToString("X8"));
+                    if ((i & BS_FLAT)        != 0)       DumpStyle("BS_FLAT",            BS_FLAT.ToString("X8"));
+                    if ((i & BS_ICON)        != 0)       DumpStyle("BS_ICON",            BS_ICON.ToString("X8"));
+                    if ((i & BS_LEFTTEXT)    != 0)       DumpStyle("BS_LEFTTEXT",        BS_LEFTTEXT.ToString("X8"));
+                    if ((i & BS_MULTILINE)   != 0)       DumpStyle("BS_MULTILINE",       BS_MULTILINE.ToString("X8"));
+                    if ((i & BS_NOTIFY)      != 0)       DumpStyle("BS_NOTIFY",          BS_NOTIFY.ToString("X8"));
+                    if ((i & BS_PUSHLIKE)    != 0)       DumpStyle("BS_PUSHLIKE",        BS_PUSHLIKE.ToString("X8"));
+                    if ((i & BS_RIGHTBUTTON) != 0)       DumpStyle("BS_RIGHTBUTTON",     BS_RIGHTBUTTON.ToString("X8"));
+                    if ((i & BS_TEXT)        != 0)       DumpStyle("BS_TEXT",            BS_TEXT.ToString("X8"));
 
                     if ((i & 0xf) == BS_PUSHBUTTON)      DumpStyle("BS_PUSHBUTTON",      BS_PUSHBUTTON.ToString("X8"));
                     if ((i & 0xf) == BS_DEFPUSHBUTTON)   DumpStyle("BS_DEFPUSHBUTTON",   BS_DEFPUSHBUTTON.ToString("X8"));
@@ -322,13 +322,13 @@ namespace SharpFind
                     if ((i & 0xf) == BS_USERBUTTON)      DumpStyle("BS_USERBUTTON",      BS_USERBUTTON.ToString("X8"));
                     if ((i & 0xf) == BS_AUTORADIOBUTTON) DumpStyle("BS_AUTORADIOBUTTON", BS_AUTORADIOBUTTON.ToString("X8"));
                     if ((i & 0xf) == BS_OWNERDRAW)       DumpStyle("BS_OWNERDRAW",       BS_OWNERDRAW.ToString("X8"));
-
-                    if ((i & BS_BOTTOM)  == BS_BOTTOM)  DumpStyle("BS_BOTTOM",  BS_RIGHT.ToString("X8"));
-                    if ((i & BS_CENTER)  == BS_CENTER)  DumpStyle("BS_CENTER",  BS_CENTER.ToString("X8"));
-                    if ((i & BS_LEFT)    == BS_LEFT)    DumpStyle("BS_LEFT",    BS_LEFT.ToString("X8"));
-                    if ((i & BS_RIGHT)   == BS_RIGHT)   DumpStyle("BS_RIGHT",   BS_RIGHT.ToString("X8"));
-                    if ((i & BS_TOP)     == BS_TOP)     DumpStyle("BS_TOP",     BS_LEFT.ToString("X8"));
-                    if ((i & BS_VCENTER) == BS_VCENTER) DumpStyle("BS_VCENTER", BS_CENTER.ToString("X8"));
+                                                         
+                    if ((i & BS_BOTTOM)  == BS_BOTTOM)   DumpStyle("BS_BOTTOM",          BS_RIGHT.ToString("X8"));
+                    if ((i & BS_CENTER)  == BS_CENTER)   DumpStyle("BS_CENTER",          BS_CENTER.ToString("X8"));
+                    if ((i & BS_LEFT)    == BS_LEFT)     DumpStyle("BS_LEFT",            BS_LEFT.ToString("X8"));
+                    if ((i & BS_RIGHT)   == BS_RIGHT)    DumpStyle("BS_RIGHT",           BS_RIGHT.ToString("X8"));
+                    if ((i & BS_TOP)     == BS_TOP)      DumpStyle("BS_TOP",             BS_LEFT.ToString("X8"));
+                    if ((i & BS_VCENTER) == BS_VCENTER)  DumpStyle("BS_VCENTER",         BS_CENTER.ToString("X8"));
                 }
 
                 if (TB_Class.Text.StartsWith("ComboBox"))
@@ -344,9 +344,9 @@ namespace SharpFind
                     if ((i & CBS_SORT)              != 0) DumpStyle("CBS_SORT",              CBS_SORT.ToString("X8"));
                     if ((i & CBS_UPPERCASE)         != 0) DumpStyle("CBS_UPPERCASE",         CBS_UPPERCASE.ToString("X8"));
 
-                    if ((i & 0x3) == CBS_SIMPLE)       DumpStyle("CBS_SIMPLE",       CBS_SIMPLE.ToString("X8"));
-                    if ((i & 0x3) == CBS_DROPDOWN)     DumpStyle("CBS_DROPDOWN",     CBS_DROPDOWN.ToString("X8"));
-                    if ((i & 0x3) == CBS_DROPDOWNLIST) DumpStyle("CBS_DROPDOWNLIST", CBS_DROPDOWNLIST.ToString("X8"));
+                    if ((i & 0x3) == CBS_SIMPLE)          DumpStyle("CBS_SIMPLE",            CBS_SIMPLE.ToString("X8"));
+                    if ((i & 0x3) == CBS_DROPDOWN)        DumpStyle("CBS_DROPDOWN",          CBS_DROPDOWN.ToString("X8"));
+                    if ((i & 0x3) == CBS_DROPDOWNLIST)    DumpStyle("CBS_DROPDOWNLIST",      CBS_DROPDOWNLIST.ToString("X8"));
                 }
                 
                 if (TB_Class.Text.StartsWith("SysTreeView32"))
@@ -783,7 +783,7 @@ namespace SharpFind
                                             + "\nBuild Date: " + buildDate
                                             + "\n\nAuthor: " + author
                                             + "\nPage: http://github.com/ei/SharpFind" 
-                                            + "\n\nThis open-source project is licensed under the MIT license. See the license file for details.";
+                                            + "\n\nThis open-source project is licensed under the MIT license.";
 
                         MessageBox.Show(info, "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         break;
