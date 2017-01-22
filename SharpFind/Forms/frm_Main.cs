@@ -293,6 +293,38 @@ namespace SharpFind
                 if ((i & WindowStyles.WS_VISIBLE)          != 0) DumpStyle("WS_VISIBLE",          WindowStyles.WS_VISIBLE.ToString("X8"));
                 if ((i & WindowStyles.WS_VSCROLL)          != 0) DumpStyle("WS_VSCROLL",          WindowStyles.WS_VSCROLL.ToString("X8"));
 
+                if (TB_Class.Text.StartsWith("Button"))
+                {
+                    if ((i & ButtonControlStyles.BS_BITMAP)      != 0) DumpStyle("BS_BITMAP",          ButtonControlStyles.BS_BITMAP.ToString("X8"));
+                    if ((i & ButtonControlStyles.BS_FLAT)        != 0) DumpStyle("BS_FLAT",            ButtonControlStyles.BS_FLAT.ToString("X8"));
+                    if ((i & ButtonControlStyles.BS_ICON)        != 0) DumpStyle("BS_ICON",            ButtonControlStyles.BS_ICON.ToString("X8"));
+                    if ((i & ButtonControlStyles.BS_LEFTTEXT)    != 0) DumpStyle("BS_LEFTTEXT",        ButtonControlStyles.BS_LEFTTEXT.ToString("X8"));
+                    if ((i & ButtonControlStyles.BS_MULTILINE)   != 0) DumpStyle("BS_MULTILINE",       ButtonControlStyles.BS_MULTILINE.ToString("X8"));
+                    if ((i & ButtonControlStyles.BS_NOTIFY)      != 0) DumpStyle("BS_NOTIFY",          ButtonControlStyles.BS_NOTIFY.ToString("X8"));
+                    if ((i & ButtonControlStyles.BS_PUSHLIKE)    != 0) DumpStyle("BS_PUSHLIKE",        ButtonControlStyles.BS_PUSHLIKE.ToString("X8"));
+                    if ((i & ButtonControlStyles.BS_RIGHTBUTTON) != 0) DumpStyle("BS_RIGHTBUTTON",     ButtonControlStyles.BS_RIGHTBUTTON.ToString("X8"));
+                    if ((i & ButtonControlStyles.BS_TEXT)        != 0) DumpStyle("BS_TEXT",            ButtonControlStyles.BS_TEXT.ToString("X8"));
+
+                    if ((i & 0xf) == ButtonControlStyles.BS_PUSHBUTTON)      DumpStyle("BS_PUSHBUTTON",      ButtonControlStyles.BS_PUSHBUTTON.ToString("X8"));
+                    if ((i & 0xf) == ButtonControlStyles.BS_DEFPUSHBUTTON)   DumpStyle("BS_DEFPUSHBUTTON",   ButtonControlStyles.BS_DEFPUSHBUTTON.ToString("X8"));
+                    if ((i & 0xf) == ButtonControlStyles.BS_CHECKBOX)        DumpStyle("BS_CHECKBOX",        ButtonControlStyles.BS_CHECKBOX.ToString("X8"));
+                    if ((i & 0xf) == ButtonControlStyles.BS_AUTOCHECKBOX)    DumpStyle("BS_AUTOCHECKBOX",    ButtonControlStyles.BS_AUTOCHECKBOX.ToString("X8"));
+                    if ((i & 0xf) == ButtonControlStyles.BS_RADIOBUTTON)     DumpStyle("BS_RADIOBUTTON",     ButtonControlStyles.BS_RADIOBUTTON.ToString("X8"));
+                    if ((i & 0xf) == ButtonControlStyles.BS_3STATE)          DumpStyle("BS_3STATE",          ButtonControlStyles.BS_3STATE.ToString("X8"));
+                    if ((i & 0xf) == ButtonControlStyles.BS_AUTO3STATE)      DumpStyle("BS_AUTO3STATE",      ButtonControlStyles.BS_AUTO3STATE.ToString("X8"));
+                    if ((i & 0xf) == ButtonControlStyles.BS_GROUPBOX)        DumpStyle("BS_GROUPBOX",        ButtonControlStyles.BS_GROUPBOX.ToString("X8"));
+                    if ((i & 0xf) == ButtonControlStyles.BS_USERBUTTON)      DumpStyle("BS_USERBUTTON",      ButtonControlStyles.BS_USERBUTTON.ToString("X8"));
+                    if ((i & 0xf) == ButtonControlStyles.BS_AUTORADIOBUTTON) DumpStyle("BS_AUTORADIOBUTTON", ButtonControlStyles.BS_AUTORADIOBUTTON.ToString("X8"));
+                    if ((i & 0xf) == ButtonControlStyles.BS_OWNERDRAW)       DumpStyle("BS_OWNERDRAW",       ButtonControlStyles.BS_OWNERDRAW.ToString("X8"));
+
+                    if ((i & ButtonControlStyles.BS_BOTTOM)  == ButtonControlStyles.BS_BOTTOM)  DumpStyle("BS_BOTTOM",  ButtonControlStyles.BS_RIGHT.ToString("X8"));
+                    if ((i & ButtonControlStyles.BS_CENTER)  == ButtonControlStyles.BS_CENTER)  DumpStyle("BS_CENTER",  ButtonControlStyles.BS_CENTER.ToString("X8"));
+                    if ((i & ButtonControlStyles.BS_LEFT)    == ButtonControlStyles.BS_LEFT)    DumpStyle("BS_LEFT",    ButtonControlStyles.BS_LEFT.ToString("X8"));
+                    if ((i & ButtonControlStyles.BS_RIGHT)   == ButtonControlStyles.BS_RIGHT)   DumpStyle("BS_RIGHT",   ButtonControlStyles.BS_RIGHT.ToString("X8"));
+                    if ((i & ButtonControlStyles.BS_TOP)     == ButtonControlStyles.BS_TOP)     DumpStyle("BS_TOP",     ButtonControlStyles.BS_LEFT.ToString("X8"));
+                    if ((i & ButtonControlStyles.BS_VCENTER) == ButtonControlStyles.BS_VCENTER) DumpStyle("BS_VCENTER", ButtonControlStyles.BS_CENTER.ToString("X8"));
+                }
+
                 if (TB_Class.Text.StartsWith("ComboBox"))
                 {
                     if ((i & ComboBoxStyles.CBS_AUTOHSCROLL)       != 0) DumpStyle("CBS_AUTOHSCROLL",       ComboBoxStyles.CBS_AUTOHSCROLL.ToString("X8"));
@@ -306,9 +338,9 @@ namespace SharpFind
                     if ((i & ComboBoxStyles.CBS_SORT)              != 0) DumpStyle("CBS_SORT",              ComboBoxStyles.CBS_SORT.ToString("X8"));
                     if ((i & ComboBoxStyles.CBS_UPPERCASE)         != 0) DumpStyle("CBS_UPPERCASE",         ComboBoxStyles.CBS_UPPERCASE.ToString("X8"));
 
-                    if ((i & 3) == ComboBoxStyles.CBS_SIMPLE)       DumpStyle("CBS_SIMPLE",       ComboBoxStyles.CBS_SIMPLE.ToString("X8"));
-                    if ((i & 3) == ComboBoxStyles.CBS_DROPDOWN)     DumpStyle("CBS_DROPDOWN",     ComboBoxStyles.CBS_DROPDOWN.ToString("X8"));
-                    if ((i & 3) == ComboBoxStyles.CBS_DROPDOWNLIST) DumpStyle("CBS_DROPDOWNLIST", ComboBoxStyles.CBS_DROPDOWNLIST.ToString("X8"));
+                    if ((i & 0x3) == ComboBoxStyles.CBS_SIMPLE)       DumpStyle("CBS_SIMPLE",       ComboBoxStyles.CBS_SIMPLE.ToString("X8"));
+                    if ((i & 0x3) == ComboBoxStyles.CBS_DROPDOWN)     DumpStyle("CBS_DROPDOWN",     ComboBoxStyles.CBS_DROPDOWN.ToString("X8"));
+                    if ((i & 0x3) == ComboBoxStyles.CBS_DROPDOWNLIST) DumpStyle("CBS_DROPDOWNLIST", ComboBoxStyles.CBS_DROPDOWNLIST.ToString("X8"));
                 }
                 
                 if (TB_Class.Text.StartsWith("SysTreeView32"))
