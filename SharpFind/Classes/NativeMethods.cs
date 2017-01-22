@@ -918,6 +918,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: Button
         /// Based on Windows Kits\8.1\Include\um\WinUser.h
         /// </summary>
         internal static class ButtonControlStyles
@@ -954,6 +955,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: ComboBox
         /// Based on Windows Kits\8.1\Include\um\WinUser.h
         /// </summary>
         internal static class ComboBoxStyles
@@ -994,6 +996,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: SysDateTimePick32
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
         internal static class DateTimeControlStyles
@@ -1010,6 +1013,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: #32770
         /// Based on Windows Kits\8.1\Include\um\WinUser.h
         /// </summary>
         internal static class DialogBoxStyles
@@ -1034,6 +1038,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: Edit
         /// Based on Windows Kits\8.1\Include\um\WinUser.h
         /// </summary>
         internal static class EditControlStyles
@@ -1056,6 +1061,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: SysHeader32
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
         internal static class HeaderControlStyles
@@ -1075,6 +1081,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: ListBox
         /// Based on Windows Kits\8.1\Include\um\WinUser.h
         /// </summary>
         internal static class ListBoxStyles
@@ -1099,6 +1106,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: SysListView32
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
         internal static class ListViewStyles
@@ -1129,6 +1137,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: SysMonthCal32
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
         internal static class MonthCalendarControlStyles
@@ -1145,6 +1154,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: SysPager
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
         internal static class PagerControlStyles
@@ -1157,6 +1167,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: msctls_progress32
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
         internal static class ProgressControlStyles
@@ -1167,6 +1178,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: ScrollBar
         /// Based on Windows Kits\8.1\Include\um\WinUser.h
         /// </summary>
         internal static class ScrollbarStyles
@@ -1185,6 +1197,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: msctls_statusbar32
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
         internal static class StatusBarStyles
@@ -1196,6 +1209,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: Static
         /// Based on Windows Kits\8.1\Include\um\WinUser.h
         /// </summary>
         internal static class StaticControlStyles
@@ -1236,6 +1250,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: ToolbarWindow32
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
         internal static class ToolbarControlStyles
@@ -1252,6 +1267,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: ReBarWindow32
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
         internal static class RebarControlStyles
@@ -1268,6 +1284,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: SysAnimate32
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
         internal static class AnimationControlStyles
@@ -1280,6 +1297,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: SysLink
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
         internal static class SysLinkControlStyles
@@ -1294,6 +1312,33 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: msctls_trackbar32
+        /// Based on Windows Kits\8.1\CommCtrl.h
+        /// </summary>
+        internal static class TrackbarControlStyles
+        {
+            internal static readonly int
+            TBS_AUTOTICKS        = 0x0001,
+            TBS_VERT             = 0x0002,
+            TBS_HORZ             = 0x0000,
+            TBS_TOP              = 0x0004,
+            TBS_BOTTOM           = 0x0000,
+            TBS_LEFT             = 0x0004,
+            TBS_RIGHT            = 0x0000,
+            TBS_BOTH             = 0x0008,
+            TBS_NOTICKS          = 0x0010,
+            TBS_ENABLESELRANGE   = 0x0020,
+            TBS_FIXEDLENGTH      = 0x0040,
+            TBS_NOTHUMB          = 0x0080,
+            TBS_TOOLTIPS         = 0x0100,
+            TBS_REVERSED         = 0x0200,
+            TBS_DOWNISLEFT       = 0x0400,
+            TBS_NOTIFYBEFOREMOVE = 0x0800,
+            TBS_TRANSPARENTBKGND = 0x1000;
+        }
+
+        /// <summary>
+        /// Class: SysTabControl32
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
         internal static class TabControlStyles
@@ -1322,6 +1367,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: tooltips_class32
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
         internal static class TooltipStyles
@@ -1337,31 +1383,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
-        /// Based on Windows Kits\8.1\CommCtrl.h
-        /// </summary>
-        internal static class TrackbarControlStyles
-        {
-            internal static readonly int
-            TBS_AUTOTICKS        = 0x0001,
-            TBS_VERT             = 0x0002,
-            TBS_HORZ             = 0x0000,
-            TBS_TOP              = 0x0004,
-            TBS_BOTTOM           = 0x0000,
-            TBS_LEFT             = 0x0004,
-            TBS_RIGHT            = 0x0000,
-            TBS_BOTH             = 0x0008,
-            TBS_NOTICKS          = 0x0010,
-            TBS_ENABLESELRANGE   = 0x0020,
-            TBS_FIXEDLENGTH      = 0x0040,
-            TBS_NOTHUMB          = 0x0080,
-            TBS_TOOLTIPS         = 0x0100,
-            TBS_REVERSED         = 0x0200,
-            TBS_DOWNISLEFT       = 0x0400,
-            TBS_NOTIFYBEFOREMOVE = 0x0800,
-            TBS_TRANSPARENTBKGND = 0x1000;
-        }
-
-        /// <summary>
+        /// Class: SysTreeView32
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
         internal static class TreeViewControlStyles
@@ -1386,6 +1408,7 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
+        /// Class: msctls_updown32
         /// Based on Windows Kits\8.1\CommCtrl.h
         /// </summary>
         internal static class UpDownControlStyles
