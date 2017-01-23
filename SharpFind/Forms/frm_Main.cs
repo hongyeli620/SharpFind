@@ -296,11 +296,15 @@ namespace SharpFind
                 if ((i & WS_MAXIMIZE)         != 0) DumpStyle("WS_MAXIMIZE",         WS_MAXIMIZE.ToString("X8"));
                 if ((i & WS_MINIMIZE)         != 0) DumpStyle("WS_MINIMIZE",         WS_MINIMIZE.ToString("X8"));
                 if ((i & WS_OVERLAPPED)       != 0) DumpStyle("WS_OVERLAPPED",       WS_OVERLAPPED.ToString("X8"));
-                if ((i & WS_OVERLAPPEDWINDOW) != 0) DumpStyle("WS_OVERLAPPEDWINDOW", WS_OVERLAPPEDWINDOW.ToString("X8"));
-                if ((i & WS_POPUPWINDOW)      != 0) DumpStyle("WS_POPUPWINDOW",      WS_POPUPWINDOW.ToString("X8"));
                 if ((i & WS_THICKFRAME)       != 0) DumpStyle("WS_THICKFRAME",       WS_THICKFRAME.ToString("X8"));
                 if ((i & WS_VISIBLE)          != 0) DumpStyle("WS_VISIBLE",          WS_VISIBLE.ToString("X8"));
                 if ((i & WS_VSCROLL)          != 0) DumpStyle("WS_VSCROLL",          WS_VSCROLL.ToString("X8"));
+
+                if ((i & WS_OVERLAPPEDWINDOW) == WS_OVERLAPPEDWINDOW)
+                    DumpStyle("WS_OVERLAPPEDWINDOW", WS_OVERLAPPEDWINDOW.ToString("X8"));
+                if ((i & WS_POPUPWINDOW) == WS_POPUPWINDOW)
+                    DumpStyle("WS_POPUPWINDOW", WS_POPUPWINDOW.ToString("X8"));
+
 
                 if (TB_Class.Text.StartsWith("Button"))
                 {
