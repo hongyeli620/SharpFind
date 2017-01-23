@@ -98,6 +98,7 @@ namespace SharpFind
         private const int MNU_ABOUT = 1000;
         private const int MNU_LICENSE = 1001;
         private const int MNU_CHANGELOG = 1002;
+        private const int MNU_ADMIN = 1003;
 
         #endregion
         #region DPI Check
@@ -304,7 +305,6 @@ namespace SharpFind
                     DumpStyle("WS_OVERLAPPEDWINDOW", WS_OVERLAPPEDWINDOW.ToString("X8"));
                 if ((i & WS_POPUPWINDOW) == WS_POPUPWINDOW)
                     DumpStyle("WS_POPUPWINDOW", WS_POPUPWINDOW.ToString("X8"));
-
 
                 if (TB_Class.Text.StartsWith("Button"))
                 {
@@ -813,7 +813,13 @@ namespace SharpFind
             InsertMenu(handle, 07, MF_BYPOSITION | MF_SEPARATOR, 0, null);
             InsertMenu(handle, 08, MF_BYPOSITION,  MNU_ABOUT, "About...");
             InsertMenu(handle, 09, MF_BYPOSITION,  MNU_CHANGELOG, "Changelog...");
-            InsertMenu(handle, 10, MF_BYPOSITION,  MNU_LICENSE, "License...");
+            InsertMenu(handle, 10, MF_BYPOSITION,  MNU_LICENSE, "License...");           
+
+            if (!IsRunningAsAdmin())
+            {
+                InsertMenu(handle, 11, MF_BYPOSITION | MF_SEPARATOR, 0, null);
+                InsertMenu(handle, 12, MF_BYPOSITION, MNU_ADMIN, "Run as Administrator...");
+            }         
         }
 
         protected override void WndProc(ref Message m)
@@ -845,6 +851,17 @@ namespace SharpFind
                         var licensePath = Application.StartupPath + "\\License.txt";
                         if   (File.Exists(licensePath)) Process.Start(licensePath);
                         else MessageBox.Show("The following file was not found:\n" + licensePath, "Not Found", MessageBoxButtons.OK);
+                        break;
+                    case MNU_ADMIN:
+                        var psi = new ProcessStartInfo();
+                        psi.UseShellExecute = true;
+                        psi.WorkingDirectory = Environment.CurrentDirectory;
+                        psi.FileName = Application.ExecutablePath;
+                        psi.Verb = "runas";
+
+                        try   { Process.Start(psi); }
+                        catch { return; }
+                        Application.Exit();
                         break;
                 }
             }
