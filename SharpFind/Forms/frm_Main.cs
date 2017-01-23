@@ -16,6 +16,7 @@ using SharpFind.Properties;
 using static SharpFind.Classes.NativeMethods.ButtonControlStyles;
 using static SharpFind.Classes.NativeMethods.ComboBoxStyles;
 using static SharpFind.Classes.NativeMethods.DateTimeControlStyles;
+using static SharpFind.Classes.NativeMethods.DialogBoxStyles;
 using static SharpFind.Classes.NativeMethods.MDIClientStyles;
 using static SharpFind.Classes.NativeMethods.TreeViewControlStyles;
 using static SharpFind.Classes.NativeMethods.WindowStyles;
@@ -369,6 +370,28 @@ namespace SharpFind
                     if ((i & DTS_SHOWNONE)        != 0) DumpStyle("DTS_SHOWNONE",        DTS_SHOWNONE.ToString("X8"));
                     if ((i & DTS_SHORTDATEFORMAT) != 0) DumpStyle("DTS_SHORTDATEFORMAT", DTS_SHORTDATEFORMAT.ToString("X8"));
                     if ((i & DTS_LONGDATEFORMAT)  != 0) DumpStyle("DTS_LONGDATEFORMAT",  DTS_LONGDATEFORMAT.ToString("X8"));
+                }
+
+                if (TB_Class.Text.StartsWith("#32770"))
+                {
+                    if ((i & DS_ABSALIGN)      != 0) DumpStyle("DS_ABSALIGN",      DS_ABSALIGN.ToString("X8"));
+                    if ((i & DS_SYSMODAL)      != 0) DumpStyle("DS_SYSMODAL",      DS_SYSMODAL.ToString("X8"));
+                    if ((i & DS_LOCALEDIT)     != 0) DumpStyle("DS_LOCALEDIT",     DS_LOCALEDIT.ToString("X8"));
+                    if ((i & DS_SETFONT)       != 0) DumpStyle("DS_SETFONT",       DS_SETFONT.ToString("X8"));
+                    if ((i & DS_MODALFRAME)    != 0) DumpStyle("DS_MODALFRAME",    DS_MODALFRAME.ToString("X8"));
+                    if ((i & DS_NOIDLEMSG )    != 0) DumpStyle("DS_NOIDLEMSG",     DS_NOIDLEMSG.ToString("X8"));
+                    if ((i & DS_SETFOREGROUND) != 0) DumpStyle("DS_SETFOREGROUND", DS_SETFOREGROUND.ToString("X8"));
+                    if ((i & DS_3DLOOK)        != 0) DumpStyle("DS_3DLOOK",        DS_3DLOOK.ToString("X8"));
+                    if ((i & DS_FIXEDSYS)      != 0) DumpStyle("DS_FIXEDSYS",      DS_FIXEDSYS.ToString("X8"));
+                    if ((i & DS_NOFAILCREATE)  != 0) DumpStyle("DS_NOFAILCREATE",  DS_NOFAILCREATE.ToString("X8"));
+                    if ((i & DS_CONTROL)       != 0) DumpStyle("DS_CONTROL",       DS_CONTROL.ToString("X8"));
+                    if ((i & DS_CENTER)        != 0) DumpStyle("DS_CENTER",        DS_CENTER.ToString("X8"));
+                    if ((i & DS_CENTERMOUSE)   != 0) DumpStyle("DS_CENTERMOUSE",   DS_CENTERMOUSE.ToString("X8"));
+                    if ((i & DS_CONTEXTHELP)   != 0) DumpStyle("DS_CONTEXTHELP",   DS_CONTEXTHELP.ToString("X8"));
+                    if ((i & DS_USEPIXELS)     != 0) DumpStyle("DS_USEPIXELS",     DS_USEPIXELS.ToString("X8"));
+
+                    if ((i & DS_SHELLFONT) == DS_SHELLFONT)
+                        DumpStyle("DS_SHELLFONT", DS_SHELLFONT.ToString("X8"));
                 }
 
                 if (TB_Class.Text.StartsWith("SysTreeView32"))
