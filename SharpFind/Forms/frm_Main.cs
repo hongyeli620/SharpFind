@@ -288,17 +288,17 @@ namespace SharpFind
                             DumpStyle("WS_MAXIMIZEBOX", WS_MAXIMIZEBOX.ToString("X8"));
                     }
                 }
-                if ((i & WS_CLIPCHILDREN)     != 0) DumpStyle("WS_CLIPCHILDREN",     WS_CLIPCHILDREN.ToString("X8"));
-                if ((i & WS_CLIPSIBLINGS)     != 0) DumpStyle("WS_CLIPSIBLINGS",     WS_CLIPSIBLINGS.ToString("X8"));
-                if ((i & WS_DISABLED)         != 0) DumpStyle("WS_DISABLED",         WS_DISABLED.ToString("X8"));
-                if ((i & WS_DLGFRAME)         != 0) DumpStyle("WS_DLGFRAME",         WS_DLGFRAME.ToString("X8"));
-                if ((i & WS_HSCROLL)          != 0) DumpStyle("WS_HSCROLL",          WS_HSCROLL.ToString("X8"));
-                if ((i & WS_MAXIMIZE)         != 0) DumpStyle("WS_MAXIMIZE",         WS_MAXIMIZE.ToString("X8"));
-                if ((i & WS_MINIMIZE)         != 0) DumpStyle("WS_MINIMIZE",         WS_MINIMIZE.ToString("X8"));
-                if ((i & WS_OVERLAPPED)       != 0) DumpStyle("WS_OVERLAPPED",       WS_OVERLAPPED.ToString("X8"));
-                if ((i & WS_THICKFRAME)       != 0) DumpStyle("WS_THICKFRAME",       WS_THICKFRAME.ToString("X8"));
-                if ((i & WS_VISIBLE)          != 0) DumpStyle("WS_VISIBLE",          WS_VISIBLE.ToString("X8"));
-                if ((i & WS_VSCROLL)          != 0) DumpStyle("WS_VSCROLL",          WS_VSCROLL.ToString("X8"));
+                if ((i & WS_CLIPCHILDREN) != 0) DumpStyle("WS_CLIPCHILDREN", WS_CLIPCHILDREN.ToString("X8"));
+                if ((i & WS_CLIPSIBLINGS) != 0) DumpStyle("WS_CLIPSIBLINGS", WS_CLIPSIBLINGS.ToString("X8"));
+                if ((i & WS_DISABLED)     != 0) DumpStyle("WS_DISABLED",     WS_DISABLED.ToString("X8"));
+                if ((i & WS_DLGFRAME)     != 0) DumpStyle("WS_DLGFRAME",     WS_DLGFRAME.ToString("X8"));
+                if ((i & WS_HSCROLL)      != 0) DumpStyle("WS_HSCROLL",      WS_HSCROLL.ToString("X8"));
+                if ((i & WS_MAXIMIZE)     != 0) DumpStyle("WS_MAXIMIZE",     WS_MAXIMIZE.ToString("X8"));
+                if ((i & WS_MINIMIZE)     != 0) DumpStyle("WS_MINIMIZE",     WS_MINIMIZE.ToString("X8"));
+                if ((i & WS_OVERLAPPED)   != 0) DumpStyle("WS_OVERLAPPED",   WS_OVERLAPPED.ToString("X8"));
+                if ((i & WS_THICKFRAME)   != 0) DumpStyle("WS_THICKFRAME",   WS_THICKFRAME.ToString("X8"));
+                if ((i & WS_VISIBLE)      != 0) DumpStyle("WS_VISIBLE",      WS_VISIBLE.ToString("X8"));
+                if ((i & WS_VSCROLL)      != 0) DumpStyle("WS_VSCROLL",      WS_VSCROLL.ToString("X8"));
 
                 if ((i & WS_OVERLAPPEDWINDOW) == WS_OVERLAPPEDWINDOW)
                     DumpStyle("WS_OVERLAPPEDWINDOW", WS_OVERLAPPEDWINDOW.ToString("X8"));
