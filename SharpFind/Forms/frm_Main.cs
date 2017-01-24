@@ -103,7 +103,7 @@ namespace SharpFind
         #endregion
         #region DPI Check
 
-        public static Point GetSystemDpi()
+        private static Point GetSystemDpi()
         {
             var result = new Point();
             var hDC = GetDC(IntPtr.Zero);
@@ -116,7 +116,7 @@ namespace SharpFind
             return result;
         }
 
-        public static bool IsDpi96()
+        private static bool IsDpi96()
         {
             var result = GetSystemDpi();
             return result.X == 96 || result.Y == 96;
