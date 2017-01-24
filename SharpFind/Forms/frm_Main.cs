@@ -17,6 +17,7 @@ using static SharpFind.Classes.NativeMethods.ButtonControlStyles;
 using static SharpFind.Classes.NativeMethods.ComboBoxStyles;
 using static SharpFind.Classes.NativeMethods.DateTimeControlStyles;
 using static SharpFind.Classes.NativeMethods.DialogBoxStyles;
+using static SharpFind.Classes.NativeMethods.EditControlStyles;
 using static SharpFind.Classes.NativeMethods.MDIClientStyles;
 using static SharpFind.Classes.NativeMethods.TreeViewControlStyles;
 using static SharpFind.Classes.NativeMethods.WindowStyles;
@@ -356,9 +357,6 @@ namespace SharpFind
                     if ((i & 0x3) == CBS_DROPDOWNLIST)    DumpStyle("CBS_DROPDOWNLIST",      CBS_DROPDOWNLIST.ToString("X8"));
                 }
 
-                if (TB_Class.Text.StartsWith("MDIClient"))
-                    if ((i & MDIS_ALLCHILDSTYLES) != 0) DumpStyle("MDIS_ALLCHILDSTYLES", MDIS_ALLCHILDSTYLES.ToString("X8"));
-
                 if (TB_Class.Text.StartsWith("SysDateTimePick32"))
                 {
                     if ((i & DTS_UPDOWN) != 0)
@@ -397,6 +395,27 @@ namespace SharpFind
                     if ((i & DS_SHELLFONT) == DS_SHELLFONT)
                         DumpStyle("DS_SHELLFONT", DS_SHELLFONT.ToString("X8"));
                 }
+
+                if (TB_Class.Text.StartsWith("Edit"))
+                {
+                    if ((i & ES_LEFT)        != 0) DumpStyle("ES_LEFT",        ES_LEFT.ToString("X8"));
+                    if ((i & ES_CENTER)      != 0) DumpStyle("ES_CENTER",      ES_CENTER.ToString("X8"));
+                    if ((i & ES_RIGHT)       != 0) DumpStyle("ES_RIGHT",       ES_RIGHT.ToString("X8"));
+                    if ((i & ES_MULTILINE)   != 0) DumpStyle("ES_MULTILINE",   ES_MULTILINE.ToString("X8"));
+                    if ((i & ES_UPPERCASE)   != 0) DumpStyle("ES_UPPERCASE",   ES_UPPERCASE.ToString("X8"));
+                    if ((i & ES_LOWERCASE)   != 0) DumpStyle("ES_LOWERCASE",   ES_LOWERCASE.ToString("X8"));
+                    if ((i & ES_PASSWORD)    != 0) DumpStyle("ES_PASSWORD",    ES_PASSWORD.ToString("X8"));
+                    if ((i & ES_AUTOVSCROLL) != 0) DumpStyle("ES_AUTOVSCROLL", ES_AUTOVSCROLL.ToString("X8"));
+                    if ((i & ES_AUTOHSCROLL) != 0) DumpStyle("ES_AUTOHSCROLL", ES_AUTOHSCROLL.ToString("X8"));
+                    if ((i & ES_NOHIDESEL)   != 0) DumpStyle("ES_NOHIDESEL",   ES_NOHIDESEL.ToString("X8"));
+                    if ((i & ES_OEMCONVERT)  != 0) DumpStyle("ES_OEMCONVERT",  ES_OEMCONVERT.ToString("X8"));
+                    if ((i & ES_READONLY)    != 0) DumpStyle("ES_READONLY",    ES_READONLY.ToString("X8"));
+                    if ((i & ES_WANTRETURN)  != 0) DumpStyle("ES_WANTRETURN",  ES_WANTRETURN.ToString("X8"));
+                    if ((i & ES_NUMBER)      != 0) DumpStyle("ES_NUMBER",      ES_NUMBER.ToString("X8"));
+                }
+
+                if (TB_Class.Text.StartsWith("MDIClient"))
+                    if ((i & MDIS_ALLCHILDSTYLES) != 0) DumpStyle("MDIS_ALLCHILDSTYLES", MDIS_ALLCHILDSTYLES.ToString("X8"));
 
                 if (TB_Class.Text.StartsWith("SysTreeView32"))
                 {
