@@ -18,6 +18,7 @@ using static SharpFind.Classes.NativeMethods.ComboBoxStyles;
 using static SharpFind.Classes.NativeMethods.DateTimeControlStyles;
 using static SharpFind.Classes.NativeMethods.DialogBoxStyles;
 using static SharpFind.Classes.NativeMethods.EditControlStyles;
+using static SharpFind.Classes.NativeMethods.HeaderControlStyles;
 using static SharpFind.Classes.NativeMethods.MDIClientStyles;
 using static SharpFind.Classes.NativeMethods.TreeViewControlStyles;
 using static SharpFind.Classes.NativeMethods.WindowStyles;
@@ -412,6 +413,21 @@ namespace SharpFind
                     if ((i & ES_READONLY)    != 0) DumpStyle("ES_READONLY",    ES_READONLY.ToString("X8"));
                     if ((i & ES_WANTRETURN)  != 0) DumpStyle("ES_WANTRETURN",  ES_WANTRETURN.ToString("X8"));
                     if ((i & ES_NUMBER)      != 0) DumpStyle("ES_NUMBER",      ES_NUMBER.ToString("X8"));
+                }
+
+                if (TB_Class.Text.StartsWith("SysHeader32"))
+                {
+                    if ((i & HDS_HORZ)       != 0) DumpStyle("HDS_HORZ",       HDS_HORZ.ToString("X8"));
+                    if ((i & HDS_BUTTONS)    != 0) DumpStyle("HDS_BUTTONS",    HDS_BUTTONS.ToString("X8"));
+                    if ((i & HDS_HOTTRACK)   != 0) DumpStyle("HDS_HOTTRACK",   HDS_HOTTRACK.ToString("X8"));
+                    if ((i & HDS_HIDDEN)     != 0) DumpStyle("HDS_HIDDEN",     HDS_HIDDEN.ToString("X8"));
+                    if ((i & HDS_DRAGDROP)   != 0) DumpStyle("HDS_DRAGDROP",   HDS_DRAGDROP.ToString("X8"));
+                    if ((i & HDS_FULLDRAG)   != 0) DumpStyle("HDS_FULLDRAG",   HDS_FULLDRAG.ToString("X8"));
+                    if ((i & HDS_FILTERBAR)  != 0) DumpStyle("HDS_FILTERBAR",  HDS_FILTERBAR.ToString("X8"));
+                    if ((i & HDS_FLAT)       != 0) DumpStyle("HDS_FLAT",       HDS_FLAT.ToString("X8"));
+                    if ((i & HDS_CHECKBOXES) != 0) DumpStyle("HDS_CHECKBOXES", HDS_CHECKBOXES.ToString("X8"));
+                    if ((i & HDS_NOSIZING)   != 0) DumpStyle("HDS_NOSIZING",   HDS_NOSIZING.ToString("X8"));
+                    if ((i & HDS_OVERFLOW)   != 0) DumpStyle("HDS_OVERFLOW",   HDS_OVERFLOW.ToString("X8"));
                 }
 
                 if (TB_Class.Text.StartsWith("MDIClient"))
