@@ -876,20 +876,20 @@ namespace SharpFind
 
         private void ShowChangelog()
         {
-            var changelogPath = Application.StartupPath + "\\Changelog.txt";
-            if (File.Exists(changelogPath))
-                Process.Start(changelogPath);
+            var path = Application.StartupPath + "\\Changelog.txt";
+            if (File.Exists(path))
+                Process.Start(path);
             else
-                MessageBox.Show("The following file was not found:\n" + changelogPath, "Not Found", MessageBoxButtons.OK);
+                MessageBox.Show("The following file was not found:\n" + path, "Not Found");
         }
 
         private void ShowLicense()
         {
-            var licensePath = Application.StartupPath + "\\License.txt";
-            if (File.Exists(licensePath))
-                Process.Start(licensePath);
+            var path = Application.StartupPath + "\\License.txt";
+            if (File.Exists(path))
+                Process.Start(path);
             else
-                MessageBox.Show("The following file was not found:\n" + licensePath, "Not Found", MessageBoxButtons.OK);
+                MessageBox.Show("The following file was not found:\n" + path, "Not Found");
         }
 
         private void RunAsAdministrator()
