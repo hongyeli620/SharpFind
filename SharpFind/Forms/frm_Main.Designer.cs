@@ -99,7 +99,7 @@
             this.CMENU_Configuration = new System.Windows.Forms.ContextMenu();
             this.CMNU_StayOnTop = new System.Windows.Forms.MenuItem();
             this.CMNU_Collapse = new System.Windows.Forms.MenuItem();
-            this.CMNU_NativeHighlighting = new System.Windows.Forms.MenuItem();
+            this.CMNU_NativeHighlighter = new System.Windows.Forms.MenuItem();
             this.PNL_Top = new System.Windows.Forms.Panel();
             this.PNL_Bottom = new System.Windows.Forms.Panel();
             this.separator1 = new SharpFind.Controls.Separator();
@@ -144,9 +144,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LBL_HowTo.AutoEllipsis = true;
             this.LBL_HowTo.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_HowTo.Location = new System.Drawing.Point(40, 17);
+            this.LBL_HowTo.Location = new System.Drawing.Point(47, 17);
             this.LBL_HowTo.Name = "LBL_HowTo";
-            this.LBL_HowTo.Size = new System.Drawing.Size(280, 29);
+            this.LBL_HowTo.Size = new System.Drawing.Size(273, 29);
             this.LBL_HowTo.TabIndex = 1;
             this.LBL_HowTo.Text = "Drag the crosshair over a window to select it then release the mouse button to ge" +
     "t hWnd details.";
@@ -937,7 +937,7 @@
             this.CMENU_Configuration.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.CMNU_StayOnTop,
             this.CMNU_Collapse,
-            this.CMNU_NativeHighlighting});
+            this.CMNU_NativeHighlighter});
             // 
             // CMNU_StayOnTop
             // 
@@ -954,13 +954,13 @@
             this.CMNU_Collapse.Text = "Collapse when Capturing";
             this.CMNU_Collapse.Click += new System.EventHandler(this.CMNU_Collapse_Click);
             // 
-            // CMNU_NativeHighlighting
+            // CMNU_NativeHighlighter
             // 
-            this.CMNU_NativeHighlighting.Checked = true;
-            this.CMNU_NativeHighlighting.Index = 2;
-            this.CMNU_NativeHighlighting.Shortcut = System.Windows.Forms.Shortcut.CtrlN;
-            this.CMNU_NativeHighlighting.Text = "Use Native Highlighting";
-            this.CMNU_NativeHighlighting.Click += new System.EventHandler(this.CMNU_NativeHighlighting_Click);
+            this.CMNU_NativeHighlighter.Checked = true;
+            this.CMNU_NativeHighlighter.Index = 2;
+            this.CMNU_NativeHighlighter.Shortcut = System.Windows.Forms.Shortcut.CtrlN;
+            this.CMNU_NativeHighlighter.Text = "Use Native Highlighter";
+            this.CMNU_NativeHighlighter.Click += new System.EventHandler(this.CMNU_NativeHighlighter_Click);
             // 
             // PNL_Top
             // 
@@ -1112,7 +1112,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ComboBox CMB_ClassBytes;
-        internal System.Windows.Forms.MenuItem CMNU_NativeHighlighting;
+        internal System.Windows.Forms.MenuItem CMNU_NativeHighlighter;
     }
 }
 

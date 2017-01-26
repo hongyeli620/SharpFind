@@ -977,7 +977,7 @@ namespace SharpFind
                 CMNU_Collapse.PerformClick();
 
             if (e.KeyCode == Keys.N && e.Modifiers == Keys.Control)
-                CMNU_NativeHighlighting.PerformClick();
+                CMNU_NativeHighlighter.PerformClick();
 
             if (e.KeyCode == Keys.F1)
                 ShowAboutDialog();
@@ -1134,7 +1134,7 @@ namespace SharpFind
                 if (hWndOld == hWnd)
                     return;
 
-                WindowHighlighter.Highlight(hWnd, CMNU_NativeHighlighting.Checked);
+                WindowHighlighter.Highlight(hWnd, CMNU_NativeHighlighter.Checked);
                 hWndOld = hWnd;
             }
             catch (Exception ex)
@@ -1181,9 +1181,9 @@ namespace SharpFind
             CMNU_Collapse.Checked = !CMNU_Collapse.Checked;
         }
 
-        private void CMNU_NativeHighlighting_Click(object sender, EventArgs e)
+        private void CMNU_NativeHighlighter_Click(object sender, EventArgs e)
         {
-            CMNU_NativeHighlighting.Checked = !CMNU_NativeHighlighting.Checked;
+            CMNU_NativeHighlighter.Checked = !CMNU_NativeHighlighter.Checked;
         }
     }
 }
