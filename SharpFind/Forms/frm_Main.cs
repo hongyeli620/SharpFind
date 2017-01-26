@@ -28,6 +28,7 @@ using static SharpFind.Classes.NativeMethods.Styles.DialogBoxStyles;
 using static SharpFind.Classes.NativeMethods.Styles.EditControlStyles;
 using static SharpFind.Classes.NativeMethods.Styles.HeaderControlStyles;
 using static SharpFind.Classes.NativeMethods.Styles.ListBoxStyles;
+using static SharpFind.Classes.NativeMethods.Styles.ListViewStyles;
 using static SharpFind.Classes.NativeMethods.Styles.MDIClientStyles;
 using static SharpFind.Classes.NativeMethods.Styles.TreeViewControlStyles;
 using static SharpFind.Classes.NativeMethods.Styles.WindowStyles;
@@ -291,6 +292,7 @@ namespace SharpFind
                 {
                     if ((i & WS_POPUP) != 0)
                         DumpStyle("WS_POPUP", WS_POPUP.ToString("X8"));
+
                     if ((i & WS_SYSMENU) != 0)
                     {
                         if ((i & WS_MINIMIZEBOX) != 0)
@@ -456,6 +458,32 @@ namespace SharpFind
                     if ((i & LBS_NODATA)            != 0) DumpStyle("LBS_NODATA",            LBS_NODATA.ToString("X8"));
                     if ((i & LBS_NOSEL)             != 0) DumpStyle("LBS_NOSEL",             LBS_NOSEL.ToString("X8"));
                     if ((i & LBS_COMBOBOX)          != 0) DumpStyle("LBS_COMBOBOX",          LBS_COMBOBOX.ToString("X8"));
+                }
+
+                if (TB_Class.Text.StartsWith("SysListView32"))
+                {
+                    if ((i & LVS_TYPEMASK) == LVS_ICON)       DumpStyle("LVS_ICON",            LVS_ICON.ToString("X8"));
+                    if ((i & LVS_TYPEMASK) == LVS_REPORT)     DumpStyle("LVS_REPORT",          LVS_REPORT.ToString("X8"));
+                    if ((i & LVS_TYPEMASK) == LVS_SMALLICON)  DumpStyle("LVS_SMALLICON",       LVS_SMALLICON.ToString("X8"));
+                    if ((i & LVS_TYPEMASK) == LVS_LIST)       DumpStyle("LVS_LIST",            LVS_LIST.ToString("X8"));
+
+                    if ((i & LVS_SINGLESEL)       != 0)       DumpStyle("LVS_SINGLESEL",       LVS_SINGLESEL.ToString("X8"));
+                    if ((i & LVS_SHOWSELALWAYS)   != 0)       DumpStyle("LVS_SHOWSELALWAYS",   LVS_SHOWSELALWAYS.ToString("X8"));
+                    if ((i & LVS_SORTASCENDING)   != 0)       DumpStyle("LVS_SORTASCENDING",   LVS_SORTASCENDING.ToString("X8"));
+                    if ((i & LVS_SORTDESCENDING)  != 0)       DumpStyle("LVS_SORTDESCENDING",  LVS_SORTDESCENDING.ToString("X8"));
+                    if ((i & LVS_SHAREIMAGELISTS) != 0)       DumpStyle("LVS_SHAREIMAGELISTS", LVS_SHAREIMAGELISTS.ToString("X8"));
+                    if ((i & LVS_NOLABELWRAP)     != 0)       DumpStyle("LVS_NOLABELWRAP",     LVS_NOLABELWRAP.ToString("X8"));
+                    if ((i & LVS_AUTOARRANGE)     != 0)       DumpStyle("LVS_AUTOARRANGE",     LVS_AUTOARRANGE.ToString("X8"));
+                    if ((i & LVS_EDITLABELS)      != 0)       DumpStyle("LVS_EDITLABELS",      LVS_EDITLABELS.ToString("X8"));
+                    if ((i & LVS_OWNERDATA)       != 0)       DumpStyle("LVS_OWNERDATA",       LVS_OWNERDATA.ToString("X8"));
+                    if ((i & LVS_NOSCROLL)        != 0)       DumpStyle("LVS_NOSCROLL",        LVS_NOSCROLL.ToString("X8"));
+
+                    if ((i & LVS_ALIGNMASK) == LVS_ALIGNTOP)  DumpStyle("LVS_ALIGNTOP",        LVS_ALIGNTOP.ToString("X8"));
+                    if ((i & LVS_ALIGNMASK) == LVS_ALIGNLEFT) DumpStyle("LVS_ALIGNLEFT",       LVS_ALIGNLEFT.ToString("X8"));
+
+                    if ((i & LVS_OWNERDRAWFIXED)  != 0)       DumpStyle("LVS_OWNERDRAWFIXED",  LVS_OWNERDRAWFIXED.ToString("X8"));
+                    if ((i & LVS_NOCOLUMNHEADER)  != 0)       DumpStyle("LVS_NOCOLUMNHEADER",  LVS_NOCOLUMNHEADER.ToString("X8"));
+                    if ((i & LVS_NOSORTHEADER)    != 0)       DumpStyle("LVS_NOSORTHEADER",    LVS_NOSORTHEADER.ToString("X8"));
                 }
 
                 if (TB_Class.Text.StartsWith("MDIClient"))
