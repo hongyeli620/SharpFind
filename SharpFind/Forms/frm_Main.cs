@@ -21,17 +21,18 @@ using SharpFind.Properties;
 // <using static> is a C#6 feature. See:
 // https://blogs.msdn.microsoft.com/csharpfaq/2014/11/20/new-features-in-c-6/
 // C#6 IDE support starts at Visual Studio 2013 and up
-using static SharpFind.Classes.NativeMethods.ButtonControlStyles;
-using static SharpFind.Classes.NativeMethods.ComboBoxStyles;
-using static SharpFind.Classes.NativeMethods.DateTimeControlStyles;
-using static SharpFind.Classes.NativeMethods.DialogBoxStyles;
-using static SharpFind.Classes.NativeMethods.EditControlStyles;
-using static SharpFind.Classes.NativeMethods.HeaderControlStyles;
-using static SharpFind.Classes.NativeMethods.ListBoxStyles;
-using static SharpFind.Classes.NativeMethods.MDIClientStyles;
-using static SharpFind.Classes.NativeMethods.TreeViewControlStyles;
-using static SharpFind.Classes.NativeMethods.WindowStyles;
-using static SharpFind.Classes.NativeMethods.WindowStylesEx;
+using static SharpFind.Classes.NativeMethods.Styles.ButtonControlStyles;
+using static SharpFind.Classes.NativeMethods.Styles.ComboBoxStyles;
+using static SharpFind.Classes.NativeMethods.Styles.DateTimeControlStyles;
+using static SharpFind.Classes.NativeMethods.Styles.DialogBoxStyles;
+using static SharpFind.Classes.NativeMethods.Styles.EditControlStyles;
+using static SharpFind.Classes.NativeMethods.Styles.HeaderControlStyles;
+using static SharpFind.Classes.NativeMethods.Styles.ListBoxStyles;
+using static SharpFind.Classes.NativeMethods.Styles.MDIClientStyles;
+using static SharpFind.Classes.NativeMethods.Styles.TreeViewControlStyles;
+using static SharpFind.Classes.NativeMethods.Styles.WindowStyles;
+using static SharpFind.Classes.NativeMethods.Styles.WindowStylesEx;
+using static SharpFind.Classes.NativeMethods.Styles;
 using static SharpFind.Classes.NativeMethods;
 
 namespace SharpFind
