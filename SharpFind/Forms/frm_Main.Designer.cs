@@ -103,6 +103,7 @@
             this.PNL_Bottom = new System.Windows.Forms.Panel();
             this.separator1 = new SharpFind.Controls.Separator();
             this.BTN_Close = new System.Windows.Forms.Button();
+            this.CMNU_NativeHighlighting = new System.Windows.Forms.MenuItem();
             this.GB_Tool.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Tool)).BeginInit();
             this.TC_Details.SuspendLayout();
@@ -188,7 +189,7 @@
             this.TP_General.Controls.Add(this.LBL_InstanceHandle);
             this.TP_General.Location = new System.Drawing.Point(4, 22);
             this.TP_General.Name = "TP_General";
-            this.TP_General.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.TP_General.Padding = new System.Windows.Forms.Padding(3);
             this.TP_General.Size = new System.Drawing.Size(322, 253);
             this.TP_General.TabIndex = 0;
             this.TP_General.Text = "General Information";
@@ -431,7 +432,7 @@
             this.TP_Styles.Controls.Add(this.LBL_WindowStyles);
             this.TP_Styles.Location = new System.Drawing.Point(4, 22);
             this.TP_Styles.Name = "TP_Styles";
-            this.TP_Styles.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.TP_Styles.Padding = new System.Windows.Forms.Padding(3);
             this.TP_Styles.Size = new System.Drawing.Size(322, 253);
             this.TP_Styles.TabIndex = 3;
             this.TP_Styles.Text = "Styles";
@@ -559,7 +560,7 @@
             this.TP_Class.Controls.Add(this.LBL_ClassName);
             this.TP_Class.Location = new System.Drawing.Point(4, 22);
             this.TP_Class.Name = "TP_Class";
-            this.TP_Class.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.TP_Class.Padding = new System.Windows.Forms.Padding(3);
             this.TP_Class.Size = new System.Drawing.Size(322, 253);
             this.TP_Class.TabIndex = 2;
             this.TP_Class.Text = "Class";
@@ -807,7 +808,7 @@
             this.TP_Process.Controls.Add(this.LBL_ModuleName);
             this.TP_Process.Location = new System.Drawing.Point(4, 22);
             this.TP_Process.Name = "TP_Process";
-            this.TP_Process.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.TP_Process.Padding = new System.Windows.Forms.Padding(3);
             this.TP_Process.Size = new System.Drawing.Size(322, 253);
             this.TP_Process.TabIndex = 1;
             this.TP_Process.Text = "Process";
@@ -935,7 +936,8 @@
             // 
             this.CMENU_Configuration.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.CMNU_StayOnTop,
-            this.CMNU_Collapse});
+            this.CMNU_Collapse,
+            this.CMNU_NativeHighlighting});
             // 
             // CMNU_StayOnTop
             // 
@@ -958,7 +960,7 @@
             this.PNL_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.PNL_Top.Location = new System.Drawing.Point(0, 0);
             this.PNL_Top.Name = "PNL_Top";
-            this.PNL_Top.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.PNL_Top.Padding = new System.Windows.Forms.Padding(5);
             this.PNL_Top.Size = new System.Drawing.Size(342, 65);
             this.PNL_Top.TabIndex = 3;
             // 
@@ -970,7 +972,7 @@
             this.PNL_Bottom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PNL_Bottom.Location = new System.Drawing.Point(0, 65);
             this.PNL_Bottom.Name = "PNL_Bottom";
-            this.PNL_Bottom.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.PNL_Bottom.Padding = new System.Windows.Forms.Padding(5);
             this.PNL_Bottom.Size = new System.Drawing.Size(342, 329);
             this.PNL_Bottom.TabIndex = 4;
             // 
@@ -993,6 +995,14 @@
             this.BTN_Close.Text = "&Close";
             this.BTN_Close.UseVisualStyleBackColor = true;
             this.BTN_Close.Click += new System.EventHandler(this.BTN_Close_Click);
+            // 
+            // CMNU_NativeHighlighting
+            // 
+            this.CMNU_NativeHighlighting.Checked = true;
+            this.CMNU_NativeHighlighting.Index = 2;
+            this.CMNU_NativeHighlighting.Shortcut = System.Windows.Forms.Shortcut.CtrlN;
+            this.CMNU_NativeHighlighting.Text = "Use Native Highlighting";
+            this.CMNU_NativeHighlighting.Click += new System.EventHandler(this.CMNU_NativeHighlighting_Click);
             // 
             // Frm_Main
             // 
@@ -1102,6 +1112,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ComboBox CMB_ClassBytes;
+        internal System.Windows.Forms.MenuItem CMNU_NativeHighlighting;
     }
 }
 

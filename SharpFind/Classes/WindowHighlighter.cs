@@ -7,6 +7,7 @@
 */
 
 using System;
+using System.Drawing;
 using static SharpFind.Classes.NativeMethods;
 
 namespace SharpFind.Classes
@@ -14,10 +15,19 @@ namespace SharpFind.Classes
     public class WindowHighlighter
     {
         /// <summary>
-        /// Highlight the designated window by drawing a colored rectangle around
+        /// Highlight the designated window by drawing a rectangle around
         /// it, just like Microsoft Spy++.
         /// </summary>
-        public static void Highlight(IntPtr hWnd)
+        /// 
+        /// <param name="hWnd">
+        /// Handle to the object to be highlighted.
+        /// </param>
+        /// 
+        /// <param name="useNativeHighlighter">
+        /// If true, the rectangle will be drawn using the native PatBlt
+        /// function.
+        /// </param>
+        public static void Highlight(IntPtr hWnd, bool useNativeHighlighter)
         {
             var rect = new RECT();
             var hDC = GetWindowDC(hWnd);
@@ -36,25 +46,26 @@ namespace SharpFind.Classes
 
             if (!IsRectEmpty(ref rect))
             {
-                // An alternative way of highlighting without using the native <PatBlt>
-                //
-                // const float penWidth = 4F;
-                // using (Pen pen = new Pen(ColorTranslator.FromHtml("#FF0000"), penWidth))
-                // {
-                //     using (Graphics g = Graphics.FromHdc(hDC))
-                //     {
-                //         g.DrawRectangle(pen, 0, 0, rect.right - rect.left, rect.bottom - rect.top);
-                //     }
-                // }
-
-                // Top
-                PatBlt(hDC, rect.left, rect.top, rect.right - rect.left, width, RasterOperations.PATINVERT);
-                // Left
-                PatBlt(hDC, rect.left, rect.bottom - width, width, -(rect.bottom - rect.top - 2 * width), RasterOperations.PATINVERT);
-                // Right
-                PatBlt(hDC, rect.right - width, rect.top + width, width, rect.bottom - rect.top - 2 * width, RasterOperations.PATINVERT);
-                // Bottom
-                PatBlt(hDC, rect.right, rect.bottom - width, -(rect.right - rect.left), width, RasterOperations.PATINVERT);
+                if (useNativeHighlighter)
+                {
+                    //// Top
+                    PatBlt(hDC, rect.left, rect.top, rect.right - rect.left, width, RasterOperations.PATINVERT);
+                    //// Left
+                    PatBlt(hDC, rect.left, rect.bottom - width, width, -(rect.bottom - rect.top - 2 * width), RasterOperations.PATINVERT);
+                    //// Right
+                    PatBlt(hDC, rect.right - width, rect.top + width, width, rect.bottom - rect.top - 2 * width, RasterOperations.PATINVERT);
+                    //// Bottom
+                    PatBlt(hDC, rect.right, rect.bottom - width, -(rect.right - rect.left), width, RasterOperations.PATINVERT);
+                }
+                else
+                {
+                    // Simple GDI+ rectangle drawing
+                    using (var pen = new Pen(ColorTranslator.FromHtml("#FF0000"), 4F))
+                    {
+                        using (var g = Graphics.FromHdc(hDC))
+                            g.DrawRectangle(pen, 0, 0, rect.right - rect.left, rect.bottom - rect.top);
+                    }
+                }
             }
 
             ReleaseDC(hWnd, hDC);

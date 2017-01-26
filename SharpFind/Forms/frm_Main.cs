@@ -1105,7 +1105,7 @@ namespace SharpFind
                 if (hWndOld == hWnd)
                     return;
 
-                WindowHighlighter.Highlight(hWnd);
+                WindowHighlighter.Highlight(hWnd, CMNU_NativeHighlighting.Checked);
                 hWndOld = hWnd;
             }
             catch (Exception ex)
@@ -1150,6 +1150,11 @@ namespace SharpFind
         private void CMNU_Minimize_Click(object sender, EventArgs e)
         {
             CMNU_Collapse.Checked = !CMNU_Collapse.Checked;
+        }
+
+        private void CMNU_NativeHighlighting_Click(object sender, EventArgs e)
+        {
+            CMNU_NativeHighlighting.Checked = !CMNU_NativeHighlighting.Checked;
         }
     }
 }
