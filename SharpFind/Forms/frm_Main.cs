@@ -47,12 +47,12 @@ namespace SharpFind
                                            Text = Application.ProductName;
             Text = appName;
 
-            ControlBox = true;
+            ControlBox  = true;
             MinimizeBox = true;
             MaximizeBox = false;
-            ShowIcon = false;
+            ShowIcon    = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            StartPosition = FormStartPosition.CenterScreen;
+            StartPosition   = FormStartPosition.CenterScreen;
 
             if (IsDpi96())
             {
