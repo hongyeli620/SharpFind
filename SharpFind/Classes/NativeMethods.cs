@@ -113,14 +113,24 @@ namespace SharpFind.Classes
         /// </summary>
         public const int GCL_HICONSM = -34;
 
+        /// <summary>
+        /// Indicates that the position of the cursor hot spot is in a title bar
+        /// </summary>
+        public const int HTCAPTION = 0x2;
 
-        // Menu flags
+        /// <summary>
+        /// Posted when the user presses the left mouse button while the cursor
+        /// is within the nonclient area of a window.
+        /// </summary>
+        public const uint WM_NCLBUTTONDOWN = 0xA1;
         /// <summary>
         /// A window receives this message when the user chooses a command from
         /// the Window menu or when the user chooses the maximize button, minimize
         /// button, restore button, or close button.
         /// </summary>
         public const int WM_SYSCOMMAND = 0x112;
+
+        // Menu flags
         /// <summary>
         /// Specifies that the menu item opens a drop-down menu or submenu.
         /// </summary>
@@ -655,6 +665,10 @@ namespace SharpFind.Classes
         /// </returns>
         [DllImport("user32.dll")]
         internal static extern bool ReleaseDC(IntPtr hWnd, IntPtr hDC);
+
+
+        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+        internal static extern int SendMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
 
         /// <summary>
         /// Sets the mouse capture to the specified window belonging to the
