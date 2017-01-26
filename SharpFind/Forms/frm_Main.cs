@@ -19,6 +19,7 @@ using static SharpFind.Classes.NativeMethods.DateTimeControlStyles;
 using static SharpFind.Classes.NativeMethods.DialogBoxStyles;
 using static SharpFind.Classes.NativeMethods.EditControlStyles;
 using static SharpFind.Classes.NativeMethods.HeaderControlStyles;
+using static SharpFind.Classes.NativeMethods.ListBoxStyles;
 using static SharpFind.Classes.NativeMethods.MDIClientStyles;
 using static SharpFind.Classes.NativeMethods.TreeViewControlStyles;
 using static SharpFind.Classes.NativeMethods.WindowStyles;
@@ -428,6 +429,26 @@ namespace SharpFind
                     if ((i & HDS_CHECKBOXES) != 0) DumpStyle("HDS_CHECKBOXES", HDS_CHECKBOXES.ToString("X8"));
                     if ((i & HDS_NOSIZING)   != 0) DumpStyle("HDS_NOSIZING",   HDS_NOSIZING.ToString("X8"));
                     if ((i & HDS_OVERFLOW)   != 0) DumpStyle("HDS_OVERFLOW",   HDS_OVERFLOW.ToString("X8"));
+                }
+
+                if (TB_Class.Text.StartsWith("ListBox"))
+                {
+                    if ((i & LBS_NOTIFY)            != 0) DumpStyle("LBS_NOTIFY",            LBS_NOTIFY.ToString("X8"));
+                    if ((i & LBS_SORT)              != 0) DumpStyle("LBS_SORT",              LBS_SORT.ToString("X8"));
+                    if ((i & LBS_NOREDRAW)          != 0) DumpStyle("LBS_NOREDRAW",          LBS_NOREDRAW.ToString("X8"));
+                    if ((i & LBS_MULTIPLESEL)       != 0) DumpStyle("LBS_MULTIPLESEL",       LBS_MULTIPLESEL.ToString("X8"));
+                    if ((i & LBS_OWNERDRAWFIXED)    != 0) DumpStyle("LBS_OWNERDRAWFIXED",    LBS_OWNERDRAWFIXED.ToString("X8"));
+                    if ((i & LBS_OWNERDRAWVARIABLE) != 0) DumpStyle("LBS_OWNERDRAWVARIABLE", LBS_OWNERDRAWVARIABLE.ToString("X8"));
+                    if ((i & LBS_HASSTRINGS)        != 0) DumpStyle("LBS_HASSTRINGS",        LBS_HASSTRINGS.ToString("X8"));
+                    if ((i & LBS_USETABSTOPS)       != 0) DumpStyle("LBS_USETABSTOPS",       LBS_USETABSTOPS.ToString("X8"));
+                    if ((i & LBS_NOINTEGRALHEIGHT)  != 0) DumpStyle("LBS_NOINTEGRALHEIGHT",  LBS_NOINTEGRALHEIGHT.ToString("X8"));
+                    if ((i & LBS_MULTICOLUMN)       != 0) DumpStyle("LBS_MULTICOLUMN",       LBS_MULTICOLUMN.ToString("X8"));
+                    if ((i & LBS_WANTKEYBOARDINPUT) != 0) DumpStyle("LBS_WANTKEYBOARDINPUT", LBS_WANTKEYBOARDINPUT.ToString("X8"));
+                    if ((i & LBS_EXTENDEDSEL)       != 0) DumpStyle("LBS_EXTENDEDSEL",       LBS_EXTENDEDSEL.ToString("X8"));
+                    if ((i & LBS_DISABLENOSCROLL)   != 0) DumpStyle("LBS_DISABLENOSCROLL",   LBS_DISABLENOSCROLL.ToString("X8"));
+                    if ((i & LBS_NODATA)            != 0) DumpStyle("LBS_NODATA",            LBS_NODATA.ToString("X8"));
+                    if ((i & LBS_NOSEL)             != 0) DumpStyle("LBS_NOSEL",             LBS_NOSEL.ToString("X8"));
+                    if ((i & LBS_COMBOBOX)          != 0) DumpStyle("LBS_COMBOBOX",          LBS_COMBOBOX.ToString("X8"));
                 }
 
                 if (TB_Class.Text.StartsWith("MDIClient"))
