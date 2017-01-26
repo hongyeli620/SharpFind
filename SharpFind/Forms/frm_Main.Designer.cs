@@ -196,6 +196,7 @@
             this.TP_General.Size = new System.Drawing.Size(322, 253);
             this.TP_General.TabIndex = 0;
             this.TP_General.Text = "General Information";
+            this.TP_General.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
             // 
             // CMB_WindowBytes
             // 
@@ -439,6 +440,7 @@
             this.TP_Styles.Size = new System.Drawing.Size(322, 253);
             this.TP_Styles.TabIndex = 3;
             this.TP_Styles.Text = "Styles";
+            this.TP_Styles.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
             // 
             // LV_ExtendedStyles
             // 
@@ -567,6 +569,7 @@
             this.TP_Class.Size = new System.Drawing.Size(322, 253);
             this.TP_Class.TabIndex = 2;
             this.TP_Class.Text = "Class";
+            this.TP_Class.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
             // 
             // CMB_ClassBytes
             // 
@@ -815,6 +818,7 @@
             this.TP_Process.Size = new System.Drawing.Size(322, 253);
             this.TP_Process.TabIndex = 1;
             this.TP_Process.Text = "Process";
+            this.TP_Process.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
             // 
             // TB_PriorityClass
             // 
@@ -994,7 +998,7 @@
             this.PNL_Bottom.Location = new System.Drawing.Point(0, 65);
             this.PNL_Bottom.Name = "PNL_Bottom";
             this.PNL_Bottom.Padding = new System.Windows.Forms.Padding(5);
-            this.PNL_Bottom.Size = new System.Drawing.Size(342, 329);
+            this.PNL_Bottom.Size = new System.Drawing.Size(342, 321);
             this.PNL_Bottom.TabIndex = 4;
             this.PNL_Bottom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
             // 
@@ -1006,6 +1010,7 @@
             this.separator1.Size = new System.Drawing.Size(244, 10);
             this.separator1.TabIndex = 4;
             this.separator1.Text = "separator1";
+            this.separator1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
             // 
             // BTN_Close
             // 
@@ -1022,7 +1027,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 394);
+            this.ClientSize = new System.Drawing.Size(342, 386);
             this.Controls.Add(this.PNL_Bottom);
             this.Controls.Add(this.PNL_Top);
             this.KeyPreview = true;
