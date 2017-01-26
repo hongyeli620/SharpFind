@@ -98,6 +98,7 @@
             this.LBL_ModuleName = new System.Windows.Forms.Label();
             this.CMENU_Configuration = new System.Windows.Forms.ContextMenu();
             this.CMNU_StayOnTop = new System.Windows.Forms.MenuItem();
+            this.CMNU_EasyMove = new System.Windows.Forms.MenuItem();
             this.CMNU_Collapse = new System.Windows.Forms.MenuItem();
             this.CMNU_NativeHighlighter = new System.Windows.Forms.MenuItem();
             this.PNL_Top = new System.Windows.Forms.Panel();
@@ -150,6 +151,7 @@
             this.LBL_HowTo.TabIndex = 1;
             this.LBL_HowTo.Text = "Drag the crosshair over a window to select it then release the mouse button to ge" +
     "t hWnd details.";
+            this.LBL_HowTo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
             // 
             // TC_Details
             // 
@@ -163,6 +165,7 @@
             this.TC_Details.SelectedIndex = 0;
             this.TC_Details.Size = new System.Drawing.Size(330, 279);
             this.TC_Details.TabIndex = 2;
+            this.TC_Details.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
             // 
             // TP_General
             // 
@@ -936,6 +939,7 @@
             // 
             this.CMENU_Configuration.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.CMNU_StayOnTop,
+            this.CMNU_EasyMove,
             this.CMNU_Collapse,
             this.CMNU_NativeHighlighter});
             // 
@@ -946,10 +950,18 @@
             this.CMNU_StayOnTop.Text = "Stay on Top";
             this.CMNU_StayOnTop.Click += new System.EventHandler(this.CMNU_StayOnTop_Click);
             // 
+            // CMNU_EasyMove
+            // 
+            this.CMNU_EasyMove.Checked = true;
+            this.CMNU_EasyMove.Index = 1;
+            this.CMNU_EasyMove.Shortcut = System.Windows.Forms.Shortcut.CtrlE;
+            this.CMNU_EasyMove.Text = "Easy Move";
+            this.CMNU_EasyMove.Click += new System.EventHandler(this.CMNU_EasyMove_Click);
+            // 
             // CMNU_Collapse
             // 
             this.CMNU_Collapse.Checked = true;
-            this.CMNU_Collapse.Index = 1;
+            this.CMNU_Collapse.Index = 2;
             this.CMNU_Collapse.Shortcut = System.Windows.Forms.Shortcut.CtrlC;
             this.CMNU_Collapse.Text = "Collapse when Capturing";
             this.CMNU_Collapse.Click += new System.EventHandler(this.CMNU_Collapse_Click);
@@ -957,7 +969,7 @@
             // CMNU_NativeHighlighter
             // 
             this.CMNU_NativeHighlighter.Checked = true;
-            this.CMNU_NativeHighlighter.Index = 2;
+            this.CMNU_NativeHighlighter.Index = 3;
             this.CMNU_NativeHighlighter.Shortcut = System.Windows.Forms.Shortcut.CtrlN;
             this.CMNU_NativeHighlighter.Text = "Use Native Highlighter";
             this.CMNU_NativeHighlighter.Click += new System.EventHandler(this.CMNU_NativeHighlighter_Click);
@@ -971,6 +983,7 @@
             this.PNL_Top.Padding = new System.Windows.Forms.Padding(5);
             this.PNL_Top.Size = new System.Drawing.Size(342, 65);
             this.PNL_Top.TabIndex = 3;
+            this.PNL_Top.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
             // 
             // PNL_Bottom
             // 
@@ -983,6 +996,7 @@
             this.PNL_Bottom.Padding = new System.Windows.Forms.Padding(5);
             this.PNL_Bottom.Size = new System.Drawing.Size(342, 329);
             this.PNL_Bottom.TabIndex = 4;
+            this.PNL_Bottom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
             // 
             // separator1
             // 
@@ -1016,7 +1030,6 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Frm_Main_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frm_Main_KeyDown);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_Main_MouseDown);
             this.GB_Tool.ResumeLayout(false);
             this.GB_Tool.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Tool)).EndInit();
@@ -1113,6 +1126,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ComboBox CMB_ClassBytes;
         internal System.Windows.Forms.MenuItem CMNU_NativeHighlighter;
+        private System.Windows.Forms.MenuItem CMNU_EasyMove;
     }
 }
 

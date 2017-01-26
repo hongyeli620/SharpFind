@@ -946,7 +946,7 @@ namespace SharpFind
         }
 
         #endregion
-        #region Form Events
+        #region Events
 
         private void Frm_Main_Load(object sender, EventArgs e)
         {
@@ -973,6 +973,9 @@ namespace SharpFind
             if (e.KeyCode == Keys.T && e.Modifiers == Keys.Control)
                 CMNU_StayOnTop.PerformClick();
 
+            if (e.KeyCode == Keys.E && e.Modifiers == Keys.Control)
+                CMNU_EasyMove.PerformClick();
+
             if (e.KeyCode == Keys.C && e.Modifiers == Keys.Control)
                 CMNU_Collapse.PerformClick();
 
@@ -984,6 +987,18 @@ namespace SharpFind
 
             if (e.KeyCode == Keys.F2)
                 RunAsAdministrator();
+        }
+
+        private void FormAndControlDrag(object sender, MouseEventArgs e)
+        {
+            if (!CMNU_EasyMove.Checked)
+                return;
+
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+            }
         }
 
         #endregion
@@ -1151,12 +1166,6 @@ namespace SharpFind
                 CaptureMouse(true);
         }
 
-        private void Frm_Main_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-                CaptureMouse(false);
-        }
-
         private void BTN_Close_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -1174,6 +1183,11 @@ namespace SharpFind
                 CMNU_StayOnTop.Checked = false;
                 TopMost = false;
             }
+        }
+
+        private void CMNU_EasyMove_Click(object sender, EventArgs e)
+        {
+            CMNU_EasyMove.Checked = !CMNU_EasyMove.Checked;
         }
 
         private void CMNU_Collapse_Click(object sender, EventArgs e)
