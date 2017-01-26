@@ -1137,7 +1137,7 @@ namespace SharpFind.Classes
                 LVS_EDITLABELS      = 0x0200,
                 LVS_OWNERDATA       = 0x1000,
                 LVS_NOSCROLL        = 0x2000,
-                LVS_TYPESTYLEMASK   = 0xFC00,
+//              LVS_TYPESTYLEMASK   = 0xFC00,
                 LVS_ALIGNTOP        = 0x0000,
                 LVS_ALIGNLEFT       = 0x0800,
                 LVS_ALIGNMASK       = 0x0C00,
