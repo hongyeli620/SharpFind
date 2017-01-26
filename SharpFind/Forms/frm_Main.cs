@@ -139,7 +139,7 @@ namespace SharpFind
 
         private static bool IsRunningAsAdmin()
         {
-            return (new WindowsPrincipal(WindowsIdentity.GetCurrent())).IsInRole(WindowsBuiltInRole.Administrator);
+            return new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
         }
 
         #region General
@@ -249,8 +249,7 @@ namespace SharpFind
 
         private void DumpStyle(string style, string styleValue)
         {
-            ListViewItem item;
-            item = LV_WindowStyles.Items.Add(style);
+            var item = LV_WindowStyles.Items.Add(style);
             item.UseItemStyleForSubItems = false;
             item.SubItems.Add(styleValue).ForeColor =  SystemColors.GrayText;
             item.SubItems[1].Font = new Font("Lucida Sans Typewriter", 8F, FontStyle.Regular);
@@ -258,8 +257,7 @@ namespace SharpFind
 
         private void DumpStyleEx(string style, string styleValue)
         {
-            ListViewItem item;
-            item = LV_ExtendedStyles.Items.Add(style);
+            var item = LV_ExtendedStyles.Items.Add(style);
             item.UseItemStyleForSubItems = false;
             item.SubItems.Add(styleValue).ForeColor = SystemColors.GrayText;
             item.SubItems[1].Font = new Font("Lucida Sans Typewriter", 8F, FontStyle.Regular);
