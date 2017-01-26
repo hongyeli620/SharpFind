@@ -857,7 +857,7 @@ namespace SharpFind
         #endregion
 
         #endregion
-        #region SysMenu Methods
+        #region Menu Methods
 
         private void ShowAboutDialog()
         {
@@ -894,6 +894,9 @@ namespace SharpFind
 
         private void RunAsAdministrator()
         {
+            if (IsRunningAsAdmin())
+                return;
+
             var psi = new ProcessStartInfo()
             {
                 UseShellExecute = true,
@@ -919,9 +922,9 @@ namespace SharpFind
             InsertMenu(handle, 05, MF_BYPOSITION | MF_SEPARATOR, 0, null);
             InsertMenu(handle, 06, MF_BYPOSITION | MF_POPUP, (uint)CMENU_Configuration.Handle, "Configuration");
             InsertMenu(handle, 07, MF_BYPOSITION | MF_SEPARATOR, 0, null);
-            InsertMenu(handle, 08, MF_BYPOSITION,  MNU_ABOUT, "About...\tF1");
+            InsertMenu(handle, 08, MF_BYPOSITION,  MNU_ABOUT,     "About...\tF1");
             InsertMenu(handle, 09, MF_BYPOSITION,  MNU_CHANGELOG, "Changelog...");
-            InsertMenu(handle, 10, MF_BYPOSITION,  MNU_LICENSE, "License...");           
+            InsertMenu(handle, 10, MF_BYPOSITION,  MNU_LICENSE,   "License...");           
 
             if (!IsRunningAsAdmin())
             {
