@@ -165,7 +165,6 @@
             this.TC_Details.SelectedIndex = 0;
             this.TC_Details.Size = new System.Drawing.Size(330, 279);
             this.TC_Details.TabIndex = 2;
-            this.TC_Details.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
             // 
             // TP_General
             // 
