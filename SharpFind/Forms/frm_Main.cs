@@ -950,6 +950,9 @@ namespace SharpFind
             if (e.KeyCode == Keys.C && e.Modifiers == Keys.Control)
                 CMNU_Collapse.PerformClick();
 
+            if (e.KeyCode == Keys.N && e.Modifiers == Keys.Control)
+                CMNU_NativeHighlighting.PerformClick();
+
             if (e.KeyCode == Keys.F1)
                 ShowAboutDialog();
 
