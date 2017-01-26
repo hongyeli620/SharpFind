@@ -1147,7 +1147,7 @@ namespace SharpFind
             }
         }
 
-        private void CMNU_Minimize_Click(object sender, EventArgs e)
+        private void CMNU_Collapse_Click(object sender, EventArgs e)
         {
             CMNU_Collapse.Checked = !CMNU_Collapse.Checked;
         }

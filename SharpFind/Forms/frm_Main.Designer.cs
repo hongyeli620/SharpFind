@@ -99,11 +99,11 @@
             this.CMENU_Configuration = new System.Windows.Forms.ContextMenu();
             this.CMNU_StayOnTop = new System.Windows.Forms.MenuItem();
             this.CMNU_Collapse = new System.Windows.Forms.MenuItem();
+            this.CMNU_NativeHighlighting = new System.Windows.Forms.MenuItem();
             this.PNL_Top = new System.Windows.Forms.Panel();
             this.PNL_Bottom = new System.Windows.Forms.Panel();
             this.separator1 = new SharpFind.Controls.Separator();
             this.BTN_Close = new System.Windows.Forms.Button();
-            this.CMNU_NativeHighlighting = new System.Windows.Forms.MenuItem();
             this.GB_Tool.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Tool)).BeginInit();
             this.TC_Details.SuspendLayout();
@@ -952,7 +952,15 @@
             this.CMNU_Collapse.Index = 1;
             this.CMNU_Collapse.Shortcut = System.Windows.Forms.Shortcut.CtrlC;
             this.CMNU_Collapse.Text = "Collapse when Capturing";
-            this.CMNU_Collapse.Click += new System.EventHandler(this.CMNU_Minimize_Click);
+            this.CMNU_Collapse.Click += new System.EventHandler(this.CMNU_Collapse_Click);
+            // 
+            // CMNU_NativeHighlighting
+            // 
+            this.CMNU_NativeHighlighting.Checked = true;
+            this.CMNU_NativeHighlighting.Index = 2;
+            this.CMNU_NativeHighlighting.Shortcut = System.Windows.Forms.Shortcut.CtrlN;
+            this.CMNU_NativeHighlighting.Text = "Use Native Highlighting";
+            this.CMNU_NativeHighlighting.Click += new System.EventHandler(this.CMNU_NativeHighlighting_Click);
             // 
             // PNL_Top
             // 
@@ -995,14 +1003,6 @@
             this.BTN_Close.Text = "&Close";
             this.BTN_Close.UseVisualStyleBackColor = true;
             this.BTN_Close.Click += new System.EventHandler(this.BTN_Close_Click);
-            // 
-            // CMNU_NativeHighlighting
-            // 
-            this.CMNU_NativeHighlighting.Checked = true;
-            this.CMNU_NativeHighlighting.Index = 2;
-            this.CMNU_NativeHighlighting.Shortcut = System.Windows.Forms.Shortcut.CtrlN;
-            this.CMNU_NativeHighlighting.Text = "Use Native Highlighting";
-            this.CMNU_NativeHighlighting.Click += new System.EventHandler(this.CMNU_NativeHighlighting_Click);
             // 
             // Frm_Main
             // 
