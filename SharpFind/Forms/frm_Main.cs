@@ -866,7 +866,7 @@ namespace SharpFind
         #endregion
         #region Menu Methods
 
-        private void ShowAboutDialog()
+        private static void ShowAboutDialog()
         {
             var entryAssembly = Assembly.GetEntryAssembly();
             var version = Application.ProductVersion;
@@ -881,7 +881,7 @@ namespace SharpFind
             MessageBox.Show(info, "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void ShowChangelog()
+        private static void ShowChangelog()
         {
             var path = Application.StartupPath + "\\Changelog.txt";
             if (File.Exists(path))
@@ -890,7 +890,7 @@ namespace SharpFind
                 MessageBox.Show("The following file was not found:\n" + path, "Not Found");
         }
 
-        private void ShowLicense()
+        private static void ShowLicense()
         {
             var path = Application.StartupPath + "\\License.txt";
             if (File.Exists(path))
@@ -899,7 +899,7 @@ namespace SharpFind
                 MessageBox.Show("The following file was not found:\n" + path, "Not Found");
         }
 
-        private void RunAsAdministrator()
+        private static void RunAsAdministrator()
         {
             if (IsRunningAsAdmin())
                 return;
