@@ -857,6 +857,58 @@ namespace SharpFind
         #endregion
 
         #endregion
+        #region SysMenu Methods
+
+        private void ShowAboutDialog()
+        {
+            var entryAssembly = Assembly.GetEntryAssembly();
+            var version = Application.ProductVersion;
+            var buildDate = new FileInfo(entryAssembly.Location).LastWriteTime;
+            var author = Application.CompanyName;
+            var info = "Version: " + version
+                                   + "\nBuild Date: " + buildDate
+                                   + "\n\nAuthor: " + author
+                                   + "\nPage: http://github.com/ei/SharpFind"
+                                   + "\n\nThis open-source project is licensed under the MIT license.";
+
+            MessageBox.Show(info, "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void ShowChangelog()
+        {
+            var changelogPath = Application.StartupPath + "\\Changelog.txt";
+            if (File.Exists(changelogPath))
+                Process.Start(changelogPath);
+            else
+                MessageBox.Show("The following file was not found:\n" + changelogPath, "Not Found", MessageBoxButtons.OK);
+        }
+
+        private void ShowLicense()
+        {
+            var licensePath = Application.StartupPath + "\\License.txt";
+            if (File.Exists(licensePath))
+                Process.Start(licensePath);
+            else
+                MessageBox.Show("The following file was not found:\n" + licensePath, "Not Found", MessageBoxButtons.OK);
+        }
+
+        private void RunAsAdministrator()
+        {
+            var psi = new ProcessStartInfo()
+            {
+                UseShellExecute = true,
+                WorkingDirectory = Environment.CurrentDirectory,
+                FileName = Application.ExecutablePath,
+                Verb = "runas"
+            };
+
+            try   { Process.Start(psi); }
+            catch { return; }
+            Application.Exit();
+        }
+
+        #endregion
+        #region Form Events
 
         private void Frm_Main_Load(object sender, EventArgs e)
         {
@@ -867,16 +919,33 @@ namespace SharpFind
             InsertMenu(handle, 05, MF_BYPOSITION | MF_SEPARATOR, 0, null);
             InsertMenu(handle, 06, MF_BYPOSITION | MF_POPUP, (uint)CMENU_Configuration.Handle, "Configuration");
             InsertMenu(handle, 07, MF_BYPOSITION | MF_SEPARATOR, 0, null);
-            InsertMenu(handle, 08, MF_BYPOSITION,  MNU_ABOUT, "About...");
+            InsertMenu(handle, 08, MF_BYPOSITION,  MNU_ABOUT, "About...\tF1");
             InsertMenu(handle, 09, MF_BYPOSITION,  MNU_CHANGELOG, "Changelog...");
             InsertMenu(handle, 10, MF_BYPOSITION,  MNU_LICENSE, "License...");           
 
             if (!IsRunningAsAdmin())
             {
                 InsertMenu(handle, 11, MF_BYPOSITION | MF_SEPARATOR, 0, null);
-                InsertMenu(handle, 12, MF_BYPOSITION, MNU_ADMIN, "Run as Administrator...");
-            }         
+                InsertMenu(handle, 12, MF_BYPOSITION, MNU_ADMIN, "Run as Administrator...\tF2");
+            }
         }
+
+        private void Frm_Main_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.T && e.Modifiers == Keys.Control)
+                CMNU_StayOnTop.PerformClick();
+
+            if (e.KeyCode == Keys.C && e.Modifiers == Keys.Control)
+                CMNU_Collapse.PerformClick();
+
+            if (e.KeyCode == Keys.F1)
+                ShowAboutDialog();
+
+            if (e.KeyCode == Keys.F2)
+                RunAsAdministrator();
+        }
+
+        #endregion
 
         protected override void WndProc(ref Message m)
         {
@@ -886,38 +955,16 @@ namespace SharpFind
                 switch (m.WParam.ToInt32())
                 {
                     case MNU_ABOUT:
-                        var entryAssembly = Assembly.GetEntryAssembly();
-                        var version       = Application.ProductVersion;
-                        var buildDate     = new FileInfo(entryAssembly.Location).LastWriteTime;
-                        var author        = Application.CompanyName;
-                        var info          = "Version: " + version
-                                            + "\nBuild Date: " + buildDate
-                                            + "\n\nAuthor: " + author
-                                            + "\nPage: http://github.com/ei/SharpFind" 
-                                            + "\n\nThis open-source project is licensed under the MIT license.";
-
-                        MessageBox.Show(info, "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ShowAboutDialog();
                         break;
                     case MNU_CHANGELOG:
-                        var changelogPath = Application.StartupPath + "\\Changelog.txt";
-                        if   (File.Exists(changelogPath)) Process.Start(changelogPath);
-                        else MessageBox.Show("The following file was not found:\n" + changelogPath, "Not Found", MessageBoxButtons.OK);
+                        ShowChangelog();
                         break;
                     case MNU_LICENSE:
-                        var licensePath = Application.StartupPath + "\\License.txt";
-                        if   (File.Exists(licensePath)) Process.Start(licensePath);
-                        else MessageBox.Show("The following file was not found:\n" + licensePath, "Not Found", MessageBoxButtons.OK);
+                        ShowLicense();
                         break;
                     case MNU_ADMIN:
-                        var psi = new ProcessStartInfo();
-                        psi.UseShellExecute = true;
-                        psi.WorkingDirectory = Environment.CurrentDirectory;
-                        psi.FileName = Application.ExecutablePath;
-                        psi.Verb = "runas";
-
-                        try   { Process.Start(psi); }
-                        catch { return; }
-                        Application.Exit();
+                        RunAsAdministrator();
                         break;
                 }
             }
@@ -952,7 +999,7 @@ namespace SharpFind
                 Cursor.Current = _cursorFinder;
                 PB_Tool.Image = Resources.finder_out;
                 
-                if (CMNU_Minimize.Checked)
+                if (CMNU_Collapse.Checked)
                 {
                     PNL_Bottom.Visible = false;
                     Height = formHeightCollapsed; 
@@ -1090,7 +1137,7 @@ namespace SharpFind
 
         private void CMNU_Minimize_Click(object sender, EventArgs e)
         {
-            CMNU_Minimize.Checked = !CMNU_Minimize.Checked;
+            CMNU_Collapse.Checked = !CMNU_Collapse.Checked;
         }
     }
 }
