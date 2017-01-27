@@ -105,6 +105,7 @@
             this.PNL_Bottom = new System.Windows.Forms.Panel();
             this.separator1 = new SharpFind.Controls.Separator();
             this.BTN_Close = new System.Windows.Forms.Button();
+            this.CMNU_RememberWinPos = new System.Windows.Forms.MenuItem();
             this.GB_Tool.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Tool)).BeginInit();
             this.TC_Details.SuspendLayout();
@@ -941,6 +942,7 @@
             // CMENU_Configuration
             // 
             this.CMENU_Configuration.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.CMNU_RememberWinPos,
             this.CMNU_StayOnTop,
             this.CMNU_EasyMove,
             this.CMNU_Collapse,
@@ -948,7 +950,7 @@
             // 
             // CMNU_StayOnTop
             // 
-            this.CMNU_StayOnTop.Index = 0;
+            this.CMNU_StayOnTop.Index = 1;
             this.CMNU_StayOnTop.Shortcut = System.Windows.Forms.Shortcut.CtrlT;
             this.CMNU_StayOnTop.Text = "Stay on Top";
             this.CMNU_StayOnTop.Click += new System.EventHandler(this.CMNU_StayOnTop_Click);
@@ -956,7 +958,7 @@
             // CMNU_EasyMove
             // 
             this.CMNU_EasyMove.Checked = true;
-            this.CMNU_EasyMove.Index = 1;
+            this.CMNU_EasyMove.Index = 2;
             this.CMNU_EasyMove.Shortcut = System.Windows.Forms.Shortcut.CtrlE;
             this.CMNU_EasyMove.Text = "Easy Move";
             this.CMNU_EasyMove.Click += new System.EventHandler(this.CMNU_EasyMove_Click);
@@ -964,7 +966,7 @@
             // CMNU_Collapse
             // 
             this.CMNU_Collapse.Checked = true;
-            this.CMNU_Collapse.Index = 2;
+            this.CMNU_Collapse.Index = 3;
             this.CMNU_Collapse.Shortcut = System.Windows.Forms.Shortcut.CtrlC;
             this.CMNU_Collapse.Text = "Collapse when Capturing";
             this.CMNU_Collapse.Click += new System.EventHandler(this.CMNU_Collapse_Click);
@@ -972,7 +974,7 @@
             // CMNU_NativeHighlighter
             // 
             this.CMNU_NativeHighlighter.Checked = true;
-            this.CMNU_NativeHighlighter.Index = 3;
+            this.CMNU_NativeHighlighter.Index = 4;
             this.CMNU_NativeHighlighter.Shortcut = System.Windows.Forms.Shortcut.CtrlN;
             this.CMNU_NativeHighlighter.Text = "Use Native Highlighter";
             this.CMNU_NativeHighlighter.Click += new System.EventHandler(this.CMNU_NativeHighlighter_Click);
@@ -1003,10 +1005,10 @@
             // 
             // separator1
             // 
-            this.separator1.Location = new System.Drawing.Point(8, 297);
+            this.separator1.Location = new System.Drawing.Point(7, 297);
             this.separator1.Name = "separator1";
             this.separator1.Orientation = SharpFind.Controls.Separator._Orientation.Horizontal;
-            this.separator1.Size = new System.Drawing.Size(244, 10);
+            this.separator1.Size = new System.Drawing.Size(245, 10);
             this.separator1.TabIndex = 4;
             this.separator1.Text = "separator1";
             this.separator1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
@@ -1021,6 +1023,13 @@
             this.BTN_Close.Text = "&Close";
             this.BTN_Close.UseVisualStyleBackColor = true;
             this.BTN_Close.Click += new System.EventHandler(this.BTN_Close_Click);
+            // 
+            // CMNU_RememberWinPos
+            // 
+            this.CMNU_RememberWinPos.Checked = true;
+            this.CMNU_RememberWinPos.Index = 0;
+            this.CMNU_RememberWinPos.Text = "Remember Window Position";
+            this.CMNU_RememberWinPos.Click += new System.EventHandler(this.CMNU_RememberWinPos_Click);
             // 
             // Frm_Main
             // 
@@ -1132,6 +1141,7 @@
         private System.Windows.Forms.ComboBox CMB_ClassBytes;
         internal System.Windows.Forms.MenuItem CMNU_NativeHighlighter;
         private System.Windows.Forms.MenuItem CMNU_EasyMove;
+        private System.Windows.Forms.MenuItem CMNU_RememberWinPos;
     }
 }
 
