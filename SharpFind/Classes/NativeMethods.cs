@@ -118,18 +118,6 @@ namespace SharpFind.Classes
         /// </summary>
         public const int HTCAPTION = 0x2;
 
-        /// <summary>
-        /// Posted when the user presses the left mouse button while the cursor
-        /// is within the nonclient area of a window.
-        /// </summary>
-        public const uint WM_NCLBUTTONDOWN = 0xA1;
-        /// <summary>
-        /// A window receives this message when the user chooses a command from
-        /// the Window menu or when the user chooses the maximize button, minimize
-        /// button, restore button, or close button.
-        /// </summary>
-        public const int WM_SYSCOMMAND = 0x112;
-
         // Menu flags
         /// <summary>
         /// Specifies that the menu item opens a drop-down menu or submenu.
@@ -148,16 +136,23 @@ namespace SharpFind.Classes
         #endregion
         #region Enumerations
 
-        // The list is too big. I didn't want to waste bytes. I only added the ones
-        // used by the program
+        // The list is too big. I didn't want to waste bytes. I only added the
+        // ones used by the program.
         internal enum WindowsMessages : uint
         {
-            WM_NULL      = 0x00,
-            WM_PAINT     = 0xF,
-            WM_MOUSEMOVE = 0x200,
-            WM_LBUTTONUP = 0x202,
+            WM_LBUTTONUP     = 0x202,
+            WM_MOUSEMOVE     = 0x200,
+            WM_NCLBUTTONDOWN = 0xA1,
+            WM_NULL          = 0x00,
+            WM_PAINT         = 0xF,
+            WM_SYSCOMMAND    = 0x112
         }
 
+        /// <summary>
+        /// Defines how the color data for the source rectangle is to be
+        /// combined with the color data for the destination rectangle to
+        /// achieve the final color.
+        /// </summary>
         internal enum RasterOperations : uint
         {
             BLACKNESS   = 0x00000042,
