@@ -26,11 +26,6 @@ namespace SharpFind.Classes
             return INIRead(path, null, null, string.Empty);
         }
 
-        public static void INIWrite(string path, string section, string key, string value)
-        {
-            WritePrivateProfileString(section, key, value, path);
-        }
-
         public static string INIRead(string path, string section, string key, string defaultValue)
         {
             var returnValue = string.Empty;
@@ -46,6 +41,11 @@ namespace SharpFind.Classes
                 returnValue = string.Empty;
 
             return returnValue;
+        }
+
+        public static void INIWrite(string path, string section, string key, string value)
+        {
+            WritePrivateProfileString(section, key, value, path);
         }
     }
 }
