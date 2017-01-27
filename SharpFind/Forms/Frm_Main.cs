@@ -137,7 +137,6 @@ namespace SharpFind
         }
 
         #endregion
-        #region INI Read/Save
 
         private void ReadSettings()
         {
