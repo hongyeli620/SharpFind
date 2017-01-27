@@ -952,6 +952,11 @@ namespace SharpFind
                 TopMost = true;
         }
 
+        private void Frm_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveSettings();
+        }
+
         private void Frm_Main_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.T && e.Modifiers == Keys.Control)
@@ -1182,11 +1187,6 @@ namespace SharpFind
         private void CMNU_NativeHighlighter_Click(object sender, EventArgs e)
         {
             CMNU_NativeHighlighter.Checked = !CMNU_NativeHighlighter.Checked;
-        }
-
-        private void Frm_Main_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            SaveSettings();
         }
     }
 }
