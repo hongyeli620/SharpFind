@@ -48,13 +48,13 @@ namespace SharpFind.Classes
             {
                 if (useNativeHighlighter)
                 {
-                    //// Top
+                    // Top
                     PatBlt(hDC, rect.left, rect.top, rect.right - rect.left, width, RasterOperations.PATINVERT);
-                    //// Left
+                    // Left
                     PatBlt(hDC, rect.left, rect.bottom - width, width, -(rect.bottom - rect.top - 2 * width), RasterOperations.PATINVERT);
-                    //// Right
+                    // Right
                     PatBlt(hDC, rect.right - width, rect.top + width, width, rect.bottom - rect.top - 2 * width, RasterOperations.PATINVERT);
-                    //// Bottom
+                    // Bottom
                     PatBlt(hDC, rect.right, rect.bottom - width, -(rect.right - rect.left), width, RasterOperations.PATINVERT);
                 }
                 else
@@ -72,15 +72,15 @@ namespace SharpFind.Classes
         }
 
         /// <summary>
-        /// Refreshes the window to get rid of the previously drawn rectangles.
+        /// Refreshes the window to get rid of the previously drawn rectangle.
         /// </summary>
         public static void Refresh(IntPtr hWnd)
         {
             InvalidateRect(hWnd, IntPtr.Zero, true);
             UpdateWindow(hWnd);
-            RedrawWindow(hWnd, IntPtr.Zero, IntPtr.Zero, RDW_FRAME |
+            RedrawWindow(hWnd, IntPtr.Zero, IntPtr.Zero, RDW_FRAME      |
                                                          RDW_INVALIDATE |
-                                                         RDW_UPDATENOW |
+                                                         RDW_UPDATENOW  |
                                                          RDW_ALLCHILDREN);              
         }
     }
