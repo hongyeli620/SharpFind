@@ -97,15 +97,17 @@
             this.TB_ModuleName = new System.Windows.Forms.TextBox();
             this.LBL_ModuleName = new System.Windows.Forms.Label();
             this.CMENU_Configuration = new System.Windows.Forms.ContextMenu();
+            this.CMNU_RememberWinPos = new System.Windows.Forms.MenuItem();
             this.CMNU_StayOnTop = new System.Windows.Forms.MenuItem();
             this.CMNU_EasyMove = new System.Windows.Forms.MenuItem();
             this.CMNU_Collapse = new System.Windows.Forms.MenuItem();
             this.CMNU_NativeHighlighter = new System.Windows.Forms.MenuItem();
+            this.menuItem1 = new System.Windows.Forms.MenuItem();
+            this.CMNU_ShowHexPrefix = new System.Windows.Forms.MenuItem();
             this.PNL_Top = new System.Windows.Forms.Panel();
             this.PNL_Bottom = new System.Windows.Forms.Panel();
             this.separator1 = new SharpFind.Controls.Separator();
             this.BTN_Close = new System.Windows.Forms.Button();
-            this.CMNU_RememberWinPos = new System.Windows.Forms.MenuItem();
             this.GB_Tool.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Tool)).BeginInit();
             this.TC_Details.SuspendLayout();
@@ -946,7 +948,16 @@
             this.CMNU_StayOnTop,
             this.CMNU_EasyMove,
             this.CMNU_Collapse,
-            this.CMNU_NativeHighlighter});
+            this.CMNU_NativeHighlighter,
+            this.menuItem1,
+            this.CMNU_ShowHexPrefix});
+            // 
+            // CMNU_RememberWinPos
+            // 
+            this.CMNU_RememberWinPos.Checked = true;
+            this.CMNU_RememberWinPos.Index = 0;
+            this.CMNU_RememberWinPos.Text = "Remember Window Position";
+            this.CMNU_RememberWinPos.Click += new System.EventHandler(this.CMNU_RememberWinPos_Click);
             // 
             // CMNU_StayOnTop
             // 
@@ -978,6 +989,17 @@
             this.CMNU_NativeHighlighter.Shortcut = System.Windows.Forms.Shortcut.CtrlN;
             this.CMNU_NativeHighlighter.Text = "Use Native Highlighter";
             this.CMNU_NativeHighlighter.Click += new System.EventHandler(this.CMNU_NativeHighlighter_Click);
+            // 
+            // menuItem1
+            // 
+            this.menuItem1.Index = 5;
+            this.menuItem1.Text = "-";
+            // 
+            // CMNU_ShowHexPrefix
+            // 
+            this.CMNU_ShowHexPrefix.Index = 6;
+            this.CMNU_ShowHexPrefix.Text = "Show Hexadecimal \'0x\' Prefix";
+            this.CMNU_ShowHexPrefix.Click += new System.EventHandler(this.CMNU_ShowPrefix_Click);
             // 
             // PNL_Top
             // 
@@ -1023,13 +1045,6 @@
             this.BTN_Close.Text = "&Close";
             this.BTN_Close.UseVisualStyleBackColor = true;
             this.BTN_Close.Click += new System.EventHandler(this.BTN_Close_Click);
-            // 
-            // CMNU_RememberWinPos
-            // 
-            this.CMNU_RememberWinPos.Checked = true;
-            this.CMNU_RememberWinPos.Index = 0;
-            this.CMNU_RememberWinPos.Text = "Remember Window Position";
-            this.CMNU_RememberWinPos.Click += new System.EventHandler(this.CMNU_RememberWinPos_Click);
             // 
             // Frm_Main
             // 
@@ -1142,6 +1157,8 @@
         internal System.Windows.Forms.MenuItem CMNU_NativeHighlighter;
         private System.Windows.Forms.MenuItem CMNU_EasyMove;
         private System.Windows.Forms.MenuItem CMNU_RememberWinPos;
+        private System.Windows.Forms.MenuItem menuItem1;
+        private System.Windows.Forms.MenuItem CMNU_ShowHexPrefix;
     }
 }
 
