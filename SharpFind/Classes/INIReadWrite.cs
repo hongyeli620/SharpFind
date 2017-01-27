@@ -20,7 +20,7 @@ namespace SharpFind.Classes
             return Application.StartupPath + "\\settings.ini";
         }
 
-        #region Read
+        #region Reading
 
         public static string INIReadString(string path, string section, string key)
         {
@@ -50,7 +50,7 @@ namespace SharpFind.Classes
         }
 
         #endregion
-        #region Write
+        #region Writing
 
         public static void INIWriteString(string path, string section, string key, string value)
         {
