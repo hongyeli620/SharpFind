@@ -997,7 +997,7 @@ namespace SharpFind
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+                SendMessage(Handle, (int)WindowsMessages.WM_NCLBUTTONDOWN, HTCAPTION, 0);
             }
         }
 
@@ -1006,7 +1006,7 @@ namespace SharpFind
         protected override void WndProc(ref Message m)
         {
             // Handle the Window Menu item click events
-            if (m.Msg == WM_SYSCOMMAND)
+            if (m.Msg == (int)WindowsMessages.WM_SYSCOMMAND)
             {
                 switch (m.WParam.ToInt32())
                 {
