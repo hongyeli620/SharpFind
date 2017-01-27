@@ -12,9 +12,16 @@ namespace SharpFind.Classes
             return Application.StartupPath + "\\settings.ini";
         }
 
+        #region Read
+
         public static string INIReadString(string path, string section, string key)
         {
             return INIRead(path, section, key, string.Empty);
+        }
+
+        public static int INIReadInt(string path, string section, string key, int defaultValue)
+        {
+            return int.Parse(INIRead(path, section, key, string.Empty));
         }
 
         public static bool INIReadBool(string path, string section, string key, bool defaultValue)
@@ -34,6 +41,9 @@ namespace SharpFind.Classes
             return value;
         }
 
+        #endregion
+        #region Write
+
         public static void INIWriteString(string path, string section, string key, string value)
         {
             WritePrivateProfileString(section, key, value, path);
@@ -48,5 +58,7 @@ namespace SharpFind.Classes
         {
             WritePrivateProfileString(section, key, value.ToString().ToLower(), path);
         }
+
+        #endregion
     }
 }
