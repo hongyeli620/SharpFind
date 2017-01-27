@@ -144,14 +144,19 @@ namespace SharpFind
             if (!File.Exists(SettingsPath()))
                 return;
 
-            if (INIReadBool(SettingsPath(), "WindowPos", "FirstRun", true))
-                CenterToScreen();
-            else
-            {
+            CMNU_RememberWinPos.Checked = INIReadBool(SettingsPath(), "WindowPos", "RememberPos", true);
 
-                var winPos = new Point(INIReadInt(SettingsPath(), "WindowPos", "PosX", 0),
-                                       INIReadInt(SettingsPath(), "WindowPos", "PosY", 0));
-                Location = winPos;
+            if (INIReadBool(SettingsPath(), "WindowPos", "RememberPos", true))
+            {
+                if (INIReadBool(SettingsPath(), "WindowPos", "FirstRun", true))
+                    CenterToScreen();
+                else
+                {
+
+                    var winPos = new Point(INIReadInt(SettingsPath(), "WindowPos", "PosX", 0),
+                                           INIReadInt(SettingsPath(), "WindowPos", "PosY", 0));
+                    Location = winPos;
+                }
             }
 
             CMNU_StayOnTop.Checked         = INIReadBool(SettingsPath(), "Main", "TopMost" ,          false);
@@ -164,6 +169,8 @@ namespace SharpFind
         {
             if (INIReadBool(SettingsPath(), "WindowPos", "FirstRun", true))
                 INIWriteBool(SettingsPath(), "WindowPos", "FirstRun", false);
+
+            INIWriteBool(SettingsPath(), "WindowPos", "RememberPos", CMNU_RememberWinPos.Checked);
 
             // Prevent writing a negative value
             if (!(WindowState == FormWindowState.Minimized))
@@ -1158,6 +1165,11 @@ namespace SharpFind
         private void BTN_Close_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void CMNU_RememberWinPos_Click(object sender, EventArgs e)
+        {
+            CMNU_RememberWinPos.Checked = !CMNU_RememberWinPos.Checked;
         }
 
         private void CMNU_StayOnTop_Click(object sender, EventArgs e)
