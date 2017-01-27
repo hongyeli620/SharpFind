@@ -145,9 +145,9 @@ namespace SharpFind
                 return;
         
             CMNU_StayOnTop.Checked         = INIReadBoolean(SettingsPath(), "Main", "TopMost" ,          false);
-            CMNU_EasyMove.Checked          = INIReadBoolean(SettingsPath(), "Main", "EasyMove",          true );
-            CMNU_Collapse.Checked          = INIReadBoolean(SettingsPath(), "Main", "Collapse",          true );
-            CMNU_NativeHighlighter.Checked = INIReadBoolean(SettingsPath(), "Main", "NativeHighlighter", true );
+            CMNU_EasyMove.Checked          = INIReadBoolean(SettingsPath(), "Main", "EasyMove",          true);
+            CMNU_Collapse.Checked          = INIReadBoolean(SettingsPath(), "Main", "Collapse",          true);
+            CMNU_NativeHighlighter.Checked = INIReadBoolean(SettingsPath(), "Main", "NativeHighlighter", true);
         }
 
         private void SaveSettings()
