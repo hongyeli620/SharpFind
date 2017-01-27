@@ -16,29 +16,14 @@ namespace SharpFind.Classes
             return INIRead(path, section, key, string.Empty);
         }
 
-        public static string INIRead(string path, string section)
-        {
-            return INIRead(path, section, null, string.Empty);
-        }
-
-        public static string INIRead(string path)
-        {
-            return INIRead(path, null, null, string.Empty);
-        }
-
         public static string INIRead(string path, string section, string key, string defaultValue)
         {
             var returnValue = string.Empty;
-            var i = 0;
             var sData = string.Empty;
 
-            sData = new String(' ', 1024);
-            i = Convert.ToInt32(GetPrivateProfileString(section, key, defaultValue, sData, sData.Length, path));
-
-            if (i > 0)
-                returnValue = sData.Substring(0, i);
-            else
-                returnValue = string.Empty;
+            sData = new string(' ', 1024);
+            var i = Convert.ToInt32(GetPrivateProfileString(section, key, defaultValue, sData, sData.Length, path));
+            returnValue = i > 0 ? sData.Substring(0, i) : string.Empty;
 
             return returnValue;
         }
