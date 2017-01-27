@@ -144,18 +144,25 @@ namespace SharpFind
             if (!File.Exists(SettingsPath()))
                 return;
         
-            CMNU_StayOnTop.Checked         = INIReadBoolean(SettingsPath(), "Main", "TopMost" ,          false);
-            CMNU_EasyMove.Checked          = INIReadBoolean(SettingsPath(), "Main", "EasyMove",          true);
-            CMNU_Collapse.Checked          = INIReadBoolean(SettingsPath(), "Main", "Collapse",          true);
-            CMNU_NativeHighlighter.Checked = INIReadBoolean(SettingsPath(), "Main", "NativeHighlighter", true);
+            CMNU_StayOnTop.Checked         = INIReadBool(SettingsPath(), "Main", "TopMost" ,          false);
+            CMNU_EasyMove.Checked          = INIReadBool(SettingsPath(), "Main", "EasyMove",          true);
+            CMNU_Collapse.Checked          = INIReadBool(SettingsPath(), "Main", "Collapse",          true);
+            CMNU_NativeHighlighter.Checked = INIReadBool(SettingsPath(), "Main", "NativeHighlighter", true);
         }
 
         private void SaveSettings()
         {
-            INIWrite(SettingsPath(), "Main", "TopMost" ,          CMNU_StayOnTop.Checked.ToString().ToLower());
-            INIWrite(SettingsPath(), "Main", "EasyMove",          CMNU_EasyMove.Checked.ToString().ToLower());
-            INIWrite(SettingsPath(), "Main", "Collapse",          CMNU_Collapse.Checked.ToString().ToLower());
-            INIWrite(SettingsPath(), "Main", "NativeHighlighter", CMNU_NativeHighlighter.Checked.ToString().ToLower());
+            // Prevent writing a negative value
+            if (!(WindowState == FormWindowState.Minimized))
+            {
+                INIWriteInt(SettingsPath(), "WindowPos", "PosX", Location.X);
+                INIWriteInt(SettingsPath(), "WindowPos", "PosY", Location.Y);
+            }
+
+            INIWriteBool(SettingsPath(), "Main", "TopMost" ,          CMNU_StayOnTop.Checked);
+            INIWriteBool(SettingsPath(), "Main", "EasyMove",          CMNU_EasyMove.Checked);
+            INIWriteBool(SettingsPath(), "Main", "Collapse",          CMNU_Collapse.Checked);
+            INIWriteBool(SettingsPath(), "Main", "NativeHighlighter", CMNU_NativeHighlighter.Checked);
         }
 
         #endregion
