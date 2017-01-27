@@ -21,6 +21,7 @@ using SharpFind.Properties;
 // <using static> is a C#6 feature. See:
 // https://blogs.msdn.microsoft.com/csharpfaq/2014/11/20/new-features-in-c-6/
 // C#6 IDE support starts at Visual Studio 2013 and up
+using static SharpFind.Classes.INIReadWrite;
 using static SharpFind.Classes.NativeMethods.Styles.ButtonControlStyles;
 using static SharpFind.Classes.NativeMethods.Styles.ComboBoxStyles;
 using static SharpFind.Classes.NativeMethods.Styles.DateTimeControlStyles;
@@ -88,48 +89,6 @@ namespace SharpFind
                 _cursorDefault = Cursor.Current;
                 _cursorFinder = new Cursor(ms);
             }
-        }
-
-        public string SettingsPath()
-        {
-            return Application.StartupPath + "\\Settings.ini";
-        }
-
-        public string INIRead(string path, string section, string key)
-        {
-            return INIRead(path, section, key, string.Empty);
-        }
-
-        public string INIRead(string path, string section)
-        {
-            return INIRead(path, section, null, string.Empty);
-        }
-
-        public string INIRead(string path)
-        {
-            return INIRead(path, null, null, string.Empty);
-        }
-
-        public void INIWrite(string path, string section, string key, string value)
-        {
-            WritePrivateProfileString(section, key, value, path);
-        }
-
-        public string INIRead(string path, string section, string key, string defaultValue)
-        {
-            var returnValue = string.Empty;
-            var i = 0;
-            var sData = string.Empty;
-
-            sData = new String(' ', 1024);
-            i = Convert.ToInt32(GetPrivateProfileString(section, key, defaultValue, sData, sData.Length, path));
-
-            if (i > 0)
-                returnValue = sData.Substring(0, i);
-            else
-                returnValue = string.Empty;
-
-            return returnValue;
         }
 
         private void ReadSettings()
