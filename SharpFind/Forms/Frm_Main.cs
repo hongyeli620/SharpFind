@@ -90,6 +90,67 @@ namespace SharpFind
             }
         }
 
+        public string SettingsPath()
+        {
+            return Application.StartupPath + "\\Settings.ini";
+        }
+
+        public string INIRead(string path, string section, string key)
+        {
+            return INIRead(path, section, key, string.Empty);
+        }
+
+        public string INIRead(string path, string section)
+        {
+            return INIRead(path, section, null, string.Empty);
+        }
+
+        public string INIRead(string path)
+        {
+            return INIRead(path, null, null, string.Empty);
+        }
+
+        public void INIWrite(string path, string section, string key, string value)
+        {
+            WritePrivateProfileString(section, key, value, path);
+        }
+
+        public string INIRead(string path, string section, string key, string defaultValue)
+        {
+            var returnValue = string.Empty;
+            var i = 0;
+            var sData = string.Empty;
+
+            sData = new String(' ', 1024);
+            i = Convert.ToInt32(GetPrivateProfileString(section, key, defaultValue, sData, sData.Length, path));
+
+            if (i > 0)
+                returnValue = sData.Substring(0, i);
+            else
+                returnValue = string.Empty;
+
+            return returnValue;
+        }
+
+        private void ReadSettings()
+        {
+            if (!File.Exists(SettingsPath()))
+                return;
+        
+            CMNU_StayOnTop.Checked         = bool.Parse(INIRead(SettingsPath(), "Main", "TopMost" ,          "false"));
+            CMNU_EasyMove.Checked          = bool.Parse(INIRead(SettingsPath(), "Main", "EasyMove",          "true" ));
+            CMNU_Collapse.Checked          = bool.Parse(INIRead(SettingsPath(), "Main", "Collapse",          "true" ));
+            CMNU_NativeHighlighter.Checked = bool.Parse(INIRead(SettingsPath(), "Main", "NativeHighlighter", "true" ));
+        }
+
+        private void SaveSettings()
+        {
+            INIWrite(SettingsPath(), "Main", "TopMost" ,          CMNU_StayOnTop.Checked.ToString().ToLower());
+            INIWrite(SettingsPath(), "Main", "EasyMove",          CMNU_EasyMove.Checked.ToString().ToLower());
+            INIWrite(SettingsPath(), "Main", "Collapse",          CMNU_Collapse.Checked.ToString().ToLower());
+            INIWrite(SettingsPath(), "Main", "NativeHighlighter", CMNU_NativeHighlighter.Checked.ToString().ToLower());
+        }
+
         #region Variables
 
         private string appName;
@@ -902,6 +963,11 @@ namespace SharpFind
                 InsertMenu(handle, 11, MF_BYPOSITION | MF_SEPARATOR, 0, null);
                 InsertMenu(handle, 12, MF_BYPOSITION, MNU_ADMIN, "Run as Administrator...\tF2");
             }
+
+            ReadSettings();
+
+            if (CMNU_StayOnTop.Checked)
+                TopMost = true;
         }
 
         private void Frm_Main_KeyDown(object sender, KeyEventArgs e)
@@ -1134,6 +1200,11 @@ namespace SharpFind
         private void CMNU_NativeHighlighter_Click(object sender, EventArgs e)
         {
             CMNU_NativeHighlighter.Checked = !CMNU_NativeHighlighter.Checked;
+        }
+
+        private void Frm_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveSettings();
         }
     }
 }
