@@ -144,10 +144,10 @@ namespace SharpFind
             if (!File.Exists(SettingsPath()))
                 return;
         
-            CMNU_StayOnTop.Checked         = bool.Parse(INIRead(SettingsPath(), "Main", "TopMost" ,          "false"));
-            CMNU_EasyMove.Checked          = bool.Parse(INIRead(SettingsPath(), "Main", "EasyMove",          "true" ));
-            CMNU_Collapse.Checked          = bool.Parse(INIRead(SettingsPath(), "Main", "Collapse",          "true" ));
-            CMNU_NativeHighlighter.Checked = bool.Parse(INIRead(SettingsPath(), "Main", "NativeHighlighter", "true" ));
+            CMNU_StayOnTop.Checked         = INIReadBoolean(SettingsPath(), "Main", "TopMost" ,          false);
+            CMNU_EasyMove.Checked          = INIReadBoolean(SettingsPath(), "Main", "EasyMove",          true );
+            CMNU_Collapse.Checked          = INIReadBoolean(SettingsPath(), "Main", "Collapse",          true );
+            CMNU_NativeHighlighter.Checked = INIReadBoolean(SettingsPath(), "Main", "NativeHighlighter", true );
         }
 
         private void SaveSettings()
