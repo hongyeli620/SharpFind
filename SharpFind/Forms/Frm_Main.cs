@@ -143,7 +143,17 @@ namespace SharpFind
         {
             if (!File.Exists(SettingsPath()))
                 return;
-        
+
+            if (INIReadBool(SettingsPath(), "WindowPos", "FirstRun", true))
+                CenterToScreen();
+            else
+            {
+
+                var winPos = new Point(INIReadInt(SettingsPath(), "WindowPos", "PosX", 0),
+                                       INIReadInt(SettingsPath(), "WindowPos", "PosY", 0));
+                Location = winPos;
+            }
+
             CMNU_StayOnTop.Checked         = INIReadBool(SettingsPath(), "Main", "TopMost" ,          false);
             CMNU_EasyMove.Checked          = INIReadBool(SettingsPath(), "Main", "EasyMove",          true);
             CMNU_Collapse.Checked          = INIReadBool(SettingsPath(), "Main", "Collapse",          true);
@@ -152,6 +162,9 @@ namespace SharpFind
 
         private void SaveSettings()
         {
+            if (INIReadBool(SettingsPath(), "WindowPos", "FirstRun", true))
+                INIWriteBool(SettingsPath(), "WindowPos", "FirstRun", false);
+
             // Prevent writing a negative value
             if (!(WindowState == FormWindowState.Minimized))
             {
