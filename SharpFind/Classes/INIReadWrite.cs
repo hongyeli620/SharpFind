@@ -17,7 +17,7 @@ namespace SharpFind.Classes
             return INIRead(path, section, key, string.Empty);
         }
 
-        public static bool INIReadBoolean(string path, string section, string key, bool defaultValue)
+        public static bool INIReadBool(string path, string section, string key, bool defaultValue)
         {
             return bool.Parse(INIRead(path, section, key, defaultValue.ToString()));
         }
@@ -34,9 +34,19 @@ namespace SharpFind.Classes
             return value;
         }
 
-        public static void INIWrite(string path, string section, string key, string value)
+        public static void INIWriteString(string path, string section, string key, string value)
         {
             WritePrivateProfileString(section, key, value, path);
+        }
+
+        public static void INIWriteInt(string path, string section, string key, int value)
+        {
+            WritePrivateProfileString(section, key, value.ToString(), path);
+        }
+
+        public static void INIWriteBool(string path, string section, string key, bool value)
+        {
+            WritePrivateProfileString(section, key, value.ToString().ToLower(), path);
         }
     }
 }
