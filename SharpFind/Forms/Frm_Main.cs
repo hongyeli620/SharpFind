@@ -722,102 +722,38 @@ namespace SharpFind
             // code is going to look really ugly and messy
             switch (value)
             {
-                case "0":
-                    n = 0;
-                    return "(none)";
-                case "1":
-                    n = 1;
-                    return n - 1 + " (COLOR_SCROLLBAR)";
-                case "2":
-                    n = 2;
-                    return n - 1 + " (COLOR_BACKGROUND)";
-                case "3":
-                    n = 3;
-                    return n - 1 + " (COLOR_ACTIVECAPTION)";
-                case "4":
-                    n = 4;
-                    return n - 1 + " (COLOR_INACTIVECAPTION)";
-                case "5":
-                    n = 5;
-                    return n - 1 + " (COLOR_MENU)";
-                case "6":
-                    n = 6;
-                    return n - 1 + " (COLOR_WINDOW)";
-                case "7":
-                    n = 7;
-                    return n - 1 + " (COLOR_WINDOWFRAME)";
-                case "8":
-                    n = 8;
-                    return n - 1 + " (COLOR_MENUTEXT)";
-                case "9":
-                    n = 9;
-                    return n - 1 + " (COLOR_WINDOWTEXT)";
-                case "10":
-                    n = 10;
-                    return n - 1 + " (COLOR_CAPTIONTEXT)";
-                case "11":
-                    n = 11;
-                    return n - 1 + " (COLOR_ACTIVEBORDER)";
-                case "12":
-                    n = 12;
-                    return n - 1 + " (COLOR_INACTIVEBORDER)";
-                case "13":
-                    n = 13;
-                    return n - 1 + " (COLOR_APPWORKSPACE)";
-                case "14":
-                    n = 14;
-                    return n - 1 + " (COLOR_HIGHLIGHT)";
-                case "15":
-                    n = 15;
-                    return n - 1 + " (COLOR_HIGHLIGHTTEXT)";
-                case "16":
-                    n = 16;
-                    return n - 1 + " (COLOR_BTNFACE)";
-                case "17":
-                    n = 17;
-                    return n - 1 + " (COLOR_BTNSHADOW)";
-                case "18":
-                    n = 18;
-                    return n - 1 + " (COLOR_GRAYTEXT)";
-                case "19":
-                    n = 19;
-                    return n - 1 + " (COLOR_BTNTEXT)";
-                case "20":
-                    n = 20;
-                    return n - 1 + " (COLOR_INACTIVECAPTIONTEXT)";
-                case "21":
-                    n = 21;
-                    return n - 1 + " (COLOR_BTNHIGHLIGHT)";
-                case "22":
-                    n = 22;
-                    return n - 1 + " (COLOR_3DDKSHADOW)";
-                case "23":
-                    n = 23;
-                    return n - 1 + " (COLOR_3DLIGHT)";
-                case "24":
-                    n = 24;
-                    return n - 1 + " (COLOR_INFOTEXT)";
-                case "25":
-                    n = 25;
-                    return n - 1 + " (COLOR_INFOBK)";
-                case "26":
-                    n = 26;
-                    return n - 1 + " (COLOR_HOTLIGHT)";
-                case "27":
-                    n = 27;
-                    return n - 1 + " (COLOR_GRADIENTACTIVECAPTION)";
-                case "28":
-                    n = 28;
-                    return n - 1 + " (COLOR_GRADIENTINACTIVECAPTION)";
-                case "29":
-                    n = 29;
-                    return n - 1 + " (COLOR_MENUHILIGHT)";
-                case "30":
-                    n = 30;
-                    return n - 1 + " (COLOR_MENUBAR)";
-                case "31":
-                    n = 31;
-                    return n - 1 + " (COLOR_FORM)";
+                case "0" : n = 0;  return "(none)";
+                case "1" : n = 1;  return n - 1 + " (COLOR_SCROLLBAR)";
+                case "2" : n = 2;  return n - 1 + " (COLOR_BACKGROUND)";
+                case "3" : n = 3;  return n - 1 + " (COLOR_ACTIVECAPTION)";
+                case "4" : n = 4;  return n - 1 + " (COLOR_INACTIVECAPTION)";
+                case "5" : n = 5;  return n - 1 + " (COLOR_MENU)";
+                case "6" : n = 6;  return n - 1 + " (COLOR_WINDOW)";
+                case "7" : n = 7;  return n - 1 + " (COLOR_WINDOWFRAME)";
+                case "8" : n = 8;  return n - 1 + " (COLOR_MENUTEXT)";
+                case "9" : n = 9;  return n - 1 + " (COLOR_WINDOWTEXT)";
+                case "10": n = 10; return n - 1 + " (COLOR_CAPTIONTEXT)";
+                case "11": n = 11; return n - 1 + " (COLOR_ACTIVEBORDER)";
+                case "12": n = 12; return n - 1 + " (COLOR_INACTIVEBORDER)";
+                case "13": n = 13; return n - 1 + " (COLOR_APPWORKSPACE)";
+                case "14": n = 14; return n - 1 + " (COLOR_HIGHLIGHT)";
+                case "15": n = 15; return n - 1 + " (COLOR_HIGHLIGHTTEXT)";
+                case "16": n = 16; return n - 1 + " (COLOR_BTNFACE)";
+                case "17": n = 17; return n - 1 + " (COLOR_BTNSHADOW)";
+                case "18": n = 18; return n - 1 + " (COLOR_GRAYTEXT)";
+                case "19": n = 19; return n - 1 + " (COLOR_BTNTEXT)";
+                case "20": n = 20; return n - 1 + " (COLOR_INACTIVECAPTIONTEXT)";
+                case "21": n = 21; return n - 1 + " (COLOR_BTNHIGHLIGHT)";
+                case "22": n = 22; return n - 1 + " (COLOR_3DDKSHADOW)";
+                case "23": n = 23; return n - 1 + " (COLOR_3DLIGHT)";
+                case "24": n = 24; return n - 1 + " (COLOR_INFOTEXT)";
+                case "25": n = 25; return n - 1 + " (COLOR_INFOBK)";
+                case "26": n = 26; return n - 1 + " (COLOR_HOTLIGHT)";
+                case "27": n = 27; return n - 1 + " (COLOR_GRADIENTACTIVECAPTION)";
+                case "28": n = 28; return n - 1 + " (COLOR_GRADIENTINACTIVECAPTION)";
+                case "29": n = 29; return n - 1 + " (COLOR_MENUHILIGHT)";
+                case "30": n = 30; return n - 1 + " (COLOR_MENUBAR)";
+                case "31": n = 31; return n - 1 + " (COLOR_FORM)";
                 default:
                     value = GetClassLongPtr(hWnd, GCL_HBRBACKGROUND).ToString("X");
                     break;
