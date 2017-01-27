@@ -137,6 +137,7 @@ namespace SharpFind
         }
 
         #endregion
+        #region Read/Write Settings
 
         private void ReadSettings()
         {
