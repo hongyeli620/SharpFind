@@ -661,7 +661,6 @@ namespace SharpFind.Classes
         [DllImport("user32.dll")]
         internal static extern bool ReleaseDC(IntPtr hWnd, IntPtr hDC);
 
-
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]
         internal static extern int SendMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
 
@@ -808,6 +807,83 @@ namespace SharpFind.Classes
         /// </returns>
         [DllImport("kernel32.dll")]
         internal static extern uint GetPriorityClass(IntPtr hProcess);
+
+        /// <summary>
+        /// Retrieves a string from the specified section in an initialization file.
+        /// </summary>
+        /// 
+        /// <param name="lpAppName">
+        /// The name of the section containing the key name. If this parameter is
+        /// NULL, the GetPrivateProfileString function copies all section names
+        /// in the file to the supplied buffer.
+        /// </param>
+        /// 
+        /// <param name="lpKeyName">
+        /// The name of the key whose associated string is to be retrieved. If this
+        /// parameter is NULL, all key names in the section specified by the lpAppName
+        /// parameter are copied to the buffer specified by the lpReturnedString
+        /// parameter.
+        /// </param>
+        /// 
+        /// <param name="lpDefault">
+        /// A default string. If the lpKeyName key cannot be found in the
+        /// initialization file, GetPrivateProfileString copies the default string to
+        /// the lpReturnedString buffer. If this parameter is NULL, the default is an
+        /// empty string, "".
+        /// </param>
+        /// 
+        /// <param name="lpReturnedString">
+        /// A pointer to the buffer that receives the retrieved string.
+        /// </param>
+        /// 
+        /// <param name="nSize">
+        /// The size of the buffer pointed to by the lpReturnedString parameter, in
+        /// characters.
+        /// </param>
+        /// 
+        /// <param name="lpFileName">
+        /// The name of the initialization file.
+        /// </param>
+        /// 
+        /// <returns>
+        /// The return value is the number of characters copied to the buffer, not
+        /// including the terminating null character.
+        /// </returns>
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
+        internal static extern uint GetPrivateProfileString(string lpAppName, string lpKeyName, string lpDefault, string lpReturnedString, int nSize, string lpFileName);
+
+        /// <summary>
+        /// Copies a string into the specified section of an initialization file.
+        /// </summary>
+        /// 
+        /// <param name="lpAppName">
+        /// The name of the section to which the string will be copied. If the
+        /// section does not exist, it is created. The name of the section is
+        /// case-independent; the string can be any combination of uppercase and
+        /// lowercase letters.
+        /// </param>
+        /// 
+        /// <param name="lpKeyName">
+        /// The name of the key to be associated with a string. If the key does
+        /// not exist in the specified section, it is created. If this parameter
+        /// is NULL, the entire section, including all entries within the
+        /// section, is deleted.
+        /// </param>
+        /// 
+        /// <param name="lpString">
+        /// A null-terminated string to be written to the file. If this parameter
+        /// is NULL, the key pointed to by the lpKeyName parameter is deleted.
+        /// </param>
+        /// <param name="lpFileName">
+        /// The name of the initialization file.
+        /// </param>
+        /// 
+        /// <returns>
+        /// If the function successfully copies the string to the initialization
+        /// file, the return value is nonzero.
+        /// </returns>
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        internal static extern int WritePrivateProfileString(string lpAppName, string lpKeyName, string lpString, string lpFileName);
 
         #endregion
         #region uxtheme.dll
