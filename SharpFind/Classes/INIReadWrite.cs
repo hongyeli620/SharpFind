@@ -8,7 +8,7 @@ namespace SharpFind.Classes
     {
         public static string SettingsPath()
         {
-            return Application.StartupPath + "\\Settings.ini";
+            return Application.StartupPath + "\\settings.ini";
         }
 
         public static string INIRead(string path, string section, string key)
