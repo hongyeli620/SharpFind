@@ -11,9 +11,14 @@ namespace SharpFind.Classes
             return Application.StartupPath + "\\settings.ini";
         }
 
-        public static string INIRead(string path, string section, string key)
+        public static string INIReadString(string path, string section, string key)
         {
             return INIRead(path, section, key, string.Empty);
+        }
+
+        public static bool INIReadBoolean(string path, string section, string key, bool defaultValue)
+        {
+            return bool.Parse(INIRead(path, section, key, defaultValue.ToString()));
         }
 
         public static string INIRead(string path, string section, string key, string defaultValue)
