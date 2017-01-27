@@ -91,25 +91,6 @@ namespace SharpFind
             }
         }
 
-        private void ReadSettings()
-        {
-            if (!File.Exists(SettingsPath()))
-                return;
-        
-            CMNU_StayOnTop.Checked         = bool.Parse(INIRead(SettingsPath(), "Main", "TopMost" ,          "false"));
-            CMNU_EasyMove.Checked          = bool.Parse(INIRead(SettingsPath(), "Main", "EasyMove",          "true" ));
-            CMNU_Collapse.Checked          = bool.Parse(INIRead(SettingsPath(), "Main", "Collapse",          "true" ));
-            CMNU_NativeHighlighter.Checked = bool.Parse(INIRead(SettingsPath(), "Main", "NativeHighlighter", "true" ));
-        }
-
-        private void SaveSettings()
-        {
-            INIWrite(SettingsPath(), "Main", "TopMost" ,          CMNU_StayOnTop.Checked.ToString().ToLower());
-            INIWrite(SettingsPath(), "Main", "EasyMove",          CMNU_EasyMove.Checked.ToString().ToLower());
-            INIWrite(SettingsPath(), "Main", "Collapse",          CMNU_Collapse.Checked.ToString().ToLower());
-            INIWrite(SettingsPath(), "Main", "NativeHighlighter", CMNU_NativeHighlighter.Checked.ToString().ToLower());
-        }
-
         #region Variables
 
         private string appName;
@@ -153,6 +134,28 @@ namespace SharpFind
         {
             var result = GetSystemDpi();
             return result.X == 96 || result.Y == 96;
+        }
+
+        #endregion
+        #region INI Read/Save
+
+        private void ReadSettings()
+        {
+            if (!File.Exists(SettingsPath()))
+                return;
+        
+            CMNU_StayOnTop.Checked         = bool.Parse(INIRead(SettingsPath(), "Main", "TopMost" ,          "false"));
+            CMNU_EasyMove.Checked          = bool.Parse(INIRead(SettingsPath(), "Main", "EasyMove",          "true" ));
+            CMNU_Collapse.Checked          = bool.Parse(INIRead(SettingsPath(), "Main", "Collapse",          "true" ));
+            CMNU_NativeHighlighter.Checked = bool.Parse(INIRead(SettingsPath(), "Main", "NativeHighlighter", "true" ));
+        }
+
+        private void SaveSettings()
+        {
+            INIWrite(SettingsPath(), "Main", "TopMost" ,          CMNU_StayOnTop.Checked.ToString().ToLower());
+            INIWrite(SettingsPath(), "Main", "EasyMove",          CMNU_EasyMove.Checked.ToString().ToLower());
+            INIWrite(SettingsPath(), "Main", "Collapse",          CMNU_Collapse.Checked.ToString().ToLower());
+            INIWrite(SettingsPath(), "Main", "NativeHighlighter", CMNU_NativeHighlighter.Checked.ToString().ToLower());
         }
 
         #endregion
