@@ -652,13 +652,13 @@ namespace SharpFind
         private static string getIconHandle(IntPtr hWnd)
         {
             var value = GetClassLongPtr(hWnd, GCL_HICON).ToString("X8");
-            return value == "00000000" ? "(None)" : value;
+            return value == "00000000" ? "(none)" : value;
         }
 
         private static string getIconHandleSM(IntPtr hWnd)
         {
             var value = GetClassLongPtr32(hWnd, GCL_HICONSM).ToString("X8");
-            return value == "00000000" ? "(None)" : value;
+            return value == "00000000" ? "(none)" : value;
         }
 
         private static string getCursorHandle(IntPtr hWnd)
@@ -667,7 +667,7 @@ namespace SharpFind
             if (Environment.OSVersion.Version.Major <= 5.1)
             {
                 // Hex handles for Windows XP and below
-                if (value == "0")     return "(None)";
+                if (value == "0")     return "(none)";
                 if (value == "10011") return value + " (IDC_ARROW)";
                 if (value == "10013") return value + " (IDC_IBEAM)";
                 if (value == "10015") return value + " (IDC_WAIT)";
@@ -685,7 +685,7 @@ namespace SharpFind
             else if (Environment.OSVersion.Version.Major >= 6)
             {
                 // Hex handles for Windows Vista and above
-                if (value == "0")     return "(None)";
+                if (value == "0")     return "(none)";
                 if (value == "10003") return value + " (IDC_ARROW)";
                 if (value == "10005") return value + " (IDC_IBEAM)";
                 if (value == "10007") return value + " (IDC_WAIT)";
@@ -724,7 +724,7 @@ namespace SharpFind
             {
                 case "0":
                     n = 0;
-                    return "(None)";
+                    return "(none)";
                 case "1":
                     n = 1;
                     return n - 1 + " (COLOR_SCROLLBAR)";
