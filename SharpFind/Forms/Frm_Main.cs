@@ -649,19 +649,19 @@ namespace SharpFind
 
             if (n != 0)
             {
+                if ((n & ClassStyles.CS_VREDRAW)         != 0) CMB_ClassStyles.Items.Add("CS_VREDRAW");
+                if ((n & ClassStyles.CS_HREDRAW)         != 0) CMB_ClassStyles.Items.Add("CS_HREDRAW");
+                if ((n & ClassStyles.CS_DBLCLKS)         != 0) CMB_ClassStyles.Items.Add("CS_DBLCLKS");
+                if ((n & ClassStyles.CS_OWNDC)           != 0) CMB_ClassStyles.Items.Add("CS_OWNDC");
+                if ((n & ClassStyles.CS_CLASSDC)         != 0) CMB_ClassStyles.Items.Add("CS_CLASSDC");
+                if ((n & ClassStyles.CS_PARENTDC)        != 0) CMB_ClassStyles.Items.Add("CS_PARENTDC");
+                if ((n & ClassStyles.CS_NOCLOSE)         != 0) CMB_ClassStyles.Items.Add("CS_NOCLOSE");
+                if ((n & ClassStyles.CS_SAVEBITS)        != 0) CMB_ClassStyles.Items.Add("CS_SAVEBITS");
                 if ((n & ClassStyles.CS_BYTEALIGNCLIENT) != 0) CMB_ClassStyles.Items.Add("CS_BYTEALIGNCLIENT");
                 if ((n & ClassStyles.CS_BYTEALIGNWINDOW) != 0) CMB_ClassStyles.Items.Add("CS_BYTEALIGNWINDOW");
-                if ((n & ClassStyles.CS_CLASSDC) != 0)         CMB_ClassStyles.Items.Add("CS_CLASSDC");
-                if ((n & ClassStyles.CS_DBLCLKS) != 0)         CMB_ClassStyles.Items.Add("CS_DBLCLKS");
-                if ((n & ClassStyles.CS_DROPSHADOW) != 0)      CMB_ClassStyles.Items.Add("CS_DROPSHADOW");
-                if ((n & ClassStyles.CS_GLOBALCLASS) != 0)     CMB_ClassStyles.Items.Add("CS_GLOBALCLASS");
-                if ((n & ClassStyles.CS_HREDRAW) != 0)         CMB_ClassStyles.Items.Add("CS_HREDRAW");
-                if ((n & ClassStyles.CS_IME) != 0)             CMB_ClassStyles.Items.Add("CS_IME");
-                if ((n & ClassStyles.CS_NOCLOSE) != 0)         CMB_ClassStyles.Items.Add("CS_NOCLOSE");
-                if ((n & ClassStyles.CS_OWNDC) != 0)           CMB_ClassStyles.Items.Add("CS_OWNDC");
-                if ((n & ClassStyles.CS_PARENTDC) != 0)        CMB_ClassStyles.Items.Add("CS_PARENTDC");
-                if ((n & ClassStyles.CS_SAVEBITS) != 0)        CMB_ClassStyles.Items.Add("CS_SAVEBITS");
-                if ((n & ClassStyles.CS_VREDRAW) != 0)         CMB_ClassStyles.Items.Add("CS_VREDRAW");
+                if ((n & ClassStyles.CS_GLOBALCLASS)     != 0) CMB_ClassStyles.Items.Add("CS_GLOBALCLASS");
+                if ((n & ClassStyles.CS_IME)             != 0) CMB_ClassStyles.Items.Add("CS_IME");
+                if ((n & ClassStyles.CS_DROPSHADOW)      != 0) CMB_ClassStyles.Items.Add("CS_DROPSHADOW");
                 
                 // Select the first index, if any
                 if (CMB_ClassStyles.Items.Count != 0)
