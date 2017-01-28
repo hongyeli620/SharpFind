@@ -103,11 +103,15 @@
             this.CMNU_Collapse = new System.Windows.Forms.MenuItem();
             this.CMNU_NativeHighlighter = new System.Windows.Forms.MenuItem();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
-            this.CMNU_ShowHexPrefix = new System.Windows.Forms.MenuItem();
+            this.CMNU_VisualCPPHex = new System.Windows.Forms.MenuItem();
             this.PNL_Top = new System.Windows.Forms.Panel();
             this.PNL_Bottom = new System.Windows.Forms.Panel();
             this.separator1 = new SharpFind.Controls.Separator();
             this.BTN_Close = new System.Windows.Forms.Button();
+            this.menuItem2 = new System.Windows.Forms.MenuItem();
+            this.CMNU_VisualBasicHex = new System.Windows.Forms.MenuItem();
+            this.CMNU_Default = new System.Windows.Forms.MenuItem();
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.GB_Tool.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Tool)).BeginInit();
             this.TC_Details.SuspendLayout();
@@ -950,7 +954,7 @@
             this.CMNU_Collapse,
             this.CMNU_NativeHighlighter,
             this.menuItem1,
-            this.CMNU_ShowHexPrefix});
+            this.menuItem2});
             // 
             // CMNU_RememberWinPos
             // 
@@ -995,11 +999,11 @@
             this.menuItem1.Index = 5;
             this.menuItem1.Text = "-";
             // 
-            // CMNU_ShowHexPrefix
+            // CMNU_VisualCPPHex
             // 
-            this.CMNU_ShowHexPrefix.Index = 6;
-            this.CMNU_ShowHexPrefix.Text = "Show Hexadecimal \'0x\' Prefix";
-            this.CMNU_ShowHexPrefix.Click += new System.EventHandler(this.CMNU_ShowPrefix_Click);
+            this.CMNU_VisualCPPHex.Index = 2;
+            this.CMNU_VisualCPPHex.Text = "Visual C++ Hex";
+            this.CMNU_VisualCPPHex.Click += new System.EventHandler(this.CMNU_VisualCPPHex_Click);
             // 
             // PNL_Top
             // 
@@ -1045,6 +1049,34 @@
             this.BTN_Close.Text = "&Close";
             this.BTN_Close.UseVisualStyleBackColor = true;
             this.BTN_Close.Click += new System.EventHandler(this.BTN_Close_Click);
+            // 
+            // menuItem2
+            // 
+            this.menuItem2.Index = 6;
+            this.menuItem2.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.CMNU_Default,
+            this.menuItem5,
+            this.CMNU_VisualCPPHex,
+            this.CMNU_VisualBasicHex});
+            this.menuItem2.Text = "Value Mode";
+            // 
+            // CMNU_VisualBasicHex
+            // 
+            this.CMNU_VisualBasicHex.Index = 3;
+            this.CMNU_VisualBasicHex.Text = "Visual Basic Hex";
+            this.CMNU_VisualBasicHex.Click += new System.EventHandler(this.CMNU_VisualBasicHex_Click);
+            // 
+            // CMNU_Default
+            // 
+            this.CMNU_Default.Checked = true;
+            this.CMNU_Default.Index = 0;
+            this.CMNU_Default.Text = "Default";
+            this.CMNU_Default.Click += new System.EventHandler(this.CMNU_Default_Click);
+            // 
+            // menuItem5
+            // 
+            this.menuItem5.Index = 1;
+            this.menuItem5.Text = "-";
             // 
             // Frm_Main
             // 
@@ -1158,7 +1190,11 @@
         private System.Windows.Forms.MenuItem CMNU_EasyMove;
         private System.Windows.Forms.MenuItem CMNU_RememberWinPos;
         private System.Windows.Forms.MenuItem menuItem1;
-        private System.Windows.Forms.MenuItem CMNU_ShowHexPrefix;
+        private System.Windows.Forms.MenuItem CMNU_VisualCPPHex;
+        private System.Windows.Forms.MenuItem menuItem2;
+        private System.Windows.Forms.MenuItem menuItem5;
+        private System.Windows.Forms.MenuItem CMNU_VisualBasicHex;
+        private System.Windows.Forms.MenuItem CMNU_Default;
     }
 }
 
