@@ -182,7 +182,7 @@ namespace SharpFind
             INIWriteBool(SettingsPath(), "WindowPos", "RememberPos", CMNU_RememberWinPos.Checked);
 
             // Prevent writing a negative value
-            if (!(WindowState == FormWindowState.Minimized))
+            if (WindowState != FormWindowState.Minimized)
             {
                 INIWriteInt(SettingsPath(), "WindowPos", "PosX", Location.X);
                 INIWriteInt(SettingsPath(), "WindowPos", "PosY", Location.Y);
@@ -1091,7 +1091,7 @@ namespace SharpFind
                 Cursor.Current = _cursorDefault;
                 PB_Tool.Image = Resources.finder_in;
 
-                if (!(TB_WindowHandle.Text == "") && isHandleNull == false)
+                if (TB_WindowHandle.Text != "" && isHandleNull == false)
                 {
                     PNL_Bottom.Visible = true;
                     Height = formHeightExtended;
