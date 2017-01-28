@@ -774,9 +774,6 @@ namespace SharpFind
             ** Then subtract 1 from each return value afterwards to show a correct
             ** output in the TextBox.
             */
-
-            // This is going to be long way down. I could have minified it, but the
-            // code is going to look really ugly and messy
             switch (value)
             {
                 case "0" : n = 0;  return "(none)";
