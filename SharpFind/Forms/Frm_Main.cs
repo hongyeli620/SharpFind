@@ -164,11 +164,14 @@ namespace SharpFind
                 }
             }
 
-            CMNU_StayOnTop.Checked         = INIReadBool(SettingsPath(), "Main", "TopMost" ,          false);
-            CMNU_EasyMove.Checked          = INIReadBool(SettingsPath(), "Main", "EasyMove",          true);
-            CMNU_Collapse.Checked          = INIReadBool(SettingsPath(), "Main", "Collapse",          true);
-            CMNU_NativeHighlighter.Checked = INIReadBool(SettingsPath(), "Main", "NativeHighlighter", true);
-            CMNU_ShowHexPrefix.Checked     = INIReadBool(SettingsPath(), "Main", "ShowHexPrefix",     false);
+            CMNU_StayOnTop.Checked         = INIReadBool(SettingsPath(), "Main",    "TopMost" ,          false);
+            CMNU_EasyMove.Checked          = INIReadBool(SettingsPath(), "Main",    "EasyMove",          true);
+            CMNU_Collapse.Checked          = INIReadBool(SettingsPath(), "Main",    "Collapse",          true);
+            CMNU_NativeHighlighter.Checked = INIReadBool(SettingsPath(), "Main",    "NativeHighlighter", true);
+
+            CMNU_Default.Checked           = INIReadBool(SettingsPath(), "HexMode", "Default",           true);
+            CMNU_VisualCPPHex.Checked      = INIReadBool(SettingsPath(), "HexMode", "VisualCPP",         false);
+            CMNU_VisualBasicHex.Checked    = INIReadBool(SettingsPath(), "HexMode", "VisualBasic",       false);
         }
 
         private void SaveSettings()
@@ -185,11 +188,14 @@ namespace SharpFind
                 INIWriteInt(SettingsPath(), "WindowPos", "PosY", Location.Y);
             }
 
-            INIWriteBool(SettingsPath(), "Main", "TopMost" ,          CMNU_StayOnTop.Checked);
-            INIWriteBool(SettingsPath(), "Main", "EasyMove",          CMNU_EasyMove.Checked);
-            INIWriteBool(SettingsPath(), "Main", "Collapse",          CMNU_Collapse.Checked);
-            INIWriteBool(SettingsPath(), "Main", "NativeHighlighter", CMNU_NativeHighlighter.Checked);
-            INIWriteBool(SettingsPath(), "Main", "ShowHexPrefix",     CMNU_ShowHexPrefix.Checked);
+            INIWriteBool(SettingsPath(), "Main",    "TopMost" ,          CMNU_StayOnTop.Checked);
+            INIWriteBool(SettingsPath(), "Main",    "EasyMove",          CMNU_EasyMove.Checked);
+            INIWriteBool(SettingsPath(), "Main",    "Collapse",          CMNU_Collapse.Checked);
+            INIWriteBool(SettingsPath(), "Main",    "NativeHighlighter", CMNU_NativeHighlighter.Checked);
+
+            INIWriteBool(SettingsPath(), "HexMode", "Default",           CMNU_Default.Checked);
+            INIWriteBool(SettingsPath(), "HexMode", "VisualCPP",         CMNU_VisualCPPHex.Checked);
+            INIWriteBool(SettingsPath(), "HexMode", "VisualBasic",       CMNU_VisualBasicHex.Checked);
         }
 
         #endregion
@@ -809,12 +815,13 @@ namespace SharpFind
                 case "30": n = 30; return n - 1 + " (COLOR_MENUBAR)";
                 case "31": n = 31; return n - 1 + " (COLOR_FORM)";
                 default:
-                    value = hPrefix + GetClassLongPtr(hWnd, GCL_HBRBACKGROUND).ToString("X");
+                    // <GetClassLongPtr> sometimes reutrns "FFFFFFFF" before the actual value
+                    value = hPrefix + GetClassLongPtr32(hWnd, GCL_HBRBACKGROUND).ToString("X");
                     break;
             }
 
-            if (value.StartsWith("FFFFFFFF"))
-                value = value.Substring(8);
+//          if (value.StartsWith("FFFFFFFF"))
+//              value = value.Substring(8);
             
             return value;
         }
@@ -962,9 +969,19 @@ namespace SharpFind
             if (CMNU_StayOnTop.Checked)
                 TopMost = true;
 
-            if (CMNU_ShowHexPrefix.Checked)
+            if (CMNU_Default.Checked)
+            {
+                hPrefix = string.Empty;
+                hFormat8 = "X8";
+            }
+            else if (CMNU_VisualCPPHex.Checked)
             {
                 hPrefix = "0x";
+                hFormat8 = "X";
+            }
+            else if (CMNU_VisualBasicHex.Checked)
+            {
+                hPrefix = "&H";
                 hFormat8 = "X";
             }
         }
@@ -1074,7 +1091,7 @@ namespace SharpFind
                 Cursor.Current = _cursorDefault;
                 PB_Tool.Image = Resources.finder_in;
 
-                if (!isHandleNull)
+                if (!(TB_WindowHandle.Text == "") && isHandleNull == false)
                 {
                     PNL_Bottom.Visible = true;
                     Height = formHeightExtended;
@@ -1211,19 +1228,42 @@ namespace SharpFind
             CMNU_NativeHighlighter.Checked = !CMNU_NativeHighlighter.Checked;
         }
 
-        private void CMNU_ShowPrefix_Click(object sender, EventArgs e)
+        private void CMNU_Default_Click(object sender, EventArgs e)
         {
-            if (!CMNU_ShowHexPrefix.Checked)
+            if (!CMNU_Default.Checked)
             {
-                CMNU_ShowHexPrefix.Checked = true;
+                CMNU_Default.Checked = true;
+                CMNU_VisualCPPHex.Checked = false;
+                CMNU_VisualBasicHex.Checked = false;
+
+                hPrefix = string.Empty;
+                hFormat8 = "X8";
+            }
+        }
+
+        private void CMNU_VisualCPPHex_Click(object sender, EventArgs e)
+        {
+            if (!CMNU_VisualCPPHex.Checked)
+            {
+                CMNU_Default.Checked = false;
+                CMNU_VisualCPPHex.Checked = true;
+                CMNU_VisualBasicHex.Checked = false;
+
                 hPrefix = "0x";
                 hFormat8 = "X";
             }
-            else
+        }
+
+        private void CMNU_VisualBasicHex_Click(object sender, EventArgs e)
+        {
+            if (!CMNU_VisualBasicHex.Checked)
             {
-                CMNU_ShowHexPrefix.Checked = false;
-                hPrefix = string.Empty;
-                hFormat8 = "X8";
+                CMNU_Default.Checked = false;
+                CMNU_VisualCPPHex.Checked = false;
+                CMNU_VisualBasicHex.Checked = true;
+
+                hPrefix = "&H";
+                hFormat8 = "X";
             }
         }
     }
