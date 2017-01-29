@@ -169,8 +169,8 @@ namespace SharpFind
             CMNU_NativeHighlighter.Checked = ReadINI(SettingsPath(), "Main",    "NativeHighlighter", true);
 
             CMNU_Default.Checked           = ReadINI(SettingsPath(), "HexMode", "Default",           true);
-            CMNU_VisualCPPHex.Checked      = ReadINI(SettingsPath(), "HexMode", "VisualCPP",         false);
-            CMNU_VisualBasicHex.Checked    = ReadINI(SettingsPath(), "HexMode", "VisualBasic",       false);
+            CMNU_VisualCPP.Checked      = ReadINI(SettingsPath(), "HexMode", "VisualCPP",         false);
+            CMNU_VisualBasic.Checked    = ReadINI(SettingsPath(), "HexMode", "VisualBasic",       false);
         }
 
         private void SaveSettings()
@@ -193,8 +193,8 @@ namespace SharpFind
             WriteINI(SettingsPath(), "Main",    "NativeHighlighter", CMNU_NativeHighlighter.Checked);
 
             WriteINI(SettingsPath(), "HexMode", "Default",           CMNU_Default.Checked);
-            WriteINI(SettingsPath(), "HexMode", "VisualCPP",         CMNU_VisualCPPHex.Checked);
-            WriteINI(SettingsPath(), "HexMode", "VisualBasic",       CMNU_VisualBasicHex.Checked);
+            WriteINI(SettingsPath(), "HexMode", "VisualCPP",         CMNU_VisualCPP.Checked);
+            WriteINI(SettingsPath(), "HexMode", "VisualBasic",       CMNU_VisualBasic.Checked);
         }
 
         #endregion
@@ -960,12 +960,12 @@ namespace SharpFind
                 hPrefix = string.Empty;
                 hFormat = "X8";
             }
-            else if (CMNU_VisualCPPHex.Checked)
+            else if (CMNU_VisualCPP.Checked)
             {
                 hPrefix = "0x";
                 hFormat = "X";
             }
-            else if (CMNU_VisualBasicHex.Checked)
+            else if (CMNU_VisualBasic.Checked)
             {
                 hPrefix = "&H";
                 hFormat = "X";
@@ -1219,8 +1219,8 @@ namespace SharpFind
             if (!CMNU_Default.Checked)
             {
                 CMNU_Default.Checked = true;
-                CMNU_VisualCPPHex.Checked = false;
-                CMNU_VisualBasicHex.Checked = false;
+                CMNU_VisualCPP.Checked = false;
+                CMNU_VisualBasic.Checked = false;
 
                 hPrefix = string.Empty;
                 hFormat = "X8";
@@ -1229,11 +1229,11 @@ namespace SharpFind
 
         private void CMNU_VisualCPPHex_Click(object sender, EventArgs e)
         {
-            if (!CMNU_VisualCPPHex.Checked)
+            if (!CMNU_VisualCPP.Checked)
             {
                 CMNU_Default.Checked = false;
-                CMNU_VisualCPPHex.Checked = true;
-                CMNU_VisualBasicHex.Checked = false;
+                CMNU_VisualCPP.Checked = true;
+                CMNU_VisualBasic.Checked = false;
 
                 hPrefix = "0x";
                 hFormat = "X";
@@ -1242,11 +1242,11 @@ namespace SharpFind
 
         private void CMNU_VisualBasicHex_Click(object sender, EventArgs e)
         {
-            if (!CMNU_VisualBasicHex.Checked)
+            if (!CMNU_VisualBasic.Checked)
             {
                 CMNU_Default.Checked = false;
-                CMNU_VisualCPPHex.Checked = false;
-                CMNU_VisualBasicHex.Checked = true;
+                CMNU_VisualCPP.Checked = false;
+                CMNU_VisualBasic.Checked = true;
 
                 hPrefix = "&H";
                 hFormat = "X";
