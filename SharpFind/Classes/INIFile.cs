@@ -15,6 +15,9 @@ namespace SharpFind.Classes
 {
     public class INIFile
     {
+        /// <summary>
+        /// The path to the settings file.
+        /// </summary>
         public static string SettingsPath()
         {
             return Application.StartupPath + "\\settings.ini";
@@ -22,16 +25,25 @@ namespace SharpFind.Classes
 
         #region Reading
 
+        /// <summary>
+        /// Reads <c>string</c> type keys.
+        /// </summary>
         public static string ReadINI(string path, string section, string key)
         {
             return ReadData(path, section, key, string.Empty);
         }
 
+        /// <summary>
+        /// Reads <c>integer</c> type keys
+        /// </summary>
         public static int ReadINI(string path, string section, string key, int defaultValue)
         {
             return int.Parse(ReadData(path, section, key, string.Empty));
         }
 
+        /// <summary>
+        /// Reads <c>boolean</c> type keys.
+        /// </summary>
         public static bool ReadINI(string path, string section, string key, bool defaultValue)
         {
             return bool.Parse(ReadData(path, section, key, defaultValue.ToString()));
@@ -49,16 +61,25 @@ namespace SharpFind.Classes
         #endregion
         #region Writing
 
+        /// <summary>
+        /// Writes <c>string</c> type keys.
+        /// </summary>
         public static void WriteINI(string path, string section, string key, string value)
         {
             WritePrivateProfileString(section, key, value, path);
         }
 
+        /// <summary>
+        /// Writes <c>integer</c> type keys.
+        /// </summary>
         public static void WriteINI(string path, string section, string key, int value)
         {
             WritePrivateProfileString(section, key, value.ToString(), path);
         }
 
+        /// <summary>
+        /// Writes <c>boolean</c> type keys.
+        /// </summary>
         public static void WriteINI(string path, string section, string key, bool value)
         {
             WritePrivateProfileString(section, key, value.ToString().ToLower(), path);
