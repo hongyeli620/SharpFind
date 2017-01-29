@@ -16,7 +16,7 @@ namespace SharpFind.Classes
     public class INIFile
     {
         /// <summary>
-        /// The path to the settings file.
+        /// Path to the settings file.
         /// </summary>
         public static string SettingsPath()
         {
