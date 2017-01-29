@@ -110,8 +110,7 @@ namespace SharpFind
 
         // Hexadecimal prefix and format
         private static string hPrefix = "";
-        private static string hFormat8 = "X8";
-        private static string hFormat4 = "X4";
+        private static string hFormat = "X8";
 
         // Single window menu items
         private const int MNU_ABOUT = 1000;
@@ -256,17 +255,17 @@ namespace SharpFind
 
         private static string GetInstanceHandle(IntPtr hWnd)
         {
-            return hPrefix + GetWindowLong(hWnd, GWL_HINSTANCE).ToString(hFormat8);
+            return hPrefix + GetWindowLong(hWnd, GWL_HINSTANCE).ToString(hFormat);
         }
 
         private static string GetControlID(IntPtr hWnd)
         {
-            return hPrefix + GetWindowLong(hWnd, GWL_ID).ToString(hFormat8);
+            return hPrefix + GetWindowLong(hWnd, GWL_ID).ToString(hFormat);
         }
 
         private static string GetUserData(IntPtr hWnd)
         {
-            return hPrefix + GetWindowLong(hWnd, GWL_USERDATA).ToString(hFormat8);
+            return hPrefix + GetWindowLong(hWnd, GWL_USERDATA).ToString(hFormat);
         }
 
         private void GetWindowBytesCombo(IntPtr hWnd)
@@ -282,7 +281,7 @@ namespace SharpFind
                 if (value >= 4)
                     // <GetWindowLongPtr> is used here, otherwise it won't work right
                     // Dealing with x68/x64 compatibility is really a pain in the ass
-                    CMB_WindowBytes.Items.Add("+" + i + "       " + hPrefix + GetWindowLongPtr(hWnd, i).ToString(hFormat8));             
+                    CMB_WindowBytes.Items.Add("+" + i + "       " + hPrefix + GetWindowLongPtr(hWnd, i).ToString(hFormat));             
                 else
                     CMB_WindowBytes.Items.Add("+" + i + "       " + "(Unavailable)");
 
@@ -561,7 +560,7 @@ namespace SharpFind
             var isEnabled = IsWindowEnabled(hWnd) ? "enabled" : "disabled";
             var isVisible = IsWindowVisible(hWnd) ? "visible" : "hidden";
 
-            return string.Format("{0} ({1}, {2})", hPrefix + GetWindowLong(hWnd, GWL_STYLE).ToString(hFormat8),
+            return string.Format("{0} ({1}, {2})", hPrefix + GetWindowLong(hWnd, GWL_STYLE).ToString(hFormat),
                                                    isEnabled, isVisible);
         }
 
@@ -601,7 +600,7 @@ namespace SharpFind
                 if ((i & WS_EX_WINDOWEDGE)          != 0) DumpStyleEx("WS_EX_WINDOWEDGE",          WS_EX_WINDOWEDGE.ToString("X8"));
             }
 
-            return hPrefix + GetWindowLong(hWnd, GWL_EXSTYLE).ToString(hFormat8);
+            return hPrefix + GetWindowLong(hWnd, GWL_EXSTYLE).ToString(hFormat);
         }
 
         #endregion
@@ -659,7 +658,7 @@ namespace SharpFind
                     CMB_ClassStyles.SelectedIndex = 0;
             }
 
-            return hPrefix + GetClassLongPtr(hWnd, GCL_STYLE).ToString(hFormat8);
+            return hPrefix + GetClassLongPtr(hWnd, GCL_STYLE).ToString(hFormat);
         }
 
         private string GetClassBytes(IntPtr hWnd)
@@ -673,7 +672,7 @@ namespace SharpFind
             while (value != 0)
             {
                 if (value >= 4)
-                    CMB_ClassBytes.Items.Add("+" + i + "       " + hPrefix + GetClassLongPtr(hWnd, i).ToString(hFormat8));
+                    CMB_ClassBytes.Items.Add("+" + i + "       " + hPrefix + GetClassLongPtr(hWnd, i).ToString(hFormat));
                 else
                     CMB_ClassBytes.Items.Add("+" + i + "       " + "(Unavailable)");
 
@@ -689,7 +688,7 @@ namespace SharpFind
 
         private static string GetClassAtom(IntPtr hWnd)
         {
-            return hPrefix + GetClassLongPtr(hWnd, GCW_ATOM).ToString(hFormat4);
+            return hPrefix + GetClassLongPtr(hWnd, GCW_ATOM).ToString("X4");
         }
 
         private static string GetWindowBytes(IntPtr hWnd)
@@ -699,13 +698,13 @@ namespace SharpFind
 
         private static string GetIconHandle(IntPtr hWnd)
         {
-            var value = hPrefix + GetClassLongPtr(hWnd, GCL_HICON).ToString(hFormat8);
+            var value = hPrefix + GetClassLongPtr(hWnd, GCL_HICON).ToString(hFormat);
             return value == "00000000" ? "(none)" : value;
         }
 
         private static string GetIconHandleSM(IntPtr hWnd)
         {
-            var value = hPrefix + GetClassLongPtr32(hWnd, GCL_HICONSM).ToString(hFormat8);
+            var value = hPrefix + GetClassLongPtr32(hWnd, GCL_HICONSM).ToString(hFormat);
             return value == "00000000" ? "(none)" : value;
         }
 
@@ -838,7 +837,7 @@ namespace SharpFind
             GetWindowThreadProcessId(hWnd, ref pid);
             var process = Process.GetProcessById(pid);
 
-            return hPrefix + process.Id.ToString(hFormat8) + " (" + process.Id + ")";
+            return hPrefix + process.Id.ToString(hFormat) + " (" + process.Id + ")";
         }
 
         private static int GetProcessId(IntPtr hWnd)
@@ -853,7 +852,7 @@ namespace SharpFind
         private static string GetThreadID(IntPtr hWnd)
         {
             var pid = 0;
-            return hPrefix + GetWindowThreadProcessId(hWnd, ref pid).ToString(hFormat8) + " (" + GetWindowThreadProcessId(hWnd, ref pid) + ")";
+            return hPrefix + GetWindowThreadProcessId(hWnd, ref pid).ToString(hFormat) + " (" + GetWindowThreadProcessId(hWnd, ref pid) + ")";
         }
 
         private string GetPriorityClass(IntPtr hWnd)
@@ -958,17 +957,17 @@ namespace SharpFind
             if (CMNU_Default.Checked)
             {
                 hPrefix = string.Empty;
-                hFormat8 = "X8";
+                hFormat = "X8";
             }
             else if (CMNU_VisualCPPHex.Checked)
             {
                 hPrefix = "0x";
-                hFormat8 = "X";
+                hFormat = "X";
             }
             else if (CMNU_VisualBasicHex.Checked)
             {
                 hPrefix = "&H";
-                hFormat8 = "X";
+                hFormat = "X";
             }
         }
 
@@ -1119,7 +1118,7 @@ namespace SharpFind
 
                 // General Information tab
                 TB_WindowCaption.Text  = GetWindowText(hWnd);
-                TB_WindowHandle.Text   = hPrefix + hWnd.ToInt32().ToString(hFormat8) + " (" + hWnd.ToInt32() + ")";
+                TB_WindowHandle.Text   = hPrefix + hWnd.ToInt32().ToString(hFormat) + " (" + hWnd.ToInt32() + ")";
 
                 TB_Class.Text          = GetWindowClass(hWnd);
                 TB_Style.Text          = GetWindowStyles(hWnd);
@@ -1223,7 +1222,7 @@ namespace SharpFind
                 CMNU_VisualBasicHex.Checked = false;
 
                 hPrefix = string.Empty;
-                hFormat8 = "X8";
+                hFormat = "X8";
             }
         }
 
@@ -1236,7 +1235,7 @@ namespace SharpFind
                 CMNU_VisualBasicHex.Checked = false;
 
                 hPrefix = "0x";
-                hFormat8 = "X";
+                hFormat = "X";
             }
         }
 
@@ -1249,7 +1248,7 @@ namespace SharpFind
                 CMNU_VisualBasicHex.Checked = true;
 
                 hPrefix = "&H";
-                hFormat8 = "X";
+                hFormat = "X";
             }
         }
     }
