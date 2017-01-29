@@ -208,44 +208,29 @@ namespace SharpFind
 
         #region General
 
-        private static bool isWindowEnabled(IntPtr hWnd)
-        {
-            return IsWindowEnabled(hWnd);
-        }
-
-        private static bool isWindowUnicode(IntPtr hWnd)
-        {
-            return IsWindowUnicode(hWnd);
-        }
-
-        private static bool isWindowVisible(IntPtr hWnd)
-        {
-            return IsWindowVisible(hWnd);
-        }
-
-        private static string getWindowCaption(IntPtr hWnd)
+        private static string GetWindowText(IntPtr hWnd)
         {
             var sb = new StringBuilder(256);
-            GetWindowText(hWnd, sb, 256);
+            NativeMethods.GetWindowText(hWnd, sb, 256);
             return sb.ToString();
         }
 
-        private static string getClass(IntPtr hWnd)
+        private static string GetWindowClass(IntPtr hWnd)
         {
             var sb = new StringBuilder(256);
-            GetClassName(hWnd, sb, 256);
+            NativeMethods.GetClassName(hWnd, sb, 256);
         
             var value = sb.ToString();
-            if (isWindowUnicode(hWnd))
+            if (IsWindowUnicode(hWnd))
                 value = value + " (unicode)";
 
             return value;
         }
 
-        private static string getWindowRect(IntPtr hWnd)
+        private static string GetWindowRect(IntPtr hWnd)
         {
             var wRect = new RECT();
-            GetWindowRect(hWnd, out wRect);
+            NativeMethods.GetWindowRect(hWnd, out wRect);
             var winState = IsZoomed(hWnd) ? " (maximized)" : string.Empty;
 
             return string.Format("({2},{3}) - ({4},{5}), {0} x {1}{6}", wRect.right - wRect.left,
@@ -257,10 +242,10 @@ namespace SharpFind
                                                                         winState);
         }
 
-        private static string getClientRect(IntPtr hWnd)
+        private static string GetClientRect(IntPtr hWnd)
         {
             var cRect = new RECT();
-            GetClientRect(hWnd, out cRect);
+            NativeMethods.GetClientRect(hWnd, out cRect);
             return string.Format("({2},{3}) - ({4},{5}), {0} x {1}", cRect.right - cRect.left,
                                                                      cRect.bottom - cRect.top,
                                                                      cRect.left,
@@ -269,22 +254,22 @@ namespace SharpFind
                                                                      cRect.bottom);
         }
 
-        private static string getInstanceHandle(IntPtr hWnd)
+        private static string GetInstanceHandle(IntPtr hWnd)
         {
             return hPrefix + GetWindowLong(hWnd, GWL_HINSTANCE).ToString(hFormat8);
         }
 
-        private static string getControlID(IntPtr hWnd)
+        private static string GetControlID(IntPtr hWnd)
         {
             return hPrefix + GetWindowLong(hWnd, GWL_ID).ToString(hFormat8);
         }
 
-        private static string getUserData(IntPtr hWnd)
+        private static string GetUserData(IntPtr hWnd)
         {
             return hPrefix + GetWindowLong(hWnd, GWL_USERDATA).ToString(hFormat8);
         }
 
-        private void getWindowBytesCombo(IntPtr hWnd)
+        private void GetWindowBytesCombo(IntPtr hWnd)
         {
             var value = (long)GetClassLongPtr(hWnd, GCL_CBWNDEXTRA);
             var i = 0;
@@ -327,7 +312,7 @@ namespace SharpFind
             item.SubItems[1].Font = new Font("Lucida Sans Typewriter", 8F, FontStyle.Regular);
         }
 
-        private string getStyle(IntPtr hWnd)
+        private string GetWindowStyles(IntPtr hWnd)
         {
             var i = GetWindowLongPtr(hWnd, GWL_STYLE);
             LV_WindowStyles.Items.Clear();
@@ -580,7 +565,7 @@ namespace SharpFind
                                                    isEnabled, isVisible);
         }
 
-        private string getExtendedStyles(IntPtr hWnd)
+        private string GetWindowStylesEx(IntPtr hWnd)
         {
             var i = GetWindowLong(hWnd, GWL_EXSTYLE);
             LV_ExtendedStyles.Items.Clear();
@@ -629,10 +614,10 @@ namespace SharpFind
             return IntPtr.Size > 4 ? GetClassLongPtr64(hWnd, nIndex) : new IntPtr(GetClassLongPtr32(hWnd, nIndex));
         }
 
-        private static string getClassName(IntPtr hWnd)
+        private static string GetClassName(IntPtr hWnd)
         {
             var sb = new StringBuilder(256);
-            GetClassName(hWnd, sb, 256);
+            NativeMethods.GetClassName(hWnd, sb, 256);
 
             var value = sb.ToString();
             // Output identifiers for the cute little classes below
@@ -645,7 +630,7 @@ namespace SharpFind
             return value;
         }
 
-        private string getClassStyles(IntPtr hWnd)
+        private string GetClassStyles(IntPtr hWnd)
         {
             var n = (int)GetClassLongPtr(hWnd, GCL_STYLE);
 
@@ -677,7 +662,7 @@ namespace SharpFind
             return hPrefix + GetClassLongPtr(hWnd, GCL_STYLE).ToString(hFormat8);
         }
 
-        private string getClassBytes(IntPtr hWnd)
+        private string GetClassBytes(IntPtr hWnd)
         {
             var value = (long)GetClassLongPtr(hWnd, GCL_CBCLSEXTRA);
             var i = 0;
@@ -702,29 +687,29 @@ namespace SharpFind
             return GetClassLongPtr(hWnd, GCL_CBCLSEXTRA).ToString();
         }
 
-        private static string getClassAtom(IntPtr hWnd)
+        private static string GetClassAtom(IntPtr hWnd)
         {
             return hPrefix + GetClassLongPtr(hWnd, GCW_ATOM).ToString(hFormat4);
         }
 
-        private static string getWindowBytes(IntPtr hWnd)
+        private static string GetWindowBytes(IntPtr hWnd)
         {
             return GetClassLongPtr(hWnd, GCL_CBWNDEXTRA).ToString();
         }
 
-        private static string getIconHandle(IntPtr hWnd)
+        private static string GetIconHandle(IntPtr hWnd)
         {
             var value = hPrefix + GetClassLongPtr(hWnd, GCL_HICON).ToString(hFormat8);
             return value == "00000000" ? "(none)" : value;
         }
 
-        private static string getIconHandleSM(IntPtr hWnd)
+        private static string GetIconHandleSM(IntPtr hWnd)
         {
             var value = hPrefix + GetClassLongPtr32(hWnd, GCL_HICONSM).ToString(hFormat8);
             return value == "00000000" ? "(none)" : value;
         }
 
-        private static string getCursorHandle(IntPtr hWnd)
+        private static string GetCursorHandle(IntPtr hWnd)
         {
             var value = hPrefix + GetClassLongPtr(hWnd, GCL_HCURSOR).ToString("X");
             if (Environment.OSVersion.Version.Major <= 5.1)
@@ -767,7 +752,7 @@ namespace SharpFind
             return value;
         }
 
-        private static string getBkgndBrush(IntPtr hWnd)
+        private static string GetBackgroundBrush(IntPtr hWnd)
         {
             var value = GetClassLongPtr(hWnd, GCL_HBRBACKGROUND).ToString();
             int n;
@@ -829,7 +814,7 @@ namespace SharpFind
         #endregion
         #region Process
 
-        private static string getModuleName(IntPtr hWnd)
+        private static string GetModuleName(IntPtr hWnd)
         {
             var procId = 0;
             GetWindowThreadProcessId(hWnd, ref procId);
@@ -838,7 +823,7 @@ namespace SharpFind
             return proc.MainModule.ModuleName;
         }
 
-        private static string getModulePath(IntPtr hWnd)
+        private static string GetModulePath(IntPtr hWnd)
         {
             var procId = 0;
             GetWindowThreadProcessId(hWnd, ref procId);
@@ -847,7 +832,7 @@ namespace SharpFind
             return proc.MainModule.FileName;
         }
 
-        private static string getProcessId(IntPtr hWnd)
+        private static string GetProcessIdEx(IntPtr hWnd)
         {
             var pid = 0;
             GetWindowThreadProcessId(hWnd, ref pid);
@@ -856,7 +841,7 @@ namespace SharpFind
             return hPrefix + process.Id.ToString(hFormat8) + " (" + process.Id + ")";
         }
 
-        private static int getProcessIdDecimal(IntPtr hWnd)
+        private static int GetProcessId(IntPtr hWnd)
         {
             var pid = 0;
             GetWindowThreadProcessId(hWnd, ref pid);
@@ -865,15 +850,16 @@ namespace SharpFind
             return process.Id;
         }
 
-        private static string getThreadID(IntPtr hWnd)
+        private static string GetThreadID(IntPtr hWnd)
         {
             var pid = 0;
             return hPrefix + GetWindowThreadProcessId(hWnd, ref pid).ToString(hFormat8) + " (" + GetWindowThreadProcessId(hWnd, ref pid) + ")";
         }
 
-        private string getPriorityClass(IntPtr hWnd)
+        private string GetPriorityClass(IntPtr hWnd)
         {
-            var n = GetPriorityClass(hWnd);
+            var n = NativeMethods.GetPriorityClass(hWnd);
+
             if (n == PriorityClass.NORMAL_PRIORITY_CLASS)         return TB_PriorityClass.Text = "NORMAL_PRIORITY_CLASS (8)";
             if (n == PriorityClass.IDLE_PRIORITY_CLASS)           return TB_PriorityClass.Text = "IDLE_PRIORITY_CLASS (4)";
             if (n == PriorityClass.HIGH_PRIORITY_CLASS)           return TB_PriorityClass.Text = "HIGH_PRIORITY_CLASS (13)";
@@ -1114,7 +1100,7 @@ namespace SharpFind
                 hWnd = WindowFromPoint(Cursor.Position);
 
                 // Prevent retrieving information about the program itself, just like Spy++
-                var pid = getProcessIdDecimal(hWnd);
+                var pid = GetProcessId(hWnd);
                 if (GetCurrentProcessId() == pid)
                 {
                     isHandleNull = true;
@@ -1132,39 +1118,39 @@ namespace SharpFind
                 hPreviousWindow = hWnd;
 
                 // General Information tab
-                TB_WindowCaption.Text  = getWindowCaption(hWnd);
+                TB_WindowCaption.Text  = GetWindowText(hWnd);
                 TB_WindowHandle.Text   = hPrefix + hWnd.ToInt32().ToString(hFormat8) + " (" + hWnd.ToInt32() + ")";
 
-                TB_Class.Text          = getClass(hWnd);
-                TB_Style.Text          = getStyle(hWnd);
-                TB_Rectangle.Text      = getWindowRect(hWnd);
-                TB_ClientRect.Text     = getClientRect(hWnd);
-                TB_InstanceHandle.Text = getInstanceHandle(hWnd);
-                TB_ControlID.Text      = getControlID(hWnd);
-                TB_UserData.Text       = getUserData(hWnd);
-                getWindowBytesCombo(hWnd);
+                TB_Class.Text          = GetWindowClass(hWnd);
+                TB_Style.Text          = GetWindowStyles(hWnd);
+                TB_Rectangle.Text      = GetWindowRect(hWnd);
+                TB_ClientRect.Text     = GetClientRect(hWnd);
+                TB_InstanceHandle.Text = GetInstanceHandle(hWnd);
+                TB_ControlID.Text      = GetControlID(hWnd);
+                TB_UserData.Text       = GetUserData(hWnd);
+                GetWindowBytesCombo(hWnd);
 
                 //Styles tab
                 TB_WindowStyles.Text   = TB_Style.Text.Split('(')[0].TrimEnd();
-                TB_ExtendedStyles.Text = getExtendedStyles(hWnd);
+                TB_ExtendedStyles.Text = GetWindowStylesEx(hWnd);
 
                 // Class tab
-                TB_ClassName.Text      = getClassName(hWnd);
-                TB_ClassStyles.Text    = getClassStyles(hWnd);
-                TB_ClassBytes.Text     = getClassBytes(hWnd);
-                TB_ClassAtom.Text      = getClassAtom(hWnd);
-                TB_WindowBytes.Text    = getWindowBytes(hWnd);
-                TB_IconHandle.Text     = getIconHandle(hWnd);
-                TB_IconHandleSM.Text   = getIconHandleSM(hWnd);
-                TB_CursorHandle.Text   = getCursorHandle(hWnd);
-                TB_BkgndBrush.Text     = getBkgndBrush(hWnd);
+                TB_ClassName.Text      = GetClassName(hWnd);
+                TB_ClassStyles.Text    = GetClassStyles(hWnd);
+                TB_ClassBytes.Text     = GetClassBytes(hWnd);
+                TB_ClassAtom.Text      = GetClassAtom(hWnd);
+                TB_WindowBytes.Text    = GetWindowBytes(hWnd);
+                TB_IconHandle.Text     = GetIconHandle(hWnd);
+                TB_IconHandleSM.Text   = GetIconHandleSM(hWnd);
+                TB_CursorHandle.Text   = GetCursorHandle(hWnd);
+                TB_BkgndBrush.Text     = GetBackgroundBrush(hWnd);
 
                 // Process tab
-                TB_ModuleName.Text     = getModuleName(hWnd);
-                TB_ModulePath.Text     = getModulePath(hWnd);
-                TB_ProcessID.Text      = getProcessId(hWnd);
-                TB_ThreadID.Text       = getThreadID(hWnd);
-                TB_PriorityClass.Text  = getPriorityClass(Process.GetProcessById(pid).Handle);
+                TB_ModuleName.Text     = GetModuleName(hWnd);
+                TB_ModulePath.Text     = GetModulePath(hWnd);
+                TB_ProcessID.Text      = GetProcessIdEx(hWnd);
+                TB_ThreadID.Text       = GetThreadID(hWnd);
+                TB_PriorityClass.Text  = GetPriorityClass(Process.GetProcessById(pid).Handle);
 
                 Text = appName + " - " + TB_WindowHandle.Text.Split('(')[0].TrimEnd();
 
