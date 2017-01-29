@@ -21,7 +21,7 @@ using SharpFind.Properties;
 // <using static> is a C#6 feature. See:
 // https://blogs.msdn.microsoft.com/csharpfaq/2014/11/20/new-features-in-c-6/
 // C#6 IDE support starts at Visual Studio 2013 and up
-using static SharpFind.Classes.INIReadWrite;
+using static SharpFind.Classes.INIFile;
 using static SharpFind.Classes.NativeMethods.Styles.ButtonControlStyles;
 using static SharpFind.Classes.NativeMethods.Styles.ComboBoxStyles;
 using static SharpFind.Classes.NativeMethods.Styles.DateTimeControlStyles;
@@ -149,53 +149,53 @@ namespace SharpFind
             if (!File.Exists(SettingsPath()))
                 return;
 
-            CMNU_RememberWinPos.Checked = INIReadBool(SettingsPath(), "WindowPos", "RememberPos", true);
+            CMNU_RememberWinPos.Checked = ReadINI(SettingsPath(), "WindowPos", "RememberPos", true);
 
-            if (INIReadBool(SettingsPath(), "WindowPos", "RememberPos", true))
+            if (ReadINI(SettingsPath(), "WindowPos", "RememberPos", true))
             {
-                if (INIReadBool(SettingsPath(), "WindowPos", "FirstRun", true))
+                if (ReadINI(SettingsPath(), "WindowPos", "FirstRun", true))
                     CenterToScreen();
                 else
                 {
 
-                    var winPos = new Point(INIReadInt(SettingsPath(), "WindowPos", "PosX", 0),
-                                           INIReadInt(SettingsPath(), "WindowPos", "PosY", 0));
+                    var winPos = new Point(ReadINI(SettingsPath(), "WindowPos", "PosX", 0),
+                                           ReadINI(SettingsPath(), "WindowPos", "PosY", 0));
                     Location = winPos;
                 }
             }
 
-            CMNU_StayOnTop.Checked         = INIReadBool(SettingsPath(), "Main",    "TopMost" ,          false);
-            CMNU_EasyMove.Checked          = INIReadBool(SettingsPath(), "Main",    "EasyMove",          true);
-            CMNU_Collapse.Checked          = INIReadBool(SettingsPath(), "Main",    "Collapse",          true);
-            CMNU_NativeHighlighter.Checked = INIReadBool(SettingsPath(), "Main",    "NativeHighlighter", true);
+            CMNU_StayOnTop.Checked         = ReadINI(SettingsPath(), "Main",    "TopMost" ,          false);
+            CMNU_EasyMove.Checked          = ReadINI(SettingsPath(), "Main",    "EasyMove",          true);
+            CMNU_Collapse.Checked          = ReadINI(SettingsPath(), "Main",    "Collapse",          true);
+            CMNU_NativeHighlighter.Checked = ReadINI(SettingsPath(), "Main",    "NativeHighlighter", true);
 
-            CMNU_Default.Checked           = INIReadBool(SettingsPath(), "HexMode", "Default",           true);
-            CMNU_VisualCPPHex.Checked      = INIReadBool(SettingsPath(), "HexMode", "VisualCPP",         false);
-            CMNU_VisualBasicHex.Checked    = INIReadBool(SettingsPath(), "HexMode", "VisualBasic",       false);
+            CMNU_Default.Checked           = ReadINI(SettingsPath(), "HexMode", "Default",           true);
+            CMNU_VisualCPPHex.Checked      = ReadINI(SettingsPath(), "HexMode", "VisualCPP",         false);
+            CMNU_VisualBasicHex.Checked    = ReadINI(SettingsPath(), "HexMode", "VisualBasic",       false);
         }
 
         private void SaveSettings()
         {
-            if (INIReadBool(SettingsPath(), "WindowPos", "FirstRun", true))
-                INIWriteBool(SettingsPath(), "WindowPos", "FirstRun", false);
+            if (ReadINI(SettingsPath(), "WindowPos", "FirstRun", true))
+                WriteINI(SettingsPath(), "WindowPos", "FirstRun", false);
 
-            INIWriteBool(SettingsPath(), "WindowPos", "RememberPos", CMNU_RememberWinPos.Checked);
+            WriteINI(SettingsPath(), "WindowPos", "RememberPos", CMNU_RememberWinPos.Checked);
 
             // Prevent writing a negative value
             if (WindowState != FormWindowState.Minimized)
             {
-                INIWriteInt(SettingsPath(), "WindowPos", "PosX", Location.X);
-                INIWriteInt(SettingsPath(), "WindowPos", "PosY", Location.Y);
+                WriteINI(SettingsPath(), "WindowPos", "PosX", Location.X);
+                WriteINI(SettingsPath(), "WindowPos", "PosY", Location.Y);
             }
 
-            INIWriteBool(SettingsPath(), "Main",    "TopMost" ,          CMNU_StayOnTop.Checked);
-            INIWriteBool(SettingsPath(), "Main",    "EasyMove",          CMNU_EasyMove.Checked);
-            INIWriteBool(SettingsPath(), "Main",    "Collapse",          CMNU_Collapse.Checked);
-            INIWriteBool(SettingsPath(), "Main",    "NativeHighlighter", CMNU_NativeHighlighter.Checked);
+            WriteINI(SettingsPath(), "Main",    "TopMost" ,          CMNU_StayOnTop.Checked);
+            WriteINI(SettingsPath(), "Main",    "EasyMove",          CMNU_EasyMove.Checked);
+            WriteINI(SettingsPath(), "Main",    "Collapse",          CMNU_Collapse.Checked);
+            WriteINI(SettingsPath(), "Main",    "NativeHighlighter", CMNU_NativeHighlighter.Checked);
 
-            INIWriteBool(SettingsPath(), "HexMode", "Default",           CMNU_Default.Checked);
-            INIWriteBool(SettingsPath(), "HexMode", "VisualCPP",         CMNU_VisualCPPHex.Checked);
-            INIWriteBool(SettingsPath(), "HexMode", "VisualBasic",       CMNU_VisualBasicHex.Checked);
+            WriteINI(SettingsPath(), "HexMode", "Default",           CMNU_Default.Checked);
+            WriteINI(SettingsPath(), "HexMode", "VisualCPP",         CMNU_VisualCPPHex.Checked);
+            WriteINI(SettingsPath(), "HexMode", "VisualBasic",       CMNU_VisualBasicHex.Checked);
         }
 
         #endregion

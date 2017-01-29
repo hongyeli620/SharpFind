@@ -13,7 +13,7 @@ using static SharpFind.Classes.NativeMethods;
 
 namespace SharpFind.Classes
 {
-    public class INIReadWrite
+    public class INIFile
     {
         public static string SettingsPath()
         {
@@ -22,22 +22,22 @@ namespace SharpFind.Classes
 
         #region Reading
 
-        public static string INIReadString(string path, string section, string key)
+        public static string ReadINI(string path, string section, string key)
         {
-            return INIRead(path, section, key, string.Empty);
+            return ReadData(path, section, key, string.Empty);
         }
 
-        public static int INIReadInt(string path, string section, string key, int defaultValue)
+        public static int ReadINI(string path, string section, string key, int defaultValue)
         {
-            return int.Parse(INIRead(path, section, key, string.Empty));
+            return int.Parse(ReadData(path, section, key, string.Empty));
         }
 
-        public static bool INIReadBool(string path, string section, string key, bool defaultValue)
+        public static bool ReadINI(string path, string section, string key, bool defaultValue)
         {
-            return bool.Parse(INIRead(path, section, key, defaultValue.ToString()));
+            return bool.Parse(ReadData(path, section, key, defaultValue.ToString()));
         }
 
-        public static string INIRead(string path, string section, string key, string defaultValue)
+        public static string ReadData(string path, string section, string key, string defaultValue)
         {
             var sData = new string(' ', 1024);
             var i = Convert.ToInt32(GetPrivateProfileString(section, key, defaultValue, sData, sData.Length, path));
@@ -49,17 +49,17 @@ namespace SharpFind.Classes
         #endregion
         #region Writing
 
-        public static void INIWriteString(string path, string section, string key, string value)
+        public static void WriteINI(string path, string section, string key, string value)
         {
             WritePrivateProfileString(section, key, value, path);
         }
 
-        public static void INIWriteInt(string path, string section, string key, int value)
+        public static void WriteINI(string path, string section, string key, int value)
         {
             WritePrivateProfileString(section, key, value.ToString(), path);
         }
 
-        public static void INIWriteBool(string path, string section, string key, bool value)
+        public static void WriteINI(string path, string section, string key, bool value)
         {
             WritePrivateProfileString(section, key, value.ToString().ToLower(), path);
         }
