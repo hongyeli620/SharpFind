@@ -852,7 +852,8 @@ namespace SharpFind
         private static string GetThreadID(IntPtr hWnd)
         {
             var pid = 0;
-            return hPrefix + GetWindowThreadProcessId(hWnd, ref pid).ToString(hFormat) + " (" + GetWindowThreadProcessId(hWnd, ref pid) + ")";
+            return hPrefix + GetWindowThreadProcessId(hWnd, ref pid).ToString(hFormat) +
+                      " (" + GetWindowThreadProcessId(hWnd, ref pid) + ")";
         }
 
         private string GetPriorityClass(IntPtr hWnd)
