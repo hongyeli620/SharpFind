@@ -1,4 +1,4 @@
-﻿/* INIReadWrite.cs
+﻿/* INIFile.cs
 ** This file is part #Find.
 ** 
 ** Copyright 2017 by Jad Altahan <hello@exr.be>
