@@ -982,7 +982,7 @@
             // 
             this.CMNU_Collapse.Checked = true;
             this.CMNU_Collapse.Index = 3;
-            this.CMNU_Collapse.Shortcut = System.Windows.Forms.Shortcut.CtrlC;
+            this.CMNU_Collapse.Shortcut = System.Windows.Forms.Shortcut.CtrlM;
             this.CMNU_Collapse.Text = "Collapse when Capturing";
             this.CMNU_Collapse.Click += new System.EventHandler(this.CMNU_Collapse_Click);
             // 
