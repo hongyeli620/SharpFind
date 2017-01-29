@@ -24,18 +24,18 @@ namespace SharpFind.Classes
         /// </summary>
         public const int RDW_INVALIDATE = 0x1;
         /// <summary>
-        ///  Includes child windows, if any, in the repainting operation.
+        /// Includes child windows, if any, in the repainting operation.
         /// </summary>
         public const int RDW_ALLCHILDREN = 0x80;
         /// <summary>
-        ///  Causes the affected windows (as specified by the RDW_ALLCHILDREN flag)
-        ///  to receive WM_NCPAINT, WM_ERASEBKGND, and WM_PAINT messages, if
-        ///  necessary, before the function returns.
+        /// Causes the affected windows (as specified by the RDW_ALLCHILDREN flag)
+        /// to receive WM_NCPAINT, WM_ERASEBKGND, and WM_PAINT messages, if
+        /// necessary, before the function returns.
         /// </summary>
         public const int RDW_UPDATENOW = 0x100;
         /// <summary>
-        /// Causes any part of the nonclient area of the window that intersects the
-        /// update region to receive a WM_NCPAINT message.
+        /// Causes any part of the nonclient area of the window that intersects
+        /// the update region to receive a WM_NCPAINT message.
         /// </summary>
         public const int RDW_FRAME = 0x400;
 
@@ -88,8 +88,8 @@ namespace SharpFind.Classes
         /// </summary>
         public const int GCL_HICON = -14;
         /// <summary>
-        /// Retrieves the size, in bytes, of the extra window memory associated with
-        /// each window in the class.
+        /// Retrieves the size, in bytes, of the extra window memory associated
+        /// with each window in the class.
         /// </summary>
         public const int GCL_CBWNDEXTRA = (-18);
         /// <summary>
@@ -114,7 +114,7 @@ namespace SharpFind.Classes
         public const int GCL_HICONSM = -34;
 
         /// <summary>
-        /// Indicates that the position of the cursor hot spot is in a title bar
+        /// Indicates that the position of the cursor hot spot is in a title bar.
         /// </summary>
         public const int HTCAPTION = 0x2;
 
@@ -124,8 +124,8 @@ namespace SharpFind.Classes
         /// </summary>
         public const int MF_POPUP = 0x010;
         /// <summary>
-        /// Indicates that uPosition gives the zero-based relative position of the
-        /// menu item.
+        /// Indicates that uPosition gives the zero-based relative position of
+        /// the menu item.
         /// </summary>
         public const int MF_BYPOSITION = 0x400;
         /// <summary>
@@ -449,7 +449,10 @@ namespace SharpFind.Classes
         /// If the function succeeds, the return value is nonzero.
         /// </returns>
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-        internal static extern bool InsertMenu(IntPtr hMenu, uint uPosition, uint uFlags, uint uIDNewItem, [MarshalAs(UnmanagedType.LPTStr)]string lpNewItem);
+        internal static extern bool InsertMenu(IntPtr hMenu, uint uPosition,
+                                                             uint uFlags, 
+                                                             uint uIDNewItem,
+                                                             [MarshalAs(UnmanagedType.LPTStr)]string lpNewItem);
 
         /// <summary>
         /// The InvalidateRect function adds a rectangle to the specified window's
@@ -574,8 +577,8 @@ namespace SharpFind.Classes
         internal static extern bool IsZoomed(IntPtr hWnd);
         
         /// <summary>
-        /// The OffsetRect function moves the specified rectangle by the specified
-        /// offsets.
+        /// The OffsetRect function moves the specified rectangle by the
+        /// specified offsets.
         /// </summary>
         /// 
         /// <param name="lprc">
@@ -584,8 +587,8 @@ namespace SharpFind.Classes
         /// </param>
         /// 
         /// <param name="dx">
-        /// Specifies the amount to move the rectangle left or right. This parameter
-        /// must be a negative value to move the rectangle to the left.
+        /// Specifies the amount to move the rectangle left or right. This
+        /// parameter must be a negative value to move the rectangle to the left.
         /// </param>
         /// 
         /// <param name="dy">
@@ -626,7 +629,10 @@ namespace SharpFind.Classes
         /// If the function succeeds, the return value is nonzero.
         /// </returns>
         [DllImport("user32.dll")]
-        internal static extern bool RedrawWindow(IntPtr hWnd, IntPtr lprcUpdate, IntPtr hrgnUpdate, uint flags);
+        internal static extern bool RedrawWindow(IntPtr hWnd,
+                                                 IntPtr lprcUpdate,
+                                                 IntPtr hrgnUpdate,
+                                                 uint flags);
 
         /// <summary>
         /// Releases the mouse capture from a window in the current thread and
@@ -642,8 +648,8 @@ namespace SharpFind.Classes
         /// <summary>
         /// The ReleaseDC function releases a device context (DC), freeing it
         /// for use by other applications. The effect of the ReleaseDC function
-        /// depends on the type of DC. It frees only common and window DCs. It has
-        /// no effect on class or private DCs.
+        /// depends on the type of DC. It frees only common and window DCs. It
+        /// has no effect on class or private DCs.
         /// </summary>
         /// 
         /// <param name="hWnd">
@@ -776,7 +782,9 @@ namespace SharpFind.Classes
         /// If the function succeeds, the return value is nonzero.
         /// </returns>
         [DllImport("gdi32.dll")]
-        internal static extern bool PatBlt(IntPtr hdc, int nXLeft, int nYLeft, int nWidth, int nHeight, RasterOperations dwRop);
+        internal static extern bool PatBlt(IntPtr hdc, int nXLeft, int nYLeft,
+                                                       int nWidth, int nHeight,
+                                                       RasterOperations dwRop);
 
         #endregion
         #region kernel32.dll
@@ -850,7 +858,12 @@ namespace SharpFind.Classes
         /// including the terminating null character.
         /// </returns>
         [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
-        internal static extern uint GetPrivateProfileString(string lpAppName, string lpKeyName, string lpDefault, string lpReturnedString, int nSize, string lpFileName);
+        internal static extern uint GetPrivateProfileString(string lpAppName, 
+                                                            string lpKeyName, 
+                                                            string lpDefault,
+                                                            string lpReturnedString, 
+                                                            int nSize,
+                                                            string lpFileName);
 
         /// <summary>
         /// Copies a string into the specified section of an initialization file.
@@ -883,7 +896,10 @@ namespace SharpFind.Classes
         /// file, the return value is nonzero.
         /// </returns>
         [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-        internal static extern int WritePrivateProfileString(string lpAppName, string lpKeyName, string lpString, string lpFileName);
+        internal static extern int WritePrivateProfileString(string lpAppName, 
+                                                             string lpKeyName,
+                                                             string lpString,
+                                                             string lpFileName);
 
         #endregion
         #region uxtheme.dll
@@ -913,7 +929,8 @@ namespace SharpFind.Classes
         /// HRESULT error code.
         /// </returns>
         [DllImport("uxtheme.dll", ExactSpelling = true, CharSet = CharSet.Unicode)]
-        internal static extern int SetWindowTheme(IntPtr hWnd, string pszSubAppName, string pszSubIdList);
+        internal static extern int SetWindowTheme(IntPtr hWnd, string pszSubAppName, 
+                                                               string pszSubIdList);
 
         #endregion
         #region WinUser.h & CommCtrl.h Definitions
@@ -972,7 +989,9 @@ namespace SharpFind.Classes
 //              WS_ICONIC           = WS_MINIMIZE,
 //              WS_SIZEBOX          = WS_THICKFRAME,
 //              WS_TILEDWINDOW      = WS_OVERLAPPEDWINDOW,
-                WS_OVERLAPPEDWINDOW = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX,
+                WS_OVERLAPPEDWINDOW = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU |
+                                      WS_THICKFRAME | WS_MINIMIZEBOX          |
+                                      WS_MAXIMIZEBOX,
                 WS_POPUPWINDOW      = WS_POPUP | WS_BORDER | WS_SYSMENU;
 //              WS_CHILDWINDOW      = WS_CHILD;
             }
