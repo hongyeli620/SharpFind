@@ -91,7 +91,7 @@ namespace SharpFind.Classes
         /// Retrieves the size, in bytes, of the extra window memory associated
         /// with each window in the class.
         /// </summary>
-        public const int GCL_CBWNDEXTRA = (-18);
+        public const int GCL_CBWNDEXTRA = -18;
         /// <summary>
         /// Retrieves the size, in bytes, of the extra memory associated with the class.
         /// </summary>
