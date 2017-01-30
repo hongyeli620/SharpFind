@@ -93,10 +93,10 @@ namespace SharpFind
 
         #region Variables
 
-        private string appName;
+        private readonly string appName;
 
-        private int formHeightCollapsed = 100;
-        private int formHeightExtended = 215;
+        private readonly int formHeightCollapsed = 100;
+        private readonly int formHeightExtended = 215;
 
         // Cursors to be used
         private readonly Cursor _cursorDefault;
@@ -228,7 +228,7 @@ namespace SharpFind
 
         private static string GetWindowRect(IntPtr hWnd)
         {
-            var wRect = new RECT();
+            RECT wRect;
             NativeMethods.GetWindowRect(hWnd, out wRect);
             var winState = IsZoomed(hWnd) ? " (maximized)" : string.Empty;
 
@@ -243,7 +243,7 @@ namespace SharpFind
 
         private static string GetClientRect(IntPtr hWnd)
         {
-            var cRect = new RECT();
+            RECT cRect;
             NativeMethods.GetClientRect(hWnd, out cRect);
             return string.Format("({2},{3}) - ({4},{5}), {0} x {1}", cRect.right - cRect.left,
                                                                      cRect.bottom - cRect.top,
