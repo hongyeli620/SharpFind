@@ -15,7 +15,7 @@ namespace SharpFind.Classes
     public class WindowHighlighter
     {
         /// <summary>
-        /// Highlight the designated window by drawing a rectangle around
+        /// Highlights the designated window by drawing a rectangle around
         /// it, just like Microsoft Spy++.
         /// </summary>
         /// 
