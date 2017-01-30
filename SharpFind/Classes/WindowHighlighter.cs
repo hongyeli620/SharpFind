@@ -48,14 +48,37 @@ namespace SharpFind.Classes
             {
                 if (useNativeHighlighter)
                 {
-                    // Top
-                    PatBlt(hDC, rect.left, rect.top, rect.right - rect.left, width, RasterOperations.PATINVERT);
-                    // Left
-                    PatBlt(hDC, rect.left, rect.bottom - width, width, -(rect.bottom - rect.top - 2 * width), RasterOperations.PATINVERT);
-                    // Right
-                    PatBlt(hDC, rect.right - width, rect.top + width, width, rect.bottom - rect.top - 2 * width, RasterOperations.PATINVERT);
-                    // Bottom
-                    PatBlt(hDC, rect.right, rect.bottom - width, -(rect.right - rect.left), width, RasterOperations.PATINVERT);
+                    // Top side
+                    PatBlt(hDC,
+                           rect.left,
+                           rect.top,
+                           rect.right - rect.left,
+                           width,
+                           RasterOperations.PATINVERT);
+
+                    // Left side
+                    PatBlt(hDC,
+                           rect.left,
+                           rect.bottom - width,
+                           width,
+                           -(rect.bottom - rect.top - 2 * width),
+                           RasterOperations.PATINVERT);
+                    
+                    // Right side
+                    PatBlt(hDC,
+                           rect.right - width,
+                           rect.top + width,
+                           width,
+                           rect.bottom - rect.top - 2 * width,
+                           RasterOperations.PATINVERT);
+                    
+                    // Bottom side
+                    PatBlt(hDC,
+                           rect.right,
+                           rect.bottom - width,
+                           -(rect.right - rect.left),
+                           width,
+                           RasterOperations.PATINVERT);
                 }
                 else
                 {
@@ -63,7 +86,8 @@ namespace SharpFind.Classes
                     using (var pen = new Pen(ColorTranslator.FromHtml("#FF0000"), 4F))
                     {
                         using (var g = Graphics.FromHdc(hDC))
-                            g.DrawRectangle(pen, 0, 0, rect.right - rect.left, rect.bottom - rect.top);
+                            g.DrawRectangle(pen, 0, 0, rect.right - rect.left,
+                                                       rect.bottom - rect.top);
                     }
                 }
             }
@@ -81,7 +105,7 @@ namespace SharpFind.Classes
             RedrawWindow(hWnd, IntPtr.Zero, IntPtr.Zero, RDW_FRAME      |
                                                          RDW_INVALIDATE |
                                                          RDW_UPDATENOW  |
-                                                         RDW_ALLCHILDREN);              
+                                                         RDW_ALLCHILDREN);
         }
     }
 }
