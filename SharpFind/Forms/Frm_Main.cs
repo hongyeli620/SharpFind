@@ -169,8 +169,8 @@ namespace SharpFind
             CMNU_NativeHighlighter.Checked = ReadINI(SettingsPath(), "Main",    "NativeHighlighter", true);
 
             CMNU_Default.Checked           = ReadINI(SettingsPath(), "HexMode", "Default",           true);
-            CMNU_VisualCPP.Checked      = ReadINI(SettingsPath(), "HexMode", "VisualCPP",         false);
-            CMNU_VisualBasic.Checked    = ReadINI(SettingsPath(), "HexMode", "VisualBasic",       false);
+            CMNU_VisualCPP.Checked         = ReadINI(SettingsPath(), "HexMode", "VisualCPP",         false);
+            CMNU_VisualBasic.Checked       = ReadINI(SettingsPath(), "HexMode", "VisualBasic",       false);
         }
 
         private void SaveSettings()
@@ -861,7 +861,7 @@ namespace SharpFind
             return process.Id;
         }
 
-        private static string GetThreadID(IntPtr hWnd)
+        private static string GetThreadId(IntPtr hWnd)
         {
             var pid = 0;
             return hPrefix + GetWindowThreadProcessId(hWnd, ref pid).ToString(hFormat) +
@@ -1161,7 +1161,7 @@ namespace SharpFind
                 TB_ModuleName.Text     = GetModuleName(hWnd);
                 TB_ModulePath.Text     = GetModulePath(hWnd);
                 TB_ProcessID.Text      = GetProcessIdEx(hWnd);
-                TB_ThreadID.Text       = GetThreadID(hWnd);
+                TB_ThreadID.Text       = GetThreadId(hWnd);
                 TB_PriorityClass.Text  = GetPriorityClass(Process.GetProcessById(pid).Handle);
 
                 Text = appName + " - " + TB_WindowHandle.Text.Split('(')[0].TrimEnd();
