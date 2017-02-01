@@ -60,7 +60,7 @@ namespace SharpFind
             if (IsDpi96())
             {
                 formHeightCollapsed = 99;
-                formHeightExtended = 413;
+                formHeightExtended = 440;
 
                 PB_Tool.Location = new Point(10, 18);
                 LBL_HowTo.Location = new Point(53, 19);
@@ -232,7 +232,7 @@ namespace SharpFind
             NativeMethods.GetWindowRect(hWnd, out wRect);
             var winState = IsZoomed(hWnd) ? " (maximized)" : string.Empty;
 
-            return string.Format("({2},{3}) - ({4},{5}), {0} x {1}{6}", wRect.right - wRect.left,
+            return string.Format("({2},{3}) - ({4},{5}), {0} x {1}{6}", wRect.right  - wRect.left,
                                                                         wRect.bottom - wRect.top,
                                                                         wRect.left,
                                                                         wRect.top,
@@ -241,11 +241,23 @@ namespace SharpFind
                                                                         winState);
         }
 
+        private static string GetRestoredRect(IntPtr hWnd)
+        {
+            var wp = new WINDOWPLACEMENT();
+            GetWindowPlacement(hWnd, ref wp);
+            return string.Format("({0},{1}) - ({2},{3}), {4} x {5}", wp.rcNormalPosition.left,
+                                                                     wp.rcNormalPosition.top,
+                                                                     wp.rcNormalPosition.right,
+                                                                     wp.rcNormalPosition.bottom,
+                                                                     wp.rcNormalPosition.right  - wp.rcNormalPosition.left,
+                                                                     wp.rcNormalPosition.bottom - wp.rcNormalPosition.top);
+        }
+
         private static string GetClientRect(IntPtr hWnd)
         {
             RECT cRect;
             NativeMethods.GetClientRect(hWnd, out cRect);
-            return string.Format("({2},{3}) - ({4},{5}), {0} x {1}", cRect.right - cRect.left,
+            return string.Format("({2},{3}) - ({4},{5}), {0} x {1}", cRect.right  - cRect.left,
                                                                      cRect.bottom - cRect.top,
                                                                      cRect.left,
                                                                      cRect.top,
@@ -1120,10 +1132,10 @@ namespace SharpFind
                 // General Information tab
                 TB_WindowCaption.Text  = GetWindowText(hWnd);
                 TB_WindowHandle.Text   = hPrefix + hWnd.ToInt32().ToString(hFormat) + " (" + hWnd.ToInt32() + ")";
-
                 TB_Class.Text          = GetWindowClass(hWnd);
                 TB_Style.Text          = GetWindowStyles(hWnd);
                 TB_Rectangle.Text      = GetWindowRect(hWnd);
+                TB_RestoredRect.Text   = GetRestoredRect(hWnd);
                 TB_ClientRect.Text     = GetClientRect(hWnd);
                 TB_InstanceHandle.Text = GetInstanceHandle(hWnd);
                 TB_ControlID.Text      = GetControlID(hWnd);
