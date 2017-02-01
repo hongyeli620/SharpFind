@@ -112,6 +112,8 @@
             this.PNL_Bottom = new System.Windows.Forms.Panel();
             this.separator1 = new SharpFind.Controls.Separator();
             this.BTN_Close = new System.Windows.Forms.Button();
+            this.LBL_RestoredRect = new System.Windows.Forms.Label();
+            this.TB_RestoredRect = new System.Windows.Forms.TextBox();
             this.GB_Tool.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Tool)).BeginInit();
             this.TC_Details.SuspendLayout();
@@ -170,12 +172,14 @@
             this.TC_Details.Multiline = true;
             this.TC_Details.Name = "TC_Details";
             this.TC_Details.SelectedIndex = 0;
-            this.TC_Details.Size = new System.Drawing.Size(330, 279);
+            this.TC_Details.Size = new System.Drawing.Size(330, 303);
             this.TC_Details.TabIndex = 2;
             // 
             // TP_General
             // 
             this.TP_General.BackColor = System.Drawing.Color.White;
+            this.TP_General.Controls.Add(this.LBL_RestoredRect);
+            this.TP_General.Controls.Add(this.TB_RestoredRect);
             this.TP_General.Controls.Add(this.CMB_WindowBytes);
             this.TP_General.Controls.Add(this.label1);
             this.TP_General.Controls.Add(this.TB_Style);
@@ -199,7 +203,7 @@
             this.TP_General.Location = new System.Drawing.Point(4, 22);
             this.TP_General.Name = "TP_General";
             this.TP_General.Padding = new System.Windows.Forms.Padding(3);
-            this.TP_General.Size = new System.Drawing.Size(322, 253);
+            this.TP_General.Size = new System.Drawing.Size(322, 277);
             this.TP_General.TabIndex = 0;
             this.TP_General.Text = "General Information";
             this.TP_General.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
@@ -209,7 +213,7 @@
             this.CMB_WindowBytes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CMB_WindowBytes.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.CMB_WindowBytes.FormattingEnabled = true;
-            this.CMB_WindowBytes.Location = new System.Drawing.Point(113, 219);
+            this.CMB_WindowBytes.Location = new System.Drawing.Point(113, 243);
             this.CMB_WindowBytes.Name = "CMB_WindowBytes";
             this.CMB_WindowBytes.Size = new System.Drawing.Size(199, 21);
             this.CMB_WindowBytes.TabIndex = 23;
@@ -219,7 +223,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label1.Location = new System.Drawing.Point(6, 222);
+            this.label1.Location = new System.Drawing.Point(6, 246);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 22;
@@ -288,7 +292,7 @@
             this.LBL_UserData.AutoSize = true;
             this.LBL_UserData.BackColor = System.Drawing.Color.White;
             this.LBL_UserData.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_UserData.Location = new System.Drawing.Point(6, 195);
+            this.LBL_UserData.Location = new System.Drawing.Point(6, 219);
             this.LBL_UserData.Name = "LBL_UserData";
             this.LBL_UserData.Size = new System.Drawing.Size(55, 13);
             this.LBL_UserData.TabIndex = 19;
@@ -332,7 +336,7 @@
             this.LBL_ControlID.AutoSize = true;
             this.LBL_ControlID.BackColor = System.Drawing.Color.White;
             this.LBL_ControlID.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_ControlID.Location = new System.Drawing.Point(6, 176);
+            this.LBL_ControlID.Location = new System.Drawing.Point(6, 200);
             this.LBL_ControlID.Name = "LBL_ControlID";
             this.LBL_ControlID.Size = new System.Drawing.Size(54, 13);
             this.LBL_ControlID.TabIndex = 17;
@@ -344,7 +348,7 @@
             this.TB_UserData.BackColor = System.Drawing.Color.White;
             this.TB_UserData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_UserData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_UserData.Location = new System.Drawing.Point(117, 195);
+            this.TB_UserData.Location = new System.Drawing.Point(117, 219);
             this.TB_UserData.Name = "TB_UserData";
             this.TB_UserData.ReadOnly = true;
             this.TB_UserData.Size = new System.Drawing.Size(195, 13);
@@ -367,7 +371,7 @@
             this.TB_InstanceHandle.BackColor = System.Drawing.Color.White;
             this.TB_InstanceHandle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_InstanceHandle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_InstanceHandle.Location = new System.Drawing.Point(117, 157);
+            this.TB_InstanceHandle.Location = new System.Drawing.Point(117, 181);
             this.TB_InstanceHandle.Name = "TB_InstanceHandle";
             this.TB_InstanceHandle.ReadOnly = true;
             this.TB_InstanceHandle.Size = new System.Drawing.Size(195, 13);
@@ -379,7 +383,7 @@
             this.TB_ControlID.BackColor = System.Drawing.Color.White;
             this.TB_ControlID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_ControlID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_ControlID.Location = new System.Drawing.Point(117, 176);
+            this.TB_ControlID.Location = new System.Drawing.Point(117, 200);
             this.TB_ControlID.Name = "TB_ControlID";
             this.TB_ControlID.ReadOnly = true;
             this.TB_ControlID.Size = new System.Drawing.Size(195, 13);
@@ -402,7 +406,7 @@
             this.LBL_ClientRect.AutoSize = true;
             this.LBL_ClientRect.BackColor = System.Drawing.Color.White;
             this.LBL_ClientRect.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_ClientRect.Location = new System.Drawing.Point(6, 134);
+            this.LBL_ClientRect.Location = new System.Drawing.Point(6, 153);
             this.LBL_ClientRect.Name = "LBL_ClientRect";
             this.LBL_ClientRect.Size = new System.Drawing.Size(59, 13);
             this.LBL_ClientRect.TabIndex = 14;
@@ -414,7 +418,7 @@
             this.TB_ClientRect.BackColor = System.Drawing.Color.White;
             this.TB_ClientRect.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_ClientRect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_ClientRect.Location = new System.Drawing.Point(117, 134);
+            this.TB_ClientRect.Location = new System.Drawing.Point(117, 153);
             this.TB_ClientRect.Name = "TB_ClientRect";
             this.TB_ClientRect.ReadOnly = true;
             this.TB_ClientRect.Size = new System.Drawing.Size(195, 13);
@@ -425,7 +429,7 @@
             this.LBL_InstanceHandle.AutoSize = true;
             this.LBL_InstanceHandle.BackColor = System.Drawing.Color.White;
             this.LBL_InstanceHandle.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_InstanceHandle.Location = new System.Drawing.Point(6, 157);
+            this.LBL_InstanceHandle.Location = new System.Drawing.Point(6, 181);
             this.LBL_InstanceHandle.Name = "LBL_InstanceHandle";
             this.LBL_InstanceHandle.Size = new System.Drawing.Size(85, 13);
             this.LBL_InstanceHandle.TabIndex = 12;
@@ -1053,13 +1057,13 @@
             this.PNL_Bottom.Location = new System.Drawing.Point(0, 65);
             this.PNL_Bottom.Name = "PNL_Bottom";
             this.PNL_Bottom.Padding = new System.Windows.Forms.Padding(5);
-            this.PNL_Bottom.Size = new System.Drawing.Size(342, 321);
+            this.PNL_Bottom.Size = new System.Drawing.Size(342, 347);
             this.PNL_Bottom.TabIndex = 4;
             this.PNL_Bottom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
             // 
             // separator1
             // 
-            this.separator1.Location = new System.Drawing.Point(7, 297);
+            this.separator1.Location = new System.Drawing.Point(7, 322);
             this.separator1.Name = "separator1";
             this.separator1.Orientation = SharpFind.Controls.Separator._Orientation.Horizontal;
             this.separator1.Size = new System.Drawing.Size(245, 10);
@@ -1070,7 +1074,7 @@
             // BTN_Close
             // 
             this.BTN_Close.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.BTN_Close.Location = new System.Drawing.Point(261, 291);
+            this.BTN_Close.Location = new System.Drawing.Point(261, 316);
             this.BTN_Close.Name = "BTN_Close";
             this.BTN_Close.Size = new System.Drawing.Size(75, 23);
             this.BTN_Close.TabIndex = 3;
@@ -1078,11 +1082,34 @@
             this.BTN_Close.UseVisualStyleBackColor = true;
             this.BTN_Close.Click += new System.EventHandler(this.BTN_Close_Click);
             // 
+            // LBL_RestoredRect
+            // 
+            this.LBL_RestoredRect.AutoSize = true;
+            this.LBL_RestoredRect.BackColor = System.Drawing.Color.White;
+            this.LBL_RestoredRect.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.LBL_RestoredRect.Location = new System.Drawing.Point(6, 134);
+            this.LBL_RestoredRect.Name = "LBL_RestoredRect";
+            this.LBL_RestoredRect.Size = new System.Drawing.Size(76, 13);
+            this.LBL_RestoredRect.TabIndex = 24;
+            this.LBL_RestoredRect.Text = "Restored Rect";
+            // 
+            // TB_RestoredRect
+            // 
+            this.TB_RestoredRect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_RestoredRect.BackColor = System.Drawing.Color.White;
+            this.TB_RestoredRect.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TB_RestoredRect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TB_RestoredRect.Location = new System.Drawing.Point(117, 134);
+            this.TB_RestoredRect.Name = "TB_RestoredRect";
+            this.TB_RestoredRect.ReadOnly = true;
+            this.TB_RestoredRect.Size = new System.Drawing.Size(195, 13);
+            this.TB_RestoredRect.TabIndex = 25;
+            // 
             // Frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 386);
+            this.ClientSize = new System.Drawing.Size(342, 412);
             this.Controls.Add(this.PNL_Bottom);
             this.Controls.Add(this.PNL_Top);
             this.KeyPreview = true;
@@ -1195,6 +1222,8 @@
         private System.Windows.Forms.MenuItem menuItem5;
         private System.Windows.Forms.MenuItem CMNU_VisualBasic;
         private System.Windows.Forms.MenuItem CMNU_Default;
+        private System.Windows.Forms.Label LBL_RestoredRect;
+        private System.Windows.Forms.TextBox TB_RestoredRect;
     }
 }
 
