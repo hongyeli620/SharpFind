@@ -136,16 +136,22 @@ namespace SharpFind.Classes
         #endregion
         #region Enumerations
 
-        // The list is too big. I didn't want to waste bytes. I only added the
-        // ones used by the program.
-        internal enum WindowsMessages : uint
+        /// <summary>
+        /// The current show state of a specified window. 
+        /// </summary>
+        internal enum ShowWindowCommands
         {
-            WM_LBUTTONUP     = 0x202,
-            WM_MOUSEMOVE     = 0x200,
-            WM_NCLBUTTONDOWN = 0xA1,
-            WM_NULL          = 0x00,
-            WM_PAINT         = 0xF,
-            WM_SYSCOMMAND    = 0x112
+            SW_HIDE            = 0,
+            SW_SHOWNORMAL      = 1,
+            SW_SHOWMINIMIZED   = 2,
+            SW_MAXIMIZE        = 3,
+            SW_MAXIMIZED       = 3,
+            SW_SHOWNOACTIVATE  = 4,
+            SW_SHOW            = 5,
+            SW_MINIMIZE        = 6,
+            SW_SHOWMINNOACTIVE = 7,
+            SW_SHOWNA          = 8,
+            SW_RESTORE         = 9
         }
 
         /// <summary>
@@ -173,8 +179,20 @@ namespace SharpFind.Classes
             WHITENESS   = 0x00FF0062
         }
 
+        // The list is too big. I didn't want to waste bytes. I only added the
+        // ones used by the program.
+        internal enum WindowsMessages : uint
+        {
+            WM_LBUTTONUP     = 0x202,
+            WM_MOUSEMOVE     = 0x200,
+            WM_NCLBUTTONDOWN = 0xA1,
+            WM_NULL          = 0x00,
+            WM_PAINT         = 0xF,
+            WM_SYSCOMMAND    = 0x112
+        }
+
         #endregion
-        #region RECT Structure
+        #region Structures
 
         /// <summary>
         /// The RECT structure defines the coordinates of the upper-left and
@@ -186,6 +204,31 @@ namespace SharpFind.Classes
             public int top;
             public int right;
             public int bottom;
+        }
+
+        /// <summary>
+        /// Contains information about the placement of a window on the screen.
+        /// </summary>
+        [Serializable]
+        [StructLayout(LayoutKind.Sequential)]
+        internal struct WINDOWPLACEMENT
+        {
+            public uint length;
+            public uint flags;
+            public ShowWindowCommands showCmd;
+            public POINT ptMinPosition;
+            public POINT ptMaxPosition;
+            public RECT rcNormalPosition;
+        }
+
+        /// <summary>
+        /// The POINT structure defines the x- and y- coordinates of a point.
+        /// </summary>
+        [StructLayout(LayoutKind.Sequential)]
+        public struct POINT
+        {
+            public int X;
+            public int Y;
         }
 
         #endregion
@@ -351,6 +394,27 @@ namespace SharpFind.Classes
         /// </summary>
         [DllImport("user32.dll", SetLastError = true, EntryPoint = "GetWindowLongA")]
         internal static extern int GetWindowLongPtr(IntPtr hwnd, int nIndex);
+
+        /// <summary>
+        /// Retrieves the show state and the restored, minimized, and maximized
+        /// positions of the specified window.
+        /// </summary>
+        /// 
+        /// <param name="hWnd">
+        /// A handle to the window.
+        /// </param>
+        /// 
+        /// <param name="lpwndpl">
+        /// A pointer to the WINDOWPLACEMENT structure that receives the show
+        /// state and position information.
+        /// </param>
+        /// 
+        /// <returns>
+        /// If the function succeeds, the return value is nonzero.
+        /// </returns>
+        [DllImport("user32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool GetWindowPlacement(IntPtr hWnd, ref WINDOWPLACEMENT lpwndpl);
 
         /// <summary>
         /// Retrieves the dimensions of the bounding rectangle of the specified
