@@ -54,12 +54,6 @@
             this.TB_ClientRect = new System.Windows.Forms.TextBox();
             this.LBL_InstanceHandle = new System.Windows.Forms.Label();
             this.TP_Styles = new System.Windows.Forms.TabPage();
-            this.LV_ExtendedStyles = new SharpFind.Controls.ListViewEx();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.LV_WindowStyles = new SharpFind.Controls.ListViewEx();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TB_ExtendedStyles = new System.Windows.Forms.TextBox();
             this.LBL_ExtendedStyles = new System.Windows.Forms.Label();
             this.TB_WindowStyles = new System.Windows.Forms.TextBox();
@@ -110,10 +104,16 @@
             this.CMNU_VisualBasic = new System.Windows.Forms.MenuItem();
             this.PNL_Top = new System.Windows.Forms.Panel();
             this.PNL_Bottom = new System.Windows.Forms.Panel();
-            this.separator1 = new SharpFind.Controls.Separator();
             this.BTN_Close = new System.Windows.Forms.Button();
             this.LBL_RestoredRect = new System.Windows.Forms.Label();
             this.TB_RestoredRect = new System.Windows.Forms.TextBox();
+            this.separator1 = new SharpFind.Controls.Separator();
+            this.LV_ExtendedStyles = new SharpFind.Controls.ListViewEx();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LV_WindowStyles = new SharpFind.Controls.ListViewEx();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.GB_Tool.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Tool)).BeginInit();
             this.TC_Details.SuspendLayout();
@@ -447,62 +447,10 @@
             this.TP_Styles.Location = new System.Drawing.Point(4, 22);
             this.TP_Styles.Name = "TP_Styles";
             this.TP_Styles.Padding = new System.Windows.Forms.Padding(3);
-            this.TP_Styles.Size = new System.Drawing.Size(322, 253);
+            this.TP_Styles.Size = new System.Drawing.Size(322, 277);
             this.TP_Styles.TabIndex = 3;
             this.TP_Styles.Text = "Styles";
             this.TP_Styles.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
-            // 
-            // LV_ExtendedStyles
-            // 
-            this.LV_ExtendedStyles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3,
-            this.columnHeader4});
-            this.LV_ExtendedStyles.FullRowSelect = true;
-            this.LV_ExtendedStyles.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.LV_ExtendedStyles.Location = new System.Drawing.Point(6, 146);
-            this.LV_ExtendedStyles.MultiSelect = false;
-            this.LV_ExtendedStyles.Name = "LV_ExtendedStyles";
-            this.LV_ExtendedStyles.Size = new System.Drawing.Size(308, 83);
-            this.LV_ExtendedStyles.TabIndex = 9;
-            this.LV_ExtendedStyles.UseCompatibleStateImageBehavior = false;
-            this.LV_ExtendedStyles.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Name";
-            this.columnHeader3.Width = 153;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Value";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeader4.Width = 120;
-            // 
-            // LV_WindowStyles
-            // 
-            this.LV_WindowStyles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.LV_WindowStyles.FullRowSelect = true;
-            this.LV_WindowStyles.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.LV_WindowStyles.Location = new System.Drawing.Point(7, 32);
-            this.LV_WindowStyles.MultiSelect = false;
-            this.LV_WindowStyles.Name = "LV_WindowStyles";
-            this.LV_WindowStyles.Size = new System.Drawing.Size(307, 83);
-            this.LV_WindowStyles.TabIndex = 8;
-            this.LV_WindowStyles.UseCompatibleStateImageBehavior = false;
-            this.LV_WindowStyles.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Name";
-            this.columnHeader1.Width = 153;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Value";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeader2.Width = 120;
             // 
             // TB_ExtendedStyles
             // 
@@ -510,7 +458,7 @@
             this.TB_ExtendedStyles.BackColor = System.Drawing.Color.White;
             this.TB_ExtendedStyles.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_ExtendedStyles.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_ExtendedStyles.Location = new System.Drawing.Point(117, 127);
+            this.TB_ExtendedStyles.Location = new System.Drawing.Point(117, 142);
             this.TB_ExtendedStyles.Name = "TB_ExtendedStyles";
             this.TB_ExtendedStyles.ReadOnly = true;
             this.TB_ExtendedStyles.Size = new System.Drawing.Size(185, 13);
@@ -521,7 +469,7 @@
             this.LBL_ExtendedStyles.AutoSize = true;
             this.LBL_ExtendedStyles.BackColor = System.Drawing.Color.White;
             this.LBL_ExtendedStyles.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_ExtendedStyles.Location = new System.Drawing.Point(6, 127);
+            this.LBL_ExtendedStyles.Location = new System.Drawing.Point(6, 142);
             this.LBL_ExtendedStyles.Name = "LBL_ExtendedStyles";
             this.LBL_ExtendedStyles.Size = new System.Drawing.Size(83, 13);
             this.LBL_ExtendedStyles.TabIndex = 5;
@@ -576,7 +524,7 @@
             this.TP_Class.Location = new System.Drawing.Point(4, 22);
             this.TP_Class.Name = "TP_Class";
             this.TP_Class.Padding = new System.Windows.Forms.Padding(3);
-            this.TP_Class.Size = new System.Drawing.Size(322, 253);
+            this.TP_Class.Size = new System.Drawing.Size(322, 277);
             this.TP_Class.TabIndex = 2;
             this.TP_Class.Text = "Class";
             this.TP_Class.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
@@ -825,7 +773,7 @@
             this.TP_Process.Location = new System.Drawing.Point(4, 22);
             this.TP_Process.Name = "TP_Process";
             this.TP_Process.Padding = new System.Windows.Forms.Padding(3);
-            this.TP_Process.Size = new System.Drawing.Size(322, 253);
+            this.TP_Process.Size = new System.Drawing.Size(322, 277);
             this.TP_Process.TabIndex = 1;
             this.TP_Process.Text = "Process";
             this.TP_Process.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
@@ -1061,16 +1009,6 @@
             this.PNL_Bottom.TabIndex = 4;
             this.PNL_Bottom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
             // 
-            // separator1
-            // 
-            this.separator1.Location = new System.Drawing.Point(7, 322);
-            this.separator1.Name = "separator1";
-            this.separator1.Orientation = SharpFind.Controls.Separator._Orientation.Horizontal;
-            this.separator1.Size = new System.Drawing.Size(245, 10);
-            this.separator1.TabIndex = 4;
-            this.separator1.Text = "separator1";
-            this.separator1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
-            // 
             // BTN_Close
             // 
             this.BTN_Close.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -1104,6 +1042,68 @@
             this.TB_RestoredRect.ReadOnly = true;
             this.TB_RestoredRect.Size = new System.Drawing.Size(195, 13);
             this.TB_RestoredRect.TabIndex = 25;
+            // 
+            // separator1
+            // 
+            this.separator1.Location = new System.Drawing.Point(7, 322);
+            this.separator1.Name = "separator1";
+            this.separator1.Orientation = SharpFind.Controls.Separator._Orientation.Horizontal;
+            this.separator1.Size = new System.Drawing.Size(245, 10);
+            this.separator1.TabIndex = 4;
+            this.separator1.Text = "separator1";
+            this.separator1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
+            // 
+            // LV_ExtendedStyles
+            // 
+            this.LV_ExtendedStyles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3,
+            this.columnHeader4});
+            this.LV_ExtendedStyles.FullRowSelect = true;
+            this.LV_ExtendedStyles.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.LV_ExtendedStyles.Location = new System.Drawing.Point(6, 161);
+            this.LV_ExtendedStyles.MultiSelect = false;
+            this.LV_ExtendedStyles.Name = "LV_ExtendedStyles";
+            this.LV_ExtendedStyles.Size = new System.Drawing.Size(308, 97);
+            this.LV_ExtendedStyles.TabIndex = 9;
+            this.LV_ExtendedStyles.UseCompatibleStateImageBehavior = false;
+            this.LV_ExtendedStyles.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Name";
+            this.columnHeader3.Width = 153;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Value";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeader4.Width = 120;
+            // 
+            // LV_WindowStyles
+            // 
+            this.LV_WindowStyles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.LV_WindowStyles.FullRowSelect = true;
+            this.LV_WindowStyles.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.LV_WindowStyles.Location = new System.Drawing.Point(7, 32);
+            this.LV_WindowStyles.MultiSelect = false;
+            this.LV_WindowStyles.Name = "LV_WindowStyles";
+            this.LV_WindowStyles.Size = new System.Drawing.Size(307, 97);
+            this.LV_WindowStyles.TabIndex = 8;
+            this.LV_WindowStyles.UseCompatibleStateImageBehavior = false;
+            this.LV_WindowStyles.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Name";
+            this.columnHeader1.Width = 153;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Value";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeader2.Width = 120;
             // 
             // Frm_Main
             // 
