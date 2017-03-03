@@ -44,7 +44,7 @@ namespace SharpFind.Forms
                 var threadCount = p.Threads.Count;
 
                 LBL_PID_R.Text     = Convert.ToString(p.Id);
-                LBL_Modules_R.Text = $"{moduleCount} modules attached | {threadCount} threads";
+                LBL_Modules_R.Text = $"{moduleCount} modules attached; {threadCount} threads";
                 LBL_Path_R.Text    = p.MainModule.FileName; 
             }
         }
