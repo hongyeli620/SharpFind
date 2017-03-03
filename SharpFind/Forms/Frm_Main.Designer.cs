@@ -1172,13 +1172,10 @@
         private System.Windows.Forms.Label LBL_InstanceHandle;
         internal System.Windows.Forms.ContextMenu CMENU_Configuration;
         private System.Windows.Forms.MenuItem CMNU_StayOnTop;
-        private System.Windows.Forms.TextBox TB_ModulePath;
         private System.Windows.Forms.Label LBL_ModulePath;
-        private System.Windows.Forms.TextBox TB_ModuleName;
         private System.Windows.Forms.Label LBL_ModuleName;
         private System.Windows.Forms.TextBox TB_ThreadID;
         private System.Windows.Forms.Label LBL_ThreadID;
-        private System.Windows.Forms.TextBox TB_ProcessID;
         private System.Windows.Forms.Label LBL_ProcessID;
         private System.Windows.Forms.TextBox TB_ClientRect;
         private System.Windows.Forms.Label LBL_ClientRect;
@@ -1241,6 +1238,9 @@
         private System.Windows.Forms.Label LBL_RestoredRect;
         private System.Windows.Forms.TextBox TB_RestoredRect;
         private Controls.LinkLabelEx LNKLBL_ModuleInfo;
+        internal System.Windows.Forms.TextBox TB_ProcessID;
+        internal System.Windows.Forms.TextBox TB_ModulePath;
+        internal System.Windows.Forms.TextBox TB_ModuleName;
     }
 }
 
