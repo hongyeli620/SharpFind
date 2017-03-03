@@ -51,6 +51,9 @@
     <Compile Include="Classes\INIFile.cs" />
     <Compile Include="Classes\NativeMethods.cs" />
     <Compile Include="Classes\WindowHighlighter.cs" />
+    <Compile Include="Controls\LinkLabelEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\ListViewEx.cs">
       <SubType>Component</SubType>
     </Compile>
