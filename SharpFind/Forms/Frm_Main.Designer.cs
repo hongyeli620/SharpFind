@@ -863,10 +863,10 @@
             this.LNKLBL_ModuleInfo.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.LNKLBL_ModuleInfo.Location = new System.Drawing.Point(3, 146);
             this.LNKLBL_ModuleInfo.Name = "LNKLBL_ModuleInfo";
-            this.LNKLBL_ModuleInfo.Size = new System.Drawing.Size(63, 13);
+            this.LNKLBL_ModuleInfo.Size = new System.Drawing.Size(145, 13);
             this.LNKLBL_ModuleInfo.TabIndex = 17;
             this.LNKLBL_ModuleInfo.TabStop = true;
-            this.LNKLBL_ModuleInfo.Text = "Module Info";
+            this.LNKLBL_ModuleInfo.Text = "Extended Module Information";
             this.LNKLBL_ModuleInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LNKLBL_ModuleInfo_LinkClicked);
             // 
             // TB_PriorityClass
