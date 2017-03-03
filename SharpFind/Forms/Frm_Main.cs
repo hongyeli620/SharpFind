@@ -1026,6 +1026,7 @@ namespace SharpFind
         private void LNKLBL_ModuleInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             var instance = new Frm_ModuleInfo();
+            instance.LBL_Process_R.Text = TB_ModuleName.Text;
             instance.ShowDialog();
         }
 
