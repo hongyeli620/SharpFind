@@ -33,6 +33,8 @@
             this.LBL_HowTo = new System.Windows.Forms.Label();
             this.TC_Details = new System.Windows.Forms.TabControl();
             this.TP_General = new System.Windows.Forms.TabPage();
+            this.LBL_RestoredRect = new System.Windows.Forms.Label();
+            this.TB_RestoredRect = new System.Windows.Forms.TextBox();
             this.CMB_WindowBytes = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TB_Style = new System.Windows.Forms.TextBox();
@@ -105,8 +107,6 @@
             this.PNL_Top = new System.Windows.Forms.Panel();
             this.PNL_Bottom = new System.Windows.Forms.Panel();
             this.BTN_Close = new System.Windows.Forms.Button();
-            this.LBL_RestoredRect = new System.Windows.Forms.Label();
-            this.TB_RestoredRect = new System.Windows.Forms.TextBox();
             this.separator1 = new SharpFind.Controls.Separator();
             this.LV_ExtendedStyles = new SharpFind.Controls.ListViewEx();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -207,6 +207,29 @@
             this.TP_General.TabIndex = 0;
             this.TP_General.Text = "General Information";
             this.TP_General.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
+            // 
+            // LBL_RestoredRect
+            // 
+            this.LBL_RestoredRect.AutoSize = true;
+            this.LBL_RestoredRect.BackColor = System.Drawing.Color.White;
+            this.LBL_RestoredRect.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.LBL_RestoredRect.Location = new System.Drawing.Point(6, 134);
+            this.LBL_RestoredRect.Name = "LBL_RestoredRect";
+            this.LBL_RestoredRect.Size = new System.Drawing.Size(76, 13);
+            this.LBL_RestoredRect.TabIndex = 24;
+            this.LBL_RestoredRect.Text = "Restored Rect";
+            // 
+            // TB_RestoredRect
+            // 
+            this.TB_RestoredRect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_RestoredRect.BackColor = System.Drawing.Color.White;
+            this.TB_RestoredRect.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TB_RestoredRect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TB_RestoredRect.Location = new System.Drawing.Point(117, 134);
+            this.TB_RestoredRect.Name = "TB_RestoredRect";
+            this.TB_RestoredRect.ReadOnly = true;
+            this.TB_RestoredRect.Size = new System.Drawing.Size(195, 13);
+            this.TB_RestoredRect.TabIndex = 25;
             // 
             // CMB_WindowBytes
             // 
@@ -1019,29 +1042,6 @@
             this.BTN_Close.Text = "&Close";
             this.BTN_Close.UseVisualStyleBackColor = true;
             this.BTN_Close.Click += new System.EventHandler(this.BTN_Close_Click);
-            // 
-            // LBL_RestoredRect
-            // 
-            this.LBL_RestoredRect.AutoSize = true;
-            this.LBL_RestoredRect.BackColor = System.Drawing.Color.White;
-            this.LBL_RestoredRect.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_RestoredRect.Location = new System.Drawing.Point(6, 134);
-            this.LBL_RestoredRect.Name = "LBL_RestoredRect";
-            this.LBL_RestoredRect.Size = new System.Drawing.Size(76, 13);
-            this.LBL_RestoredRect.TabIndex = 24;
-            this.LBL_RestoredRect.Text = "Restored Rect";
-            // 
-            // TB_RestoredRect
-            // 
-            this.TB_RestoredRect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_RestoredRect.BackColor = System.Drawing.Color.White;
-            this.TB_RestoredRect.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TB_RestoredRect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TB_RestoredRect.Location = new System.Drawing.Point(117, 134);
-            this.TB_RestoredRect.Name = "TB_RestoredRect";
-            this.TB_RestoredRect.ReadOnly = true;
-            this.TB_RestoredRect.Size = new System.Drawing.Size(195, 13);
-            this.TB_RestoredRect.TabIndex = 25;
             // 
             // separator1
             // 
