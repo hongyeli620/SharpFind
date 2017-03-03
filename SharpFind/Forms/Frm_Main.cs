@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using System;
 
 using SharpFind.Classes;
+using SharpFind.Forms;
 using SharpFind.Properties;
 
 // <using static> is a C#6 feature. See:
@@ -1020,6 +1021,12 @@ namespace SharpFind
                 ReleaseCapture();
                 SendMessage(Handle, (int)WindowsMessages.WM_NCLBUTTONDOWN, HTCAPTION, 0);
             }
+        }
+
+        private void LNKLBL_ModuleInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var instance = new Frm_ModuleInfo();
+            instance.ShowDialog();
         }
 
         #endregion
