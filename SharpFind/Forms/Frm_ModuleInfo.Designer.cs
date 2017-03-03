@@ -33,16 +33,40 @@
             this.TP_Module = new System.Windows.Forms.TabPage();
             this.TP_Thread = new System.Windows.Forms.TabPage();
             this.BTN_Close = new System.Windows.Forms.Button();
-            this.separator1 = new SharpFind.Controls.Separator();
             this.PNL_Top = new System.Windows.Forms.Panel();
             this.PNL_Bottom = new System.Windows.Forms.Panel();
+            this.PB_Icon = new System.Windows.Forms.PictureBox();
+            this.LBL_Process = new System.Windows.Forms.Label();
+            this.LBL_PID = new System.Windows.Forms.Label();
+            this.LBL_Modules = new System.Windows.Forms.Label();
+            this.LBL_Path = new System.Windows.Forms.Label();
+            this.LBL_Modules_R = new System.Windows.Forms.Label();
+            this.LBL_PID_R = new System.Windows.Forms.Label();
+            this.LBL_Process_R = new System.Windows.Forms.Label();
+            this.LBL_Path_R = new System.Windows.Forms.Label();
+            this.separator1 = new SharpFind.Controls.Separator();
+            this.LNKLBL_Explore = new SharpFind.Controls.LinkLabelEx();
+            this.separator2 = new SharpFind.Controls.Separator();
+            this.GB_Summary.SuspendLayout();
             this.TC_Details.SuspendLayout();
             this.PNL_Top.SuspendLayout();
             this.PNL_Bottom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_Icon)).BeginInit();
             this.SuspendLayout();
             // 
             // GB_Summary
             // 
+            this.GB_Summary.Controls.Add(this.LNKLBL_Explore);
+            this.GB_Summary.Controls.Add(this.LBL_Path_R);
+            this.GB_Summary.Controls.Add(this.LBL_Process_R);
+            this.GB_Summary.Controls.Add(this.LBL_PID_R);
+            this.GB_Summary.Controls.Add(this.LBL_Modules_R);
+            this.GB_Summary.Controls.Add(this.LBL_Path);
+            this.GB_Summary.Controls.Add(this.LBL_Modules);
+            this.GB_Summary.Controls.Add(this.LBL_PID);
+            this.GB_Summary.Controls.Add(this.LBL_Process);
+            this.GB_Summary.Controls.Add(this.separator2);
+            this.GB_Summary.Controls.Add(this.PB_Icon);
             this.GB_Summary.Location = new System.Drawing.Point(8, 8);
             this.GB_Summary.Name = "GB_Summary";
             this.GB_Summary.Size = new System.Drawing.Size(424, 83);
@@ -74,7 +98,7 @@
             this.TP_Thread.Location = new System.Drawing.Point(4, 22);
             this.TP_Thread.Name = "TP_Thread";
             this.TP_Thread.Padding = new System.Windows.Forms.Padding(3);
-            this.TP_Thread.Size = new System.Drawing.Size(408, 192);
+            this.TP_Thread.Size = new System.Drawing.Size(416, 207);
             this.TP_Thread.TabIndex = 1;
             this.TP_Thread.Text = "Thread Details";
             this.TP_Thread.UseVisualStyleBackColor = true;
@@ -89,15 +113,6 @@
             this.BTN_Close.Text = "&Close";
             this.BTN_Close.UseVisualStyleBackColor = true;
             this.BTN_Close.Click += new System.EventHandler(this.BTN_Close_Click);
-            // 
-            // separator1
-            // 
-            this.separator1.Location = new System.Drawing.Point(8, 251);
-            this.separator1.Name = "separator1";
-            this.separator1.Orientation = SharpFind.Controls.Separator._Orientation.Horizontal;
-            this.separator1.Size = new System.Drawing.Size(343, 10);
-            this.separator1.TabIndex = 2;
-            this.separator1.Text = "separator1";
             // 
             // PNL_Top
             // 
@@ -119,6 +134,123 @@
             this.PNL_Bottom.Size = new System.Drawing.Size(440, 276);
             this.PNL_Bottom.TabIndex = 5;
             // 
+            // PB_Icon
+            // 
+            this.PB_Icon.Location = new System.Drawing.Point(13, 12);
+            this.PB_Icon.Name = "PB_Icon";
+            this.PB_Icon.Size = new System.Drawing.Size(63, 64);
+            this.PB_Icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PB_Icon.TabIndex = 0;
+            this.PB_Icon.TabStop = false;
+            // 
+            // LBL_Process
+            // 
+            this.LBL_Process.AutoSize = true;
+            this.LBL_Process.Location = new System.Drawing.Point(97, 15);
+            this.LBL_Process.Name = "LBL_Process";
+            this.LBL_Process.Size = new System.Drawing.Size(45, 13);
+            this.LBL_Process.TabIndex = 2;
+            this.LBL_Process.Text = "Process";
+            // 
+            // LBL_PID
+            // 
+            this.LBL_PID.AutoSize = true;
+            this.LBL_PID.Location = new System.Drawing.Point(97, 32);
+            this.LBL_PID.Name = "LBL_PID";
+            this.LBL_PID.Size = new System.Drawing.Size(25, 13);
+            this.LBL_PID.TabIndex = 3;
+            this.LBL_PID.Text = "PID";
+            // 
+            // LBL_Modules
+            // 
+            this.LBL_Modules.AutoSize = true;
+            this.LBL_Modules.Location = new System.Drawing.Point(97, 47);
+            this.LBL_Modules.Name = "LBL_Modules";
+            this.LBL_Modules.Size = new System.Drawing.Size(47, 13);
+            this.LBL_Modules.TabIndex = 4;
+            this.LBL_Modules.Text = "Modules";
+            // 
+            // LBL_Path
+            // 
+            this.LBL_Path.AutoSize = true;
+            this.LBL_Path.Location = new System.Drawing.Point(97, 63);
+            this.LBL_Path.Name = "LBL_Path";
+            this.LBL_Path.Size = new System.Drawing.Size(29, 13);
+            this.LBL_Path.TabIndex = 5;
+            this.LBL_Path.Text = "Path";
+            // 
+            // LBL_Modules_R
+            // 
+            this.LBL_Modules_R.AutoSize = true;
+            this.LBL_Modules_R.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.LBL_Modules_R.Location = new System.Drawing.Point(149, 47);
+            this.LBL_Modules_R.Name = "LBL_Modules_R";
+            this.LBL_Modules_R.Size = new System.Drawing.Size(10, 13);
+            this.LBL_Modules_R.TabIndex = 6;
+            this.LBL_Modules_R.Text = "-";
+            // 
+            // LBL_PID_R
+            // 
+            this.LBL_PID_R.AutoSize = true;
+            this.LBL_PID_R.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.LBL_PID_R.Location = new System.Drawing.Point(149, 31);
+            this.LBL_PID_R.Name = "LBL_PID_R";
+            this.LBL_PID_R.Size = new System.Drawing.Size(10, 13);
+            this.LBL_PID_R.TabIndex = 7;
+            this.LBL_PID_R.Text = "-";
+            // 
+            // LBL_Process_R
+            // 
+            this.LBL_Process_R.AutoSize = true;
+            this.LBL_Process_R.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.LBL_Process_R.Location = new System.Drawing.Point(149, 15);
+            this.LBL_Process_R.Name = "LBL_Process_R";
+            this.LBL_Process_R.Size = new System.Drawing.Size(10, 13);
+            this.LBL_Process_R.TabIndex = 8;
+            this.LBL_Process_R.Text = "-";
+            // 
+            // LBL_Path_R
+            // 
+            this.LBL_Path_R.AutoEllipsis = true;
+            this.LBL_Path_R.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.LBL_Path_R.Location = new System.Drawing.Point(149, 63);
+            this.LBL_Path_R.Name = "LBL_Path_R";
+            this.LBL_Path_R.Size = new System.Drawing.Size(222, 13);
+            this.LBL_Path_R.TabIndex = 9;
+            this.LBL_Path_R.Text = "-";
+            // 
+            // separator1
+            // 
+            this.separator1.Location = new System.Drawing.Point(8, 251);
+            this.separator1.Name = "separator1";
+            this.separator1.Orientation = SharpFind.Controls.Separator._Orientation.Horizontal;
+            this.separator1.Size = new System.Drawing.Size(343, 10);
+            this.separator1.TabIndex = 2;
+            this.separator1.Text = "separator1";
+            // 
+            // LNKLBL_Explore
+            // 
+            this.LNKLBL_Explore.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(159)))));
+            this.LNKLBL_Explore.AutoSize = true;
+            this.LNKLBL_Explore.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.LNKLBL_Explore.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.LNKLBL_Explore.Location = new System.Drawing.Point(377, 63);
+            this.LNKLBL_Explore.Name = "LNKLBL_Explore";
+            this.LNKLBL_Explore.Size = new System.Drawing.Size(41, 13);
+            this.LNKLBL_Explore.TabIndex = 10;
+            this.LNKLBL_Explore.TabStop = true;
+            this.LNKLBL_Explore.Text = "explore";
+            this.LNKLBL_Explore.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LNKLBL_Explore_LinkClicked);
+            // 
+            // separator2
+            // 
+            this.separator2.Location = new System.Drawing.Point(81, 13);
+            this.separator2.Name = "separator2";
+            this.separator2.Orientation = SharpFind.Controls.Separator._Orientation.Vertical;
+            this.separator2.Size = new System.Drawing.Size(10, 64);
+            this.separator2.TabIndex = 1;
+            this.separator2.Text = "separator2";
+            // 
             // Frm_ModuleInfo
             // 
             this.AcceptButton = this.BTN_Close;
@@ -137,9 +269,13 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Module Info";
+            this.Load += new System.EventHandler(this.Frm_ModuleInfo_Load);
+            this.GB_Summary.ResumeLayout(false);
+            this.GB_Summary.PerformLayout();
             this.TC_Details.ResumeLayout(false);
             this.PNL_Top.ResumeLayout(false);
             this.PNL_Bottom.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PB_Icon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -154,5 +290,16 @@
         private System.Windows.Forms.Button BTN_Close;
         private System.Windows.Forms.Panel PNL_Top;
         private System.Windows.Forms.Panel PNL_Bottom;
+        private System.Windows.Forms.PictureBox PB_Icon;
+        private Controls.Separator separator2;
+        private System.Windows.Forms.Label LBL_Path;
+        private System.Windows.Forms.Label LBL_Modules;
+        private System.Windows.Forms.Label LBL_PID;
+        private System.Windows.Forms.Label LBL_Process;
+        private Controls.LinkLabelEx LNKLBL_Explore;
+        internal System.Windows.Forms.Label LBL_Path_R;
+        internal System.Windows.Forms.Label LBL_Process_R;
+        internal System.Windows.Forms.Label LBL_PID_R;
+        internal System.Windows.Forms.Label LBL_Modules_R;
     }
 }
