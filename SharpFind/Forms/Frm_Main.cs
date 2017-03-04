@@ -58,32 +58,7 @@ namespace SharpFind
             FormBorderStyle = FormBorderStyle.FixedSingle;
             StartPosition   = FormStartPosition.CenterScreen;
 
-            if (IsDpi96())
-            {
-                formHeightCollapsed = 99;
-                formHeightExtended = 440;
-
-                PB_Tool.Location = new Point(10, 18);
-                LBL_HowTo.Location = new Point(53, 19);
-                LBL_HowTo.Size = new Size(267, 29);
-
-                LV_WindowStyles.Columns[0].Width = 215;
-                LV_ExtendedStyles.Columns[0].Width = 215;
-            }
-            else
-            {
-                formHeightCollapsed = 123;
-                formHeightExtended = 510;
-
-                PB_Tool.Location = new Point(13, 24);
-                LBL_HowTo.Location = new Point(54, 22);
-                LBL_HowTo.Size = new Size(373, 36);
-
-                LV_WindowStyles.Columns[0].Width = 300;
-                LV_ExtendedStyles.Columns[0].Width = 300;
-            }
-
-            Height = formHeightCollapsed;
+            SetSizeBasedOnDpi();
 
             using (var ms = new MemoryStream(Resources.finder))
             {
@@ -96,8 +71,8 @@ namespace SharpFind
 
         private readonly string appName;
 
-        private readonly int formHeightCollapsed = 100;
-        private readonly int formHeightExtended = 215;
+        private int formHeightCollapsed = 100;
+        private int formHeightExtended = 215;
 
         // Cursors to be used
         private readonly Cursor _cursorDefault;
@@ -118,28 +93,6 @@ namespace SharpFind
         private const int MNU_LICENSE = 1001;
         private const int MNU_CHANGELOG = 1002;
         private const int MNU_ADMIN = 1003;
-
-        #endregion
-        #region DPI Check
-
-        private static Point GetSystemDpi()
-        {
-            var result = new Point();
-            var hDC = GetDC(IntPtr.Zero);
-
-            result.X = GetDeviceCaps(hDC, 88);
-            result.Y = GetDeviceCaps(hDC, 90);
-
-            ReleaseDC(IntPtr.Zero, hDC);
-
-            return result;
-        }
-
-        private static bool IsDpi96()
-        {
-            var result = GetSystemDpi();
-            return result.X == 96 || result.Y == 96;
-        }
 
         #endregion
         #region Read/Write Settings
@@ -246,6 +199,29 @@ namespace SharpFind
 
         #endregion
         #region Functions
+
+        #region DPI Check
+
+        private static Point GetSystemDpi()
+        {
+            var result = new Point();
+            var hDC = GetDC(IntPtr.Zero);
+
+            result.X = GetDeviceCaps(hDC, 88);
+            result.Y = GetDeviceCaps(hDC, 90);
+
+            ReleaseDC(IntPtr.Zero, hDC);
+
+            return result;
+        }
+
+        private static bool IsDpi96()
+        {
+            var result = GetSystemDpi();
+            return result.X == 96 || result.Y == 96;
+        }
+
+        #endregion
 
         private static bool IsRunningAsAdmin()
         {
@@ -936,6 +912,39 @@ namespace SharpFind
         #endregion
         #region Methods
 
+        #region DPI Related
+
+        private void SetSizeBasedOnDpi()
+        {
+            if (IsDpi96())
+            {
+                formHeightCollapsed = 99;
+                formHeightExtended = 440;
+
+                PB_Tool.Location   = new Point(10, 18);
+                LBL_HowTo.Location = new Point(53, 19);
+                LBL_HowTo.Size     = new Size(267, 29);
+
+                LV_WindowStyles.Columns[0].Width   = 215;
+                LV_ExtendedStyles.Columns[0].Width = 215;
+            }
+            else
+            {
+                formHeightCollapsed = 123;
+                formHeightExtended = 510;
+
+                PB_Tool.Location   = new Point(13, 24);
+                LBL_HowTo.Location = new Point(54, 22);
+                LBL_HowTo.Size     = new Size(373, 36);
+
+                LV_WindowStyles.Columns[0].Width   = 300;
+                LV_ExtendedStyles.Columns[0].Width = 300;
+            }
+
+            Height = formHeightCollapsed;
+        }
+
+        #endregion
         #region System Menu
 
         private static void ShowAboutDialog()
