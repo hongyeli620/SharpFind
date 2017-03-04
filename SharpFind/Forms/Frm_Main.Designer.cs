@@ -161,7 +161,7 @@
             this.LBL_HowTo.TabIndex = 1;
             this.LBL_HowTo.Text = "Drag the crosshair over a window to select it then release the mouse button to ge" +
     "t hWnd details.";
-            this.LBL_HowTo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
+            this.LBL_HowTo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EasyMove);
             // 
             // TC_Details
             // 
@@ -207,7 +207,7 @@
             this.TP_General.Size = new System.Drawing.Size(322, 277);
             this.TP_General.TabIndex = 0;
             this.TP_General.Text = "General Information";
-            this.TP_General.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
+            this.TP_General.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EasyMove);
             // 
             // LBL_RestoredRect
             // 
@@ -474,7 +474,7 @@
             this.TP_Styles.Size = new System.Drawing.Size(322, 277);
             this.TP_Styles.TabIndex = 3;
             this.TP_Styles.Text = "Styles";
-            this.TP_Styles.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
+            this.TP_Styles.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EasyMove);
             // 
             // LV_ExtendedStyles
             // 
@@ -603,7 +603,7 @@
             this.TP_Class.Size = new System.Drawing.Size(322, 277);
             this.TP_Class.TabIndex = 2;
             this.TP_Class.Text = "Class";
-            this.TP_Class.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
+            this.TP_Class.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EasyMove);
             // 
             // CMB_ClassBytes
             // 
@@ -853,7 +853,7 @@
             this.TP_Process.Size = new System.Drawing.Size(322, 277);
             this.TP_Process.TabIndex = 1;
             this.TP_Process.Text = "Process";
-            this.TP_Process.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
+            this.TP_Process.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EasyMove);
             // 
             // LNKLBL_ModuleInfo
             // 
@@ -1085,7 +1085,7 @@
             this.PNL_Top.Padding = new System.Windows.Forms.Padding(5);
             this.PNL_Top.Size = new System.Drawing.Size(342, 65);
             this.PNL_Top.TabIndex = 3;
-            this.PNL_Top.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
+            this.PNL_Top.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EasyMove);
             // 
             // PNL_Bottom
             // 
@@ -1098,7 +1098,7 @@
             this.PNL_Bottom.Padding = new System.Windows.Forms.Padding(5);
             this.PNL_Bottom.Size = new System.Drawing.Size(342, 347);
             this.PNL_Bottom.TabIndex = 4;
-            this.PNL_Bottom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
+            this.PNL_Bottom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EasyMove);
             // 
             // separator1
             // 
@@ -1108,7 +1108,7 @@
             this.separator1.Size = new System.Drawing.Size(245, 10);
             this.separator1.TabIndex = 4;
             this.separator1.Text = "separator1";
-            this.separator1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAndControlDrag);
+            this.separator1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EasyMove);
             // 
             // BTN_Close
             // 
