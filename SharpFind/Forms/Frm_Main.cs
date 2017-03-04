@@ -92,7 +92,7 @@ namespace SharpFind
             }
         }
 
-        #region Variables
+        #region Fields
 
         private readonly string appName;
 
@@ -196,6 +196,52 @@ namespace SharpFind
             WriteINI(SettingsPath(), "HexMode", "Default",           CMNU_Default.Checked);
             WriteINI(SettingsPath(), "HexMode", "VisualCPP",         CMNU_VisualCPP.Checked);
             WriteINI(SettingsPath(), "HexMode", "VisualBasic",       CMNU_VisualBasic.Checked);
+        }
+
+        #endregion
+        #region Window Procedure
+
+        protected override void WndProc(ref Message m)
+        {
+            // Handle the Window Menu item click events
+            if (m.Msg == (int)WindowsMessages.WM_SYSCOMMAND)
+            {
+                switch (m.WParam.ToInt32())
+                {
+                    case MNU_ABOUT:
+                        ShowAboutDialog();
+                        break;
+                    case MNU_CHANGELOG:
+                        ShowChangelog();
+                        break;
+                    case MNU_LICENSE:
+                        ShowLicense();
+                        break;
+                    case MNU_ADMIN:
+                        RunAsAdministrator();
+                        break;
+                }
+            }
+
+            // Handle the Finder Tool drag & release
+            switch (m.Msg)
+            {
+                case (int)WindowsMessages.WM_LBUTTONUP:
+                    CaptureMouse(false);
+                    break;
+                case (int)WindowsMessages.WM_MOUSEMOVE:
+                    HandleMouseMovement();
+                    break;
+                case (int)WindowsMessages.WM_PAINT:
+                    if (LV_WindowStyles.View == View.Details && LV_WindowStyles.Columns.Count > 0)
+                        LV_WindowStyles.Columns[LV_WindowStyles.Columns.Count - 1].Width = -2;
+
+                    if (LV_ExtendedStyles.View == View.Details && LV_ExtendedStyles.Columns.Count > 0)
+                        LV_ExtendedStyles.Columns[LV_ExtendedStyles.Columns.Count - 1].Width = -2;
+                    break;
+            }
+
+            base.WndProc(ref m);
         }
 
         #endregion
@@ -888,7 +934,9 @@ namespace SharpFind
         #endregion
 
         #endregion
-        #region Menu Methods
+        #region Methods
+
+        #region System Menu
 
         private static void ShowAboutDialog()
         {
@@ -898,7 +946,7 @@ namespace SharpFind
             var author = Application.CompanyName;
             var info = "Version: " + version
                                    + "\nBuild Date: " + buildDate
-                                   + "\n\nAuthor: " + author
+                                   + "\n\nAuthor: "   + author
                                    + "\nPage: http://github.com/ei/SharpFind"
                                    + "\n\nThis open-source project is licensed under the MIT license.";
 
@@ -942,138 +990,7 @@ namespace SharpFind
         }
 
         #endregion
-        #region Events
-
-        private void Frm_Main_Load(object sender, EventArgs e)
-        {
-            PNL_Bottom.Visible = false;
-
-            // Add Window Menu items
-            var handle = GetSystemMenu(Handle, false);
-            InsertMenu(handle, 05, MF_BYPOSITION | MF_SEPARATOR, 0, null);
-            InsertMenu(handle, 06, MF_BYPOSITION | MF_POPUP, (uint)CMENU_Configuration.Handle, "Configuration");
-            InsertMenu(handle, 07, MF_BYPOSITION | MF_SEPARATOR, 0, null);
-            InsertMenu(handle, 08, MF_BYPOSITION,  MNU_ABOUT,     "About...\tF1");
-            InsertMenu(handle, 09, MF_BYPOSITION,  MNU_CHANGELOG, "Changelog...");
-            InsertMenu(handle, 10, MF_BYPOSITION,  MNU_LICENSE,   "License...");           
-
-            if (!IsRunningAsAdmin())
-            {
-                InsertMenu(handle, 11, MF_BYPOSITION | MF_SEPARATOR, 0, null);
-                InsertMenu(handle, 12, MF_BYPOSITION, MNU_ADMIN, "Run as Administrator...\tF2");
-            }
-
-            ReadSettings();
-
-            if (CMNU_StayOnTop.Checked)
-                TopMost = true;
-
-            if (CMNU_Default.Checked)
-            {
-                hPrefix = string.Empty;
-                hFormat = "X8";
-            }
-            else if (CMNU_VisualCPP.Checked)
-            {
-                hPrefix = "0x";
-                hFormat = "X";
-            }
-            else if (CMNU_VisualBasic.Checked)
-            {
-                hPrefix = "&H";
-                hFormat = "X";
-            }
-        }
-
-        private void Frm_Main_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            SaveSettings();
-        }
-
-        private void Frm_Main_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.T && e.Modifiers == Keys.Control)
-                CMNU_StayOnTop.PerformClick();
-
-            if (e.KeyCode == Keys.E && e.Modifiers == Keys.Control)
-                CMNU_EasyMove.PerformClick();
-
-            if (e.KeyCode == Keys.C && e.Modifiers == Keys.Control)
-                CMNU_Collapse.PerformClick();
-
-            if (e.KeyCode == Keys.N && e.Modifiers == Keys.Control)
-                CMNU_NativeHighlighter.PerformClick();
-
-            if (e.KeyCode == Keys.F1)
-                ShowAboutDialog();
-
-            if (e.KeyCode == Keys.F2)
-                RunAsAdministrator();
-        }
-
-        private void FormAndControlDrag(object sender, MouseEventArgs e)
-        {
-            if (!CMNU_EasyMove.Checked)
-                return;
-
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, (int)WindowsMessages.WM_NCLBUTTONDOWN, HTCAPTION, 0);
-            }
-        }
-
-        private void LNKLBL_ModuleInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            var instance = new Frm_ModuleInfo();
-            instance.LBL_Process_R.Text = TB_ModuleName.Text;
-            instance.ShowDialog();
-        }
-
-        #endregion
-
-        protected override void WndProc(ref Message m)
-        {
-            // Handle the Window Menu item click events
-            if (m.Msg == (int)WindowsMessages.WM_SYSCOMMAND)
-            {
-                switch (m.WParam.ToInt32())
-                {
-                    case MNU_ABOUT:
-                        ShowAboutDialog();
-                        break;
-                    case MNU_CHANGELOG:
-                        ShowChangelog();
-                        break;
-                    case MNU_LICENSE:
-                        ShowLicense();
-                        break;
-                    case MNU_ADMIN:
-                        RunAsAdministrator();
-                        break;
-                }
-            }
-
-            // Handle the Finder Tool drag & release
-            switch (m.Msg)
-            {
-                case (int)WindowsMessages.WM_LBUTTONUP:
-                    CaptureMouse(false);
-                    break;
-                case (int)WindowsMessages.WM_MOUSEMOVE:
-                    HandleMouseMovement();
-                    break;
-                case (int)WindowsMessages.WM_PAINT:
-                    if (LV_WindowStyles.View == View.Details && LV_WindowStyles.Columns.Count > 0)
-                        LV_WindowStyles.Columns[LV_WindowStyles.Columns.Count - 1].Width = -2;
-
-                    if (LV_ExtendedStyles.View == View.Details && LV_ExtendedStyles.Columns.Count > 0)
-                        LV_ExtendedStyles.Columns[LV_ExtendedStyles.Columns.Count - 1].Width = -2;
-                    break;
-            }
-            
-            base.WndProc(ref m);
-        }
+        #region Finder Tool
 
         private void CaptureMouse(bool captured)
         {
@@ -1083,11 +1000,11 @@ namespace SharpFind
 
                 Cursor.Current = _cursorFinder;
                 PB_Tool.Image = Resources.finder_out;
-                
+
                 if (CMNU_Collapse.Checked)
                 {
                     PNL_Bottom.Visible = false;
-                    Height = formHeightCollapsed; 
+                    Height = formHeightCollapsed;
                 }
             }
             else
@@ -1111,7 +1028,7 @@ namespace SharpFind
             }
             isCapturing = captured;
         }
-        
+
         private void HandleMouseMovement()
         {
             if (!isCapturing) return;
@@ -1189,6 +1106,95 @@ namespace SharpFind
             }
         }
 
+        #endregion
+
+        #endregion
+        #region Events
+
+        #region Form
+
+        private void Frm_Main_Load(object sender, EventArgs e)
+        {
+            PNL_Bottom.Visible = false;
+
+            // Add Window Menu items
+            var handle = GetSystemMenu(Handle, false);
+            InsertMenu(handle, 05, MF_BYPOSITION | MF_SEPARATOR, 0, null);
+            InsertMenu(handle, 06, MF_BYPOSITION | MF_POPUP, (uint)CMENU_Configuration.Handle, "Configuration");
+            InsertMenu(handle, 07, MF_BYPOSITION | MF_SEPARATOR, 0, null);
+            InsertMenu(handle, 08, MF_BYPOSITION,  MNU_ABOUT,     "About...\tF1");
+            InsertMenu(handle, 09, MF_BYPOSITION,  MNU_CHANGELOG, "Changelog...");
+            InsertMenu(handle, 10, MF_BYPOSITION,  MNU_LICENSE,   "License...");           
+
+            if (!IsRunningAsAdmin())
+            {
+                InsertMenu(handle, 11, MF_BYPOSITION | MF_SEPARATOR, 0, null);
+                InsertMenu(handle, 12, MF_BYPOSITION, MNU_ADMIN, "Run as Administrator...\tF2");
+            }
+
+            ReadSettings();
+
+            if (CMNU_StayOnTop.Checked)
+                TopMost = true;
+
+            if (CMNU_Default.Checked)
+            {
+                hPrefix = string.Empty;
+                hFormat = "X8";
+            }
+            else if (CMNU_VisualCPP.Checked)
+            {
+                hPrefix = "0x";
+                hFormat = "X";
+            }
+            else if (CMNU_VisualBasic.Checked)
+            {
+                hPrefix = "&H";
+                hFormat = "X";
+            }
+        }
+
+        private void Frm_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveSettings();
+        }
+
+        private void Frm_Main_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.T && e.Modifiers == Keys.Control)
+                CMNU_StayOnTop.PerformClick();
+
+            if (e.KeyCode == Keys.E && e.Modifiers == Keys.Control)
+                CMNU_EasyMove.PerformClick();
+
+            if (e.KeyCode == Keys.C && e.Modifiers == Keys.Control)
+                CMNU_Collapse.PerformClick();
+
+            if (e.KeyCode == Keys.N && e.Modifiers == Keys.Control)
+                CMNU_NativeHighlighter.PerformClick();
+
+            if (e.KeyCode == Keys.F1)
+                ShowAboutDialog();
+
+            if (e.KeyCode == Keys.F2)
+                RunAsAdministrator();
+        }
+
+        private void EasyMove(object sender, MouseEventArgs e)
+        {
+            if (!CMNU_EasyMove.Checked)
+                return;
+
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, (int)WindowsMessages.WM_NCLBUTTONDOWN, HTCAPTION, 0);
+            }
+        }
+
+        #endregion
+        #region Controls
+
         private void PB_Tool_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -1199,6 +1205,16 @@ namespace SharpFind
         {
             Application.Exit();
         }
+
+        private void LNKLBL_ModuleInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var instance = new Frm_ModuleInfo();
+            instance.LBL_Process_R.Text = TB_ModuleName.Text;
+            instance.ShowDialog();
+        }
+
+        #endregion
+        #region System Menu
 
         private void CMNU_RememberWinPos_Click(object sender, EventArgs e)
         {
@@ -1272,5 +1288,9 @@ namespace SharpFind
                 hFormat = "X";
             }
         }
+
+        #endregion
+
+        #endregion
     }
 }
