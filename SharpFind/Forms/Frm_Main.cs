@@ -51,10 +51,10 @@ namespace SharpFind
                                            Text = Application.ProductName;
             Text = appName;
 
-            ControlBox  = true;
-            MinimizeBox = true;
-            MaximizeBox = false;
-            ShowIcon    = false;
+            ControlBox      = true;
+            MinimizeBox     = true;
+            MaximizeBox     = false;
+            ShowIcon        = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             StartPosition   = FormStartPosition.CenterScreen;
 
@@ -93,63 +93,6 @@ namespace SharpFind
         private const int MNU_LICENSE = 1001;
         private const int MNU_CHANGELOG = 1002;
         private const int MNU_ADMIN = 1003;
-
-        #endregion
-        #region Read/Write Settings
-
-        private void ReadSettings()
-        {
-            if (!File.Exists(SettingsPath()))
-                return;
-
-            CMNU_RememberWinPos.Checked = ReadINI(SettingsPath(), "WindowPos", "RememberPos", true);
-
-            if (ReadINI(SettingsPath(), "WindowPos", "RememberPos", true))
-            {
-                if (ReadINI(SettingsPath(), "WindowPos", "FirstRun", true))
-                    CenterToScreen();
-                else
-                {
-
-                    var winPos = new Point(ReadINI(SettingsPath(), "WindowPos", "PosX", 0),
-                                           ReadINI(SettingsPath(), "WindowPos", "PosY", 0));
-                    Location = winPos;
-                }
-            }
-
-            CMNU_StayOnTop.Checked         = ReadINI(SettingsPath(), "Main",    "TopMost" ,          false);
-            CMNU_EasyMove.Checked          = ReadINI(SettingsPath(), "Main",    "EasyMove",          true);
-            CMNU_Collapse.Checked          = ReadINI(SettingsPath(), "Main",    "Collapse",          true);
-            CMNU_NativeHighlighter.Checked = ReadINI(SettingsPath(), "Main",    "NativeHighlighter", true);
-
-            CMNU_Default.Checked           = ReadINI(SettingsPath(), "HexMode", "Default",           true);
-            CMNU_VisualCPP.Checked         = ReadINI(SettingsPath(), "HexMode", "VisualCPP",         false);
-            CMNU_VisualBasic.Checked       = ReadINI(SettingsPath(), "HexMode", "VisualBasic",       false);
-        }
-
-        private void SaveSettings()
-        {
-            if (ReadINI(SettingsPath(), "WindowPos", "FirstRun", true))
-                WriteINI(SettingsPath(), "WindowPos", "FirstRun", false);
-
-            WriteINI(SettingsPath(), "WindowPos", "RememberPos", CMNU_RememberWinPos.Checked);
-
-            // Prevent writing a negative value
-            if (WindowState != FormWindowState.Minimized)
-            {
-                WriteINI(SettingsPath(), "WindowPos", "PosX", Location.X);
-                WriteINI(SettingsPath(), "WindowPos", "PosY", Location.Y);
-            }
-
-            WriteINI(SettingsPath(), "Main",    "TopMost" ,          CMNU_StayOnTop.Checked);
-            WriteINI(SettingsPath(), "Main",    "EasyMove",          CMNU_EasyMove.Checked);
-            WriteINI(SettingsPath(), "Main",    "Collapse",          CMNU_Collapse.Checked);
-            WriteINI(SettingsPath(), "Main",    "NativeHighlighter", CMNU_NativeHighlighter.Checked);
-
-            WriteINI(SettingsPath(), "HexMode", "Default",           CMNU_Default.Checked);
-            WriteINI(SettingsPath(), "HexMode", "VisualCPP",         CMNU_VisualCPP.Checked);
-            WriteINI(SettingsPath(), "HexMode", "VisualBasic",       CMNU_VisualBasic.Checked);
-        }
 
         #endregion
         #region Window Procedure
@@ -223,6 +166,9 @@ namespace SharpFind
 
         #endregion
 
+        /// <summary>
+        /// Checks if the the program is running as administrator.
+        /// </summary>
         private static bool IsRunningAsAdmin()
         {
             return new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
@@ -912,14 +858,81 @@ namespace SharpFind
         #endregion
         #region Methods
 
+        #region Read/Write Settings
+
+        /// <summary>
+        /// Loads up the program settings from the settings file.
+        /// </summary>
+        private void ReadSettings()
+        {
+            if (!File.Exists(SettingsPath()))
+                return;
+
+            CMNU_RememberWinPos.Checked = ReadINI(SettingsPath(), "WindowPos", "RememberPos", true);
+
+            if (ReadINI(SettingsPath(), "WindowPos", "RememberPos", true))
+            {
+                if (ReadINI(SettingsPath(), "WindowPos", "FirstRun", true))
+                    CenterToScreen();
+                else
+                {
+
+                    var winPos = new Point(ReadINI(SettingsPath(), "WindowPos", "PosX", 0),
+                                           ReadINI(SettingsPath(), "WindowPos", "PosY", 0));
+                    Location = winPos;
+                }
+            }
+
+            CMNU_StayOnTop.Checked         = ReadINI(SettingsPath(), "Main",    "TopMost" ,          false);
+            CMNU_EasyMove.Checked          = ReadINI(SettingsPath(), "Main",    "EasyMove",          true);
+            CMNU_Collapse.Checked          = ReadINI(SettingsPath(), "Main",    "Collapse",          true);
+            CMNU_NativeHighlighter.Checked = ReadINI(SettingsPath(), "Main",    "NativeHighlighter", true);
+
+            CMNU_Default.Checked           = ReadINI(SettingsPath(), "HexMode", "Default",           true);
+            CMNU_VisualCPP.Checked         = ReadINI(SettingsPath(), "HexMode", "VisualCPP",         false);
+            CMNU_VisualBasic.Checked       = ReadINI(SettingsPath(), "HexMode", "VisualBasic",       false);
+        }
+
+        /// <summary>
+        /// Writes the program settings to the settings file.
+        /// </summary>
+        private void SaveSettings()
+        {
+            if (ReadINI(SettingsPath(), "WindowPos", "FirstRun", true))
+                WriteINI(SettingsPath(), "WindowPos", "FirstRun", false);
+
+            WriteINI(SettingsPath(), "WindowPos", "RememberPos", CMNU_RememberWinPos.Checked);
+
+            // Prevent writing a negative value
+            if (WindowState != FormWindowState.Minimized)
+            {
+                WriteINI(SettingsPath(), "WindowPos", "PosX", Location.X);
+                WriteINI(SettingsPath(), "WindowPos", "PosY", Location.Y);
+            }
+
+            WriteINI(SettingsPath(), "Main",    "TopMost" ,          CMNU_StayOnTop.Checked);
+            WriteINI(SettingsPath(), "Main",    "EasyMove",          CMNU_EasyMove.Checked);
+            WriteINI(SettingsPath(), "Main",    "Collapse",          CMNU_Collapse.Checked);
+            WriteINI(SettingsPath(), "Main",    "NativeHighlighter", CMNU_NativeHighlighter.Checked);
+
+            WriteINI(SettingsPath(), "HexMode", "Default",           CMNU_Default.Checked);
+            WriteINI(SettingsPath(), "HexMode", "VisualCPP",         CMNU_VisualCPP.Checked);
+            WriteINI(SettingsPath(), "HexMode", "VisualBasic",       CMNU_VisualBasic.Checked);
+        }
+
+        #endregion
         #region DPI Related
 
+        /// <summary>
+        /// Sets the sizing and location of form and controls based on whether
+        /// the monitor DPI is 96 (100% scaling) or 120 (125% scaling).
+        /// </summary>
         private void SetSizeBasedOnDpi()
         {
             if (IsDpi96())
             {
                 formHeightCollapsed = 99;
-                formHeightExtended = 440;
+                formHeightExtended  = 440;
 
                 PB_Tool.Location   = new Point(10, 18);
                 LBL_HowTo.Location = new Point(53, 19);
@@ -931,7 +944,7 @@ namespace SharpFind
             else
             {
                 formHeightCollapsed = 123;
-                formHeightExtended = 510;
+                formHeightExtended  = 510;
 
                 PB_Tool.Location   = new Point(13, 24);
                 LBL_HowTo.Location = new Point(54, 22);
@@ -980,6 +993,10 @@ namespace SharpFind
                 MessageBox.Show("The following file was not found:\n" + path, "Not Found");
         }
 
+        /// <summary>
+        /// Closes and restarts the program as administrator if it's not already
+        /// running as one.
+        /// </summary>
         private static void RunAsAdministrator()
         {
             if (IsRunningAsAdmin())
