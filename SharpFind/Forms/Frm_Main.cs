@@ -1150,13 +1150,18 @@ namespace SharpFind
             InsertMenu(handle, 07, MF_BYPOSITION | MF_SEPARATOR, 0, null);
             InsertMenu(handle, 08, MF_BYPOSITION,  MNU_ABOUT,     "About...\tF1");
             InsertMenu(handle, 09, MF_BYPOSITION,  MNU_CHANGELOG, "Changelog...");
-            InsertMenu(handle, 10, MF_BYPOSITION,  MNU_LICENSE,   "License...");           
+            InsertMenu(handle, 10, MF_BYPOSITION,  MNU_LICENSE,   "License...");
 
-            if (!IsRunningAsAdmin())
+            // Vista and up
+            if (Environment.OSVersion.Version.Major >= 6)
             {
-                InsertMenu(handle, 11, MF_BYPOSITION | MF_SEPARATOR, 0, null);
-                InsertMenu(handle, 12, MF_BYPOSITION, MNU_ADMIN, "Run as Administrator...\tF2");
+                if (!IsRunningAsAdmin())
+                {
+                    InsertMenu(handle, 11, MF_BYPOSITION | MF_SEPARATOR, 0, null);
+                    InsertMenu(handle, 12, MF_BYPOSITION,  MNU_ADMIN, "Run as Administrator...\tF2");
+                }
             }
+
 
             ReadSettings();
 
