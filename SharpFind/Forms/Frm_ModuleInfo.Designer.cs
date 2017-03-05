@@ -44,13 +44,13 @@
             this.BTN_Close = new System.Windows.Forms.Button();
             this.PNL_Top = new System.Windows.Forms.Panel();
             this.PNL_Bottom = new System.Windows.Forms.Panel();
-            this.LV_Module = new SharpFind.Controls.ListViewEx();
-            this.COL_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.COL_Base = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.COL_Size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.separator1 = new SharpFind.Controls.Separator();
             this.LNKLBL_Explore = new SharpFind.Controls.LinkLabelEx();
             this.separator2 = new SharpFind.Controls.Separator();
+            this.COL_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.COL_Base = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.COL_Size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LV_Module = new SharpFind.Controls.ListViewEx();
             this.GB_Summary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Icon)).BeginInit();
             this.TC_Details.SuspendLayout();
@@ -186,7 +186,7 @@
             this.TP_Thread.Location = new System.Drawing.Point(4, 22);
             this.TP_Thread.Name = "TP_Thread";
             this.TP_Thread.Padding = new System.Windows.Forms.Padding(3);
-            this.TP_Thread.Size = new System.Drawing.Size(398, 0);
+            this.TP_Thread.Size = new System.Drawing.Size(398, 41);
             this.TP_Thread.TabIndex = 1;
             this.TP_Thread.Text = "Thread Details";
             this.TP_Thread.UseVisualStyleBackColor = true;
@@ -224,42 +224,6 @@
             this.PNL_Bottom.Size = new System.Drawing.Size(422, 384);
             this.PNL_Bottom.TabIndex = 5;
             // 
-            // LV_Module
-            // 
-            this.LV_Module.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.LV_Module.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.COL_Name,
-            this.COL_Base,
-            this.COL_Size});
-            this.LV_Module.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.LV_Module.FullRowSelect = true;
-            this.LV_Module.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.LV_Module.Location = new System.Drawing.Point(8, 26);
-            this.LV_Module.Name = "LV_Module";
-            this.LV_Module.ShowItemToolTips = true;
-            this.LV_Module.Size = new System.Drawing.Size(406, 319);
-            this.LV_Module.TabIndex = 0;
-            this.LV_Module.TileSize = new System.Drawing.Size(168, 45);
-            this.LV_Module.UseCompatibleStateImageBehavior = false;
-            this.LV_Module.View = System.Windows.Forms.View.Details;
-            // 
-            // COL_Name
-            // 
-            this.COL_Name.Text = "Name";
-            this.COL_Name.Width = 184;
-            // 
-            // COL_Base
-            // 
-            this.COL_Base.Text = "Base Address";
-            this.COL_Base.Width = 115;
-            // 
-            // COL_Size
-            // 
-            this.COL_Size.Text = "Size";
-            this.COL_Size.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.COL_Size.Width = 82;
-            // 
             // separator1
             // 
             this.separator1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -292,6 +256,42 @@
             this.separator2.Size = new System.Drawing.Size(10, 64);
             this.separator2.TabIndex = 1;
             this.separator2.Text = "separator2";
+            // 
+            // COL_Name
+            // 
+            this.COL_Name.Text = "Name";
+            this.COL_Name.Width = 184;
+            // 
+            // COL_Base
+            // 
+            this.COL_Base.Text = "Base Address";
+            this.COL_Base.Width = 115;
+            // 
+            // COL_Size
+            // 
+            this.COL_Size.Text = "Size";
+            this.COL_Size.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.COL_Size.Width = 85;
+            // 
+            // LV_Module
+            // 
+            this.LV_Module.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.LV_Module.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.COL_Name,
+            this.COL_Base,
+            this.COL_Size});
+            this.LV_Module.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.LV_Module.FullRowSelect = true;
+            this.LV_Module.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.LV_Module.Location = new System.Drawing.Point(8, 26);
+            this.LV_Module.Name = "LV_Module";
+            this.LV_Module.ShowItemToolTips = true;
+            this.LV_Module.Size = new System.Drawing.Size(406, 319);
+            this.LV_Module.TabIndex = 0;
+            this.LV_Module.TileSize = new System.Drawing.Size(168, 45);
+            this.LV_Module.UseCompatibleStateImageBehavior = false;
+            this.LV_Module.View = System.Windows.Forms.View.Details;
             // 
             // Frm_ModuleInfo
             // 
