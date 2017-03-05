@@ -29,29 +29,29 @@
         private void InitializeComponent()
         {
             this.GB_Summary = new System.Windows.Forms.GroupBox();
+            this.LBL_Path_R = new System.Windows.Forms.Label();
+            this.LBL_Process_R = new System.Windows.Forms.Label();
+            this.LBL_PID_R = new System.Windows.Forms.Label();
+            this.LBL_Modules_R = new System.Windows.Forms.Label();
+            this.LBL_Path = new System.Windows.Forms.Label();
+            this.LBL_Modules = new System.Windows.Forms.Label();
+            this.LBL_PID = new System.Windows.Forms.Label();
+            this.LBL_Process = new System.Windows.Forms.Label();
+            this.PB_Icon = new System.Windows.Forms.PictureBox();
             this.TC_Details = new System.Windows.Forms.TabControl();
             this.TP_Module = new System.Windows.Forms.TabPage();
             this.TP_Thread = new System.Windows.Forms.TabPage();
             this.BTN_Close = new System.Windows.Forms.Button();
             this.PNL_Top = new System.Windows.Forms.Panel();
             this.PNL_Bottom = new System.Windows.Forms.Panel();
-            this.PB_Icon = new System.Windows.Forms.PictureBox();
-            this.LBL_Process = new System.Windows.Forms.Label();
-            this.LBL_PID = new System.Windows.Forms.Label();
-            this.LBL_Modules = new System.Windows.Forms.Label();
-            this.LBL_Path = new System.Windows.Forms.Label();
-            this.LBL_Modules_R = new System.Windows.Forms.Label();
-            this.LBL_PID_R = new System.Windows.Forms.Label();
-            this.LBL_Process_R = new System.Windows.Forms.Label();
-            this.LBL_Path_R = new System.Windows.Forms.Label();
             this.separator1 = new SharpFind.Controls.Separator();
             this.LNKLBL_Explore = new SharpFind.Controls.LinkLabelEx();
             this.separator2 = new SharpFind.Controls.Separator();
             this.GB_Summary.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_Icon)).BeginInit();
             this.TC_Details.SuspendLayout();
             this.PNL_Top.SuspendLayout();
             this.PNL_Bottom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_Icon)).BeginInit();
             this.SuspendLayout();
             // 
             // GB_Summary
@@ -73,14 +73,101 @@
             this.GB_Summary.TabIndex = 0;
             this.GB_Summary.TabStop = false;
             // 
+            // LBL_Path_R
+            // 
+            this.LBL_Path_R.AutoEllipsis = true;
+            this.LBL_Path_R.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.LBL_Path_R.Location = new System.Drawing.Point(149, 62);
+            this.LBL_Path_R.Name = "LBL_Path_R";
+            this.LBL_Path_R.Size = new System.Drawing.Size(222, 13);
+            this.LBL_Path_R.TabIndex = 9;
+            this.LBL_Path_R.Text = "-";
+            // 
+            // LBL_Process_R
+            // 
+            this.LBL_Process_R.AutoSize = true;
+            this.LBL_Process_R.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.LBL_Process_R.Location = new System.Drawing.Point(149, 14);
+            this.LBL_Process_R.Name = "LBL_Process_R";
+            this.LBL_Process_R.Size = new System.Drawing.Size(10, 13);
+            this.LBL_Process_R.TabIndex = 8;
+            this.LBL_Process_R.Text = "-";
+            // 
+            // LBL_PID_R
+            // 
+            this.LBL_PID_R.AutoSize = true;
+            this.LBL_PID_R.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.LBL_PID_R.Location = new System.Drawing.Point(149, 30);
+            this.LBL_PID_R.Name = "LBL_PID_R";
+            this.LBL_PID_R.Size = new System.Drawing.Size(10, 13);
+            this.LBL_PID_R.TabIndex = 7;
+            this.LBL_PID_R.Text = "-";
+            // 
+            // LBL_Modules_R
+            // 
+            this.LBL_Modules_R.AutoSize = true;
+            this.LBL_Modules_R.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.LBL_Modules_R.Location = new System.Drawing.Point(149, 46);
+            this.LBL_Modules_R.Name = "LBL_Modules_R";
+            this.LBL_Modules_R.Size = new System.Drawing.Size(10, 13);
+            this.LBL_Modules_R.TabIndex = 6;
+            this.LBL_Modules_R.Text = "-";
+            // 
+            // LBL_Path
+            // 
+            this.LBL_Path.AutoSize = true;
+            this.LBL_Path.Location = new System.Drawing.Point(97, 62);
+            this.LBL_Path.Name = "LBL_Path";
+            this.LBL_Path.Size = new System.Drawing.Size(29, 13);
+            this.LBL_Path.TabIndex = 5;
+            this.LBL_Path.Text = "Path";
+            // 
+            // LBL_Modules
+            // 
+            this.LBL_Modules.AutoSize = true;
+            this.LBL_Modules.Location = new System.Drawing.Point(97, 46);
+            this.LBL_Modules.Name = "LBL_Modules";
+            this.LBL_Modules.Size = new System.Drawing.Size(47, 13);
+            this.LBL_Modules.TabIndex = 4;
+            this.LBL_Modules.Text = "Modules";
+            // 
+            // LBL_PID
+            // 
+            this.LBL_PID.AutoSize = true;
+            this.LBL_PID.Location = new System.Drawing.Point(97, 31);
+            this.LBL_PID.Name = "LBL_PID";
+            this.LBL_PID.Size = new System.Drawing.Size(25, 13);
+            this.LBL_PID.TabIndex = 3;
+            this.LBL_PID.Text = "PID";
+            // 
+            // LBL_Process
+            // 
+            this.LBL_Process.AutoSize = true;
+            this.LBL_Process.Location = new System.Drawing.Point(97, 14);
+            this.LBL_Process.Name = "LBL_Process";
+            this.LBL_Process.Size = new System.Drawing.Size(45, 13);
+            this.LBL_Process.TabIndex = 2;
+            this.LBL_Process.Text = "Process";
+            // 
+            // PB_Icon
+            // 
+            this.PB_Icon.Location = new System.Drawing.Point(13, 12);
+            this.PB_Icon.Name = "PB_Icon";
+            this.PB_Icon.Size = new System.Drawing.Size(63, 64);
+            this.PB_Icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PB_Icon.TabIndex = 0;
+            this.PB_Icon.TabStop = false;
+            // 
             // TC_Details
             // 
+            this.TC_Details.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.TC_Details.Controls.Add(this.TP_Module);
             this.TC_Details.Controls.Add(this.TP_Thread);
             this.TC_Details.Location = new System.Drawing.Point(8, 103);
             this.TC_Details.Name = "TC_Details";
             this.TC_Details.SelectedIndex = 0;
-            this.TC_Details.Size = new System.Drawing.Size(424, 233);
+            this.TC_Details.Size = new System.Drawing.Size(424, 267);
             this.TC_Details.TabIndex = 1;
             // 
             // TP_Module
@@ -88,7 +175,7 @@
             this.TP_Module.Location = new System.Drawing.Point(4, 22);
             this.TP_Module.Name = "TP_Module";
             this.TP_Module.Padding = new System.Windows.Forms.Padding(3);
-            this.TP_Module.Size = new System.Drawing.Size(416, 207);
+            this.TP_Module.Size = new System.Drawing.Size(416, 241);
             this.TP_Module.TabIndex = 0;
             this.TP_Module.Text = "Module Details";
             this.TP_Module.UseVisualStyleBackColor = true;
@@ -105,8 +192,9 @@
             // 
             // BTN_Close
             // 
+            this.BTN_Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BTN_Close.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.BTN_Close.Location = new System.Drawing.Point(357, 245);
+            this.BTN_Close.Location = new System.Drawing.Point(357, 279);
             this.BTN_Close.Name = "BTN_Close";
             this.BTN_Close.Size = new System.Drawing.Size(75, 23);
             this.BTN_Close.TabIndex = 3;
@@ -131,97 +219,13 @@
             this.PNL_Bottom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PNL_Bottom.Location = new System.Drawing.Point(0, 97);
             this.PNL_Bottom.Name = "PNL_Bottom";
-            this.PNL_Bottom.Size = new System.Drawing.Size(440, 276);
+            this.PNL_Bottom.Size = new System.Drawing.Size(440, 310);
             this.PNL_Bottom.TabIndex = 5;
-            // 
-            // PB_Icon
-            // 
-            this.PB_Icon.Location = new System.Drawing.Point(13, 12);
-            this.PB_Icon.Name = "PB_Icon";
-            this.PB_Icon.Size = new System.Drawing.Size(63, 64);
-            this.PB_Icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.PB_Icon.TabIndex = 0;
-            this.PB_Icon.TabStop = false;
-            // 
-            // LBL_Process
-            // 
-            this.LBL_Process.AutoSize = true;
-            this.LBL_Process.Location = new System.Drawing.Point(97, 15);
-            this.LBL_Process.Name = "LBL_Process";
-            this.LBL_Process.Size = new System.Drawing.Size(45, 13);
-            this.LBL_Process.TabIndex = 2;
-            this.LBL_Process.Text = "Process";
-            // 
-            // LBL_PID
-            // 
-            this.LBL_PID.AutoSize = true;
-            this.LBL_PID.Location = new System.Drawing.Point(97, 32);
-            this.LBL_PID.Name = "LBL_PID";
-            this.LBL_PID.Size = new System.Drawing.Size(25, 13);
-            this.LBL_PID.TabIndex = 3;
-            this.LBL_PID.Text = "PID";
-            // 
-            // LBL_Modules
-            // 
-            this.LBL_Modules.AutoSize = true;
-            this.LBL_Modules.Location = new System.Drawing.Point(97, 47);
-            this.LBL_Modules.Name = "LBL_Modules";
-            this.LBL_Modules.Size = new System.Drawing.Size(47, 13);
-            this.LBL_Modules.TabIndex = 4;
-            this.LBL_Modules.Text = "Modules";
-            // 
-            // LBL_Path
-            // 
-            this.LBL_Path.AutoSize = true;
-            this.LBL_Path.Location = new System.Drawing.Point(97, 63);
-            this.LBL_Path.Name = "LBL_Path";
-            this.LBL_Path.Size = new System.Drawing.Size(29, 13);
-            this.LBL_Path.TabIndex = 5;
-            this.LBL_Path.Text = "Path";
-            // 
-            // LBL_Modules_R
-            // 
-            this.LBL_Modules_R.AutoSize = true;
-            this.LBL_Modules_R.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.LBL_Modules_R.Location = new System.Drawing.Point(149, 47);
-            this.LBL_Modules_R.Name = "LBL_Modules_R";
-            this.LBL_Modules_R.Size = new System.Drawing.Size(10, 13);
-            this.LBL_Modules_R.TabIndex = 6;
-            this.LBL_Modules_R.Text = "-";
-            // 
-            // LBL_PID_R
-            // 
-            this.LBL_PID_R.AutoSize = true;
-            this.LBL_PID_R.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.LBL_PID_R.Location = new System.Drawing.Point(149, 31);
-            this.LBL_PID_R.Name = "LBL_PID_R";
-            this.LBL_PID_R.Size = new System.Drawing.Size(10, 13);
-            this.LBL_PID_R.TabIndex = 7;
-            this.LBL_PID_R.Text = "-";
-            // 
-            // LBL_Process_R
-            // 
-            this.LBL_Process_R.AutoSize = true;
-            this.LBL_Process_R.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.LBL_Process_R.Location = new System.Drawing.Point(149, 15);
-            this.LBL_Process_R.Name = "LBL_Process_R";
-            this.LBL_Process_R.Size = new System.Drawing.Size(10, 13);
-            this.LBL_Process_R.TabIndex = 8;
-            this.LBL_Process_R.Text = "-";
-            // 
-            // LBL_Path_R
-            // 
-            this.LBL_Path_R.AutoEllipsis = true;
-            this.LBL_Path_R.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.LBL_Path_R.Location = new System.Drawing.Point(149, 63);
-            this.LBL_Path_R.Name = "LBL_Path_R";
-            this.LBL_Path_R.Size = new System.Drawing.Size(222, 13);
-            this.LBL_Path_R.TabIndex = 9;
-            this.LBL_Path_R.Text = "-";
             // 
             // separator1
             // 
-            this.separator1.Location = new System.Drawing.Point(8, 251);
+            this.separator1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.separator1.Location = new System.Drawing.Point(8, 285);
             this.separator1.Name = "separator1";
             this.separator1.Orientation = SharpFind.Controls.Separator._Orientation.Horizontal;
             this.separator1.Size = new System.Drawing.Size(343, 10);
@@ -234,7 +238,7 @@
             this.LNKLBL_Explore.AutoSize = true;
             this.LNKLBL_Explore.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.LNKLBL_Explore.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.LNKLBL_Explore.Location = new System.Drawing.Point(377, 63);
+            this.LNKLBL_Explore.Location = new System.Drawing.Point(377, 62);
             this.LNKLBL_Explore.Name = "LNKLBL_Explore";
             this.LNKLBL_Explore.Size = new System.Drawing.Size(41, 13);
             this.LNKLBL_Explore.TabIndex = 10;
@@ -256,7 +260,7 @@
             this.AcceptButton = this.BTN_Close;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(440, 373);
+            this.ClientSize = new System.Drawing.Size(440, 407);
             this.Controls.Add(this.TC_Details);
             this.Controls.Add(this.PNL_Bottom);
             this.Controls.Add(this.PNL_Top);
@@ -272,10 +276,10 @@
             this.Load += new System.EventHandler(this.Frm_ModuleInfo_Load);
             this.GB_Summary.ResumeLayout(false);
             this.GB_Summary.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_Icon)).EndInit();
             this.TC_Details.ResumeLayout(false);
             this.PNL_Top.ResumeLayout(false);
             this.PNL_Bottom.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PB_Icon)).EndInit();
             this.ResumeLayout(false);
 
         }
