@@ -179,6 +179,42 @@ namespace SharpFind.Classes
             WHITENESS   = 0x00FF0062
         }
 
+        [Flags]
+        internal enum ThreadAccess : int
+        {
+            TERMINATE            = 0x0001,
+            SUSPEND_RESUME       = 0x0002,
+            GET_CONTEXT          = 0x0008,
+            SET_CONTEXT          = 0x0010,
+            SET_INFORMATION      = 0x0020,
+            QUERY_INFORMATION    = 0x0040,
+            SET_THREAD_TOKEN     = 0x0080,
+            IMPERSONATE          = 0x0100,
+            DIRECT_IMPERSONATION = 0x0200
+        }
+
+        internal enum THREADINFOCLASS : int
+        {
+            ThreadBasicInformation,
+            ThreadTimes,
+            ThreadPriority,
+            ThreadBasePriority,
+            ThreadAffinityMask,
+            ThreadImpersonationToken,
+            ThreadDescriptorTableEntry,
+            ThreadEnableAlignmentFaultFixup,
+            ThreadEventPair,
+            ThreadQuerySetWin32StartAddress,
+            ThreadZeroTlsCell,
+            ThreadPerformanceCount,
+            ThreadAmILastThread,
+            ThreadIdealProcessor,
+            ThreadPriorityBoost,
+            ThreadSetTlsArrayAddress,
+            ThreadIsIoPending,
+            ThreadHideFromDebugger
+        }
+
         // The list is too big. I didn't want to waste bytes. I only added the
         // ones used by the program.
         internal enum WindowsMessages : uint
@@ -880,6 +916,70 @@ namespace SharpFind.Classes
         #region kernel32.dll
 
         /// <summary>
+        /// Closes an open object handle.
+        /// </summary>
+        /// 
+        /// <param name="hObject">
+        /// A valid handle to an open object.
+        /// </param>
+        /// 
+        /// <returns>
+        /// If the function succeeds, the return value is nonzero.
+        /// </returns>
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool CloseHandle(IntPtr hObject);
+
+        /// <summary>
+        /// Duplicates an object handle.
+        /// </summary>
+        /// 
+        /// <param name="hSourceProcessHandle">
+        /// A handle to the process with the handle to be duplicated.
+        /// </param>
+        /// 
+        /// <param name="hSourceHandle">
+        /// The handle to be duplicated.
+        /// </param>
+        /// 
+        /// <param name="hTargetProcessHandle">
+        /// A handle to the process that is to receive the duplicated handle.
+        /// </param>
+        /// 
+        /// <param name="lpTargetHandle">
+        /// A pointer to a variable that receives the duplicate handle. 
+        /// This handle value is valid in the context of the target process.
+        /// </param>
+        /// 
+        /// <param name="dwDesiredAccess">
+        /// The access requested for the new handle.
+        /// </param>
+        /// 
+        /// <param name="bInheritHandle">
+        /// A variable that indicates whether the handle is inheritable. If TRUE,
+        /// the duplicate handle can be inherited by new processes created by
+        /// the target process. If FALSE, the new handle cannot be inherited.
+        /// </param>
+        /// 
+        /// <param name="dwOptions">
+        /// Optional actions. This parameter can be zero, or any combination of
+        /// the following values.
+        /// </param>
+        /// 
+        /// <returns>
+        /// If the function succeeds, the return value is nonzero.
+        /// </returns>
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool DuplicateHandle(IntPtr hSourceProcessHandle, 
+                                                    IntPtr hSourceHandle, 
+                                                    IntPtr hTargetProcessHandle, 
+                                                    out IntPtr lpTargetHandle, 
+                                                    uint dwDesiredAccess, 
+                                                    [MarshalAs(UnmanagedType.Bool)] bool bInheritHandle, 
+                                                    uint dwOptions);
+
+        /// <summary>
         /// Retrieves the process identifier of the calling process.
         /// </summary>
         /// 
@@ -954,6 +1054,40 @@ namespace SharpFind.Classes
                                                             string lpReturnedString, 
                                                             int nSize,
                                                             string lpFileName);
+
+        [DllImport("ntdll.dll", SetLastError = true)]
+        internal static extern int NtQueryInformationThread(IntPtr threadHandle,
+                                                            THREADINFOCLASS threadInformationClass, 
+                                                            IntPtr threadInformation, 
+                                                            int threadInformationLength, 
+                                                            IntPtr returnLength);
+
+        /// <summary>
+        /// Opens an existing thread object.
+        /// </summary>
+        /// 
+        /// <param name="dwDesiredAccess">
+        /// The access to the thread object. This access right is checked
+        /// against the security descriptor for the thread. This parameter can
+        /// be one or more of the thread access rights.
+        /// </param>
+        /// 
+        /// <param name="bInheritHandle">
+        /// If this value is TRUE, processes created by this process will
+        /// inherit the handle. Otherwise, the processes do not inherit this
+        /// handle.
+        /// </param>
+        /// 
+        /// <param name="dwThreadId">
+        /// The identifier of the thread to be opened.
+        /// </param>
+        /// 
+        /// <returns>
+        /// If the function succeeds, the return value is an open handle to the
+        /// specified thread.
+        /// </returns>
+        [DllImport("kernel32.dll", SetLastError = true)]
+        internal static extern IntPtr OpenThread(ThreadAccess dwDesiredAccess, bool bInheritHandle, uint dwThreadId);
 
         /// <summary>
         /// Copies a string into the specified section of an initialization file.
