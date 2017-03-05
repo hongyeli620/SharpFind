@@ -796,20 +796,20 @@ namespace SharpFind
 
         private static string GetModuleName(IntPtr hWnd)
         {
-            var procId = 0;
-            GetWindowThreadProcessId(hWnd, ref procId);
-            var proc = Process.GetProcessById(procId);
+            var pid = 0;
+            GetWindowThreadProcessId(hWnd, ref pid);
+            var process = Process.GetProcessById(pid);
 
-            return proc.MainModule.ModuleName;
+            return process.MainModule.ModuleName;
         }
 
         private static string GetModulePath(IntPtr hWnd)
         {
-            var procId = 0;
-            GetWindowThreadProcessId(hWnd, ref procId);
-            var proc = Process.GetProcessById(procId);
+            var pid = 0;
+            GetWindowThreadProcessId(hWnd, ref pid);
+            var process = Process.GetProcessById(pid);
 
-            return proc.MainModule.FileName;
+            return process.MainModule.FileName;
         }
 
         private static string GetProcessIdEx(IntPtr hWnd)
