@@ -97,7 +97,6 @@ namespace SharpFind.Forms
             for (var i = 0; i < pmc.Count; i++)
             {
                 var pm = pmc[i];
-
                 var lvi = new ListViewItem(pm.ModuleName)
                 {
                     ToolTipText = pm.FileName + "\n" +
@@ -106,14 +105,13 @@ namespace SharpFind.Forms
                                   pm.FileVersionInfo.ProductVersion
                 };
 
-                lvi.SubItems.Add("0x" + pm.BaseAddress.ToString("X8"));
-
                 var length = new FileInfo(pm.FileName).Length;
+                lvi.SubItems.Add("0x" + pm.BaseAddress.ToString("X8"));
                 lvi.SubItems.Add(FormatByteSize(length));
                 LV_Module.Items.Add(lvi);
             }
 
-            LV_Module.Items[0].ForeColor = Color.Brown;
+            LV_Module.Items[0].BackColor = SystemColors.GradientActiveCaption;
             LV_Module.Sorting = SortOrder.Ascending;
         }
     }
