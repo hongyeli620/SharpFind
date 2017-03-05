@@ -1,8 +1,10 @@
 ﻿using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Text;
 using System.Windows.Forms;
 using System;
+using SharpFind.Classes;
 
 namespace SharpFind.Forms
 {
@@ -13,15 +15,14 @@ namespace SharpFind.Forms
             InitializeComponent();
         }
 
+        private Process ParentProcess { get; set; }
+
         private void Frm_ModuleInfo_Load(object sender, EventArgs e)
         {
             GetModuleSummary();
-            GetModuleDetails();
-        }
 
-        private void BTN_Close_Click(object sender, EventArgs e)
-        {
-            Close();
+            if (LBL_Path_R.Text != string.Empty)
+                GetModuleDetails();
         }
 
         private void LNKLBL_Explore_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -29,11 +30,42 @@ namespace SharpFind.Forms
             ShowFileInExplorer(LBL_Path_R.Text);
         }
 
-        private Process parentValue;
-        private Process ParentProcess
+        private void BTN_Close_Click(object sender, EventArgs e)
         {
-            get { return parentValue;  }
-            set { parentValue = value; }
+            Close();
+        }
+
+        /// <summary>
+        /// Opens the directory of the designated file in Explorer and selects it.
+        /// </summary>
+        /// 
+        /// <param name="path">
+        /// Path to the file.
+        /// </param>
+        private static void ShowFileInExplorer(string path)
+        {
+            var winDir = Environment.GetEnvironmentVariable("windir");
+            if (winDir == null)
+                return;
+
+            var explorer = Path.Combine(winDir, "explorer.exe");
+            var args = $"/select, {"\"" + path + "\""}";
+            Process.Start(explorer, args);
+        }
+
+        /// <summary>
+        /// Formats the given numeric value into KB, GB, etc.
+        /// </summary>
+        /// 
+        /// <param name="byteCount">
+        /// Number of bytes to be formatted.
+        /// </param>
+        private static string FormatByteSize(long byteCount)
+        {
+            var sb = new StringBuilder(12);
+            NativeMethods.StrFormatByteSize(byteCount, sb, sb.Capacity);
+
+            return sb.ToString();
         }
 
         private void GetModuleSummary()
@@ -59,68 +91,30 @@ namespace SharpFind.Forms
             }
         }
 
-        private static string GetFormattedBytes(long byteCount)
-        {
-            string[] format = { "B", "KB", "MB", "GB" };
-            decimal length = byteCount;
-            int i = 0;
-
-            if (byteCount == 0)
-                return "0" + format[0];
-
-            while (length > 1024)
-            {
-                length = decimal.Round(length / 1024, 2);
-                i += 1;
-                if (i >= format.Length - 1)
-                    break;
-            }
-
-            return length.ToString() + " " + format[i];
-        }
-
         private void GetModuleDetails()
         {
-            ProcessModule pm;
-            ProcessModuleCollection pmc = parentValue.Modules;
-
-            for (int i = 0; i < pmc.Count; i++)
+            var pmc = ParentProcess.Modules;
+            for (var i = 0; i < pmc.Count; i++)
             {
-                pm = pmc[i];
+                var pm = pmc[i];
 
-                var lvi = new ListViewItem(pm.ModuleName);
-                lvi.ToolTipText = pm.FileName + "\n" + 
-                                  pm.FileVersionInfo.LegalCopyright  + "\n" + 
-                                  pm.FileVersionInfo.FileDescription + "\n" + 
-                                  pm.FileVersionInfo.ProductVersion;
+                var lvi = new ListViewItem(pm.ModuleName)
+                {
+                    ToolTipText = pm.FileName + "\n" +
+                                  pm.FileVersionInfo.LegalCopyright  + "\n" +
+                                  pm.FileVersionInfo.FileDescription + "\n" +
+                                  pm.FileVersionInfo.ProductVersion
+                };
 
-                lvi.SubItems.Add("0x" + pm.BaseAddress.ToString("x8"));
+                lvi.SubItems.Add("0x" + pm.BaseAddress.ToString("X8"));
 
                 var length = new FileInfo(pm.FileName).Length;
-                lvi.SubItems.Add(GetFormattedBytes(length));
+                lvi.SubItems.Add(FormatByteSize(length));
                 LV_Module.Items.Add(lvi);
             }
 
             LV_Module.Items[0].ForeColor = Color.Brown;
             LV_Module.Sorting = SortOrder.Ascending;
-        }
-
-        /// <summary>
-        /// Opens the directory of the designated file in Explorer and selects it.
-        /// </summary>
-        /// 
-        /// <param name="path">
-        /// Path to the file.
-        /// </param>
-        private static void ShowFileInExplorer(string path)
-        {
-            var winDir = Environment.GetEnvironmentVariable("windir");
-            if (winDir == null)
-                return;
-
-            var explorer = Path.Combine(winDir, "explorer.exe");
-            var args = $"/select, {"\"" + path + "\""}";
-            Process.Start(explorer, args);
         }
     }
 }
