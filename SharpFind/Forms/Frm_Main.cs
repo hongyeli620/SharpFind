@@ -1234,9 +1234,21 @@ namespace SharpFind
 
         private void LNKLBL_ModuleInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var instance = new Frm_ModuleInfo();
-            instance.LBL_Process_R.Text = TB_ModuleName.Text;
-            instance.ShowDialog();
+            // Make sure the process is still running to prevent an exception
+            var p = Path.GetFileNameWithoutExtension(TB_ModuleName.Text);
+            if (Process.GetProcessesByName(p).Length > 0)
+            {
+                var instance = new Frm_ModuleInfo();
+                instance.LBL_Process_R.Text = TB_ModuleName.Text;
+                instance.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show($"The process '{p}.exe' is no longer running!", 
+                                Application.ProductName, 
+                                MessageBoxButtons.OK, 
+                                MessageBoxIcon.Warning);
+            }
         }
 
         #endregion
