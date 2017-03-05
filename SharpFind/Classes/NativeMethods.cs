@@ -195,24 +195,24 @@ namespace SharpFind.Classes
 
         internal enum THREADINFOCLASS : int
         {
-            ThreadBasicInformation,
-            ThreadTimes,
-            ThreadPriority,
-            ThreadBasePriority,
-            ThreadAffinityMask,
-            ThreadImpersonationToken,
-            ThreadDescriptorTableEntry,
-            ThreadEnableAlignmentFaultFixup,
-            ThreadEventPair,
-            ThreadQuerySetWin32StartAddress,
-            ThreadZeroTlsCell,
-            ThreadPerformanceCount,
-            ThreadAmILastThread,
-            ThreadIdealProcessor,
-            ThreadPriorityBoost,
-            ThreadSetTlsArrayAddress,
-            ThreadIsIoPending,
-            ThreadHideFromDebugger
+            ThreadBasicInformation,          //  0
+            ThreadTimes,                     //  1
+            ThreadPriority,                  //  2
+            ThreadBasePriority,              //  3
+            ThreadAffinityMask,              //  4
+            ThreadImpersonationToken,        //  5
+            ThreadDescriptorTableEntry,      //  6
+            ThreadEnableAlignmentFaultFixup, //  7
+            ThreadEventPair,                 //  8
+            ThreadQuerySetWin32StartAddress, //  9
+            ThreadZeroTlsCell,               // 10
+            ThreadPerformanceCount,          // 11
+            ThreadAmILastThread,             // 12
+            ThreadIdealProcessor,            // 13
+            ThreadPriorityBoost,             // 14
+            ThreadSetTlsArrayAddress,        // 15
+            ThreadIsIoPending,               // 16
+            ThreadHideFromDebugger           // 17
         }
 
         // The list is too big. I didn't want to waste bytes. I only added the
@@ -1795,5 +1795,5 @@ namespace SharpFind.Classes
         }
 
         #endregion
-    }
+    }   
 }
