@@ -1157,6 +1157,33 @@ namespace SharpFind.Classes
                                                                string pszSubIdList);
 
         #endregion
+        #region shlwapi.dll
+
+        /// <summary>
+        /// Converts a numeric value into a string that represents the number
+        /// expressed as a size value in bytes, kilobytes, megabytes, or
+        /// gigabytes, depending on the size.
+        /// </summary>
+        /// 
+        /// <param name="fileSize">
+        /// The numeric value to be converted.
+        /// </param>
+        /// 
+        /// <param name="buffer">
+        /// A pointer to a buffer that receives the converted string.
+        /// </param>
+        /// 
+        /// <param name="bufferSize">
+        /// The size of the buffer pointed to by <c>buffer</c>.
+        /// </param>
+        /// 
+        /// <returns>
+        /// Returns a pointer to the converted string, or NULL if the conversion fails.
+        /// </returns>
+        [DllImport("shlwapi.dll", CharSet = CharSet.Auto)]
+        internal static extern long StrFormatByteSize(long fileSize, StringBuilder buffer, int bufferSize);
+
+        #endregion
         #region WinUser.h & CommCtrl.h Definitions
 
         internal static class Styles
