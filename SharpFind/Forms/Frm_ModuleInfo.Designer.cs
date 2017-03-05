@@ -44,6 +44,10 @@
             this.BTN_Close = new System.Windows.Forms.Button();
             this.PNL_Top = new System.Windows.Forms.Panel();
             this.PNL_Bottom = new System.Windows.Forms.Panel();
+            this.LV_Module = new SharpFind.Controls.ListViewEx();
+            this.COL_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.COL_Base = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.COL_Size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.separator1 = new SharpFind.Controls.Separator();
             this.LNKLBL_Explore = new SharpFind.Controls.LinkLabelEx();
             this.separator2 = new SharpFind.Controls.Separator();
@@ -69,7 +73,7 @@
             this.GB_Summary.Controls.Add(this.PB_Icon);
             this.GB_Summary.Location = new System.Drawing.Point(8, 8);
             this.GB_Summary.Name = "GB_Summary";
-            this.GB_Summary.Size = new System.Drawing.Size(424, 83);
+            this.GB_Summary.Size = new System.Drawing.Size(406, 83);
             this.GB_Summary.TabIndex = 0;
             this.GB_Summary.TabStop = false;
             // 
@@ -77,9 +81,9 @@
             // 
             this.LBL_Path_R.AutoEllipsis = true;
             this.LBL_Path_R.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.LBL_Path_R.Location = new System.Drawing.Point(149, 62);
+            this.LBL_Path_R.Location = new System.Drawing.Point(133, 62);
             this.LBL_Path_R.Name = "LBL_Path_R";
-            this.LBL_Path_R.Size = new System.Drawing.Size(222, 13);
+            this.LBL_Path_R.Size = new System.Drawing.Size(221, 13);
             this.LBL_Path_R.TabIndex = 9;
             this.LBL_Path_R.Text = "-";
             // 
@@ -87,7 +91,7 @@
             // 
             this.LBL_Process_R.AutoSize = true;
             this.LBL_Process_R.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.LBL_Process_R.Location = new System.Drawing.Point(149, 14);
+            this.LBL_Process_R.Location = new System.Drawing.Point(133, 14);
             this.LBL_Process_R.Name = "LBL_Process_R";
             this.LBL_Process_R.Size = new System.Drawing.Size(10, 13);
             this.LBL_Process_R.TabIndex = 8;
@@ -97,7 +101,7 @@
             // 
             this.LBL_PID_R.AutoSize = true;
             this.LBL_PID_R.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.LBL_PID_R.Location = new System.Drawing.Point(149, 30);
+            this.LBL_PID_R.Location = new System.Drawing.Point(133, 30);
             this.LBL_PID_R.Name = "LBL_PID_R";
             this.LBL_PID_R.Size = new System.Drawing.Size(10, 13);
             this.LBL_PID_R.TabIndex = 7;
@@ -107,7 +111,7 @@
             // 
             this.LBL_Modules_R.AutoSize = true;
             this.LBL_Modules_R.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.LBL_Modules_R.Location = new System.Drawing.Point(149, 46);
+            this.LBL_Modules_R.Location = new System.Drawing.Point(133, 46);
             this.LBL_Modules_R.Name = "LBL_Modules_R";
             this.LBL_Modules_R.Size = new System.Drawing.Size(10, 13);
             this.LBL_Modules_R.TabIndex = 6;
@@ -116,7 +120,7 @@
             // LBL_Path
             // 
             this.LBL_Path.AutoSize = true;
-            this.LBL_Path.Location = new System.Drawing.Point(97, 62);
+            this.LBL_Path.Location = new System.Drawing.Point(81, 62);
             this.LBL_Path.Name = "LBL_Path";
             this.LBL_Path.Size = new System.Drawing.Size(29, 13);
             this.LBL_Path.TabIndex = 5;
@@ -125,7 +129,7 @@
             // LBL_Modules
             // 
             this.LBL_Modules.AutoSize = true;
-            this.LBL_Modules.Location = new System.Drawing.Point(97, 46);
+            this.LBL_Modules.Location = new System.Drawing.Point(81, 46);
             this.LBL_Modules.Name = "LBL_Modules";
             this.LBL_Modules.Size = new System.Drawing.Size(47, 13);
             this.LBL_Modules.TabIndex = 4;
@@ -134,7 +138,7 @@
             // LBL_PID
             // 
             this.LBL_PID.AutoSize = true;
-            this.LBL_PID.Location = new System.Drawing.Point(97, 31);
+            this.LBL_PID.Location = new System.Drawing.Point(81, 31);
             this.LBL_PID.Name = "LBL_PID";
             this.LBL_PID.Size = new System.Drawing.Size(25, 13);
             this.LBL_PID.TabIndex = 3;
@@ -143,7 +147,7 @@
             // LBL_Process
             // 
             this.LBL_Process.AutoSize = true;
-            this.LBL_Process.Location = new System.Drawing.Point(97, 14);
+            this.LBL_Process.Location = new System.Drawing.Point(81, 14);
             this.LBL_Process.Name = "LBL_Process";
             this.LBL_Process.Size = new System.Drawing.Size(45, 13);
             this.LBL_Process.TabIndex = 2;
@@ -153,7 +157,7 @@
             // 
             this.PB_Icon.Location = new System.Drawing.Point(13, 12);
             this.PB_Icon.Name = "PB_Icon";
-            this.PB_Icon.Size = new System.Drawing.Size(63, 64);
+            this.PB_Icon.Size = new System.Drawing.Size(49, 64);
             this.PB_Icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.PB_Icon.TabIndex = 0;
             this.PB_Icon.TabStop = false;
@@ -167,15 +171,14 @@
             this.TC_Details.Location = new System.Drawing.Point(8, 103);
             this.TC_Details.Name = "TC_Details";
             this.TC_Details.SelectedIndex = 0;
-            this.TC_Details.Size = new System.Drawing.Size(424, 267);
+            this.TC_Details.Size = new System.Drawing.Size(406, 20);
             this.TC_Details.TabIndex = 1;
             // 
             // TP_Module
             // 
             this.TP_Module.Location = new System.Drawing.Point(4, 22);
             this.TP_Module.Name = "TP_Module";
-            this.TP_Module.Padding = new System.Windows.Forms.Padding(3);
-            this.TP_Module.Size = new System.Drawing.Size(416, 241);
+            this.TP_Module.Size = new System.Drawing.Size(398, 0);
             this.TP_Module.TabIndex = 0;
             this.TP_Module.Text = "Module Details";
             this.TP_Module.UseVisualStyleBackColor = true;
@@ -185,7 +188,7 @@
             this.TP_Thread.Location = new System.Drawing.Point(4, 22);
             this.TP_Thread.Name = "TP_Thread";
             this.TP_Thread.Padding = new System.Windows.Forms.Padding(3);
-            this.TP_Thread.Size = new System.Drawing.Size(416, 207);
+            this.TP_Thread.Size = new System.Drawing.Size(398, 0);
             this.TP_Thread.TabIndex = 1;
             this.TP_Thread.Text = "Thread Details";
             this.TP_Thread.UseVisualStyleBackColor = true;
@@ -194,7 +197,7 @@
             // 
             this.BTN_Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BTN_Close.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.BTN_Close.Location = new System.Drawing.Point(357, 279);
+            this.BTN_Close.Location = new System.Drawing.Point(340, 279);
             this.BTN_Close.Name = "BTN_Close";
             this.BTN_Close.Size = new System.Drawing.Size(75, 23);
             this.BTN_Close.TabIndex = 3;
@@ -209,18 +212,52 @@
             this.PNL_Top.Location = new System.Drawing.Point(0, 0);
             this.PNL_Top.Name = "PNL_Top";
             this.PNL_Top.Padding = new System.Windows.Forms.Padding(5);
-            this.PNL_Top.Size = new System.Drawing.Size(440, 97);
+            this.PNL_Top.Size = new System.Drawing.Size(422, 97);
             this.PNL_Top.TabIndex = 4;
             // 
             // PNL_Bottom
             // 
+            this.PNL_Bottom.Controls.Add(this.LV_Module);
             this.PNL_Bottom.Controls.Add(this.separator1);
             this.PNL_Bottom.Controls.Add(this.BTN_Close);
             this.PNL_Bottom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PNL_Bottom.Location = new System.Drawing.Point(0, 97);
             this.PNL_Bottom.Name = "PNL_Bottom";
-            this.PNL_Bottom.Size = new System.Drawing.Size(440, 310);
+            this.PNL_Bottom.Size = new System.Drawing.Size(422, 310);
             this.PNL_Bottom.TabIndex = 5;
+            // 
+            // LV_Module
+            // 
+            this.LV_Module.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.COL_Name,
+            this.COL_Base,
+            this.COL_Size});
+            this.LV_Module.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LV_Module.FullRowSelect = true;
+            this.LV_Module.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.LV_Module.Location = new System.Drawing.Point(8, 26);
+            this.LV_Module.Name = "LV_Module";
+            this.LV_Module.Size = new System.Drawing.Size(406, 247);
+            this.LV_Module.TabIndex = 0;
+            this.LV_Module.TileSize = new System.Drawing.Size(168, 45);
+            this.LV_Module.UseCompatibleStateImageBehavior = false;
+            this.LV_Module.View = System.Windows.Forms.View.Details;
+            // 
+            // COL_Name
+            // 
+            this.COL_Name.Text = "Name";
+            this.COL_Name.Width = 184;
+            // 
+            // COL_Base
+            // 
+            this.COL_Base.Text = "Base";
+            this.COL_Base.Width = 115;
+            // 
+            // COL_Size
+            // 
+            this.COL_Size.Text = "Size";
+            this.COL_Size.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.COL_Size.Width = 77;
             // 
             // separator1
             // 
@@ -228,7 +265,7 @@
             this.separator1.Location = new System.Drawing.Point(8, 285);
             this.separator1.Name = "separator1";
             this.separator1.Orientation = SharpFind.Controls.Separator._Orientation.Horizontal;
-            this.separator1.Size = new System.Drawing.Size(343, 10);
+            this.separator1.Size = new System.Drawing.Size(325, 10);
             this.separator1.TabIndex = 2;
             this.separator1.Text = "separator1";
             // 
@@ -238,7 +275,7 @@
             this.LNKLBL_Explore.AutoSize = true;
             this.LNKLBL_Explore.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.LNKLBL_Explore.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.LNKLBL_Explore.Location = new System.Drawing.Point(377, 62);
+            this.LNKLBL_Explore.Location = new System.Drawing.Point(360, 62);
             this.LNKLBL_Explore.Name = "LNKLBL_Explore";
             this.LNKLBL_Explore.Size = new System.Drawing.Size(41, 13);
             this.LNKLBL_Explore.TabIndex = 10;
@@ -248,7 +285,7 @@
             // 
             // separator2
             // 
-            this.separator2.Location = new System.Drawing.Point(81, 13);
+            this.separator2.Location = new System.Drawing.Point(65, 13);
             this.separator2.Name = "separator2";
             this.separator2.Orientation = SharpFind.Controls.Separator._Orientation.Vertical;
             this.separator2.Size = new System.Drawing.Size(10, 64);
@@ -260,7 +297,7 @@
             this.AcceptButton = this.BTN_Close;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(440, 407);
+            this.ClientSize = new System.Drawing.Size(422, 407);
             this.Controls.Add(this.TC_Details);
             this.Controls.Add(this.PNL_Bottom);
             this.Controls.Add(this.PNL_Top);
@@ -305,5 +342,9 @@
         internal System.Windows.Forms.Label LBL_Process_R;
         internal System.Windows.Forms.Label LBL_PID_R;
         internal System.Windows.Forms.Label LBL_Modules_R;
+        private Controls.ListViewEx LV_Module;
+        private System.Windows.Forms.ColumnHeader COL_Name;
+        private System.Windows.Forms.ColumnHeader COL_Base;
+        private System.Windows.Forms.ColumnHeader COL_Size;
     }
 }
