@@ -62,7 +62,7 @@ namespace SharpFind.Forms
         /// </param>
         private static string FormatByteSize(long byteCount)
         {
-            var sb = new StringBuilder(12);
+            var sb = new StringBuilder(10);
             NativeMethods.StrFormatByteSize(byteCount, sb, sb.Capacity);
 
             return sb.ToString();
