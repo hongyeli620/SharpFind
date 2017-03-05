@@ -63,7 +63,7 @@ namespace SharpFind.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            using (var pen = new Pen(ColorTranslator.FromHtml("#B4B4B4"), 1.0F))
+            using (var pen = new Pen(ColorTranslator.FromHtml("#D5DFE5"), 1.0F))
             {
                 switch (_Shape)
                 {
