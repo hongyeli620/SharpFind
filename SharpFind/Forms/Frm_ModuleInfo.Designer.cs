@@ -164,8 +164,6 @@
             // 
             // TC_Details
             // 
-            this.TC_Details.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.TC_Details.Controls.Add(this.TP_Module);
             this.TC_Details.Controls.Add(this.TP_Thread);
             this.TC_Details.Location = new System.Drawing.Point(8, 103);
@@ -197,7 +195,7 @@
             // 
             this.BTN_Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BTN_Close.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.BTN_Close.Location = new System.Drawing.Point(340, 279);
+            this.BTN_Close.Location = new System.Drawing.Point(340, 353);
             this.BTN_Close.Name = "BTN_Close";
             this.BTN_Close.Size = new System.Drawing.Size(75, 23);
             this.BTN_Close.TabIndex = 3;
@@ -223,21 +221,24 @@
             this.PNL_Bottom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PNL_Bottom.Location = new System.Drawing.Point(0, 97);
             this.PNL_Bottom.Name = "PNL_Bottom";
-            this.PNL_Bottom.Size = new System.Drawing.Size(422, 310);
+            this.PNL_Bottom.Size = new System.Drawing.Size(422, 384);
             this.PNL_Bottom.TabIndex = 5;
             // 
             // LV_Module
             // 
+            this.LV_Module.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.LV_Module.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.COL_Name,
             this.COL_Base,
             this.COL_Size});
-            this.LV_Module.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LV_Module.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.LV_Module.FullRowSelect = true;
             this.LV_Module.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.LV_Module.Location = new System.Drawing.Point(8, 26);
             this.LV_Module.Name = "LV_Module";
-            this.LV_Module.Size = new System.Drawing.Size(406, 247);
+            this.LV_Module.ShowItemToolTips = true;
+            this.LV_Module.Size = new System.Drawing.Size(406, 319);
             this.LV_Module.TabIndex = 0;
             this.LV_Module.TileSize = new System.Drawing.Size(168, 45);
             this.LV_Module.UseCompatibleStateImageBehavior = false;
@@ -250,19 +251,19 @@
             // 
             // COL_Base
             // 
-            this.COL_Base.Text = "Base";
+            this.COL_Base.Text = "Base Address";
             this.COL_Base.Width = 115;
             // 
             // COL_Size
             // 
             this.COL_Size.Text = "Size";
             this.COL_Size.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.COL_Size.Width = 77;
+            this.COL_Size.Width = 82;
             // 
             // separator1
             // 
             this.separator1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.separator1.Location = new System.Drawing.Point(8, 285);
+            this.separator1.Location = new System.Drawing.Point(8, 359);
             this.separator1.Name = "separator1";
             this.separator1.Orientation = SharpFind.Controls.Separator._Orientation.Horizontal;
             this.separator1.Size = new System.Drawing.Size(325, 10);
@@ -297,7 +298,7 @@
             this.AcceptButton = this.BTN_Close;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 407);
+            this.ClientSize = new System.Drawing.Size(422, 481);
             this.Controls.Add(this.TC_Details);
             this.Controls.Add(this.PNL_Bottom);
             this.Controls.Add(this.PNL_Top);
