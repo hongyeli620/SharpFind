@@ -106,7 +106,7 @@ namespace SharpFind.Forms
                 };
 
                 var length = new FileInfo(pm.FileName).Length;
-                lvi.SubItems.Add("0x" + pm.BaseAddress.ToString("X8"));
+                lvi.SubItems.Add("0x" + pm.BaseAddress.ToString("X4"));
                 lvi.SubItems.Add(FormatByteSize(length));
                 LV_Module.Items.Add(lvi);
             }
