@@ -24,7 +24,9 @@ namespace SharpFind.Controls
 
         protected override void OnHandleCreated(EventArgs e)
         {
-            NativeMethods.SetWindowTheme(Handle, "explorer", null);
+            if (Environment.OSVersion.Version.Major >= 6)
+                NativeMethods.SetWindowTheme(Handle, "explorer", null);
+
             base.OnHandleCreated(e);
         }
     }
