@@ -18,8 +18,12 @@ namespace SharpFind.Controls
         public enum _Orientation { Horizontal, Vertical }
         private _Orientation shape;
 
-        private string color;
+        /// <summary>
+        /// Depending on the OS version, this property decides whether an "edge"
+        /// line should be drawn underneath the separator line.
+        /// </summary>
         private bool DrawEdge { get; set; }
+        private string color;
 
         [Browsable(true)]
         [Category("Appearance")]
@@ -50,6 +54,7 @@ namespace SharpFind.Controls
             SetStyle(ControlStyles.ResizeRedraw, true);
             Size = new Size(120, 10);
 
+            // This requires <supportedOS Id="{...}"/> to be uncommented in app.manifest
             var OsVer = Environment.OSVersion.Version.Major;
             if      (OsVer == 5.0)                 { color = "#848284"; DrawEdge = true;  } // 2000
             else if (OsVer >= 5.1 && OsVer <= 5.2) { color = "#D0D0BF"; DrawEdge = false; } // XP to Server 2003
