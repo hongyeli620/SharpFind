@@ -44,13 +44,13 @@
             this.BTN_Close = new System.Windows.Forms.Button();
             this.PNL_Top = new System.Windows.Forms.Panel();
             this.PNL_Bottom = new System.Windows.Forms.Panel();
+            this.separator1 = new SharpFind.Controls.Separator();
             this.LV_Module = new SharpFind.Controls.ListViewEx();
             this.COL_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.COL_Base = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.COL_Size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.separator1 = new SharpFind.Controls.Separator();
-            this.LNKLBL_Explore = new SharpFind.Controls.LinkLabelEx();
             this.separator2 = new SharpFind.Controls.Separator();
+            this.LNKLBL_Explore = new SharpFind.Controls.LinkLabelEx();
             this.GB_Summary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Icon)).BeginInit();
             this.TC_Details.SuspendLayout();
@@ -60,6 +60,7 @@
             // 
             // GB_Summary
             // 
+            this.GB_Summary.Controls.Add(this.separator2);
             this.GB_Summary.Controls.Add(this.LNKLBL_Explore);
             this.GB_Summary.Controls.Add(this.LBL_Path_R);
             this.GB_Summary.Controls.Add(this.LBL_Process_R);
@@ -69,7 +70,6 @@
             this.GB_Summary.Controls.Add(this.LBL_Modules);
             this.GB_Summary.Controls.Add(this.LBL_PID);
             this.GB_Summary.Controls.Add(this.LBL_Process);
-            this.GB_Summary.Controls.Add(this.separator2);
             this.GB_Summary.Controls.Add(this.PB_Icon);
             this.GB_Summary.Location = new System.Drawing.Point(8, 8);
             this.GB_Summary.Name = "GB_Summary";
@@ -215,14 +215,23 @@
             // 
             // PNL_Bottom
             // 
-            this.PNL_Bottom.Controls.Add(this.LV_Module);
             this.PNL_Bottom.Controls.Add(this.separator1);
+            this.PNL_Bottom.Controls.Add(this.LV_Module);
             this.PNL_Bottom.Controls.Add(this.BTN_Close);
             this.PNL_Bottom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PNL_Bottom.Location = new System.Drawing.Point(0, 97);
             this.PNL_Bottom.Name = "PNL_Bottom";
             this.PNL_Bottom.Size = new System.Drawing.Size(422, 384);
             this.PNL_Bottom.TabIndex = 5;
+            // 
+            // separator1
+            // 
+            this.separator1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.separator1.Location = new System.Drawing.Point(8, 359);
+            this.separator1.Name = "separator1";
+            this.separator1.Orientation = SharpFind.Controls.Separator._Orientation.Horizontal;
+            this.separator1.Size = new System.Drawing.Size(326, 10);
+            this.separator1.TabIndex = 11;
             // 
             // LV_Module
             // 
@@ -261,14 +270,13 @@
             this.COL_Size.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.COL_Size.Width = 85;
             // 
-            // separator1
+            // separator2
             // 
-            this.separator1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.separator1.Location = new System.Drawing.Point(8, 359);
-            this.separator1.Name = "separator1";
-            this.separator1.Orientation = SharpFind.Controls.Separator._Orientation.Horizontal;
-            this.separator1.Size = new System.Drawing.Size(325, 10);
-            this.separator1.TabIndex = 2;
+            this.separator2.Location = new System.Drawing.Point(66, 16);
+            this.separator2.Name = "separator2";
+            this.separator2.Orientation = SharpFind.Controls.Separator._Orientation.Vertical;
+            this.separator2.Size = new System.Drawing.Size(10, 57);
+            this.separator2.TabIndex = 11;
             // 
             // LNKLBL_Explore
             // 
@@ -283,14 +291,6 @@
             this.LNKLBL_Explore.TabStop = true;
             this.LNKLBL_Explore.Text = "explore";
             this.LNKLBL_Explore.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LNKLBL_Explore_LinkClicked);
-            // 
-            // separator2
-            // 
-            this.separator2.Location = new System.Drawing.Point(65, 13);
-            this.separator2.Name = "separator2";
-            this.separator2.Orientation = SharpFind.Controls.Separator._Orientation.Vertical;
-            this.separator2.Size = new System.Drawing.Size(10, 64);
-            this.separator2.TabIndex = 1;
             // 
             // Frm_ModuleInfo
             // 
@@ -327,12 +327,10 @@
         private System.Windows.Forms.TabControl TC_Details;
         private System.Windows.Forms.TabPage TP_Module;
         private System.Windows.Forms.TabPage TP_Thread;
-        private Controls.Separator separator1;
         private System.Windows.Forms.Button BTN_Close;
         private System.Windows.Forms.Panel PNL_Top;
         private System.Windows.Forms.Panel PNL_Bottom;
         private System.Windows.Forms.PictureBox PB_Icon;
-        private Controls.Separator separator2;
         private System.Windows.Forms.Label LBL_Path;
         private System.Windows.Forms.Label LBL_Modules;
         private System.Windows.Forms.Label LBL_PID;
@@ -346,5 +344,7 @@
         private System.Windows.Forms.ColumnHeader COL_Name;
         private System.Windows.Forms.ColumnHeader COL_Base;
         private System.Windows.Forms.ColumnHeader COL_Size;
+        private Controls.Separator separator1;
+        private Controls.Separator separator2;
     }
 }
