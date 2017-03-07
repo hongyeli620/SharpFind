@@ -49,6 +49,10 @@
             this.COL_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.COL_Base = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.COL_Size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LV_Thread = new SharpFind.Controls.ListViewEx();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.separator2 = new SharpFind.Controls.Separator();
             this.LNKLBL_Explore = new SharpFind.Controls.LinkLabelEx();
             this.GB_Summary.SuspendLayout();
@@ -171,6 +175,7 @@
             this.TC_Details.SelectedIndex = 0;
             this.TC_Details.Size = new System.Drawing.Size(406, 20);
             this.TC_Details.TabIndex = 1;
+            this.TC_Details.SelectedIndexChanged += new System.EventHandler(this.TC_Details_SelectedIndexChanged);
             // 
             // TP_Module
             // 
@@ -218,6 +223,7 @@
             this.PNL_Bottom.Controls.Add(this.separator1);
             this.PNL_Bottom.Controls.Add(this.LV_Module);
             this.PNL_Bottom.Controls.Add(this.BTN_Close);
+            this.PNL_Bottom.Controls.Add(this.LV_Thread);
             this.PNL_Bottom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PNL_Bottom.Location = new System.Drawing.Point(0, 97);
             this.PNL_Bottom.Name = "PNL_Bottom";
@@ -269,6 +275,44 @@
             this.COL_Size.Text = "Size";
             this.COL_Size.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.COL_Size.Width = 85;
+            // 
+            // LV_Thread
+            // 
+            this.LV_Thread.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.LV_Thread.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.LV_Thread.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.LV_Thread.FullRowSelect = true;
+            this.LV_Thread.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.LV_Thread.Location = new System.Drawing.Point(8, 26);
+            this.LV_Thread.Name = "LV_Thread";
+            this.LV_Thread.ShowItemToolTips = true;
+            this.LV_Thread.Size = new System.Drawing.Size(406, 319);
+            this.LV_Thread.TabIndex = 6;
+            this.LV_Thread.TileSize = new System.Drawing.Size(168, 45);
+            this.LV_Thread.UseCompatibleStateImageBehavior = false;
+            this.LV_Thread.View = System.Windows.Forms.View.Details;
+            this.LV_Thread.Visible = false;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Id";
+            this.columnHeader1.Width = 63;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Start Address";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader2.Width = 236;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Priority";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeader3.Width = 85;
             // 
             // separator2
             // 
@@ -346,5 +390,9 @@
         private System.Windows.Forms.ColumnHeader COL_Size;
         private Controls.Separator separator1;
         private Controls.Separator separator2;
+        private Controls.ListViewEx LV_Thread;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }
