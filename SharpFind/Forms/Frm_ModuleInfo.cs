@@ -5,6 +5,8 @@ using System.Text;
 using System.Windows.Forms;
 using System;
 using SharpFind.Classes;
+using System.Runtime.InteropServices;
+using System.ComponentModel;
 
 namespace SharpFind.Forms
 {
@@ -22,12 +24,38 @@ namespace SharpFind.Forms
             GetModuleSummary();
 
             if (LBL_Path_R.Text != string.Empty)
+            {
                 GetModuleDetails();
+                GetThreadDetails();
+            }
         }
 
         private void LNKLBL_Explore_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ShowFileInExplorer(LBL_Path_R.Text);
+        }
+
+        private void TC_Details_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (TC_Details.SelectedIndex)
+            {
+                case 0:
+                    if (!LV_Module.Visible)
+                    {
+                        LV_Thread.Visible = false;
+                        LV_Module.Visible = true;
+                        LV_Module.BringToFront();
+                    }
+                    break;
+                case 1:
+                    if (!LV_Thread.Visible)
+                    {
+                        LV_Module.Visible = false;
+                        LV_Thread.Visible = true;
+                        LV_Thread.BringToFront();
+                    }
+                    break;
+            }
         }
 
         private void BTN_Close_Click(object sender, EventArgs e)
@@ -66,6 +94,39 @@ namespace SharpFind.Forms
             NativeMethods.StrFormatByteSize(byteCount, sb, sb.Capacity);
 
             return sb.ToString();
+        }
+
+        private static IntPtr GetThreadStartAddress(int tid)
+        {
+            var hThread = NativeMethods.OpenThread(NativeMethods.ThreadAccess.QUERY_INFORMATION, false, tid);
+            if (hThread == IntPtr.Zero)
+                throw new Win32Exception();
+
+            var dwStartAddress = Marshal.AllocHGlobal(IntPtr.Size);
+            try
+            {
+                const NativeMethods.THREADINFOCLASS flag = NativeMethods.THREADINFOCLASS.ThreadQuerySetWin32StartAddress;
+                var result = NativeMethods.NtQueryInformationThread(hThread, flag, dwStartAddress, IntPtr.Size, IntPtr.Zero);
+                if (result != 0)
+                    throw new Win32Exception($"NtQueryInformationThread failure. NTSTATUS returns 0x{result:X4}");
+
+                return Marshal.ReadIntPtr(dwStartAddress);
+            }
+            finally
+            {
+                NativeMethods.CloseHandle(hThread);
+                Marshal.FreeHGlobal(dwStartAddress);
+            }
+        }
+
+        private static string GetThreadStartAddress(Process p, long startAddress)
+        {
+            foreach (ProcessModule pm in p.Modules)
+            {
+                if (startAddress >= (long)pm.BaseAddress && startAddress <= (long)pm.BaseAddress + pm.ModuleMemorySize)
+                    return pm.ModuleName + "+0x" + (startAddress - (long)pm.BaseAddress).ToString("X");
+            }
+            return string.Empty;
         }
 
         private void GetModuleSummary()
@@ -113,6 +174,20 @@ namespace SharpFind.Forms
 
             LV_Module.Items[0].BackColor = SystemColors.GradientActiveCaption;
             LV_Module.Sorting = SortOrder.Ascending;
+        }
+
+        private void GetThreadDetails()
+        {
+            foreach (ProcessThread pt in ParentProcess.Threads)
+            {
+                var thread = pt;
+                var lvi = new ListViewItem(thread.Id.ToString());
+                var address = (long)GetThreadStartAddress(thread.Id);
+                lvi.SubItems.Add(GetThreadStartAddress(ParentProcess, address));
+                lvi.SubItems.Add(thread.PriorityLevel.ToString());
+
+                LV_Thread.Items.Add(lvi);
+            }
         }
     }
 }
