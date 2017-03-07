@@ -931,55 +931,6 @@ namespace SharpFind.Classes
         internal static extern bool CloseHandle(IntPtr hObject);
 
         /// <summary>
-        /// Duplicates an object handle.
-        /// </summary>
-        /// 
-        /// <param name="hSourceProcessHandle">
-        /// A handle to the process with the handle to be duplicated.
-        /// </param>
-        /// 
-        /// <param name="hSourceHandle">
-        /// The handle to be duplicated.
-        /// </param>
-        /// 
-        /// <param name="hTargetProcessHandle">
-        /// A handle to the process that is to receive the duplicated handle.
-        /// </param>
-        /// 
-        /// <param name="lpTargetHandle">
-        /// A pointer to a variable that receives the duplicate handle. 
-        /// This handle value is valid in the context of the target process.
-        /// </param>
-        /// 
-        /// <param name="dwDesiredAccess">
-        /// The access requested for the new handle.
-        /// </param>
-        /// 
-        /// <param name="bInheritHandle">
-        /// A variable that indicates whether the handle is inheritable. If TRUE,
-        /// the duplicate handle can be inherited by new processes created by
-        /// the target process. If FALSE, the new handle cannot be inherited.
-        /// </param>
-        /// 
-        /// <param name="dwOptions">
-        /// Optional actions. This parameter can be zero, or any combination of
-        /// the following values.
-        /// </param>
-        /// 
-        /// <returns>
-        /// If the function succeeds, the return value is nonzero.
-        /// </returns>
-        [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool DuplicateHandle(IntPtr hSourceProcessHandle, 
-                                                    IntPtr hSourceHandle, 
-                                                    IntPtr hTargetProcessHandle, 
-                                                    out IntPtr lpTargetHandle, 
-                                                    uint dwDesiredAccess, 
-                                                    [MarshalAs(UnmanagedType.Bool)] bool bInheritHandle, 
-                                                    uint dwOptions);
-
-        /// <summary>
         /// Retrieves the process identifier of the calling process.
         /// </summary>
         /// 
@@ -1055,13 +1006,6 @@ namespace SharpFind.Classes
                                                             int nSize,
                                                             string lpFileName);
 
-        [DllImport("ntdll.dll", SetLastError = true)]
-        internal static extern int NtQueryInformationThread(IntPtr threadHandle,
-                                                            THREADINFOCLASS threadInformationClass, 
-                                                            IntPtr threadInformation, 
-                                                            int threadInformationLength, 
-                                                            IntPtr returnLength);
-
         /// <summary>
         /// Opens an existing thread object.
         /// </summary>
@@ -1087,7 +1031,7 @@ namespace SharpFind.Classes
         /// specified thread.
         /// </returns>
         [DllImport("kernel32.dll", SetLastError = true)]
-        internal static extern IntPtr OpenThread(ThreadAccess dwDesiredAccess, bool bInheritHandle, uint dwThreadId);
+        internal static extern IntPtr OpenThread(ThreadAccess dwDesiredAccess, bool bInheritHandle, int dwThreadId);
 
         /// <summary>
         /// Copies a string into the specified section of an initialization file.
@@ -1124,6 +1068,47 @@ namespace SharpFind.Classes
                                                              string lpKeyName,
                                                              string lpString,
                                                              string lpFileName);
+
+        #endregion
+        #region ntdll.dll
+
+        /// <summary>
+        /// Retrieves information about the specified thread.
+        /// </summary>
+        /// 
+        /// <param name="threadHandle">
+        /// A handle to the thread about which information is being requested.
+        /// </param>
+        /// 
+        /// <param name="threadInformationClass">
+        /// If this parameter is the ThreadQuerySetWin32StartAddress value of
+        /// the THREADINFOCLASS enumeration, the function returns the start
+        /// address of the thread.
+        /// </param>
+        /// 
+        /// <param name="threadInformation">
+        /// A pointer to a buffer in which the function writes the requested
+        /// information.
+        /// </param>
+        /// <param name="threadInformationLength">
+        /// The size of the buffer pointed to by the <c>ThreadInformation</c>
+        /// parameter, in bytes.
+        /// </param>
+        /// 
+        /// <param name="returnLength">
+        /// A pointer to a variable in which the function returns the size of
+        /// the requested information.
+        /// </param>
+        /// 
+        /// <returns>
+        /// Returns an NTSTATUS success or error code.
+        /// </returns>
+        [DllImport("ntdll.dll", SetLastError = true)]
+        internal static extern int NtQueryInformationThread(IntPtr threadHandle,
+                                                            THREADINFOCLASS threadInformationClass, 
+                                                            IntPtr threadInformation, 
+                                                            int threadInformationLength, 
+                                                            IntPtr returnLength);
 
         #endregion
         #region uxtheme.dll
