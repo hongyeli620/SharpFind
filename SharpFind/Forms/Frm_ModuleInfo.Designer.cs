@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.GB_Summary = new System.Windows.Forms.GroupBox();
-            this.LNKLBL_Explore = new SharpFind.Controls.LinkLabelEx();
             this.LBL_Path_R = new System.Windows.Forms.Label();
             this.LBL_Process_R = new System.Windows.Forms.Label();
             this.LBL_PID_R = new System.Windows.Forms.Label();
@@ -38,7 +37,6 @@
             this.LBL_Modules = new System.Windows.Forms.Label();
             this.LBL_PID = new System.Windows.Forms.Label();
             this.LBL_Process = new System.Windows.Forms.Label();
-            this.separator2 = new SharpFind.Controls.Separator();
             this.PB_Icon = new System.Windows.Forms.PictureBox();
             this.TC_Details = new System.Windows.Forms.TabControl();
             this.TP_Module = new System.Windows.Forms.TabPage();
@@ -51,6 +49,8 @@
             this.COL_Base = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.COL_Size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.separator1 = new SharpFind.Controls.Separator();
+            this.LNKLBL_Explore = new SharpFind.Controls.LinkLabelEx();
+            this.separator2 = new SharpFind.Controls.Separator();
             this.GB_Summary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Icon)).BeginInit();
             this.TC_Details.SuspendLayout();
@@ -76,20 +76,6 @@
             this.GB_Summary.Size = new System.Drawing.Size(406, 83);
             this.GB_Summary.TabIndex = 0;
             this.GB_Summary.TabStop = false;
-            // 
-            // LNKLBL_Explore
-            // 
-            this.LNKLBL_Explore.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(159)))));
-            this.LNKLBL_Explore.AutoSize = true;
-            this.LNKLBL_Explore.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.LNKLBL_Explore.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.LNKLBL_Explore.Location = new System.Drawing.Point(360, 62);
-            this.LNKLBL_Explore.Name = "LNKLBL_Explore";
-            this.LNKLBL_Explore.Size = new System.Drawing.Size(41, 13);
-            this.LNKLBL_Explore.TabIndex = 10;
-            this.LNKLBL_Explore.TabStop = true;
-            this.LNKLBL_Explore.Text = "explore";
-            this.LNKLBL_Explore.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LNKLBL_Explore_LinkClicked);
             // 
             // LBL_Path_R
             // 
@@ -166,15 +152,6 @@
             this.LBL_Process.Size = new System.Drawing.Size(45, 13);
             this.LBL_Process.TabIndex = 2;
             this.LBL_Process.Text = "Process";
-            // 
-            // separator2
-            // 
-            this.separator2.Location = new System.Drawing.Point(65, 13);
-            this.separator2.Name = "separator2";
-            this.separator2.Orientation = SharpFind.Controls.Separator._Orientation.Vertical;
-            this.separator2.Size = new System.Drawing.Size(10, 64);
-            this.separator2.TabIndex = 1;
-            this.separator2.Text = "separator2";
             // 
             // PB_Icon
             // 
@@ -292,7 +269,28 @@
             this.separator1.Orientation = SharpFind.Controls.Separator._Orientation.Horizontal;
             this.separator1.Size = new System.Drawing.Size(325, 10);
             this.separator1.TabIndex = 2;
-            this.separator1.Text = "separator1";
+            // 
+            // LNKLBL_Explore
+            // 
+            this.LNKLBL_Explore.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(159)))));
+            this.LNKLBL_Explore.AutoSize = true;
+            this.LNKLBL_Explore.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.LNKLBL_Explore.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.LNKLBL_Explore.Location = new System.Drawing.Point(360, 62);
+            this.LNKLBL_Explore.Name = "LNKLBL_Explore";
+            this.LNKLBL_Explore.Size = new System.Drawing.Size(41, 13);
+            this.LNKLBL_Explore.TabIndex = 10;
+            this.LNKLBL_Explore.TabStop = true;
+            this.LNKLBL_Explore.Text = "explore";
+            this.LNKLBL_Explore.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LNKLBL_Explore_LinkClicked);
+            // 
+            // separator2
+            // 
+            this.separator2.Location = new System.Drawing.Point(65, 13);
+            this.separator2.Name = "separator2";
+            this.separator2.Orientation = SharpFind.Controls.Separator._Orientation.Vertical;
+            this.separator2.Size = new System.Drawing.Size(10, 64);
+            this.separator2.TabIndex = 1;
             // 
             // Frm_ModuleInfo
             // 
