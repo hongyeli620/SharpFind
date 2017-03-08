@@ -19,7 +19,7 @@ namespace SharpFind.Forms
 
         private Process ParentProcess { get; set; }
         private static readonly IntPtr INVALID_HANDLE_VALUE = new IntPtr(-1);
-        private int moduleCount, threadCount = 0;
+        private int moduleCount, threadCount;
 
         #region Events
 
@@ -62,6 +62,20 @@ namespace SharpFind.Forms
             }
         }
 
+        private void LV_Module_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            // Show Explorer's Properties window
+            var info    = new NativeMethods.SHELLEXECUTEINFO();
+            info.cbSize = Marshal.SizeOf(info);
+            info.lpVerb = "properties";
+            info.lpFile = LV_Module.SelectedItems[0].Tag?.ToString();
+            info.nShow  = 5;
+            info.fMask  = 0xc;
+
+            if (!NativeMethods.ShellExecuteEx(ref info))
+                throw new Win32Exception(Marshal.GetLastWin32Error());
+        }
+
         private void BTN_Close_Click(object sender, EventArgs e)
         {
             Close();
@@ -85,18 +99,11 @@ namespace SharpFind.Forms
             return sb.ToString();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-        /// <param name="tid">
-        /// Id of the thread.
-        /// </param>
         private static IntPtr GetThreadStartAddress(uint tid)
         {
             var hThread = NativeMethods.OpenThread(NativeMethods.ThreadAccess.QUERY_INFORMATION, false, tid);
             if (hThread == IntPtr.Zero)
-                throw new Win32Exception("Unable to open thread.");
+                throw new Win32Exception(Marshal.GetLastWin32Error(), "Unable to open thread.");
 
             var dwStartAddress = Marshal.AllocHGlobal(IntPtr.Size);
             try
@@ -171,8 +178,8 @@ namespace SharpFind.Forms
                     return;
 
                 // Retrieve the process icon
-                var moduleIcon  = Icon.ExtractAssociatedIcon(p.MainModule.FileName);
-                PB_Icon.Image   = moduleIcon?.ToBitmap();
+                using (var moduleIcon = Icon.ExtractAssociatedIcon(p.MainModule.FileName))
+                    PB_Icon.Image = moduleIcon?.ToBitmap();
 
                 LBL_PID_R.Text  = Convert.ToString(p.Id);
                 LBL_Path_R.Text = p.MainModule.FileName;
@@ -238,6 +245,7 @@ namespace SharpFind.Forms
             ** and 64-bit modules. Therefore, it adds the main module from both
             ** TH32CS_SNAPMODULE and TH32CS_SNAPMODULE32.
             */
+            LV_Module.Items[0].BackColor = SystemColors.GradientActiveCaption;
             LV_Module.Sorting = SortOrder.Ascending;
             for (var i = 0; i < LV_Module.Items.Count - 1; i++)
             {
@@ -247,7 +255,6 @@ namespace SharpFind.Forms
                     LV_Module.Items[i + 1].Remove();
                     i--;
                 }
-
                 moduleCount = i;
             }
 
@@ -270,7 +277,7 @@ namespace SharpFind.Forms
             if (hModuleSnap == INVALID_HANDLE_VALUE)
                 return;
 
-            var threadEntry = new NativeMethods.THREADENTRY32()
+            var threadEntry = new NativeMethods.THREADENTRY32
             {
                 dwSize   = (uint)Marshal.SizeOf(typeof(NativeMethods.THREADENTRY32)),
                 cntUsage = 0
