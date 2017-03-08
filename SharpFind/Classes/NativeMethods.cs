@@ -287,6 +287,18 @@ namespace SharpFind.Classes
             public int bottom;
         }
 
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+        internal struct THREADENTRY32
+        {
+            internal uint dwSize;
+            internal uint cntUsage;
+            internal uint th32ThreadID;
+            internal uint th32OwnerProcessID;
+            internal uint tpBasePri;
+            internal uint tpDeltaPri;
+            internal uint dwFlags;
+        }
+
         /// <summary>
         /// Contains information about the placement of a window on the screen.
         /// </summary>
@@ -1129,7 +1141,49 @@ namespace SharpFind.Classes
         /// specified thread.
         /// </returns>
         [DllImport("kernel32.dll", SetLastError = true)]
-        internal static extern IntPtr OpenThread(ThreadAccess dwDesiredAccess, bool bInheritHandle, int dwThreadId);
+        internal static extern IntPtr OpenThread(ThreadAccess dwDesiredAccess, bool bInheritHandle, uint dwThreadId);
+
+        /// <summary>
+        /// Retrieves information about the first thread of any process
+        /// encountered in a system snapshot.
+        /// </summary>
+        /// 
+        /// <param name="hSnapshot">
+        /// A handle to the snapshot returned from a previous call to the
+        /// <c>CreateToolhelp32Snapshot</c> function.
+        /// </param>
+        /// 
+        /// <param name="lpte">
+        /// A pointer to a <c>THREADENTRY32</c> structure.
+        /// </param>
+        /// 
+        /// <returns>
+        /// Returns TRUE if the first entry of the module list has been copied
+        /// to the buffer or FALSE otherwise.
+        /// </returns>
+        [DllImport("kernel32.dll")]
+        internal static extern bool Thread32First(IntPtr hSnapshot, ref THREADENTRY32 lpte);
+
+        /// <summary>
+        /// Retrieves information about the next thread of any process
+        /// encountered in a system snapshot.
+        /// </summary>
+        /// 
+        /// <param name="hSnapshot">
+        /// A handle to the snapshot returned from a previous call to the
+        /// <c>CreateToolhelp32Snapshot</c> function.
+        /// </param>
+        /// 
+        /// <param name="lpte">
+        /// A pointer to a <c>THREADENTRY32</c> structure.
+        /// </param>
+        /// 
+        /// <returns>
+        /// Returns TRUE if the first entry of the module list has been copied
+        /// to the buffer or FALSE otherwise.
+        /// </returns>
+        [DllImport("kernel32.dll")]
+        internal static extern bool Thread32Next(IntPtr hSnapshot, ref THREADENTRY32 lpte);
 
         /// <summary>
         /// Copies a string into the specified section of an initialization file.
