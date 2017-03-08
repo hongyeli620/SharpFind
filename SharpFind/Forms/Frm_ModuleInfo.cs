@@ -200,7 +200,8 @@ namespace SharpFind.Forms
 
             var modEntry = new NativeMethods.MODULEENTRY32()
             {
-                dwSize = (uint)Marshal.SizeOf(typeof(NativeMethods.MODULEENTRY32))
+                dwSize = (uint)Marshal.SizeOf(typeof(NativeMethods.MODULEENTRY32)),
+                th32ModuleID = 0
             };
 
             if (!NativeMethods.Module32First(hModuleSnap, ref modEntry))
@@ -271,7 +272,8 @@ namespace SharpFind.Forms
 
             var threadEntry = new NativeMethods.THREADENTRY32()
             {
-                dwSize = (uint)Marshal.SizeOf(typeof(NativeMethods.THREADENTRY32))
+                dwSize   = (uint)Marshal.SizeOf(typeof(NativeMethods.THREADENTRY32)),
+                cntUsage = 0
             };
 
             if (!NativeMethods.Thread32First(hModuleSnap, ref threadEntry))
