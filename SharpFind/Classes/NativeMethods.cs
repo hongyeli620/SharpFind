@@ -154,6 +154,20 @@ namespace SharpFind.Classes
             SW_RESTORE         = 9
         }
 
+        [Flags]
+        internal enum SnapshotFlags : uint
+        {
+            TH32CS_INHERIT      = 0x80000000,
+            TH32CS_SNAPALL      = TH32CS_SNAPHEAPLIST | TH32CS_SNAPMODULE  |
+                                                        TH32CS_SNAPPROCESS |
+                                                        TH32CS_SNAPTHREAD,
+            TH32CS_SNAPHEAPLIST = 0x00000001,
+            TH32CS_SNAPMODULE   = 0x00000008,
+            TH32CS_SNAPMODULE32 = 0x00000010,
+            TH32CS_SNAPPROCESS  = 0x00000002,
+            TH32CS_SNAPTHREAD   = 0x00000004,
+        }
+
         /// <summary>
         /// Defines how the color data for the source rectangle is to be
         /// combined with the color data for the destination rectangle to
@@ -231,6 +245,37 @@ namespace SharpFind.Classes
         #region Structures
 
         /// <summary>
+        /// Describes an entry from a list of the modules belonging to the
+        /// specified process.
+        /// </summary>
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+        internal struct MODULEENTRY32
+        {
+            internal uint dwSize;
+            internal uint th32ModuleID;
+            internal uint th32ProcessID;
+            internal uint GlblcntUsage;
+            internal uint ProccntUsage;
+            internal IntPtr modBaseAddr;
+            internal uint modBaseSize;
+            internal IntPtr hModule;
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
+            internal string szModule;
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 260)]
+            internal string szExePath;
+        }
+
+        /// <summary>
+        /// The POINT structure defines the x- and y- coordinates of a point.
+        /// </summary>
+        [StructLayout(LayoutKind.Sequential)]
+        public struct POINT
+        {
+            public int X;
+            public int Y;
+        }
+
+        /// <summary>
         /// The RECT structure defines the coordinates of the upper-left and
         /// lower-right corners of a rectangle.
         /// </summary>
@@ -255,16 +300,6 @@ namespace SharpFind.Classes
             public POINT ptMinPosition;
             public POINT ptMaxPosition;
             public RECT rcNormalPosition;
-        }
-
-        /// <summary>
-        /// The POINT structure defines the x- and y- coordinates of a point.
-        /// </summary>
-        [StructLayout(LayoutKind.Sequential)]
-        public struct POINT
-        {
-            public int X;
-            public int Y;
         }
 
         #endregion
@@ -931,6 +966,27 @@ namespace SharpFind.Classes
         internal static extern bool CloseHandle(IntPtr hObject);
 
         /// <summary>
+        /// Takes a snapshot of the specified processes, as well as the heaps,
+        /// modules, and threads used by these processes.
+        /// </summary>
+        /// 
+        /// <param name="dwFlags">
+        /// The portions of the system to be included in the snapshot.
+        /// The parameters are defined in <c>SnapshotFlags</c>.
+        /// </param>
+        /// 
+        /// <param name="th32ProcessID">
+        /// The process identifier of the process to be included in the snapshot.
+        /// </param>
+        /// 
+        /// <returns>
+        /// If the function succeeds, it returns an open handle to the specified
+        /// snapshot.
+        /// </returns>
+        [DllImport("kernel32.dll", SetLastError = true)]
+        internal static extern IntPtr CreateToolhelp32Snapshot(SnapshotFlags dwFlags, uint th32ProcessID);
+
+        /// <summary>
         /// Retrieves the process identifier of the calling process.
         /// </summary>
         /// 
@@ -1005,6 +1061,48 @@ namespace SharpFind.Classes
                                                             string lpReturnedString, 
                                                             int nSize,
                                                             string lpFileName);
+
+        /// <summary>
+        /// Retrieves information about the first module associated with a
+        /// process.
+        /// </summary>
+        /// 
+        /// <param name="hSnapshot">
+        /// A handle to the snapshot returned from a previous call to the
+        /// <c>CreateToolhelp32Snapshot</c> function.
+        /// </param>
+        /// 
+        /// <param name="lpme">
+        /// A pointer to a <c>MODULEENTRY32</c> structure.
+        /// </param>
+        /// 
+        /// <returns>
+        /// Returns TRUE if the first entry of the module list has been copied
+        /// to the buffer or FALSE otherwise.
+        /// </returns>
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
+        internal static extern bool Module32First(IntPtr hSnapshot, ref MODULEENTRY32 lpme);
+
+        /// <summary>
+        /// Retrieves information about the next module associated with a
+        /// process.
+        /// </summary>
+        /// 
+        /// <param name="hSnapshot">
+        /// A handle to the snapshot returned from a previous call to the
+        /// <c>CreateToolhelp32Snapshot</c> function.
+        /// </param>
+        /// 
+        /// <param name="lpme">
+        /// A pointer to a <c>MODULEENTRY32</c> structure.
+        /// </param>
+        /// 
+        /// <returns>
+        /// Returns TRUE if the first entry of the module list has been copied
+        /// to the buffer or FALSE otherwise.
+        /// </returns>
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
+        internal static extern bool Module32Next(IntPtr hSnapshot, ref MODULEENTRY32 lpme);
 
         /// <summary>
         /// Opens an existing thread object.
