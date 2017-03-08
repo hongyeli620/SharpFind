@@ -305,7 +305,6 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Start Address";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader2.Width = 236;
             // 
             // columnHeader3
