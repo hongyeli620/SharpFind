@@ -258,6 +258,7 @@
             this.LV_Module.TileSize = new System.Drawing.Size(168, 45);
             this.LV_Module.UseCompatibleStateImageBehavior = false;
             this.LV_Module.View = System.Windows.Forms.View.Details;
+            this.LV_Module.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LV_Module_MouseDoubleClick);
             // 
             // COL_Name
             // 
