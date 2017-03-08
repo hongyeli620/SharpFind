@@ -1,12 +1,12 @@
-﻿using System.Diagnostics;
+﻿using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using System;
 using SharpFind.Classes;
-using System.Runtime.InteropServices;
-using System.ComponentModel;
 
 namespace SharpFind.Forms
 {
@@ -18,6 +18,8 @@ namespace SharpFind.Forms
         }
 
         private Process ParentProcess { get; set; }
+
+        #region Events
 
         private void Frm_ModuleInfo_Load(object sender, EventArgs e)
         {
@@ -63,6 +65,80 @@ namespace SharpFind.Forms
             Close();
         }
 
+        #endregion
+        #region Functions
+
+        /// <summary>
+        /// Formats the given numeric value into KB, MB, GB, etc.
+        /// </summary>
+        /// 
+        /// <param name="byteCount">
+        /// Number of bytes to be formatted.
+        /// </param>
+        private static string FormatByteSize(long byteCount)
+        {
+            var sb = new StringBuilder(10);
+            NativeMethods.StrFormatByteSize(byteCount, sb, sb.Capacity);
+
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="tid">
+        /// Id of the thread.
+        /// </param>
+        private static IntPtr GetThreadStartAddress(int tid)
+        {
+            var hThread = NativeMethods.OpenThread(NativeMethods.ThreadAccess.QUERY_INFORMATION, false, tid);
+            if (hThread == IntPtr.Zero)
+                throw new Win32Exception("Unable to open thread");
+
+            var dwStartAddress = Marshal.AllocHGlobal(IntPtr.Size);
+            try
+            {
+                const int STATUS_SUCCESS = 0x0;
+                const NativeMethods.THREADINFOCLASS flag = NativeMethods.THREADINFOCLASS.ThreadQuerySetWin32StartAddress;
+                var ntStatus = NativeMethods.NtQueryInformationThread(hThread, flag, dwStartAddress, IntPtr.Size, IntPtr.Zero);
+                if (ntStatus != STATUS_SUCCESS)
+                    throw new Win32Exception($"NtQueryInformationThread failure. NTSTATUS returns 0x{ntStatus:X4}");
+
+                return Marshal.ReadIntPtr(dwStartAddress);
+            }
+            finally
+            {
+                NativeMethods.CloseHandle(hThread);
+                Marshal.FreeHGlobal(dwStartAddress);
+            }
+        }
+
+        /// <summary>
+        /// Returns the actual start address of a thread.
+        /// </summary>
+        /// 
+        /// <param name="p">
+        /// The target process that is used to retrieve information about the
+        /// modules.
+        /// </param>
+        /// 
+        /// <param name="startAddress">
+        /// Address of function's first byte in target process.
+        /// </param>
+        private static string GetThreadStartAddress(Process p, long startAddress)
+        {
+            foreach (ProcessModule pm in p.Modules)
+            {
+                if (startAddress >= (long)pm.BaseAddress && startAddress <= (long)pm.BaseAddress + pm.ModuleMemorySize)
+                    return pm.ModuleName + "+0x" + (startAddress - (long)pm.BaseAddress).ToString("X2");
+            }
+            return string.Empty;
+        }
+
+        #endregion
+        #region Methods
+
         /// <summary>
         /// Opens the directory of the designated file in Explorer and selects it.
         /// </summary>
@@ -82,53 +158,8 @@ namespace SharpFind.Forms
         }
 
         /// <summary>
-        /// Formats the given numeric value into KB, GB, etc.
+        /// Retrieves very minimal information about the specified process.
         /// </summary>
-        /// 
-        /// <param name="byteCount">
-        /// Number of bytes to be formatted.
-        /// </param>
-        private static string FormatByteSize(long byteCount)
-        {
-            var sb = new StringBuilder(10);
-            NativeMethods.StrFormatByteSize(byteCount, sb, sb.Capacity);
-
-            return sb.ToString();
-        }
-
-        private static IntPtr GetThreadStartAddress(int tid)
-        {
-            var hThread = NativeMethods.OpenThread(NativeMethods.ThreadAccess.QUERY_INFORMATION, false, tid);
-            if (hThread == IntPtr.Zero)
-                throw new Win32Exception();
-
-            var dwStartAddress = Marshal.AllocHGlobal(IntPtr.Size);
-            try
-            {
-                const NativeMethods.THREADINFOCLASS flag = NativeMethods.THREADINFOCLASS.ThreadQuerySetWin32StartAddress;
-                var result = NativeMethods.NtQueryInformationThread(hThread, flag, dwStartAddress, IntPtr.Size, IntPtr.Zero);
-                if (result != 0)
-                    throw new Win32Exception($"NtQueryInformationThread failure. NTSTATUS returns 0x{result:X4}");
-
-                return Marshal.ReadIntPtr(dwStartAddress);
-            }
-            finally
-            {
-                NativeMethods.CloseHandle(hThread);
-                Marshal.FreeHGlobal(dwStartAddress);
-            }
-        }
-
-        private static string GetThreadStartAddress(Process p, long startAddress)
-        {
-            foreach (ProcessModule pm in p.Modules)
-            {
-                if (startAddress >= (long)pm.BaseAddress && startAddress <= (long)pm.BaseAddress + pm.ModuleMemorySize)
-                    return pm.ModuleName + "+0x" + (startAddress - (long)pm.BaseAddress).ToString("X");
-            }
-            return string.Empty;
-        }
-
         private void GetModuleSummary()
         {
             var pNoExt = Path.GetFileNameWithoutExtension(LBL_Process_R.Text);
@@ -152,6 +183,10 @@ namespace SharpFind.Forms
             }
         }
 
+        /// <summary>
+        /// Retrieves the names of all loaded modules in the process, their base
+        /// address and size on disk.
+        /// </summary>
         private void GetModuleDetails()
         {
             var pmc = ParentProcess.Modules;
@@ -176,18 +211,24 @@ namespace SharpFind.Forms
             LV_Module.Sorting = SortOrder.Ascending;
         }
 
+        /// <summary>
+        /// Retrieves the thread Ids, starting address, and priority level of
+        /// the specified process.
+        /// </summary>
         private void GetThreadDetails()
         {
             foreach (ProcessThread pt in ParentProcess.Threads)
             {
-                var thread = pt;
-                var lvi = new ListViewItem(thread.Id.ToString());
+                var thread  = pt;
+                var lvi     = new ListViewItem(thread.Id.ToString());
                 var address = (long)GetThreadStartAddress(thread.Id);
+
                 lvi.SubItems.Add(GetThreadStartAddress(ParentProcess, address));
                 lvi.SubItems.Add(thread.PriorityLevel.ToString());
-
                 LV_Thread.Items.Add(lvi);
             }
         }
+
+        #endregion
     }
 }
