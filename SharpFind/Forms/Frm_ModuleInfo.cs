@@ -171,11 +171,11 @@ namespace SharpFind.Forms
                     return;
 
                 // Retrieve the process icon
-                var moduleIcon = Icon.ExtractAssociatedIcon(p.MainModule.FileName);
-                PB_Icon.Image  = moduleIcon?.ToBitmap();
+                var moduleIcon  = Icon.ExtractAssociatedIcon(p.MainModule.FileName);
+                PB_Icon.Image   = moduleIcon?.ToBitmap();
 
-                LBL_PID_R.Text     = Convert.ToString(p.Id);
-                LBL_Path_R.Text    = p.MainModule.FileName;
+                LBL_PID_R.Text  = Convert.ToString(p.Id);
+                LBL_Path_R.Text = p.MainModule.FileName;
 
                 ParentProcess = p;
             }
@@ -284,8 +284,8 @@ namespace SharpFind.Forms
             {
                 if (threadEntry.th32OwnerProcessID == pid)
                 {
-                    var lvi     = new ListViewItem(threadEntry.th32ThreadID.ToString());
-                    var address = (long)GetThreadStartAddress(threadEntry.th32ThreadID);
+                    var lvi      = new ListViewItem(threadEntry.th32ThreadID.ToString());
+                    var address  = (long)GetThreadStartAddress(threadEntry.th32ThreadID);
                     var priority = string.Empty;
 
                     lvi.SubItems.Add(GetThreadStartAddress(ParentProcess, address));
