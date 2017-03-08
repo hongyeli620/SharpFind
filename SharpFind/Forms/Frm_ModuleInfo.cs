@@ -18,6 +18,8 @@ namespace SharpFind.Forms
         }
 
         private Process ParentProcess { get; set; }
+        private static readonly IntPtr INVALID_HANDLE_VALUE = new IntPtr(-1);
+        private int moduleCount = 0;
 
         #region Events
 
@@ -27,7 +29,7 @@ namespace SharpFind.Forms
 
             if (LBL_Path_R.Text != string.Empty)
             {
-                GetModuleDetails();
+                GetModuleDetails(ParentProcess.Id);
                 GetThreadDetails();
             }
         }
@@ -94,7 +96,7 @@ namespace SharpFind.Forms
         {
             var hThread = NativeMethods.OpenThread(NativeMethods.ThreadAccess.QUERY_INFORMATION, false, tid);
             if (hThread == IntPtr.Zero)
-                throw new Win32Exception("Unable to open thread");
+                throw new Win32Exception("Unable to open thread.");
 
             var dwStartAddress = Marshal.AllocHGlobal(IntPtr.Size);
             try
@@ -103,7 +105,7 @@ namespace SharpFind.Forms
                 const NativeMethods.THREADINFOCLASS flag = NativeMethods.THREADINFOCLASS.ThreadQuerySetWin32StartAddress;
                 var ntStatus = NativeMethods.NtQueryInformationThread(hThread, flag, dwStartAddress, IntPtr.Size, IntPtr.Zero);
                 if (ntStatus != STATUS_SUCCESS)
-                    throw new Win32Exception($"NtQueryInformationThread failure. NTSTATUS returns 0x{ntStatus:X4}");
+                    throw new Win32Exception($"NtQueryInformationThread failure. NTSTATUS returns 0x{ntStatus:X4}.");
 
                 return Marshal.ReadIntPtr(dwStartAddress);
             }
@@ -172,11 +174,7 @@ namespace SharpFind.Forms
                 var moduleIcon = Icon.ExtractAssociatedIcon(p.MainModule.FileName);
                 PB_Icon.Image  = moduleIcon?.ToBitmap();
 
-                var moduleCount = p.Modules.Count;
-                var threadCount = p.Threads.Count;
-
                 LBL_PID_R.Text     = Convert.ToString(p.Id);
-                LBL_Modules_R.Text = $"{moduleCount} modules attached; {threadCount} threads";
                 LBL_Path_R.Text    = p.MainModule.FileName;
 
                 ParentProcess = p;
@@ -187,28 +185,77 @@ namespace SharpFind.Forms
         /// Retrieves the names of all loaded modules in the process, their base
         /// address and size on disk.
         /// </summary>
-        private void GetModuleDetails()
+        /// 
+        /// <param name="pid">
+        /// Id of the process.
+        /// </param>
+        private void GetModuleDetails(int pid)
         {
-            var pmc = ParentProcess.Modules;
-            for (var i = 0; i < pmc.Count; i++)
-            {
-                var pm = pmc[i];
-                var lvi = new ListViewItem(pm.ModuleName)
-                {
-                    ToolTipText = pm.FileName + "\n" +
-                                  pm.FileVersionInfo.LegalCopyright  + "\n" +
-                                  pm.FileVersionInfo.FileDescription + "\n" +
-                                  pm.FileVersionInfo.ProductVersion
-                };
+            const NativeMethods.SnapshotFlags flags = NativeMethods.SnapshotFlags.TH32CS_SNAPMODULE | 
+                                                      NativeMethods.SnapshotFlags.TH32CS_SNAPMODULE32;
 
-                var length = new FileInfo(pm.FileName).Length;
-                lvi.SubItems.Add("0x" + pm.BaseAddress.ToString("X4"));
-                lvi.SubItems.Add(FormatByteSize(length));
-                LV_Module.Items.Add(lvi);
+            var hModuleSnap = NativeMethods.CreateToolhelp32Snapshot(flags, pid);
+            if (hModuleSnap == INVALID_HANDLE_VALUE)
+                return;
+
+            var modEntry = new NativeMethods.MODULEENTRY32()
+            {
+                dwSize = (uint)Marshal.SizeOf(typeof(NativeMethods.MODULEENTRY32))
+            };
+
+            if (!NativeMethods.Module32First(hModuleSnap, ref modEntry))
+            {
+                NativeMethods.CloseHandle(hModuleSnap);
+                return;
             }
 
-            LV_Module.Items[0].BackColor = SystemColors.GradientActiveCaption;
+            do
+            {
+                var modPath = modEntry.szExePath;
+                var modInfo = FileVersionInfo.GetVersionInfo(modPath);
+                var modSize = new FileInfo(modPath).Length;
+                var lvi     = new ListViewItem(modEntry.szModule)
+                {
+                    Tag         = modInfo.FileName,
+                    ToolTipText = modInfo.FileName        + "\n" + 
+                                  modInfo.LegalCopyright  + "\n" +
+                                  modInfo.FileDescription + "\n" +
+                                  modInfo.ProductVersion
+                };
+
+                lvi.SubItems.Add("0x" + modEntry.modBaseAddr.ToString("X4"));
+                lvi.SubItems.Add(FormatByteSize(modSize));
+                LV_Module.Items.Add(lvi);
+            }
+            while (NativeMethods.Module32Next(hModuleSnap, ref modEntry));
+
+            // Close the object
+            NativeMethods.CloseHandle(hModuleSnap);
+
+            /* Sort the items and remove the duplicate module name. The
+            ** duplication happens because SnapshotFlags searches for both 32-bit
+            ** and 64-bit modules. Therefore, it adds the main module from both
+            ** TH32CS_SNAPMODULE and TH32CS_SNAPMODULE32.
+            */
             LV_Module.Sorting = SortOrder.Ascending;
+            for (var i = 0; i < LV_Module.Items.Count - 1; i++)
+            {
+                if (LV_Module.Items[i].Tag.Equals(LV_Module.Items[i + 1].Tag))
+                {
+                    LV_Module.Items[i].BackColor = SystemColors.GradientActiveCaption;
+                    LV_Module.Items[i + 1].Remove();
+                    i--;
+                }
+
+                moduleCount = i;
+            }
+
+            SetModuleCount();
+        }
+
+        private void SetModuleCount()
+        {
+            LBL_Modules_R.Text = $"{moduleCount} modules attached;"; 
         }
 
         /// <summary>
