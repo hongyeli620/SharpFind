@@ -299,7 +299,7 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Id";
+            this.columnHeader1.Text = "Thread Id";
             this.columnHeader1.Width = 63;
             // 
             // columnHeader2
@@ -309,7 +309,7 @@
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Priority";
+            this.columnHeader3.Text = "Priority Level";
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader3.Width = 85;
             // 
