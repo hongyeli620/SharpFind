@@ -287,6 +287,34 @@ namespace SharpFind.Classes
             public int bottom;
         }
 
+        /// <summary>
+        /// Contains information used by ShellExecuteEx.
+        /// </summary>
+        [StructLayout(LayoutKind.Sequential)]
+        internal struct SHELLEXECUTEINFO
+        {
+            internal int cbSize;
+            internal uint fMask;
+            internal IntPtr hwnd;
+            [MarshalAs(UnmanagedType.LPTStr)]
+            internal string lpVerb;
+            [MarshalAs(UnmanagedType.LPTStr)]
+            internal string lpFile;
+            [MarshalAs(UnmanagedType.LPTStr)]
+            internal string lpParameters;
+            [MarshalAs(UnmanagedType.LPTStr)]
+            internal string lpDirectory;
+            internal int nShow;
+            internal IntPtr hInstApp;
+            internal IntPtr lpIDList;
+            [MarshalAs(UnmanagedType.LPTStr)]
+            internal string lpClass;
+            internal IntPtr hkeyClass;
+            internal uint dwHotKey;
+            internal IntPtr hIcon;
+            internal IntPtr hProcess;
+        }
+
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
         internal struct THREADENTRY32
         {
@@ -1220,6 +1248,12 @@ namespace SharpFind.Classes
                                                              string lpKeyName,
                                                              string lpString,
                                                              string lpFileName);
+
+        #endregion
+        #region shell32.dll
+
+        [DllImport("shell32.dll", CharSet = CharSet.Auto)]
+        internal static extern bool ShellExecuteEx(ref SHELLEXECUTEINFO lpExecInfo);
 
         #endregion
         #region ntdll.dll
