@@ -19,7 +19,7 @@ namespace SharpFind.Forms
 
         private Process ParentProcess { get; set; }
         private static readonly IntPtr INVALID_HANDLE_VALUE = new IntPtr(-1);
-        private int moduleCount = 0;
+        private int moduleCount, threadCount = 0;
 
         #region Events
 
@@ -30,7 +30,7 @@ namespace SharpFind.Forms
             if (LBL_Path_R.Text != string.Empty)
             {
                 GetModuleDetails(ParentProcess.Id);
-                GetThreadDetails();
+                GetThreadDetails(ParentProcess.Id);
             }
         }
 
@@ -92,7 +92,7 @@ namespace SharpFind.Forms
         /// <param name="tid">
         /// Id of the thread.
         /// </param>
-        private static IntPtr GetThreadStartAddress(int tid)
+        private static IntPtr GetThreadStartAddress(uint tid)
         {
             var hThread = NativeMethods.OpenThread(NativeMethods.ThreadAccess.QUERY_INFORMATION, false, tid);
             if (hThread == IntPtr.Zero)
@@ -262,18 +262,62 @@ namespace SharpFind.Forms
         /// Retrieves the thread Ids, starting address, and priority level of
         /// the specified process.
         /// </summary>
-        private void GetThreadDetails()
+        private void GetThreadDetails(int pid)
         {
-            foreach (ProcessThread pt in ParentProcess.Threads)
-            {
-                var thread  = pt;
-                var lvi     = new ListViewItem(thread.Id.ToString());
-                var address = (long)GetThreadStartAddress(thread.Id);
+            const NativeMethods.SnapshotFlags flags = NativeMethods.SnapshotFlags.TH32CS_SNAPTHREAD;
+            var hModuleSnap = NativeMethods.CreateToolhelp32Snapshot(flags, pid);
+            if (hModuleSnap == INVALID_HANDLE_VALUE)
+                return;
 
-                lvi.SubItems.Add(GetThreadStartAddress(ParentProcess, address));
-                lvi.SubItems.Add(thread.PriorityLevel.ToString());
-                LV_Thread.Items.Add(lvi);
+            var threadEntry = new NativeMethods.THREADENTRY32()
+            {
+                dwSize = (uint)Marshal.SizeOf(typeof(NativeMethods.THREADENTRY32))
+            };
+
+            if (!NativeMethods.Thread32First(hModuleSnap, ref threadEntry))
+            {
+                NativeMethods.CloseHandle(hModuleSnap);
+                return;
             }
+
+            do
+            {
+                if (threadEntry.th32OwnerProcessID == pid)
+                {
+                    var lvi     = new ListViewItem(threadEntry.th32ThreadID.ToString());
+                    var address = (long)GetThreadStartAddress(threadEntry.th32ThreadID);
+                    var priority = string.Empty;
+
+                    lvi.SubItems.Add(GetThreadStartAddress(ParentProcess, address));
+
+                    switch (threadEntry.tpBasePri)
+                    {
+                        case  1: priority = "Idle";          break;
+                        case  6: priority = "Lowest";        break;
+                        case  7: priority = "Below Normal";  break;
+                        case  8: priority = "Normal";        break;
+                        case  9: priority = "Above Normal";  break;
+                        case 10: priority = "Highest";       break;
+                        case 15: priority = "Time Critical"; break;
+                    }
+
+                    lvi.SubItems.Add(priority + " (" + threadEntry.tpBasePri + ")");
+                    LV_Thread.Items.Add(lvi);
+                }
+            }
+            while (NativeMethods.Thread32Next(hModuleSnap, ref threadEntry));
+
+            // Close the object
+            NativeMethods.CloseHandle(hModuleSnap);
+
+            LV_Thread.Sorting = SortOrder.Ascending;
+            threadCount = LV_Thread.Items.Count;
+            SetThreadCount();
+        }
+
+        private void SetThreadCount()
+        {
+            LBL_Modules_R.Text = LBL_Modules_R.Text + $" {threadCount} threads";
         }
 
         #endregion
