@@ -984,7 +984,7 @@ namespace SharpFind.Classes
         /// snapshot.
         /// </returns>
         [DllImport("kernel32.dll", SetLastError = true)]
-        internal static extern IntPtr CreateToolhelp32Snapshot(SnapshotFlags dwFlags, uint th32ProcessID);
+        internal static extern IntPtr CreateToolhelp32Snapshot(SnapshotFlags dwFlags, int th32ProcessID);
 
         /// <summary>
         /// Retrieves the process identifier of the calling process.
