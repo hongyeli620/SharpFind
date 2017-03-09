@@ -323,7 +323,7 @@ namespace SharpFind.Forms
                         case 15: priority = "Time Critical"; break;
                     }
 
-                    lvi.SubItems.Add(priority + " (" + threadEntry.tpBasePri + ")");
+                    lvi.SubItems.Add(priority /* + " (" + threadEntry.tpBasePri + ")" */);
                     LV_Thread.Items.Add(lvi);
                 }
             }
