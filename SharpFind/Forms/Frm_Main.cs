@@ -239,7 +239,7 @@ namespace SharpFind
             return hPrefix + GetWindowLong(hWnd, GWL_HINSTANCE).ToString(hFormat);
         }
 
-        private static string GetControlID(IntPtr hWnd)
+        private static string GetControlId(IntPtr hWnd)
         {
             return hPrefix + GetWindowLong(hWnd, GWL_ID).ToString(hFormat);
         }
@@ -541,8 +541,7 @@ namespace SharpFind
             var isEnabled = IsWindowEnabled(hWnd) ? "enabled" : "disabled";
             var isVisible = IsWindowVisible(hWnd) ? "visible" : "hidden";
 
-            return string.Format("{0} ({1}, {2})", hPrefix + GetWindowLong(hWnd, GWL_STYLE).ToString(hFormat),
-                                                   isEnabled, isVisible);
+            return $"{hPrefix + GetWindowLong(hWnd, GWL_STYLE).ToString(hFormat)} ({isEnabled}, {isVisible})";
         }
 
         private string GetWindowStylesEx(IntPtr hWnd)
@@ -850,7 +849,7 @@ namespace SharpFind
             if (n == PriorityClass.PROCESS_MODE_BACKGROUND_BEGIN) return TB_PriorityClass.Text = "PROCESS_MODE_BACKGROUND_BEGIN";
             if (n == PriorityClass.PROCESS_MODE_BACKGROUND_END)   return TB_PriorityClass.Text = "PROCESS_MODE_BACKGROUND_END";
 
-            return GetPriorityClass(hWnd).ToString();
+            return GetPriorityClass(hWnd);
         }
 
         #endregion
@@ -1002,7 +1001,7 @@ namespace SharpFind
             if (IsRunningAsAdmin())
                 return;
 
-            var psi = new ProcessStartInfo()
+            var psi = new ProcessStartInfo
             {
                 UseShellExecute = true,
                 WorkingDirectory = Environment.CurrentDirectory,
@@ -1089,7 +1088,7 @@ namespace SharpFind
                 TB_RestoredRect.Text   = GetRestoredRect(hWnd);
                 TB_ClientRect.Text     = GetClientRect(hWnd);
                 TB_InstanceHandle.Text = GetInstanceHandle(hWnd);
-                TB_ControlID.Text      = GetControlID(hWnd);
+                TB_ControlID.Text      = GetControlId(hWnd);
                 TB_UserData.Text       = GetUserData(hWnd);
                 GetWindowBytesCombo(hWnd);
 
