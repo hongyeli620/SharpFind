@@ -64,16 +64,7 @@ namespace SharpFind.Forms
 
         private void LV_Module_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            // Show Explorer's Properties window
-            var info    = new NativeMethods.SHELLEXECUTEINFO();
-            info.cbSize = Marshal.SizeOf(info);
-            info.lpVerb = "properties";
-            info.lpFile = LV_Module.SelectedItems[0].Tag?.ToString();
-            info.nShow  = 5;
-            info.fMask  = 0xc;
-
-            if (!NativeMethods.ShellExecuteEx(ref info))
-                throw new Win32Exception(Marshal.GetLastWin32Error());
+            ShowObjectProperties(LV_Module.SelectedItems[0].Tag?.ToString());
         }
 
         private void BTN_Close_Click(object sender, EventArgs e)
@@ -164,6 +155,28 @@ namespace SharpFind.Forms
             var explorer = Path.Combine(winDir, "explorer.exe");
             var args = $"/select, {"\"" + path + "\""}";
             Process.Start(explorer, args);
+        }
+
+        /// <summary>
+        /// Displays the properties windows for the specified file.
+        /// </summary>
+        /// 
+        /// <param name="path">
+        /// Path to the file.
+        /// </param>
+        private void ShowObjectProperties(string path)
+        {
+            const int SW_SHOW = 5;
+
+            var info    = new NativeMethods.SHELLEXECUTEINFO();
+            info.cbSize = Marshal.SizeOf(info);
+            info.lpVerb = "properties";
+            info.lpFile = path;
+            info.nShow  = SW_SHOW;
+            info.fMask  = 0xc;
+
+            if (!NativeMethods.ShellExecuteEx(ref info))
+                throw new Win32Exception(Marshal.GetLastWin32Error());
         }
 
         /// <summary>
