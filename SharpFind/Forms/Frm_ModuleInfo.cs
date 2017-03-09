@@ -232,21 +232,27 @@ namespace SharpFind.Forms
 
             do
             {
-                var modPath = modEntry.szExePath;
-                var modInfo = FileVersionInfo.GetVersionInfo(modPath);
-                var modSize = new FileInfo(modPath).Length;
-                var lvi     = new ListViewItem(modEntry.szModule)
+                try
                 {
-                    Tag         = modInfo.FileName,
-                    ToolTipText = modInfo.FileName        + "\n" + 
-                                  modInfo.LegalCopyright  + "\n" +
-                                  modInfo.FileDescription + "\n" +
-                                  modInfo.ProductVersion
-                };
-
-                lvi.SubItems.Add("0x" + modEntry.modBaseAddr.ToString("X4"));
-                lvi.SubItems.Add(FormatByteSize(modSize));
-                LV_Module.Items.Add(lvi);
+                    var modPath = modEntry.szExePath;
+                    var modInfo = FileVersionInfo.GetVersionInfo(modPath);
+                    var modSize = new FileInfo(modPath).Length;
+                    var lvi     = new ListViewItem(modEntry.szModule)
+                    {
+                        Tag         = modInfo.FileName,
+                        ToolTipText = modInfo.FileName        + "\n" +
+                                      modInfo.LegalCopyright  + "\n" +
+                                      modInfo.FileDescription + "\n" +
+                                      modInfo.ProductVersion
+                    };
+                    lvi.SubItems.Add("0x" + modEntry.modBaseAddr.ToString("X4"));
+                    lvi.SubItems.Add(FormatByteSize(modSize));
+                    LV_Module.Items.Add(lvi);
+                }
+                catch
+                {
+                     break;
+                }
             }
             while (NativeMethods.Module32Next(hModuleSnap, ref modEntry));
 
