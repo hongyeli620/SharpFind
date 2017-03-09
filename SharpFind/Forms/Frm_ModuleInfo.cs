@@ -164,7 +164,7 @@ namespace SharpFind.Forms
         /// <param name="path">
         /// Path to the file.
         /// </param>
-        private void ShowObjectProperties(string path)
+        private static void ShowObjectProperties(string path)
         {
             const int SW_SHOW = 5;
 
