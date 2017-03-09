@@ -1,4 +1,4 @@
-﻿/* Separator.cs
+/* Separator.cs
 ** This file is part #Find.
 ** 
 ** Copyright 2017 by Jad Altahan <hello@exr.be>
@@ -54,12 +54,28 @@ namespace SharpFind.Controls
             SetStyle(ControlStyles.ResizeRedraw, true);
             Size = new Size(120, 10);
 
-            // This requires <supportedOS Id="{...}"/> to be uncommented in app.manifest
+            // Requires <supportedOS Id="{...}"/> to be uncommented in app.manifest
             var OsVer = Environment.OSVersion.Version.Major;
-            if      (OsVer == 5.0)                 { color = "#848284"; DrawEdge = true;  } // 2000
-            else if (OsVer >= 5.1 && OsVer <= 5.2) { color = "#D0D0BF"; DrawEdge = false; } // XP to Server 2003
-            else if (OsVer >= 6.0 && OsVer <= 6.1) { color = "#D5DFE5"; DrawEdge = true;  } // Vista to 7
-            else if (OsVer == 10.0)                { color = "#DCDCDC"; DrawEdge = false; } // Server 2012 to 8.1
+            if (OsVer == 5.0)
+            { 
+                color = "#848284";
+                DrawEdge = true;
+            } // Windows 2000
+            else if (OsVer >= 5.1 && OsVer <= 5.2)
+            {
+                color = "#D0D0BF";
+                DrawEdge = false;
+            } // Windows XP to Server 2003
+            else if (OsVer >= 6.0 && OsVer <= 6.1)
+            {
+                color = "#D5DFE5";
+                DrawEdge = true;
+            } // Windows Vista to 7
+            else if (OsVer == 10.0)
+            { 
+                color = "#DCDCDC";
+                DrawEdge = false;
+            } // Windows Server 2012 to 8.1
         }
 
         protected override void OnResize(EventArgs e)
