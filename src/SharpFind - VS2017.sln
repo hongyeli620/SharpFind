@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpFind", "SharpFind\SharpFind.csproj", "{DD2F36F6-6BCE-44D7-A9AB-C6D27889018E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpFind", "Core\SharpFind.csproj", "{DD2F36F6-6BCE-44D7-A9AB-C6D27889018E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{FD589D93-59C0-4B91-BC2C-B655E9428D32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,6 +30,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DD2F36F6-6BCE-44D7-A9AB-C6D27889018E} = {FD589D93-59C0-4B91-BC2C-B655E9428D32}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2736356F-0DD1-4274-A67F-7B70C1D9AFA1}

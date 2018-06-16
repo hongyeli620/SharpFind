@@ -1,9 +1,11 @@
 ﻿/* NativeMethods.cs
 ** This file is part #Find.
+**
+** Documentaion pulled directly from MSDN.
 ** 
-** Copyright 2017 by Jad Altahan <hello@exr.be>
+** Copyright 2017 by Jad Altahan <xviyy@aol>
 ** Licensed under MIT
-** <https://github.com/ei/SharpFind/blob/master/LICENSE>
+** <https://github.com/xv/SharpFind/blob/master/LICENSE>
 */
 
 using System.Drawing;

@@ -1,4 +1,12 @@
-﻿using System.ComponentModel;
+﻿/* Frm_ModuleInfo.cs
+** This file is part #Find.
+** 
+** Copyright 2017 by Jad Altahan <xviyy@aol>
+** Licensed under MIT
+** <https://github.com/xv/SharpFind/blob/master/LICENSE>
+*/
+
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;

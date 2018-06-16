@@ -1,9 +1,9 @@
 ﻿/* LinkLabelEx.cs
 ** This file is part #Find.
 ** 
-** Copyright 2017 by Jad Altahan <hello@exr.be>
+** Copyright 2018 by Jad Altahan <xviyy@aol>
 ** Licensed under MIT
-** <https://github.com/ei/SharpFind/blob/master/LICENSE>
+** <https://github.com/xv/SharpFind/blob/master/LICENSE>
 */
 
 using System.Drawing;
@@ -15,13 +15,15 @@ namespace SharpFind.Controls
 {
     public class LinkLabelEx : LinkLabel
     {
-        #region Variables
+        #region Fields
 
         private readonly Color linkColor       = ColorTranslator.FromHtml("#0066CC");
         private readonly Color activeLinkColor = ColorTranslator.FromHtml("#00509F");
 
         private const int WM_SETCURSOR = 0x0020;
-        private const int IDC_HAND     = 32649;
+
+        private const int IDC_HAND = 32649;
+        private static readonly Cursor NativeHand = new Cursor(NativeMethods.LoadCursor(IntPtr.Zero, IDC_HAND));
 
         #endregion
 
@@ -32,19 +34,18 @@ namespace SharpFind.Controls
             LinkBehavior = LinkBehavior.HoverUnderline;
         }
 
-        #region Use Win32 hand cursor
-
-        protected override void WndProc(ref Message msg)
+        protected override void OnMouseMove(MouseEventArgs e)
         {
-            if (msg.Msg == WM_SETCURSOR)
-            {
-                NativeMethods.SetCursor(NativeMethods.LoadCursor(IntPtr.Zero, IDC_HAND));
-                msg.Result = IntPtr.Zero;
-                return;
-            }
-            base.WndProc(ref msg);
+            base.OnMouseMove(e);
+
+            if (OverrideCursor == Cursors.Hand)
+                OverrideCursor = NativeHand;
         }
 
-        #endregion
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            base.OnMouseLeave(e);
+            OverrideCursor = null;
+        }
     }
 }
