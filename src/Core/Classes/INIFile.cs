@@ -1,4 +1,4 @@
-﻿/* INIFile.cs
+﻿/* IniFile.cs
 ** This file is part #Find.
 ** 
 ** Copyright 2017 by Jad Altahan <xviyy@aol>
@@ -13,7 +13,7 @@ using static SharpFind.Classes.NativeMethods;
 
 namespace SharpFind.Classes
 {
-    public class INIFile
+    public class IniFile
     {
         /// <summary>
         /// Path to the settings file.
