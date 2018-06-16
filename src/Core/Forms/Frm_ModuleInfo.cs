@@ -272,7 +272,7 @@ namespace SharpFind.Forms
             ** and 64-bit modules. Therefore, it adds the main module from both
             ** TH32CS_SNAPMODULE and TH32CS_SNAPMODULE32.
             */
-            LV_Module.Items[0].BackColor = SystemColors.GradientActiveCaption;
+            LV_Module.Items[0].ForeColor = Color.Red;
             LV_Module.Sorting = SortOrder.Ascending;
             for (var i = 0; i < LV_Module.Items.Count - 1; i++)
             {
