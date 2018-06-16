@@ -1,7 +1,7 @@
 ﻿/* Frm_Main.cs
 ** This file is part #Find.
 ** 
-** Copyright 2017 by Jad Altahan <xviyy@aol>
+** Copyright 2017 by Jad Altahan <xviyy@aol.com>
 ** Licensed under MIT
 ** <https://github.com/xv/SharpFind/blob/master/LICENSE>
 */
