@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.GB_Summary = new System.Windows.Forms.GroupBox();
+            this.separator2 = new SharpFind.Controls.Separator();
+            this.LNKLBL_Explore = new SharpFind.Controls.LinkLabelEx();
             this.LBL_Path_R = new System.Windows.Forms.Label();
             this.LBL_Process_R = new System.Windows.Forms.Label();
             this.LBL_PID_R = new System.Windows.Forms.Label();
@@ -44,7 +46,6 @@
             this.BTN_Close = new System.Windows.Forms.Button();
             this.PNL_Top = new System.Windows.Forms.Panel();
             this.PNL_Bottom = new System.Windows.Forms.Panel();
-            this.separator1 = new SharpFind.Controls.Separator();
             this.LV_Module = new SharpFind.Controls.ListViewEx();
             this.COL_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.COL_Base = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -53,8 +54,6 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.separator2 = new SharpFind.Controls.Separator();
-            this.LNKLBL_Explore = new SharpFind.Controls.LinkLabelEx();
             this.GB_Summary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Icon)).BeginInit();
             this.TC_Details.SuspendLayout();
@@ -80,6 +79,28 @@
             this.GB_Summary.Size = new System.Drawing.Size(406, 83);
             this.GB_Summary.TabIndex = 0;
             this.GB_Summary.TabStop = false;
+            // 
+            // separator2
+            // 
+            this.separator2.Location = new System.Drawing.Point(66, 16);
+            this.separator2.Name = "separator2";
+            this.separator2.Orientation = SharpFind.Controls.Separator._Orientation.Vertical;
+            this.separator2.Size = new System.Drawing.Size(10, 57);
+            this.separator2.TabIndex = 11;
+            // 
+            // LNKLBL_Explore
+            // 
+            this.LNKLBL_Explore.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(159)))));
+            this.LNKLBL_Explore.AutoSize = true;
+            this.LNKLBL_Explore.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.LNKLBL_Explore.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.LNKLBL_Explore.Location = new System.Drawing.Point(360, 62);
+            this.LNKLBL_Explore.Name = "LNKLBL_Explore";
+            this.LNKLBL_Explore.Size = new System.Drawing.Size(41, 13);
+            this.LNKLBL_Explore.TabIndex = 10;
+            this.LNKLBL_Explore.TabStop = true;
+            this.LNKLBL_Explore.Text = "explore";
+            this.LNKLBL_Explore.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LNKLBL_Explore_LinkClicked);
             // 
             // LBL_Path_R
             // 
@@ -220,7 +241,6 @@
             // 
             // PNL_Bottom
             // 
-            this.PNL_Bottom.Controls.Add(this.separator1);
             this.PNL_Bottom.Controls.Add(this.LV_Module);
             this.PNL_Bottom.Controls.Add(this.BTN_Close);
             this.PNL_Bottom.Controls.Add(this.LV_Thread);
@@ -229,15 +249,6 @@
             this.PNL_Bottom.Name = "PNL_Bottom";
             this.PNL_Bottom.Size = new System.Drawing.Size(422, 384);
             this.PNL_Bottom.TabIndex = 5;
-            // 
-            // separator1
-            // 
-            this.separator1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.separator1.Location = new System.Drawing.Point(8, 359);
-            this.separator1.Name = "separator1";
-            this.separator1.Orientation = SharpFind.Controls.Separator._Orientation.Horizontal;
-            this.separator1.Size = new System.Drawing.Size(326, 10);
-            this.separator1.TabIndex = 11;
             // 
             // LV_Module
             // 
@@ -314,28 +325,6 @@
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader3.Width = 85;
             // 
-            // separator2
-            // 
-            this.separator2.Location = new System.Drawing.Point(66, 16);
-            this.separator2.Name = "separator2";
-            this.separator2.Orientation = SharpFind.Controls.Separator._Orientation.Vertical;
-            this.separator2.Size = new System.Drawing.Size(10, 57);
-            this.separator2.TabIndex = 11;
-            // 
-            // LNKLBL_Explore
-            // 
-            this.LNKLBL_Explore.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(159)))));
-            this.LNKLBL_Explore.AutoSize = true;
-            this.LNKLBL_Explore.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.LNKLBL_Explore.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.LNKLBL_Explore.Location = new System.Drawing.Point(360, 62);
-            this.LNKLBL_Explore.Name = "LNKLBL_Explore";
-            this.LNKLBL_Explore.Size = new System.Drawing.Size(41, 13);
-            this.LNKLBL_Explore.TabIndex = 10;
-            this.LNKLBL_Explore.TabStop = true;
-            this.LNKLBL_Explore.Text = "explore";
-            this.LNKLBL_Explore.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LNKLBL_Explore_LinkClicked);
-            // 
             // Frm_ModuleInfo
             // 
             this.AcceptButton = this.BTN_Close;
@@ -388,7 +377,6 @@
         private System.Windows.Forms.ColumnHeader COL_Name;
         private System.Windows.Forms.ColumnHeader COL_Base;
         private System.Windows.Forms.ColumnHeader COL_Size;
-        private Controls.Separator separator1;
         private Controls.Separator separator2;
         private Controls.ListViewEx LV_Thread;
         private System.Windows.Forms.ColumnHeader columnHeader1;
