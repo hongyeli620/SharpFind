@@ -56,12 +56,6 @@
             this.TB_ClientRect = new System.Windows.Forms.TextBox();
             this.LBL_InstanceHandle = new System.Windows.Forms.Label();
             this.TP_Styles = new System.Windows.Forms.TabPage();
-            this.LV_ExtendedStyles = new SharpFind.Controls.ListViewEx();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.LV_WindowStyles = new SharpFind.Controls.ListViewEx();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TB_ExtendedStyles = new System.Windows.Forms.TextBox();
             this.LBL_ExtendedStyles = new System.Windows.Forms.Label();
             this.TB_WindowStyles = new System.Windows.Forms.TextBox();
@@ -88,7 +82,6 @@
             this.TB_ClassName = new System.Windows.Forms.TextBox();
             this.LBL_ClassName = new System.Windows.Forms.Label();
             this.TP_Process = new System.Windows.Forms.TabPage();
-            this.LNKLBL_ModuleInfo = new SharpFind.Controls.LinkLabelEx();
             this.TB_PriorityClass = new System.Windows.Forms.TextBox();
             this.LBL_PriorityClass = new System.Windows.Forms.Label();
             this.TB_ThreadID = new System.Windows.Forms.TextBox();
@@ -113,8 +106,15 @@
             this.CMNU_VisualBasic = new System.Windows.Forms.MenuItem();
             this.PNL_Top = new System.Windows.Forms.Panel();
             this.PNL_Bottom = new System.Windows.Forms.Panel();
-            this.separator1 = new SharpFind.Controls.Separator();
             this.BTN_Close = new System.Windows.Forms.Button();
+            this.separator1 = new SharpFind.Controls.Separator();
+            this.LV_ExtendedStyles = new SharpFind.Controls.ListViewEx();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LV_WindowStyles = new SharpFind.Controls.ListViewEx();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LNKLBL_ModuleInfo = new SharpFind.Controls.LinkLabelEx();
             this.GB_Tool.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Tool)).BeginInit();
             this.TC_Details.SuspendLayout();
@@ -134,7 +134,7 @@
             this.GB_Tool.Controls.Add(this.LBL_HowTo);
             this.GB_Tool.Location = new System.Drawing.Point(8, 3);
             this.GB_Tool.Name = "GB_Tool";
-            this.GB_Tool.Size = new System.Drawing.Size(326, 58);
+            this.GB_Tool.Size = new System.Drawing.Size(326, 59);
             this.GB_Tool.TabIndex = 0;
             this.GB_Tool.TabStop = false;
             // 
@@ -159,8 +159,8 @@
             this.LBL_HowTo.Name = "LBL_HowTo";
             this.LBL_HowTo.Size = new System.Drawing.Size(273, 29);
             this.LBL_HowTo.TabIndex = 1;
-            this.LBL_HowTo.Text = "Drag the crosshair over a window to select it then release the mouse button to ge" +
-    "t hWnd details.";
+            this.LBL_HowTo.Text = "Drag the crosshair over a window to select it, then release the mouse button to r" +
+    "etrieve HWND properties.";
             this.LBL_HowTo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EasyMove);
             // 
             // TC_Details
@@ -475,58 +475,6 @@
             this.TP_Styles.TabIndex = 3;
             this.TP_Styles.Text = "Styles";
             this.TP_Styles.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EasyMove);
-            // 
-            // LV_ExtendedStyles
-            // 
-            this.LV_ExtendedStyles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3,
-            this.columnHeader4});
-            this.LV_ExtendedStyles.FullRowSelect = true;
-            this.LV_ExtendedStyles.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.LV_ExtendedStyles.Location = new System.Drawing.Point(6, 161);
-            this.LV_ExtendedStyles.MultiSelect = false;
-            this.LV_ExtendedStyles.Name = "LV_ExtendedStyles";
-            this.LV_ExtendedStyles.Size = new System.Drawing.Size(308, 97);
-            this.LV_ExtendedStyles.TabIndex = 9;
-            this.LV_ExtendedStyles.UseCompatibleStateImageBehavior = false;
-            this.LV_ExtendedStyles.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Name";
-            this.columnHeader3.Width = 153;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Value";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeader4.Width = 120;
-            // 
-            // LV_WindowStyles
-            // 
-            this.LV_WindowStyles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.LV_WindowStyles.FullRowSelect = true;
-            this.LV_WindowStyles.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.LV_WindowStyles.Location = new System.Drawing.Point(7, 32);
-            this.LV_WindowStyles.MultiSelect = false;
-            this.LV_WindowStyles.Name = "LV_WindowStyles";
-            this.LV_WindowStyles.Size = new System.Drawing.Size(307, 97);
-            this.LV_WindowStyles.TabIndex = 8;
-            this.LV_WindowStyles.UseCompatibleStateImageBehavior = false;
-            this.LV_WindowStyles.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Name";
-            this.columnHeader1.Width = 153;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Value";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeader2.Width = 120;
             // 
             // TB_ExtendedStyles
             // 
@@ -855,20 +803,6 @@
             this.TP_Process.Text = "Process";
             this.TP_Process.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EasyMove);
             // 
-            // LNKLBL_ModuleInfo
-            // 
-            this.LNKLBL_ModuleInfo.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(159)))));
-            this.LNKLBL_ModuleInfo.AutoSize = true;
-            this.LNKLBL_ModuleInfo.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.LNKLBL_ModuleInfo.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.LNKLBL_ModuleInfo.Location = new System.Drawing.Point(3, 146);
-            this.LNKLBL_ModuleInfo.Name = "LNKLBL_ModuleInfo";
-            this.LNKLBL_ModuleInfo.Size = new System.Drawing.Size(145, 13);
-            this.LNKLBL_ModuleInfo.TabIndex = 17;
-            this.LNKLBL_ModuleInfo.TabStop = true;
-            this.LNKLBL_ModuleInfo.Text = "Extended Module Information";
-            this.LNKLBL_ModuleInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LNKLBL_ModuleInfo_LinkClicked);
-            // 
             // TB_PriorityClass
             // 
             this.TB_PriorityClass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1083,7 +1017,7 @@
             this.PNL_Top.Location = new System.Drawing.Point(0, 0);
             this.PNL_Top.Name = "PNL_Top";
             this.PNL_Top.Padding = new System.Windows.Forms.Padding(5);
-            this.PNL_Top.Size = new System.Drawing.Size(342, 65);
+            this.PNL_Top.Size = new System.Drawing.Size(342, 66);
             this.PNL_Top.TabIndex = 3;
             this.PNL_Top.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EasyMove);
             // 
@@ -1093,22 +1027,12 @@
             this.PNL_Bottom.Controls.Add(this.BTN_Close);
             this.PNL_Bottom.Controls.Add(this.TC_Details);
             this.PNL_Bottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PNL_Bottom.Location = new System.Drawing.Point(0, 65);
+            this.PNL_Bottom.Location = new System.Drawing.Point(0, 66);
             this.PNL_Bottom.Name = "PNL_Bottom";
             this.PNL_Bottom.Padding = new System.Windows.Forms.Padding(5);
-            this.PNL_Bottom.Size = new System.Drawing.Size(342, 347);
+            this.PNL_Bottom.Size = new System.Drawing.Size(342, 346);
             this.PNL_Bottom.TabIndex = 4;
             this.PNL_Bottom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EasyMove);
-            // 
-            // separator1
-            // 
-            this.separator1.Location = new System.Drawing.Point(7, 322);
-            this.separator1.Name = "separator1";
-            this.separator1.Orientation = SharpFind.Controls.Separator._Orientation.Horizontal;
-            this.separator1.Size = new System.Drawing.Size(245, 10);
-            this.separator1.TabIndex = 4;
-            this.separator1.Text = "separator1";
-            this.separator1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EasyMove);
             // 
             // BTN_Close
             // 
@@ -1120,6 +1044,82 @@
             this.BTN_Close.Text = "&Close";
             this.BTN_Close.UseVisualStyleBackColor = true;
             this.BTN_Close.Click += new System.EventHandler(this.BTN_Close_Click);
+            // 
+            // separator1
+            // 
+            this.separator1.Location = new System.Drawing.Point(7, 322);
+            this.separator1.Name = "separator1";
+            this.separator1.Orientation = SharpFind.Controls.Separator._Orientation.Horizontal;
+            this.separator1.Size = new System.Drawing.Size(245, 10);
+            this.separator1.TabIndex = 4;
+            this.separator1.Text = "separator1";
+            this.separator1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EasyMove);
+            // 
+            // LV_ExtendedStyles
+            // 
+            this.LV_ExtendedStyles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3,
+            this.columnHeader4});
+            this.LV_ExtendedStyles.FullRowSelect = true;
+            this.LV_ExtendedStyles.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.LV_ExtendedStyles.Location = new System.Drawing.Point(6, 161);
+            this.LV_ExtendedStyles.MultiSelect = false;
+            this.LV_ExtendedStyles.Name = "LV_ExtendedStyles";
+            this.LV_ExtendedStyles.Size = new System.Drawing.Size(308, 97);
+            this.LV_ExtendedStyles.TabIndex = 9;
+            this.LV_ExtendedStyles.UseCompatibleStateImageBehavior = false;
+            this.LV_ExtendedStyles.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Name";
+            this.columnHeader3.Width = 153;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Value";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeader4.Width = 120;
+            // 
+            // LV_WindowStyles
+            // 
+            this.LV_WindowStyles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.LV_WindowStyles.FullRowSelect = true;
+            this.LV_WindowStyles.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.LV_WindowStyles.Location = new System.Drawing.Point(7, 32);
+            this.LV_WindowStyles.MultiSelect = false;
+            this.LV_WindowStyles.Name = "LV_WindowStyles";
+            this.LV_WindowStyles.Size = new System.Drawing.Size(307, 97);
+            this.LV_WindowStyles.TabIndex = 8;
+            this.LV_WindowStyles.UseCompatibleStateImageBehavior = false;
+            this.LV_WindowStyles.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Name";
+            this.columnHeader1.Width = 153;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Value";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeader2.Width = 120;
+            // 
+            // LNKLBL_ModuleInfo
+            // 
+            this.LNKLBL_ModuleInfo.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(159)))));
+            this.LNKLBL_ModuleInfo.AutoSize = true;
+            this.LNKLBL_ModuleInfo.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.LNKLBL_ModuleInfo.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.LNKLBL_ModuleInfo.Location = new System.Drawing.Point(3, 146);
+            this.LNKLBL_ModuleInfo.Name = "LNKLBL_ModuleInfo";
+            this.LNKLBL_ModuleInfo.Size = new System.Drawing.Size(145, 13);
+            this.LNKLBL_ModuleInfo.TabIndex = 17;
+            this.LNKLBL_ModuleInfo.TabStop = true;
+            this.LNKLBL_ModuleInfo.Text = "Extended Module Information";
+            this.LNKLBL_ModuleInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LNKLBL_ModuleInfo_LinkClicked);
             // 
             // Frm_Main
             // 
