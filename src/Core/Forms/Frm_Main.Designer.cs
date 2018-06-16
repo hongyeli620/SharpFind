@@ -232,7 +232,7 @@
             this.TB_RestoredRect.Location = new System.Drawing.Point(117, 134);
             this.TB_RestoredRect.Name = "TB_RestoredRect";
             this.TB_RestoredRect.ReadOnly = true;
-            this.TB_RestoredRect.Size = new System.Drawing.Size(195, 13);
+            this.TB_RestoredRect.Size = new System.Drawing.Size(197, 13);
             this.TB_RestoredRect.TabIndex = 25;
             // 
             // CMB_WindowBytes
@@ -242,9 +242,9 @@
             this.CMB_WindowBytes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CMB_WindowBytes.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.CMB_WindowBytes.FormattingEnabled = true;
-            this.CMB_WindowBytes.Location = new System.Drawing.Point(113, 243);
+            this.CMB_WindowBytes.Location = new System.Drawing.Point(117, 243);
             this.CMB_WindowBytes.Name = "CMB_WindowBytes";
-            this.CMB_WindowBytes.Size = new System.Drawing.Size(199, 21);
+            this.CMB_WindowBytes.Size = new System.Drawing.Size(197, 21);
             this.CMB_WindowBytes.TabIndex = 23;
             // 
             // label1
@@ -268,7 +268,7 @@
             this.TB_Style.Location = new System.Drawing.Point(117, 88);
             this.TB_Style.Name = "TB_Style";
             this.TB_Style.ReadOnly = true;
-            this.TB_Style.Size = new System.Drawing.Size(195, 13);
+            this.TB_Style.Size = new System.Drawing.Size(197, 13);
             this.TB_Style.TabIndex = 21;
             // 
             // LBL_Style
@@ -292,7 +292,7 @@
             this.TB_WindowHandle.Location = new System.Drawing.Point(117, 42);
             this.TB_WindowHandle.Name = "TB_WindowHandle";
             this.TB_WindowHandle.ReadOnly = true;
-            this.TB_WindowHandle.Size = new System.Drawing.Size(195, 13);
+            this.TB_WindowHandle.Size = new System.Drawing.Size(197, 13);
             this.TB_WindowHandle.TabIndex = 1;
             // 
             // TB_Class
@@ -305,7 +305,7 @@
             this.TB_Class.Location = new System.Drawing.Point(117, 69);
             this.TB_Class.Name = "TB_Class";
             this.TB_Class.ReadOnly = true;
-            this.TB_Class.Size = new System.Drawing.Size(195, 13);
+            this.TB_Class.Size = new System.Drawing.Size(197, 13);
             this.TB_Class.TabIndex = 8;
             // 
             // LBL_WindowHandle
@@ -350,7 +350,7 @@
             this.TB_WindowCaption.Location = new System.Drawing.Point(117, 10);
             this.TB_WindowCaption.Name = "TB_WindowCaption";
             this.TB_WindowCaption.ReadOnly = true;
-            this.TB_WindowCaption.Size = new System.Drawing.Size(195, 20);
+            this.TB_WindowCaption.Size = new System.Drawing.Size(197, 20);
             this.TB_WindowCaption.TabIndex = 3;
             // 
             // LBL_WindowCaption
@@ -385,7 +385,7 @@
             this.TB_UserData.Location = new System.Drawing.Point(117, 219);
             this.TB_UserData.Name = "TB_UserData";
             this.TB_UserData.ReadOnly = true;
-            this.TB_UserData.Size = new System.Drawing.Size(195, 13);
+            this.TB_UserData.Size = new System.Drawing.Size(197, 13);
             this.TB_UserData.TabIndex = 18;
             // 
             // LBL_Rectangle
@@ -409,7 +409,7 @@
             this.TB_InstanceHandle.Location = new System.Drawing.Point(117, 181);
             this.TB_InstanceHandle.Name = "TB_InstanceHandle";
             this.TB_InstanceHandle.ReadOnly = true;
-            this.TB_InstanceHandle.Size = new System.Drawing.Size(195, 13);
+            this.TB_InstanceHandle.Size = new System.Drawing.Size(197, 13);
             this.TB_InstanceHandle.TabIndex = 13;
             // 
             // TB_ControlID
@@ -422,7 +422,7 @@
             this.TB_ControlID.Location = new System.Drawing.Point(117, 200);
             this.TB_ControlID.Name = "TB_ControlID";
             this.TB_ControlID.ReadOnly = true;
-            this.TB_ControlID.Size = new System.Drawing.Size(195, 13);
+            this.TB_ControlID.Size = new System.Drawing.Size(197, 13);
             this.TB_ControlID.TabIndex = 16;
             // 
             // TB_Rectangle
@@ -435,7 +435,7 @@
             this.TB_Rectangle.Location = new System.Drawing.Point(117, 115);
             this.TB_Rectangle.Name = "TB_Rectangle";
             this.TB_Rectangle.ReadOnly = true;
-            this.TB_Rectangle.Size = new System.Drawing.Size(195, 13);
+            this.TB_Rectangle.Size = new System.Drawing.Size(197, 13);
             this.TB_Rectangle.TabIndex = 10;
             // 
             // LBL_ClientRect
@@ -459,7 +459,7 @@
             this.TB_ClientRect.Location = new System.Drawing.Point(117, 153);
             this.TB_ClientRect.Name = "TB_ClientRect";
             this.TB_ClientRect.ReadOnly = true;
-            this.TB_ClientRect.Size = new System.Drawing.Size(195, 13);
+            this.TB_ClientRect.Size = new System.Drawing.Size(197, 13);
             this.TB_ClientRect.TabIndex = 15;
             // 
             // LBL_InstanceHandle
@@ -577,7 +577,7 @@
             this.CMB_ClassBytes.FormattingEnabled = true;
             this.CMB_ClassBytes.Location = new System.Drawing.Point(176, 66);
             this.CMB_ClassBytes.Name = "CMB_ClassBytes";
-            this.CMB_ClassBytes.Size = new System.Drawing.Size(136, 21);
+            this.CMB_ClassBytes.Size = new System.Drawing.Size(138, 21);
             this.CMB_ClassBytes.TabIndex = 28;
             // 
             // LBL_IconHandleSM
@@ -601,7 +601,7 @@
             this.TB_IconHandleSM.Location = new System.Drawing.Point(117, 176);
             this.TB_IconHandleSM.Name = "TB_IconHandleSM";
             this.TB_IconHandleSM.ReadOnly = true;
-            this.TB_IconHandleSM.Size = new System.Drawing.Size(195, 13);
+            this.TB_IconHandleSM.Size = new System.Drawing.Size(197, 13);
             this.TB_IconHandleSM.TabIndex = 26;
             // 
             // LBL_BkgndBrush
@@ -625,7 +625,7 @@
             this.TB_BkgndBrush.Location = new System.Drawing.Point(117, 222);
             this.TB_BkgndBrush.Name = "TB_BkgndBrush";
             this.TB_BkgndBrush.ReadOnly = true;
-            this.TB_BkgndBrush.Size = new System.Drawing.Size(195, 13);
+            this.TB_BkgndBrush.Size = new System.Drawing.Size(197, 13);
             this.TB_BkgndBrush.TabIndex = 24;
             // 
             // LBL_CursorHandle
@@ -649,7 +649,7 @@
             this.TB_CursorHandle.Location = new System.Drawing.Point(117, 195);
             this.TB_CursorHandle.Name = "TB_CursorHandle";
             this.TB_CursorHandle.ReadOnly = true;
-            this.TB_CursorHandle.Size = new System.Drawing.Size(195, 13);
+            this.TB_CursorHandle.Size = new System.Drawing.Size(197, 13);
             this.TB_CursorHandle.TabIndex = 22;
             // 
             // LBL_IconHandle
@@ -673,7 +673,7 @@
             this.TB_IconHandle.Location = new System.Drawing.Point(117, 157);
             this.TB_IconHandle.Name = "TB_IconHandle";
             this.TB_IconHandle.ReadOnly = true;
-            this.TB_IconHandle.Size = new System.Drawing.Size(195, 13);
+            this.TB_IconHandle.Size = new System.Drawing.Size(197, 13);
             this.TB_IconHandle.TabIndex = 20;
             // 
             // CMB_ClassStyles
@@ -686,7 +686,7 @@
             this.CMB_ClassStyles.FormattingEnabled = true;
             this.CMB_ClassStyles.Location = new System.Drawing.Point(176, 39);
             this.CMB_ClassStyles.Name = "CMB_ClassStyles";
-            this.CMB_ClassStyles.Size = new System.Drawing.Size(136, 21);
+            this.CMB_ClassStyles.Size = new System.Drawing.Size(138, 21);
             this.CMB_ClassStyles.TabIndex = 19;
             // 
             // TB_ClassBytes
@@ -722,7 +722,7 @@
             this.TB_WindowBytes.Location = new System.Drawing.Point(117, 129);
             this.TB_WindowBytes.Name = "TB_WindowBytes";
             this.TB_WindowBytes.ReadOnly = true;
-            this.TB_WindowBytes.Size = new System.Drawing.Size(195, 13);
+            this.TB_WindowBytes.Size = new System.Drawing.Size(197, 13);
             this.TB_WindowBytes.TabIndex = 16;
             // 
             // LBL_WindowBytes
@@ -746,7 +746,7 @@
             this.TB_ClassAtom.Location = new System.Drawing.Point(117, 102);
             this.TB_ClassAtom.Name = "TB_ClassAtom";
             this.TB_ClassAtom.ReadOnly = true;
-            this.TB_ClassAtom.Size = new System.Drawing.Size(195, 13);
+            this.TB_ClassAtom.Size = new System.Drawing.Size(197, 13);
             this.TB_ClassAtom.TabIndex = 14;
             // 
             // LBL_ClassAtom
@@ -792,7 +792,7 @@
             this.TB_ClassName.Location = new System.Drawing.Point(117, 10);
             this.TB_ClassName.Name = "TB_ClassName";
             this.TB_ClassName.ReadOnly = true;
-            this.TB_ClassName.Size = new System.Drawing.Size(195, 20);
+            this.TB_ClassName.Size = new System.Drawing.Size(197, 20);
             this.TB_ClassName.TabIndex = 10;
             // 
             // LBL_ClassName
@@ -838,7 +838,7 @@
             this.TB_PriorityClass.Location = new System.Drawing.Point(117, 115);
             this.TB_PriorityClass.Name = "TB_PriorityClass";
             this.TB_PriorityClass.ReadOnly = true;
-            this.TB_PriorityClass.Size = new System.Drawing.Size(195, 13);
+            this.TB_PriorityClass.Size = new System.Drawing.Size(197, 13);
             this.TB_PriorityClass.TabIndex = 16;
             // 
             // LBL_PriorityClass
@@ -862,7 +862,7 @@
             this.TB_ThreadID.Location = new System.Drawing.Point(117, 88);
             this.TB_ThreadID.Name = "TB_ThreadID";
             this.TB_ThreadID.ReadOnly = true;
-            this.TB_ThreadID.Size = new System.Drawing.Size(195, 13);
+            this.TB_ThreadID.Size = new System.Drawing.Size(197, 13);
             this.TB_ThreadID.TabIndex = 14;
             // 
             // LBL_ThreadID
@@ -886,7 +886,7 @@
             this.TB_ProcessID.Location = new System.Drawing.Point(117, 69);
             this.TB_ProcessID.Name = "TB_ProcessID";
             this.TB_ProcessID.ReadOnly = true;
-            this.TB_ProcessID.Size = new System.Drawing.Size(195, 13);
+            this.TB_ProcessID.Size = new System.Drawing.Size(197, 13);
             this.TB_ProcessID.TabIndex = 12;
             // 
             // LBL_ProcessID
@@ -910,7 +910,7 @@
             this.TB_ModulePath.Location = new System.Drawing.Point(117, 42);
             this.TB_ModulePath.Name = "TB_ModulePath";
             this.TB_ModulePath.ReadOnly = true;
-            this.TB_ModulePath.Size = new System.Drawing.Size(195, 13);
+            this.TB_ModulePath.Size = new System.Drawing.Size(197, 13);
             this.TB_ModulePath.TabIndex = 5;
             // 
             // LBL_ModulePath
@@ -933,7 +933,7 @@
             this.TB_ModuleName.Location = new System.Drawing.Point(117, 10);
             this.TB_ModuleName.Name = "TB_ModuleName";
             this.TB_ModuleName.ReadOnly = true;
-            this.TB_ModuleName.Size = new System.Drawing.Size(195, 20);
+            this.TB_ModuleName.Size = new System.Drawing.Size(197, 20);
             this.TB_ModuleName.TabIndex = 3;
             // 
             // LBL_ModuleName
