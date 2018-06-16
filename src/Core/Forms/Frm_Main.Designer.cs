@@ -165,6 +165,8 @@
             // 
             // TC_Details
             // 
+            this.TC_Details.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TC_Details.Controls.Add(this.TP_General);
             this.TC_Details.Controls.Add(this.TP_Styles);
             this.TC_Details.Controls.Add(this.TP_Class);
@@ -222,7 +224,8 @@
             // 
             // TB_RestoredRect
             // 
-            this.TB_RestoredRect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_RestoredRect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_RestoredRect.BackColor = System.Drawing.Color.White;
             this.TB_RestoredRect.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_RestoredRect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -234,6 +237,8 @@
             // 
             // CMB_WindowBytes
             // 
+            this.CMB_WindowBytes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CMB_WindowBytes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CMB_WindowBytes.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.CMB_WindowBytes.FormattingEnabled = true;
@@ -255,7 +260,8 @@
             // 
             // TB_Style
             // 
-            this.TB_Style.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_Style.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_Style.BackColor = System.Drawing.Color.White;
             this.TB_Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_Style.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -278,7 +284,8 @@
             // 
             // TB_WindowHandle
             // 
-            this.TB_WindowHandle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_WindowHandle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_WindowHandle.BackColor = System.Drawing.Color.White;
             this.TB_WindowHandle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_WindowHandle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -290,7 +297,8 @@
             // 
             // TB_Class
             // 
-            this.TB_Class.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_Class.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_Class.BackColor = System.Drawing.Color.White;
             this.TB_Class.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_Class.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -335,7 +343,8 @@
             // 
             // TB_WindowCaption
             // 
-            this.TB_WindowCaption.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_WindowCaption.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_WindowCaption.BackColor = System.Drawing.Color.White;
             this.TB_WindowCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TB_WindowCaption.Location = new System.Drawing.Point(117, 10);
@@ -368,7 +377,8 @@
             // 
             // TB_UserData
             // 
-            this.TB_UserData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_UserData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_UserData.BackColor = System.Drawing.Color.White;
             this.TB_UserData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_UserData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -391,7 +401,8 @@
             // 
             // TB_InstanceHandle
             // 
-            this.TB_InstanceHandle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_InstanceHandle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_InstanceHandle.BackColor = System.Drawing.Color.White;
             this.TB_InstanceHandle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_InstanceHandle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -403,7 +414,8 @@
             // 
             // TB_ControlID
             // 
-            this.TB_ControlID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_ControlID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_ControlID.BackColor = System.Drawing.Color.White;
             this.TB_ControlID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_ControlID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -415,7 +427,8 @@
             // 
             // TB_Rectangle
             // 
-            this.TB_Rectangle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_Rectangle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_Rectangle.BackColor = System.Drawing.Color.White;
             this.TB_Rectangle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_Rectangle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -438,7 +451,8 @@
             // 
             // TB_ClientRect
             // 
-            this.TB_ClientRect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_ClientRect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_ClientRect.BackColor = System.Drawing.Color.White;
             this.TB_ClientRect.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_ClientRect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -555,6 +569,8 @@
             // 
             // CMB_ClassBytes
             // 
+            this.CMB_ClassBytes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CMB_ClassBytes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CMB_ClassBytes.DropDownWidth = 122;
             this.CMB_ClassBytes.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -577,7 +593,8 @@
             // 
             // TB_IconHandleSM
             // 
-            this.TB_IconHandleSM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_IconHandleSM.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_IconHandleSM.BackColor = System.Drawing.Color.White;
             this.TB_IconHandleSM.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_IconHandleSM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -600,7 +617,8 @@
             // 
             // TB_BkgndBrush
             // 
-            this.TB_BkgndBrush.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_BkgndBrush.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_BkgndBrush.BackColor = System.Drawing.Color.White;
             this.TB_BkgndBrush.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_BkgndBrush.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -623,7 +641,8 @@
             // 
             // TB_CursorHandle
             // 
-            this.TB_CursorHandle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_CursorHandle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_CursorHandle.BackColor = System.Drawing.Color.White;
             this.TB_CursorHandle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_CursorHandle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -646,7 +665,8 @@
             // 
             // TB_IconHandle
             // 
-            this.TB_IconHandle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_IconHandle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_IconHandle.BackColor = System.Drawing.Color.White;
             this.TB_IconHandle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_IconHandle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -658,6 +678,8 @@
             // 
             // CMB_ClassStyles
             // 
+            this.CMB_ClassStyles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CMB_ClassStyles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CMB_ClassStyles.DropDownWidth = 122;
             this.CMB_ClassStyles.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -692,7 +714,8 @@
             // 
             // TB_WindowBytes
             // 
-            this.TB_WindowBytes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_WindowBytes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_WindowBytes.BackColor = System.Drawing.Color.White;
             this.TB_WindowBytes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_WindowBytes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -715,7 +738,8 @@
             // 
             // TB_ClassAtom
             // 
-            this.TB_ClassAtom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_ClassAtom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_ClassAtom.BackColor = System.Drawing.Color.White;
             this.TB_ClassAtom.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TB_ClassAtom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -761,7 +785,8 @@
             // 
             // TB_ClassName
             // 
-            this.TB_ClassName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_ClassName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_ClassName.BackColor = System.Drawing.Color.White;
             this.TB_ClassName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TB_ClassName.Location = new System.Drawing.Point(117, 10);
@@ -1036,6 +1061,7 @@
             // 
             // BTN_Close
             // 
+            this.BTN_Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BTN_Close.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.BTN_Close.Location = new System.Drawing.Point(261, 316);
             this.BTN_Close.Name = "BTN_Close";
@@ -1047,6 +1073,8 @@
             // 
             // separator1
             // 
+            this.separator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.separator1.Location = new System.Drawing.Point(7, 322);
             this.separator1.Name = "separator1";
             this.separator1.Orientation = SharpFind.Controls.Separator._Orientation.Horizontal;
@@ -1057,6 +1085,8 @@
             // 
             // LV_ExtendedStyles
             // 
+            this.LV_ExtendedStyles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LV_ExtendedStyles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader3,
             this.columnHeader4});
@@ -1083,6 +1113,8 @@
             // 
             // LV_WindowStyles
             // 
+            this.LV_WindowStyles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LV_WindowStyles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
