@@ -155,9 +155,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LBL_HowTo.AutoEllipsis = true;
             this.LBL_HowTo.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LBL_HowTo.Location = new System.Drawing.Point(47, 17);
+            this.LBL_HowTo.Location = new System.Drawing.Point(51, 19);
             this.LBL_HowTo.Name = "LBL_HowTo";
-            this.LBL_HowTo.Size = new System.Drawing.Size(273, 29);
+            this.LBL_HowTo.Size = new System.Drawing.Size(267, 29);
             this.LBL_HowTo.TabIndex = 1;
             this.LBL_HowTo.Text = "Drag the crosshair over a window to select it, then release the mouse button to r" +
     "etrieve HWND properties.";
