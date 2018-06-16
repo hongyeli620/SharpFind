@@ -54,28 +54,53 @@ namespace SharpFind.Controls
             SetStyle(ControlStyles.ResizeRedraw, true);
             Size = new Size(120, 10);
 
-            // Requires <supportedOS Id="{...}"/> to be uncommented in app.manifest
-            var OsVer = Environment.OSVersion.Version.Major;
-            if (OsVer == 5.0)
-            { 
-                color = "#848284";
-                DrawEdge = true;
-            } // Windows 2000
-            else if (OsVer >= 5.1 && OsVer <= 5.2)
+            SetControlStyle();
+        }
+
+        /// <summary>
+        /// Sets the control style based on the operating system.
+        /// </summary>
+        private void SetControlStyle()
+        {
+//          Console.WriteLine(Environment.OSVersion.Version.Major.ToString() + "." + 
+//                            Environment.OSVersion.Version.Minor.ToString());
+
+            switch (Environment.OSVersion.Version.Major)
             {
-                color = "#D0D0BF";
-                DrawEdge = false;
-            } // Windows XP to Server 2003
-            else if (OsVer >= 6.0 && OsVer <= 6.1)
-            {
-                color = "#D5DFE5";
-                DrawEdge = true;
-            } // Windows Vista to 7
-            else if (OsVer == 10.0)
-            { 
-                color = "#DCDCDC";
-                DrawEdge = false;
-            } // Windows Server 2012 to 8.1
+                case 5:
+                    switch (Environment.OSVersion.Version.Minor)
+                    {
+                        case 0: // Windows 2000
+                            color = "#808080";
+                            DrawEdge = true;
+                            break;
+                        case 1: // Windows XP
+                        case 2: // Windows XP 64-bit & Windows Server 2003
+                            color = "#D0D0BF";
+                            DrawEdge = false;
+                            break;
+                    }
+                    break;
+                case 6:
+                    switch (Environment.OSVersion.Version.Minor)
+                    {
+                        case 0: // Windows Vista & Windows Server 2008
+                        case 1: // Windows 7 & Windows Server 2008 R2
+                            color = "#D5DFE5";
+                            DrawEdge = true;
+                            break;
+                        case 2: // Windows 8 & Windows Server 2012
+                        case 3: // Windows 8.1 & Windows Server 2012 R2
+                            color = "#DCDCDC";
+                            DrawEdge = false;
+                            break;
+                    }
+                    break;
+                case 10: // Windows 10 and beyond
+                    color = "#DCDCDC";
+                    DrawEdge = false;
+                    break;
+            }
         }
 
         protected override void OnResize(EventArgs e)
