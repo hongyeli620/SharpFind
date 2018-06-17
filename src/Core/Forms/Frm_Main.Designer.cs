@@ -1162,7 +1162,7 @@
             this.Controls.Add(this.PNL_Top);
             this.KeyPreview = true;
             this.Name = "Frm_Main";
-            this.Text = "Form1";
+            this.Text = "#Find";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Main_FormClosing);
             this.Load += new System.EventHandler(this.Frm_Main_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frm_Main_KeyDown);
