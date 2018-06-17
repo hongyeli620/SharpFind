@@ -109,6 +109,7 @@ namespace SharpFind.Forms
             {
                 const int STATUS_SUCCESS = 0x0;
                 const NativeMethods.THREADINFOCLASS flag = NativeMethods.THREADINFOCLASS.ThreadQuerySetWin32StartAddress;
+
                 var ntStatus = NativeMethods.NtQueryInformationThread(hThread, flag, dwStartAddress, IntPtr.Size, IntPtr.Zero);
                 if (ntStatus != STATUS_SUCCESS)
                     throw new Win32Exception($"NtQueryInformationThread failure. NTSTATUS returns 0x{ntStatus:X4}.");
@@ -138,7 +139,8 @@ namespace SharpFind.Forms
         {
             foreach (ProcessModule pm in p.Modules)
             {
-                if (startAddress >= (long)pm.BaseAddress && startAddress <= (long)pm.BaseAddress + pm.ModuleMemorySize)
+                if (startAddress >= (long)pm.BaseAddress && 
+                    startAddress <= (long)pm.BaseAddress + pm.ModuleMemorySize)
                     return pm.ModuleName + "+0x" + (startAddress - (long)pm.BaseAddress).ToString("X2");
             }
             return string.Empty;
