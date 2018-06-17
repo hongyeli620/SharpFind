@@ -931,7 +931,7 @@ namespace SharpFind
             if (IsDpi96())
             {
                 formHeightCollapsed = 99;
-                formHeightExtended  = 440;
+                formHeightExtended  = 442;
 
                 PB_Tool.Location   = new Point(10, 18);
                 LBL_HowTo.Location = new Point(51, 19);

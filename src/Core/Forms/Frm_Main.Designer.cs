@@ -1055,7 +1055,7 @@
             this.PNL_Bottom.Location = new System.Drawing.Point(0, 66);
             this.PNL_Bottom.Name = "PNL_Bottom";
             this.PNL_Bottom.Padding = new System.Windows.Forms.Padding(5);
-            this.PNL_Bottom.Size = new System.Drawing.Size(342, 346);
+            this.PNL_Bottom.Size = new System.Drawing.Size(342, 347);
             this.PNL_Bottom.TabIndex = 4;
             this.PNL_Bottom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EasyMove);
             // 
@@ -1157,7 +1157,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 412);
+            this.ClientSize = new System.Drawing.Size(342, 413);
             this.Controls.Add(this.PNL_Bottom);
             this.Controls.Add(this.PNL_Top);
             this.KeyPreview = true;
