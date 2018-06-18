@@ -20,27 +20,6 @@ namespace SharpFind.Classes
         {
             /// <summary>
             /// Based on Windows Kits\8.1\Include\um\WinUser.h
-            /// </summary>
-            internal static class ClassStyles
-            {
-                internal static readonly int
-                CS_VREDRAW         = 0x0001,
-                CS_HREDRAW         = 0x0002,
-                CS_DBLCLKS         = 0x0008,
-                CS_OWNDC           = 0x0020,
-                CS_CLASSDC         = 0x0040,
-                CS_PARENTDC        = 0x0080,
-                CS_NOCLOSE         = 0x0200,
-                CS_SAVEBITS        = 0x0800,
-                CS_BYTEALIGNCLIENT = 0x1000,
-                CS_BYTEALIGNWINDOW = 0x2000,
-                CS_GLOBALCLASS     = 0x4000,
-                CS_IME             = 0x00010000,
-                CS_DROPSHADOW      = 0x00020000;
-            }
-
-            /// <summary>
-            /// Based on Windows Kits\8.1\Include\um\WinUser.h
             /// See: https://msdn.microsoft.com/en-us/library/windows/desktop/ms632600(v=vs.85).aspx
             /// </summary>
             internal static class WindowStyles
