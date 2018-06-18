@@ -602,11 +602,19 @@ namespace SharpFind
 
             var value = sb.ToString();
             // Output identifiers for the cute little classes below
-            if (value == "#32768") return value + " (Menu)";
-            if (value == "#32769") return value + " (Desktop window)";
-            if (value == "#32770") return value + " (Dialog box)";
-            if (value == "#32771") return value + " (Task-switch window)";
-            if (value == "#32772") return value + " (Icon title)";
+            switch (value)
+            {
+                case "#32768":
+                    return value + " (Menu)";
+                case "#32769":
+                    return value + " (Desktop window)";
+                case "#32770":
+                    return value + " (Dialog box)";
+                case "#32771":
+                    return value + " (Task-switch window)";
+                case "#32772":
+                    return value + " (Icon title)";
+            }
 
             return value;
         }
