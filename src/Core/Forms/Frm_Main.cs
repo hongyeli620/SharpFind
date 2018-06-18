@@ -695,7 +695,7 @@ namespace SharpFind
 
         private static string GetCursorHandle(IntPtr hWnd)
         {
-            var value = hPrefix + GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_HCURSOR).ToString("X");
+            var value = GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_HCURSOR).ToString("X");
 
             if (Environment.OSVersion.Version.Major <= 5.1)
             {
@@ -703,19 +703,19 @@ namespace SharpFind
                 switch (value)
                 {
                     case "0"    : return "(none)";
-                    case "10011": return value + " (IDC_ARROW)";
-                    case "10013": return value + " (IDC_IBEAM)";
-                    case "10015": return value + " (IDC_WAIT)";
-                    case "10017": return value + " (IDC_CROSS)";
-                    case "10019": return value + " (IDC_UPARROW)";
-                    case "1001B": return value + " (IDC_SIZENWSE)";
-                    case "1001D": return value + " (IDC_SIZENESW)";
-                    case "1001F": return value + " (IDC_SIZEWE)";
-                    case "10021": return value + " (IDC_SIZENS)";
-                    case "10023": return value + " (IDC_SIZEALL)";
-                    case "10025": return value + " (IDC_NO)";
-                    case "10027": return value + " (IDC_APPSTARTING)";
-                    case "10029": return value + " (IDC_HELP)";
+                    case "10011": return hPrefix + value + " (IDC_ARROW)";
+                    case "10013": return hPrefix + value + " (IDC_IBEAM)";
+                    case "10015": return hPrefix + value + " (IDC_WAIT)";
+                    case "10017": return hPrefix + value + " (IDC_CROSS)";
+                    case "10019": return hPrefix + value + " (IDC_UPARROW)";
+                    case "1001B": return hPrefix + value + " (IDC_SIZENWSE)";
+                    case "1001D": return hPrefix + value + " (IDC_SIZENESW)";
+                    case "1001F": return hPrefix + value + " (IDC_SIZEWE)";
+                    case "10021": return hPrefix + value + " (IDC_SIZENS)";
+                    case "10023": return hPrefix + value + " (IDC_SIZEALL)";
+                    case "10025": return hPrefix + value + " (IDC_NO)";
+                    case "10027": return hPrefix + value + " (IDC_APPSTARTING)";
+                    case "10029": return hPrefix + value + " (IDC_HELP)";
                 }
             }
             else if (Environment.OSVersion.Version.Major >= 6)
@@ -724,19 +724,19 @@ namespace SharpFind
                 switch (value)
                 {
                     case "0"    : return "(none)";
-                    case "10003": return value + " (IDC_ARROW)";
-                    case "10005": return value + " (IDC_IBEAM)";
-                    case "10007": return value + " (IDC_WAIT)";
-                    case "10009": return value + " (IDC_CROSS)";
-                    case "1000B": return value + " (IDC_UPARROW)";
-                    case "1000D": return value + " (IDC_SIZENWSE)";
-                    case "1000F": return value + " (IDC_SIZENESW)";
-                    case "10011": return value + " (IDC_SIZEWE)";
-                    case "10013": return value + " (IDC_SIZENS)";
-                    case "10015": return value + " (IDC_SIZEALL)";
-                    case "10017": return value + " (IDC_NO)";
-                    case "10019": return value + " (IDC_APPSTARTING)";
-                    case "1001B": return value + " (IDC_HELP)";
+                    case "10003": return hPrefix + value + " (IDC_ARROW)";
+                    case "10005": return hPrefix + value + " (IDC_IBEAM)";
+                    case "10007": return hPrefix + value + " (IDC_WAIT)";
+                    case "10009": return hPrefix + value + " (IDC_CROSS)";
+                    case "1000B": return hPrefix + value + " (IDC_UPARROW)";
+                    case "1000D": return hPrefix + value + " (IDC_SIZENWSE)";
+                    case "1000F": return hPrefix + value + " (IDC_SIZENESW)";
+                    case "10011": return hPrefix + value + " (IDC_SIZEWE)";
+                    case "10013": return hPrefix + value + " (IDC_SIZENS)";
+                    case "10015": return hPrefix + value + " (IDC_SIZEALL)";
+                    case "10017": return hPrefix + value + " (IDC_NO)";
+                    case "10019": return hPrefix + value + " (IDC_APPSTARTING)";
+                    case "1001B": return hPrefix + value + " (IDC_HELP)";
                 }
             }
 
