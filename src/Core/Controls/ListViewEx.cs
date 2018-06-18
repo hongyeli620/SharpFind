@@ -1,14 +1,13 @@
 ﻿/* ListViewEx.cs
 ** This file is part #Find.
 ** 
-** Copyright 2017 by Jad Altahan <xviyy@aol.com>
+** Copyright 2018 by Jad Altahan <xviyy@aol.com>
 ** Licensed under MIT
 ** <https://github.com/xv/SharpFind/blob/master/LICENSE>
 */
 
 using System.Windows.Forms;
 using System;
-using SharpFind.Classes;
 
 namespace SharpFind.Controls
 {
@@ -25,7 +24,7 @@ namespace SharpFind.Controls
         protected override void OnHandleCreated(EventArgs e)
         {
             if (Environment.OSVersion.Version.Major >= 6)
-                NativeMethods.SetWindowTheme(Handle, "explorer", null);
+                Win32.SetWindowTheme(Handle, "explorer", null);
 
             base.OnHandleCreated(e);
         }

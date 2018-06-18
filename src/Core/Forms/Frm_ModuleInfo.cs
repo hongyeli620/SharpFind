@@ -1,7 +1,7 @@
 ﻿/* Frm_ModuleInfo.cs
 ** This file is part #Find.
 ** 
-** Copyright 2017 by Jad Altahan <xviyy@aol.com>
+** Copyright 2018 by Jad Altahan <xviyy@aol.com>
 ** Licensed under MIT
 ** <https://github.com/xv/SharpFind/blob/master/LICENSE>
 */
@@ -14,7 +14,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using System;
-using SharpFind.Classes;
 
 namespace SharpFind.Forms
 {
@@ -93,14 +92,14 @@ namespace SharpFind.Forms
         private static string FormatByteSize(long byteCount)
         {
             var sb = new StringBuilder(10);
-            NativeMethods.StrFormatByteSize(byteCount, sb, sb.Capacity);
+            Win32.StrFormatByteSize(byteCount, sb, sb.Capacity);
 
             return sb.ToString();
         }
 
         private static IntPtr GetThreadStartAddress(uint tid)
         {
-            var hThread = NativeMethods.OpenThread(NativeMethods.ThreadAccess.QUERY_INFORMATION, false, tid);
+            var hThread = Win32.OpenThread(Win32.ThreadAccess.QUERY_INFORMATION, false, tid);
             if (hThread == IntPtr.Zero)
                 throw new Win32Exception(Marshal.GetLastWin32Error(), "Unable to open thread.");
 
@@ -108,9 +107,9 @@ namespace SharpFind.Forms
             try
             {
                 const int STATUS_SUCCESS = 0x0;
-                const NativeMethods.THREADINFOCLASS flag = NativeMethods.THREADINFOCLASS.ThreadQuerySetWin32StartAddress;
+                const Win32.THREADINFOCLASS flag = Win32.THREADINFOCLASS.ThreadQuerySetWin32StartAddress;
 
-                var ntStatus = NativeMethods.NtQueryInformationThread(hThread, flag, dwStartAddress, IntPtr.Size, IntPtr.Zero);
+                var ntStatus = Win32.NtQueryInformationThread(hThread, flag, dwStartAddress, IntPtr.Size, IntPtr.Zero);
                 if (ntStatus != STATUS_SUCCESS)
                     throw new Win32Exception($"NtQueryInformationThread failure. NTSTATUS returns 0x{ntStatus:X4}.");
 
@@ -118,7 +117,7 @@ namespace SharpFind.Forms
             }
             finally
             {
-                NativeMethods.CloseHandle(hThread);
+                Win32.CloseHandle(hThread);
                 Marshal.FreeHGlobal(dwStartAddress);
             }
         }
@@ -178,14 +177,14 @@ namespace SharpFind.Forms
         {
             const int SW_SHOW = 5;
 
-            var info    = new NativeMethods.SHELLEXECUTEINFO();
+            var info    = new Win32.SHELLEXECUTEINFO();
             info.cbSize = Marshal.SizeOf(info);
             info.lpVerb = "properties";
             info.lpFile = path;
             info.nShow  = SW_SHOW;
             info.fMask  = 0xc;
 
-            if (!NativeMethods.ShellExecuteEx(ref info))
+            if (!Win32.ShellExecuteEx(ref info))
                 throw new Win32Exception(Marshal.GetLastWin32Error());
         }
 
@@ -221,22 +220,22 @@ namespace SharpFind.Forms
         /// </param>
         private void GetModuleDetails(int pid)
         {
-            const NativeMethods.SnapshotFlags flags = NativeMethods.SnapshotFlags.TH32CS_SNAPMODULE | 
-                                                      NativeMethods.SnapshotFlags.TH32CS_SNAPMODULE32;
+            const Win32.SnapshotFlags flags = Win32.SnapshotFlags.TH32CS_SNAPMODULE |
+                                              Win32.SnapshotFlags.TH32CS_SNAPMODULE32;
 
-            var hModuleSnap = NativeMethods.CreateToolhelp32Snapshot(flags, pid);
+            var hModuleSnap = Win32.CreateToolhelp32Snapshot(flags, pid);
             if (hModuleSnap == INVALID_HANDLE_VALUE)
                 return;
 
-            var modEntry = new NativeMethods.MODULEENTRY32()
+            var modEntry = new Win32.MODULEENTRY32()
             {
-                dwSize = (uint)Marshal.SizeOf(typeof(NativeMethods.MODULEENTRY32)),
+                dwSize = (uint)Marshal.SizeOf(typeof(Win32.MODULEENTRY32)),
                 th32ModuleID = 0
             };
 
-            if (!NativeMethods.Module32First(hModuleSnap, ref modEntry))
+            if (!Win32.Module32First(hModuleSnap, ref modEntry))
             {
-                NativeMethods.CloseHandle(hModuleSnap);
+                Win32.CloseHandle(hModuleSnap);
                 return;
             }
 
@@ -264,10 +263,10 @@ namespace SharpFind.Forms
                      break;
                 }
             }
-            while (NativeMethods.Module32Next(hModuleSnap, ref modEntry));
+            while (Win32.Module32Next(hModuleSnap, ref modEntry));
 
             // Close the object
-            NativeMethods.CloseHandle(hModuleSnap);
+            Win32.CloseHandle(hModuleSnap);
 
             /* Sort the items and remove the duplicate module name. The
             ** duplication happens because SnapshotFlags searches for both 32-bit
@@ -280,7 +279,7 @@ namespace SharpFind.Forms
             {
                 if (LV_Module.Items[i].Tag.Equals(LV_Module.Items[i + 1].Tag))
                 {
-                    LV_Module.Items[i].BackColor = SystemColors.GradientActiveCaption;
+                    LV_Module.Items[i].ForeColor = Color.Red;
                     LV_Module.Items[i + 1].Remove();
                     i--;
                 }
@@ -301,20 +300,19 @@ namespace SharpFind.Forms
         /// </summary>
         private void GetThreadDetails(int pid)
         {
-            const NativeMethods.SnapshotFlags flags = NativeMethods.SnapshotFlags.TH32CS_SNAPTHREAD;
-            var hModuleSnap = NativeMethods.CreateToolhelp32Snapshot(flags, pid);
+            var hModuleSnap = Win32.CreateToolhelp32Snapshot(Win32.SnapshotFlags.TH32CS_SNAPTHREAD, pid);
             if (hModuleSnap == INVALID_HANDLE_VALUE)
                 return;
 
-            var threadEntry = new NativeMethods.THREADENTRY32
+            var threadEntry = new Win32.THREADENTRY32
             {
-                dwSize   = (uint)Marshal.SizeOf(typeof(NativeMethods.THREADENTRY32)),
+                dwSize   = (uint)Marshal.SizeOf(typeof(Win32.THREADENTRY32)),
                 cntUsage = 0
             };
 
-            if (!NativeMethods.Thread32First(hModuleSnap, ref threadEntry))
+            if (!Win32.Thread32First(hModuleSnap, ref threadEntry))
             {
-                NativeMethods.CloseHandle(hModuleSnap);
+                Win32.CloseHandle(hModuleSnap);
                 return;
             }
 
@@ -343,10 +341,10 @@ namespace SharpFind.Forms
                     LV_Thread.Items.Add(lvi);
                 }
             }
-            while (NativeMethods.Thread32Next(hModuleSnap, ref threadEntry));
+            while (Win32.Thread32Next(hModuleSnap, ref threadEntry));
 
             // Close the object
-            NativeMethods.CloseHandle(hModuleSnap);
+            Win32.CloseHandle(hModuleSnap);
 
             LV_Thread.Sorting = SortOrder.Ascending;
             threadCount = LV_Thread.Items.Count;

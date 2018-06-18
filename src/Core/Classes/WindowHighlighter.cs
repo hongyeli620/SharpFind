@@ -1,14 +1,13 @@
 ﻿/* WindowHighlighter.cs
 ** This file is part #Find.
 ** 
-** Copyright 2017 by Jad Altahan <xviyy@aol.com>
+** Copyright 2018 by Jad Altahan <xviyy@aol.com>
 ** Licensed under MIT
 ** <https://github.com/xv/SharpFind/blob/master/LICENSE>
 */
 
-using System;
 using System.Drawing;
-using static SharpFind.Classes.NativeMethods;
+using System;
 
 namespace SharpFind.Classes
 {
@@ -29,14 +28,14 @@ namespace SharpFind.Classes
         /// </param>
         public static void Highlight(IntPtr hWnd, bool useNativeHighlighter)
         {
-            var rect = new RECT();
-            var hDC = GetWindowDC(hWnd);
+            var rect = new Win32.RECT();
+            var hDC = Win32.GetWindowDC(hWnd);
 
-            if (hWnd == IntPtr.Zero || !IsWindow(hWnd))
+            if (hWnd == IntPtr.Zero || !Win32.IsWindow(hWnd))
                 return;
 
-            GetWindowRect(hWnd, out rect);
-            OffsetRect(ref rect, -rect.left, -rect.top);
+            Win32.GetWindowRect(hWnd, out rect);
+            Win32.OffsetRect(ref rect, -rect.left, -rect.top);
 
             // The thickness of the frame
             const int width = 3;
@@ -44,41 +43,41 @@ namespace SharpFind.Classes
             if (hDC == IntPtr.Zero)
                 return;
 
-            if (!IsRectEmpty(ref rect))
+            if (!Win32.IsRectEmpty(ref rect))
             {
                 if (useNativeHighlighter)
                 {
                     // Top side
-                    PatBlt(hDC,
-                           rect.left,
-                           rect.top,
-                           rect.right - rect.left,
-                           width,
-                           RasterOperations.PATINVERT);
+                    Win32.PatBlt(hDC,
+                                 rect.left,
+                                 rect.top,
+                                 rect.right - rect.left,
+                                 width,
+                                 Win32.RasterOperations.PATINVERT);
 
                     // Left side
-                    PatBlt(hDC,
-                           rect.left,
-                           rect.bottom - width,
-                           width,
-                           -(rect.bottom - rect.top - 2 * width),
-                           RasterOperations.PATINVERT);
-                    
+                    Win32.PatBlt(hDC,
+                                 rect.left,
+                                 rect.bottom - width,
+                                 width,
+                                 -(rect.bottom - rect.top - 2 * width),
+                                 Win32.RasterOperations.PATINVERT);
+
                     // Right side
-                    PatBlt(hDC,
-                           rect.right - width,
-                           rect.top + width,
-                           width,
-                           rect.bottom - rect.top - 2 * width,
-                           RasterOperations.PATINVERT);
-                    
+                    Win32.PatBlt(hDC,
+                                 rect.right - width,
+                                 rect.top + width,
+                                 width,
+                                 rect.bottom - rect.top - 2 * width,
+                                 Win32.RasterOperations.PATINVERT);
+
                     // Bottom side
-                    PatBlt(hDC,
-                           rect.right,
-                           rect.bottom - width,
-                           -(rect.right - rect.left),
-                           width,
-                           RasterOperations.PATINVERT);
+                    Win32.PatBlt(hDC,
+                                 rect.right,
+                                 rect.bottom - width,
+                                 -(rect.right - rect.left),
+                                 width,
+                                 Win32.RasterOperations.PATINVERT);
                 }
                 else
                 {
@@ -92,7 +91,7 @@ namespace SharpFind.Classes
                 }
             }
 
-            ReleaseDC(hWnd, hDC);
+            Win32.ReleaseDC(hWnd, hDC);
         }
 
         /// <summary>
@@ -100,12 +99,15 @@ namespace SharpFind.Classes
         /// </summary>
         public static void Refresh(IntPtr hWnd)
         {
-            InvalidateRect(hWnd, IntPtr.Zero, true);
-            UpdateWindow(hWnd);
-            RedrawWindow(hWnd, IntPtr.Zero, IntPtr.Zero, RDW_FRAME      |
-                                                         RDW_INVALIDATE |
-                                                         RDW_UPDATENOW  |
-                                                         RDW_ALLCHILDREN);
+            Win32.InvalidateRect(hWnd, IntPtr.Zero, true);
+            Win32.UpdateWindow(hWnd);
+
+            const Win32.RedrawWindowFlags flags = Win32.RedrawWindowFlags.RDW_FRAME      | 
+                                                  Win32.RedrawWindowFlags.RDW_INVALIDATE | 
+                                                  Win32.RedrawWindowFlags.RDW_UPDATENOW  |
+                                                  Win32.RedrawWindowFlags.RDW_ALLCHILDREN;
+
+            Win32.RedrawWindow(hWnd, IntPtr.Zero, IntPtr.Zero, flags);
         }
     }
 }

@@ -51,6 +51,9 @@
   <ItemGroup>
     <Compile Include="Classes\IniFile.cs" />
     <Compile Include="Classes\NativeMethods.cs" />
+    <Compile Include="Classes\Win32\API\Enums.cs" />
+    <Compile Include="Classes\Win32\API\Functions.cs" />
+    <Compile Include="Classes\Win32\API\Structs.cs" />
     <Compile Include="Classes\WindowHighlighter.cs" />
     <Compile Include="Controls\LinkLabelEx.cs">
       <SubType>Component</SubType>

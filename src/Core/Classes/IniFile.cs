@@ -1,15 +1,13 @@
 ﻿/* IniFile.cs
 ** This file is part #Find.
 ** 
-** Copyright 2017 by Jad Altahan <xviyy@aol.com>
+** Copyright 2018 by Jad Altahan <xviyy@aol.com>
 ** Licensed under MIT
 ** <https://github.com/xv/SharpFind/blob/master/LICENSE>
 */
 
 using System.Windows.Forms;
 using System;
-
-using static SharpFind.Classes.NativeMethods;
 
 namespace SharpFind.Classes
 {
@@ -52,9 +50,14 @@ namespace SharpFind.Classes
         public static string ReadData(string path, string section, string key, string defaultValue)
         {
             var sData = new string(' ', 1024);
-            var i = Convert.ToInt32(GetPrivateProfileString(section, key, defaultValue, sData, sData.Length, path));
-            var value = i > 0 ? sData.Substring(0, i) : string.Empty;
+            var i = Convert.ToInt32(Win32.GetPrivateProfileString(section, 
+                                                                  key,
+                                                                  defaultValue,
+                                                                  sData, 
+                                                                  sData.Length,
+                                                                  path));
 
+            var value = i > 0 ? sData.Substring(0, i) : string.Empty;
             return value;
         }
 
@@ -66,7 +69,7 @@ namespace SharpFind.Classes
         /// </summary>
         public static void WriteINI(string path, string section, string key, string value)
         {
-            WritePrivateProfileString(section, key, value, path);
+            Win32.WritePrivateProfileString(section, key, value, path);
         }
 
         /// <summary>
@@ -74,7 +77,7 @@ namespace SharpFind.Classes
         /// </summary>
         public static void WriteINI(string path, string section, string key, int value)
         {
-            WritePrivateProfileString(section, key, value.ToString(), path);
+            Win32.WritePrivateProfileString(section, key, value.ToString(), path);
         }
 
         /// <summary>
@@ -82,7 +85,7 @@ namespace SharpFind.Classes
         /// </summary>
         public static void WriteINI(string path, string section, string key, bool value)
         {
-            WritePrivateProfileString(section, key, value.ToString().ToLower(), path);
+            Win32.WritePrivateProfileString(section, key, value.ToString().ToLower(), path);
         }
 
         #endregion

@@ -1,7 +1,7 @@
 ﻿/* Frm_Main.cs
 ** This file is part #Find.
 ** 
-** Copyright 2017 by Jad Altahan <xviyy@aol.com>
+** Copyright 2018 by Jad Altahan <xviyy@aol.com>
 ** Licensed under MIT
 ** <https://github.com/xv/SharpFind/blob/master/LICENSE>
 */
@@ -22,7 +22,6 @@ using SharpFind.Properties;
 // <using static> is a C#6 feature. See:
 // https://blogs.msdn.microsoft.com/csharpfaq/2014/11/20/new-features-in-c-6/
 // C#6 IDE support starts at Visual Studio 2013 and up
-using static SharpFind.Classes.IniFile;
 using static SharpFind.Classes.NativeMethods.Styles.ButtonControlStyles;
 using static SharpFind.Classes.NativeMethods.Styles.ComboBoxStyles;
 using static SharpFind.Classes.NativeMethods.Styles.DateTimeControlStyles;
@@ -36,7 +35,6 @@ using static SharpFind.Classes.NativeMethods.Styles.TreeViewControlStyles;
 using static SharpFind.Classes.NativeMethods.Styles.WindowStyles;
 using static SharpFind.Classes.NativeMethods.Styles.WindowStylesEx;
 using static SharpFind.Classes.NativeMethods.Styles;
-using static SharpFind.Classes.NativeMethods;
 
 namespace SharpFind
 {
@@ -100,7 +98,7 @@ namespace SharpFind
         protected override void WndProc(ref Message m)
         {
             // Handle the Window Menu item click events
-            if (m.Msg == (int)WindowsMessages.WM_SYSCOMMAND)
+            if (m.Msg == (int)Win32.WindowsMessages.WM_SYSCOMMAND)
             {
                 switch (m.WParam.ToInt32())
                 {
@@ -122,13 +120,13 @@ namespace SharpFind
             // Handle the Finder Tool drag & release
             switch (m.Msg)
             {
-                case (int)WindowsMessages.WM_LBUTTONUP:
+                case (int)Win32.WindowsMessages.WM_LBUTTONUP:
                     CaptureMouse(false);
                     break;
-                case (int)WindowsMessages.WM_MOUSEMOVE:
+                case (int)Win32.WindowsMessages.WM_MOUSEMOVE:
                     HandleMouseMovement();
                     break;
-                case (int)WindowsMessages.WM_PAINT:
+                case (int)Win32.WindowsMessages.WM_PAINT:
                     if (LV_WindowStyles.View == View.Details && LV_WindowStyles.Columns.Count > 0)
                         LV_WindowStyles.Columns[LV_WindowStyles.Columns.Count - 1].Width = -2;
 
@@ -148,12 +146,12 @@ namespace SharpFind
         private static Point GetSystemDpi()
         {
             var result = new Point();
-            var hDC = GetDC(IntPtr.Zero);
+            var hDC = Win32.GetDC(IntPtr.Zero);
 
-            result.X = GetDeviceCaps(hDC, 88);
-            result.Y = GetDeviceCaps(hDC, 90);
+            result.X = Win32.GetDeviceCaps(hDC, 88);
+            result.Y = Win32.GetDeviceCaps(hDC, 90);
 
-            ReleaseDC(IntPtr.Zero, hDC);
+            Win32.ReleaseDC(IntPtr.Zero, hDC);
 
             return result;
         }
@@ -171,7 +169,11 @@ namespace SharpFind
         /// </summary>
         private static bool IsRunningAsAdmin()
         {
-            return new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
+            var winIdentity = WindowsIdentity.GetCurrent();
+            var adminRole   = WindowsBuiltInRole.Administrator;
+
+            return Environment.OSVersion.Version.Major >= 6 && 
+                   new WindowsPrincipal(winIdentity).IsInRole(adminRole);
         }
 
         #region General
@@ -179,17 +181,17 @@ namespace SharpFind
         private static string GetWindowText(IntPtr hWnd)
         {
             var sb = new StringBuilder(256);
-            NativeMethods.GetWindowText(hWnd, sb, 256);
+            Win32.GetWindowText(hWnd, sb, 256);
             return sb.ToString();
         }
 
         private static string GetWindowClass(IntPtr hWnd)
         {
             var sb = new StringBuilder(256);
-            NativeMethods.GetClassName(hWnd, sb, 256);
+            Win32.GetClassName(hWnd, sb, 256);
         
             var value = sb.ToString();
-            if (IsWindowUnicode(hWnd))
+            if (Win32.IsWindowUnicode(hWnd))
                 value = value + " (unicode)";
 
             return value;
@@ -197,9 +199,9 @@ namespace SharpFind
 
         private static string GetWindowRect(IntPtr hWnd)
         {
-            RECT wRect;
-            NativeMethods.GetWindowRect(hWnd, out wRect);
-            var winState = IsZoomed(hWnd) ? " (maximized)" : string.Empty;
+            Win32.RECT wRect;
+            Win32.GetWindowRect(hWnd, out wRect);
+            var winState = Win32.IsZoomed(hWnd) ? " (maximized)" : string.Empty;
 
             return string.Format("({2},{3}) - ({4},{5}), {0} x {1}{6}", wRect.right  - wRect.left,
                                                                         wRect.bottom - wRect.top,
@@ -212,8 +214,8 @@ namespace SharpFind
 
         private static string GetRestoredRect(IntPtr hWnd)
         {
-            var wp = new WINDOWPLACEMENT();
-            GetWindowPlacement(hWnd, ref wp);
+            var wp = new Win32.WINDOWPLACEMENT();
+            Win32.GetWindowPlacement(hWnd, ref wp);
             return string.Format("({0},{1}) - ({2},{3}), {4} x {5}", wp.rcNormalPosition.left,
                                                                      wp.rcNormalPosition.top,
                                                                      wp.rcNormalPosition.right,
@@ -224,8 +226,8 @@ namespace SharpFind
 
         private static string GetClientRect(IntPtr hWnd)
         {
-            RECT cRect;
-            NativeMethods.GetClientRect(hWnd, out cRect);
+            Win32.RECT cRect;
+            Win32.GetClientRect(hWnd, out cRect);
             return string.Format("({2},{3}) - ({4},{5}), {0} x {1}", cRect.right  - cRect.left,
                                                                      cRect.bottom - cRect.top,
                                                                      cRect.left,
@@ -236,22 +238,22 @@ namespace SharpFind
 
         private static string GetInstanceHandle(IntPtr hWnd)
         {
-            return hPrefix + GetWindowLong(hWnd, GWL_HINSTANCE).ToString(hFormat);
+            return hPrefix + Win32.GetWindowLong(hWnd, Win32.WindowLongIndex.GWL_HINSTANCE).ToString(hFormat);
         }
 
         private static string GetControlId(IntPtr hWnd)
         {
-            return hPrefix + GetWindowLong(hWnd, GWL_ID).ToString(hFormat);
+            return hPrefix + Win32.GetWindowLong(hWnd, Win32.WindowLongIndex.GWL_ID).ToString(hFormat);
         }
 
         private static string GetUserData(IntPtr hWnd)
         {
-            return hPrefix + GetWindowLong(hWnd, GWL_USERDATA).ToString(hFormat);
+            return hPrefix + Win32.GetWindowLong(hWnd, Win32.WindowLongIndex.GWL_USERDATA).ToString(hFormat);
         }
 
         private void GetWindowBytesCombo(IntPtr hWnd)
         {
-            var value = (long)GetClassLongPtr(hWnd, GCL_CBWNDEXTRA);
+            var value = (long)GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_CBWNDEXTRA);
             var i = 0;
 
             CMB_WindowBytes.Items.Clear();
@@ -262,7 +264,7 @@ namespace SharpFind
                 if (value >= 4)
                     // <GetWindowLongPtr> is used here, otherwise it won't work right
                     // Dealing with x68/x64 compatibility is really a pain in the ass
-                    CMB_WindowBytes.Items.Add("+" + i + "       " + hPrefix + GetWindowLongPtr(hWnd, i).ToString(hFormat));             
+                    CMB_WindowBytes.Items.Add("+" + i + "       " + hPrefix + Win32.GetWindowLongPtr(hWnd, (Win32.WindowLongIndex)i).ToString(hFormat));             
                 else
                     CMB_WindowBytes.Items.Add("+" + i + "       " + "(Unavailable)");
 
@@ -280,21 +282,21 @@ namespace SharpFind
         {
             var item = LV_WindowStyles.Items.Add(style);
             item.UseItemStyleForSubItems = false;
-            item.SubItems.Add(styleValue).ForeColor =  SystemColors.GrayText;
-            item.SubItems[1].Font = new Font("Lucida Sans Typewriter", 8F, FontStyle.Regular);
+            item.SubItems.Add(styleValue).ForeColor = Color.DimGray;
+            item.SubItems[1].Font = new Font("Lucida Sans Typewriter", 8f, FontStyle.Regular);
         }
 
         private void DumpStyleEx(string style, string styleValue)
         {
             var item = LV_ExtendedStyles.Items.Add(style);
             item.UseItemStyleForSubItems = false;
-            item.SubItems.Add(styleValue).ForeColor = SystemColors.GrayText;
-            item.SubItems[1].Font = new Font("Lucida Sans Typewriter", 8F, FontStyle.Regular);
+            item.SubItems.Add(styleValue).ForeColor = Color.DimGray;
+            item.SubItems[1].Font = new Font("Lucida Sans Typewriter", 8f, FontStyle.Regular);
         }
 
         private string GetWindowStyles(IntPtr hWnd)
         {
-            var i = GetWindowLongPtr(hWnd, GWL_STYLE);
+            var i = Win32.GetWindowLongPtr(hWnd, Win32.WindowLongIndex.GWL_STYLE);
             LV_WindowStyles.Items.Clear();
 
             if (i != 0)
@@ -538,15 +540,15 @@ namespace SharpFind
                 }
             }
 
-            var isEnabled = IsWindowEnabled(hWnd) ? "enabled" : "disabled";
-            var isVisible = IsWindowVisible(hWnd) ? "visible" : "hidden";
+            var isEnabled = Win32.IsWindowEnabled(hWnd) ? "enabled" : "disabled";
+            var isVisible = Win32.IsWindowVisible(hWnd) ? "visible" : "hidden";
 
-            return $"{hPrefix + GetWindowLong(hWnd, GWL_STYLE).ToString(hFormat)} ({isEnabled}, {isVisible})";
+            return $"{hPrefix + Win32.GetWindowLong(hWnd, Win32.WindowLongIndex.GWL_STYLE).ToString(hFormat)} ({isEnabled}, {isVisible})";
         }
 
         private string GetWindowStylesEx(IntPtr hWnd)
         {
-            var i = GetWindowLong(hWnd, GWL_EXSTYLE);
+            var i = Win32.GetWindowLong(hWnd, Win32.WindowLongIndex.GWL_EXSTYLE);
             LV_ExtendedStyles.Items.Clear();
 
             if (i != 0)
@@ -580,7 +582,7 @@ namespace SharpFind
                 if ((i & WS_EX_WINDOWEDGE)          != 0) DumpStyleEx("WS_EX_WINDOWEDGE",          WS_EX_WINDOWEDGE.ToString("X8"));
             }
 
-            return hPrefix + GetWindowLong(hWnd, GWL_EXSTYLE).ToString(hFormat);
+            return hPrefix + Win32.GetWindowLong(hWnd, Win32.WindowLongIndex.GWL_EXSTYLE).ToString(hFormat);
         }
 
         #endregion
@@ -588,15 +590,16 @@ namespace SharpFind
 
         // There are rumers that <GetClassLong> can cause software to crash on x64
         // and that's why I am using <GetClassLongPtr> instead
-        private static IntPtr GetClassLongPtr(IntPtr hWnd, int nIndex)
+        private static IntPtr GetClassLongPtr(IntPtr hWnd, Win32.ClassLongIndex nIndex)
         {
-            return IntPtr.Size > 4 ? GetClassLongPtr64(hWnd, nIndex) : new IntPtr(GetClassLongPtr32(hWnd, nIndex));
+            return IntPtr.Size > 4 ? Win32.GetClassLongPtr64(hWnd, nIndex) : 
+                                     new IntPtr(Win32.GetClassLongPtr32(hWnd, nIndex));
         }
 
         private static string GetClassName(IntPtr hWnd)
         {
             var sb = new StringBuilder(256);
-            NativeMethods.GetClassName(hWnd, sb, 256);
+            Win32.GetClassName(hWnd, sb, 256);
 
             var value = sb.ToString();
             // Output identifiers for the cute little classes below
@@ -611,7 +614,7 @@ namespace SharpFind
 
         private string GetClassStyles(IntPtr hWnd)
         {
-            var n = (int)GetClassLongPtr(hWnd, GCL_STYLE);
+            var n = (int)GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_STYLE);
 
             // Add the available class styles to the combo box
             CMB_ClassStyles.Items.Clear();
@@ -638,12 +641,12 @@ namespace SharpFind
                     CMB_ClassStyles.SelectedIndex = 0;
             }
 
-            return hPrefix + GetClassLongPtr(hWnd, GCL_STYLE).ToString(hFormat);
+            return hPrefix + GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_STYLE).ToString(hFormat);
         }
 
         private string GetClassBytes(IntPtr hWnd)
         {
-            var value = (long)GetClassLongPtr(hWnd, GCL_CBCLSEXTRA);
+            var value = (long)GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_CBCLSEXTRA);
             var i = 0;
             
             CMB_ClassBytes.Items.Clear();
@@ -652,7 +655,7 @@ namespace SharpFind
             while (value != 0)
             {
                 if (value >= 4)
-                    CMB_ClassBytes.Items.Add("+" + i + "       " + hPrefix + GetClassLongPtr(hWnd, i).ToString(hFormat));
+                    CMB_ClassBytes.Items.Add("+" + i + "       " + hPrefix + GetClassLongPtr(hWnd, (Win32.ClassLongIndex)i).ToString(hFormat));
                 else
                     CMB_ClassBytes.Items.Add("+" + i + "       " + "(Unavailable)");
 
@@ -663,34 +666,34 @@ namespace SharpFind
             if (CMB_ClassBytes.Items.Count != 0)
                 CMB_ClassBytes.SelectedIndex = 0;
 
-            return GetClassLongPtr(hWnd, GCL_CBCLSEXTRA).ToString();
+            return GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_CBCLSEXTRA).ToString();
         }
 
         private static string GetClassAtom(IntPtr hWnd)
         {
-            return hPrefix + GetClassLongPtr(hWnd, GCW_ATOM).ToString("X4");
+            return hPrefix + GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCW_ATOM).ToString("X4");
         }
 
         private static string GetWindowBytes(IntPtr hWnd)
         {
-            return GetClassLongPtr(hWnd, GCL_CBWNDEXTRA).ToString();
+            return GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_CBWNDEXTRA).ToString();
         }
 
         private static string GetIconHandle(IntPtr hWnd)
         {
-            var value = hPrefix + GetClassLongPtr(hWnd, GCL_HICON).ToString(hFormat);
+            var value = hPrefix + GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_HICON).ToString(hFormat);
             return value == "00000000" ? "(none)" : value;
         }
 
         private static string GetIconHandleSM(IntPtr hWnd)
         {
-            var value = hPrefix + GetClassLongPtr32(hWnd, GCL_HICONSM).ToString(hFormat);
+            var value = hPrefix + Win32.GetClassLongPtr32(hWnd, Win32.ClassLongIndex.GCL_HICONSM).ToString(hFormat);
             return value == "00000000" ? "(none)" : value;
         }
 
         private static string GetCursorHandle(IntPtr hWnd)
         {
-            var value = hPrefix + GetClassLongPtr(hWnd, GCL_HCURSOR).ToString("X");
+            var value = hPrefix + GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_HCURSOR).ToString("X");
             if (Environment.OSVersion.Version.Major <= 5.1)
             {
                 // Hex handles for Windows XP and below
@@ -733,7 +736,7 @@ namespace SharpFind
 
         private static string GetBackgroundBrush(IntPtr hWnd)
         {
-            var value = GetClassLongPtr(hWnd, GCL_HBRBACKGROUND).ToString();
+            var value = GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_HBRBACKGROUND).ToString();
             int n;
 
             /* Apparently, the return value of <0> is shared between <hBrush.None>
@@ -780,7 +783,7 @@ namespace SharpFind
                 case "31": n = 31; return n - 1 + " (COLOR_FORM)";
                 default:
                     // <GetClassLongPtr> sometimes reutrns "FFFFFFFF" before the actual value
-                    value = hPrefix + GetClassLongPtr32(hWnd, GCL_HBRBACKGROUND).ToString("X");
+                    value = hPrefix + Win32.GetClassLongPtr32(hWnd, Win32.ClassLongIndex.GCL_HBRBACKGROUND).ToString("X");
                     break;
             }
 
@@ -796,7 +799,7 @@ namespace SharpFind
         private static string GetModuleName(IntPtr hWnd)
         {
             var pid = 0;
-            GetWindowThreadProcessId(hWnd, ref pid);
+            Win32.GetWindowThreadProcessId(hWnd, ref pid);
             var process = Process.GetProcessById(pid);
 
             return process.MainModule.ModuleName;
@@ -805,7 +808,7 @@ namespace SharpFind
         private static string GetModulePath(IntPtr hWnd)
         {
             var pid = 0;
-            GetWindowThreadProcessId(hWnd, ref pid);
+            Win32.GetWindowThreadProcessId(hWnd, ref pid);
             var process = Process.GetProcessById(pid);
 
             return process.MainModule.FileName;
@@ -814,7 +817,7 @@ namespace SharpFind
         private static string GetProcessIdEx(IntPtr hWnd)
         {
             var pid = 0;
-            GetWindowThreadProcessId(hWnd, ref pid);
+            Win32.GetWindowThreadProcessId(hWnd, ref pid);
             var process = Process.GetProcessById(pid);
 
             return hPrefix + process.Id.ToString(hFormat) + " (" + process.Id + ")";
@@ -823,7 +826,7 @@ namespace SharpFind
         private static int GetProcessId(IntPtr hWnd)
         {
             var pid = 0;
-            GetWindowThreadProcessId(hWnd, ref pid);
+            Win32.GetWindowThreadProcessId(hWnd, ref pid);
             var process = Process.GetProcessById(pid);
 
             return process.Id;
@@ -832,24 +835,29 @@ namespace SharpFind
         private static string GetThreadId(IntPtr hWnd)
         {
             var pid = 0;
-            return hPrefix + GetWindowThreadProcessId(hWnd, ref pid).ToString(hFormat) +
-                      " (" + GetWindowThreadProcessId(hWnd, ref pid) + ")";
+            return hPrefix + Win32.GetWindowThreadProcessId(hWnd, ref pid).ToString(hFormat) +
+                      " (" + Win32.GetWindowThreadProcessId(hWnd, ref pid) + ")";
         }
 
         private string GetPriorityClass(IntPtr hWnd)
         {
-            var n = NativeMethods.GetPriorityClass(hWnd);
+            switch (Win32.GetPriorityClass(hWnd))
+            {
+                case (uint)Win32.ProcessPriorityClass.NORMAL_PRIORITY_CLASS:
+                    return "NORMAL_PRIORITY_CLASS (8)";
+                case (uint)Win32.ProcessPriorityClass.IDLE_PRIORITY_CLASS:
+                    return "IDLE_PRIORITY_CLASS (4)";
+                case (uint)Win32.ProcessPriorityClass.HIGH_PRIORITY_CLASS:
+                    return "HIGH_PRIORITY_CLASS (13)";
+                case (uint)Win32.ProcessPriorityClass.REALTIME_PRIORITY_CLASS:
+                    return "REALTIME_PRIORITY_CLASS (23)";
+                case (uint)Win32.ProcessPriorityClass.BELOW_NORMAL_PRIORITY_CLASS:
+                    return "BELOW_NORMAL_PRIORITY_CLASS (6)";
+                case (uint)Win32.ProcessPriorityClass.ABOVE_NORMAL_PRIORITY_CLASS:
+                    return "ABOVE_NORMAL_PRIORITY_CLASS (10)";
+            }
 
-            if (n == PriorityClass.NORMAL_PRIORITY_CLASS)         return TB_PriorityClass.Text = "NORMAL_PRIORITY_CLASS (8)";
-            if (n == PriorityClass.IDLE_PRIORITY_CLASS)           return TB_PriorityClass.Text = "IDLE_PRIORITY_CLASS (4)";
-            if (n == PriorityClass.HIGH_PRIORITY_CLASS)           return TB_PriorityClass.Text = "HIGH_PRIORITY_CLASS (13)";
-            if (n == PriorityClass.REALTIME_PRIORITY_CLASS)       return TB_PriorityClass.Text = "REALTIME_PRIORITY_CLASS (24)";
-            if (n == PriorityClass.BELOW_NORMAL_PRIORITY_CLASS)   return TB_PriorityClass.Text = "BELOW_NORMAL_PRIORITY_CLASS";
-            if (n == PriorityClass.ABOVE_NORMAL_PRIORITY_CLASS)   return TB_PriorityClass.Text = "ABOVE_NORMAL_PRIORITY_CLASS";
-            if (n == PriorityClass.PROCESS_MODE_BACKGROUND_BEGIN) return TB_PriorityClass.Text = "PROCESS_MODE_BACKGROUND_BEGIN";
-            if (n == PriorityClass.PROCESS_MODE_BACKGROUND_END)   return TB_PriorityClass.Text = "PROCESS_MODE_BACKGROUND_END";
-
-            return GetPriorityClass(hWnd);
+            return "(unknown)";
         }
 
         #endregion
@@ -864,32 +872,32 @@ namespace SharpFind
         /// </summary>
         private void ReadSettings()
         {
-            if (!File.Exists(SettingsPath()))
+            if (!File.Exists(IniFile.SettingsPath()))
                 return;
 
-            CMNU_RememberWinPos.Checked = ReadINI(SettingsPath(), "WindowPos", "RememberPos", true);
+            CMNU_RememberWinPos.Checked = IniFile.ReadINI(IniFile.SettingsPath(), "WindowPos", "RememberPos", true);
 
-            if (ReadINI(SettingsPath(), "WindowPos", "RememberPos", true))
+            if (IniFile.ReadINI(IniFile.SettingsPath(), "WindowPos", "RememberPos", true))
             {
-                if (ReadINI(SettingsPath(), "WindowPos", "FirstRun", true))
+                if (IniFile.ReadINI(IniFile.SettingsPath(), "WindowPos", "FirstRun", true))
                     CenterToScreen();
                 else
                 {
 
-                    var winPos = new Point(ReadINI(SettingsPath(), "WindowPos", "PosX", 0),
-                                           ReadINI(SettingsPath(), "WindowPos", "PosY", 0));
+                    var winPos = new Point(IniFile.ReadINI(IniFile.SettingsPath(), "WindowPos", "PosX", 0),
+                                           IniFile.ReadINI(IniFile.SettingsPath(), "WindowPos", "PosY", 0));
                     Location = winPos;
                 }
             }
 
-            CMNU_StayOnTop.Checked         = ReadINI(SettingsPath(), "Main",    "TopMost" ,          false);
-            CMNU_EasyMove.Checked          = ReadINI(SettingsPath(), "Main",    "EasyMove",          true);
-            CMNU_Collapse.Checked          = ReadINI(SettingsPath(), "Main",    "Collapse",          true);
-            CMNU_NativeHighlighter.Checked = ReadINI(SettingsPath(), "Main",    "NativeHighlighter", true);
+            CMNU_StayOnTop.Checked         = IniFile.ReadINI(IniFile.SettingsPath(), "Main",    "TopMost" ,          false);
+            CMNU_EasyMove.Checked          = IniFile.ReadINI(IniFile.SettingsPath(), "Main",    "EasyMove",          true);
+            CMNU_Collapse.Checked          = IniFile.ReadINI(IniFile.SettingsPath(), "Main",    "Collapse",          true);
+            CMNU_NativeHighlighter.Checked = IniFile.ReadINI(IniFile.SettingsPath(), "Main",    "NativeHighlighter", true);
 
-            CMNU_Default.Checked           = ReadINI(SettingsPath(), "HexMode", "Default",           true);
-            CMNU_VisualCPP.Checked         = ReadINI(SettingsPath(), "HexMode", "VisualCPP",         false);
-            CMNU_VisualBasic.Checked       = ReadINI(SettingsPath(), "HexMode", "VisualBasic",       false);
+            CMNU_Default.Checked           = IniFile.ReadINI(IniFile.SettingsPath(), "HexMode", "Default",           true);
+            CMNU_VisualCPP.Checked         = IniFile.ReadINI(IniFile.SettingsPath(), "HexMode", "VisualCPP",         false);
+            CMNU_VisualBasic.Checked       = IniFile.ReadINI(IniFile.SettingsPath(), "HexMode", "VisualBasic",       false);
         }
 
         /// <summary>
@@ -897,26 +905,26 @@ namespace SharpFind
         /// </summary>
         private void SaveSettings()
         {
-            if (ReadINI(SettingsPath(), "WindowPos", "FirstRun", true))
-                WriteINI(SettingsPath(), "WindowPos", "FirstRun", false);
+            if (IniFile.ReadINI(IniFile.SettingsPath(), "WindowPos", "FirstRun", true))
+                IniFile.WriteINI(IniFile.SettingsPath(), "WindowPos", "FirstRun", false);
 
-            WriteINI(SettingsPath(), "WindowPos", "RememberPos", CMNU_RememberWinPos.Checked);
+            IniFile.WriteINI(IniFile.SettingsPath(), "WindowPos", "RememberPos", CMNU_RememberWinPos.Checked);
 
             // Prevent writing a negative value
             if (WindowState != FormWindowState.Minimized)
             {
-                WriteINI(SettingsPath(), "WindowPos", "PosX", Location.X);
-                WriteINI(SettingsPath(), "WindowPos", "PosY", Location.Y);
+                IniFile.WriteINI(IniFile.SettingsPath(), "WindowPos", "PosX", Location.X);
+                IniFile.WriteINI(IniFile.SettingsPath(), "WindowPos", "PosY", Location.Y);
             }
 
-            WriteINI(SettingsPath(), "Main",    "TopMost" ,          CMNU_StayOnTop.Checked);
-            WriteINI(SettingsPath(), "Main",    "EasyMove",          CMNU_EasyMove.Checked);
-            WriteINI(SettingsPath(), "Main",    "Collapse",          CMNU_Collapse.Checked);
-            WriteINI(SettingsPath(), "Main",    "NativeHighlighter", CMNU_NativeHighlighter.Checked);
+            IniFile.WriteINI(IniFile.SettingsPath(), "Main",    "TopMost" ,          CMNU_StayOnTop.Checked);
+            IniFile.WriteINI(IniFile.SettingsPath(), "Main",    "EasyMove",          CMNU_EasyMove.Checked);
+            IniFile.WriteINI(IniFile.SettingsPath(), "Main",    "Collapse",          CMNU_Collapse.Checked);
+            IniFile.WriteINI(IniFile.SettingsPath(), "Main",    "NativeHighlighter", CMNU_NativeHighlighter.Checked);
 
-            WriteINI(SettingsPath(), "HexMode", "Default",           CMNU_Default.Checked);
-            WriteINI(SettingsPath(), "HexMode", "VisualCPP",         CMNU_VisualCPP.Checked);
-            WriteINI(SettingsPath(), "HexMode", "VisualBasic",       CMNU_VisualBasic.Checked);
+            IniFile.WriteINI(IniFile.SettingsPath(), "HexMode", "Default",           CMNU_Default.Checked);
+            IniFile.WriteINI(IniFile.SettingsPath(), "HexMode", "VisualCPP",         CMNU_VisualCPP.Checked);
+            IniFile.WriteINI(IniFile.SettingsPath(), "HexMode", "VisualBasic",       CMNU_VisualBasic.Checked);
         }
 
         #endregion
@@ -1021,7 +1029,7 @@ namespace SharpFind
         {
             if (captured)
             {
-                SetCapture(Handle);
+                Win32.SetCapture(Handle);
 
                 Cursor.Current = _cursorFinder;
                 PB_Tool.Image = Resources.finder_out;
@@ -1034,7 +1042,7 @@ namespace SharpFind
             }
             else
             {
-                ReleaseCapture();
+                Win32.ReleaseCapture();
 
                 Cursor.Current = _cursorDefault;
                 PB_Tool.Image = Resources.finder_in;
@@ -1059,11 +1067,11 @@ namespace SharpFind
             if (!isCapturing) return;
             try
             {
-                hWnd = WindowFromPoint(Cursor.Position);
+                hWnd = Win32.WindowFromPoint(Cursor.Position);
 
                 // Prevent retrieving information about the program itself, just like Spy++
                 var pid = GetProcessId(hWnd);
-                if (GetCurrentProcessId() == pid)
+                if (Win32.GetCurrentProcessId() == pid)
                 {
                     isHandleNull = true;
                     return;
@@ -1143,21 +1151,30 @@ namespace SharpFind
             PNL_Bottom.Visible = false;
 
             // Add Window Menu items
-            var handle = GetSystemMenu(Handle, false);
-            InsertMenu(handle, 05, MF_BYPOSITION | MF_SEPARATOR, 0, null);
-            InsertMenu(handle, 06, MF_BYPOSITION | MF_POPUP, (uint)CMENU_Configuration.Handle, "Configuration");
-            InsertMenu(handle, 07, MF_BYPOSITION | MF_SEPARATOR, 0, null);
-            InsertMenu(handle, 08, MF_BYPOSITION,  MNU_ABOUT,     "About...\tF1");
-            InsertMenu(handle, 09, MF_BYPOSITION,  MNU_CHANGELOG, "Changelog...");
-            InsertMenu(handle, 10, MF_BYPOSITION,  MNU_LICENSE,   "License...");
+            var handle = Win32.GetSystemMenu(Handle, false);
+            Win32.InsertMenu(handle, 05, Win32.InsertMenuFlags.MF_BYPOSITION | 
+                                         Win32.InsertMenuFlags.MF_SEPARATOR, 0, null);
+
+            Win32.InsertMenu(handle, 06, Win32.InsertMenuFlags.MF_BYPOSITION | 
+                                         Win32.InsertMenuFlags.MF_POPUP, 
+                                         (uint)CMENU_Configuration.Handle, "Configuration");
+
+            Win32.InsertMenu(handle, 07, Win32.InsertMenuFlags.MF_BYPOSITION | 
+                                         Win32.InsertMenuFlags.MF_SEPARATOR, 0, null);
+
+            Win32.InsertMenu(handle, 08, Win32.InsertMenuFlags.MF_BYPOSITION,  MNU_ABOUT,     "About...\tF1");
+            Win32.InsertMenu(handle, 09, Win32.InsertMenuFlags.MF_BYPOSITION,  MNU_CHANGELOG, "Changelog...");
+            Win32.InsertMenu(handle, 10, Win32.InsertMenuFlags.MF_BYPOSITION,  MNU_LICENSE,   "License...");
 
             // Vista and up
             if (Environment.OSVersion.Version.Major >= 6)
             {
                 if (!IsRunningAsAdmin())
                 {
-                    InsertMenu(handle, 11, MF_BYPOSITION | MF_SEPARATOR, 0, null);
-                    InsertMenu(handle, 12, MF_BYPOSITION,  MNU_ADMIN, "Run as Administrator...\tF2");
+                    Win32.InsertMenu(handle, 11, Win32.InsertMenuFlags.MF_BYPOSITION | 
+                                                 Win32.InsertMenuFlags.MF_SEPARATOR, 0, null);
+
+                    Win32.InsertMenu(handle, 12, Win32.InsertMenuFlags.MF_BYPOSITION,  MNU_ADMIN, "Run as Administrator...\tF2");
                 }
             }
 
@@ -1217,8 +1234,8 @@ namespace SharpFind
 
             if (e.Button == MouseButtons.Left)
             {
-                ReleaseCapture();
-                SendMessage(Handle, (int)WindowsMessages.WM_NCLBUTTONDOWN, HTCAPTION, 0);
+                Win32.ReleaseCapture();
+                Win32.SendMessage(Handle, (int)Win32.WindowsMessages.WM_NCLBUTTONDOWN, 0x2 /* HTCAPTION */, 0);
             }
         }
 

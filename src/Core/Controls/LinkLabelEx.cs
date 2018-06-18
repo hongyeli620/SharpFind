@@ -9,7 +9,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System;
-using SharpFind.Classes;
 
 namespace SharpFind.Controls
 {
@@ -23,7 +22,7 @@ namespace SharpFind.Controls
         private const int WM_SETCURSOR = 0x0020;
 
         private const int IDC_HAND = 32649;
-        private static readonly Cursor NativeHand = new Cursor(NativeMethods.LoadCursor(IntPtr.Zero, IDC_HAND));
+        private static readonly Cursor NativeHand = new Cursor(Win32.LoadCursor(IntPtr.Zero, IDC_HAND));
 
         #endregion
 
