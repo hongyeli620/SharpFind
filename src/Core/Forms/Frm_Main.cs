@@ -696,6 +696,7 @@ namespace SharpFind
         private static string GetCursorHandle(IntPtr hWnd)
         {
             var value = hPrefix + GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_HCURSOR).ToString("X");
+
             if (Environment.OSVersion.Version.Major <= 5.1)
             {
                 // Hex handles for Windows XP and below
@@ -791,7 +792,7 @@ namespace SharpFind
                 case "31": n = 31; return n - 1 + " (COLOR_FORM)";
                 default:
                     // GetClassLongPtr() sometimes reutrns "FFFFFFFF" before the actual value
-                    value = hPrefix + Win32.GetClassLongPtr32(hWnd, Win32.ClassLongIndex.GCL_HBRBACKGROUND).ToString("X8");
+                    value = hPrefix + Win32.GetClassLongPtr32(hWnd, Win32.ClassLongIndex.GCL_HBRBACKGROUND).ToString(hFormat);
                     break;
             }
 
