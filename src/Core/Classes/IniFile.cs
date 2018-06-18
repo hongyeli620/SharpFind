@@ -50,13 +50,7 @@ namespace SharpFind.Classes
         public static string ReadData(string path, string section, string key, string defaultValue)
         {
             var sData = new string(' ', 1024);
-            var i = Convert.ToInt32(Win32.GetPrivateProfileString(section, 
-                                                                  key,
-                                                                  defaultValue,
-                                                                  sData, 
-                                                                  sData.Length,
-                                                                  path));
-
+            var i = Convert.ToInt32(Win32.GetPrivateProfileString(section, key, defaultValue, sData, sData.Length, path));
             var value = i > 0 ? sData.Substring(0, i) : string.Empty;
             return value;
         }
