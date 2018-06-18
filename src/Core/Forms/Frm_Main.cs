@@ -691,38 +691,44 @@ namespace SharpFind
             if (Environment.OSVersion.Version.Major <= 5.1)
             {
                 // Hex handles for Windows XP and below
-                if (value == "0")     return "(none)";
-                if (value == "10011") return value + " (IDC_ARROW)";
-                if (value == "10013") return value + " (IDC_IBEAM)";
-                if (value == "10015") return value + " (IDC_WAIT)";
-                if (value == "10017") return value + " (IDC_CROSS)";
-                if (value == "10019") return value + " (IDC_UPARROW)";
-                if (value == "1001B") return value + " (IDC_SIZENWSE)";
-                if (value == "1001D") return value + " (IDC_SIZENESW)";
-                if (value == "1001F") return value + " (IDC_SIZEWE)";
-                if (value == "10021") return value + " (IDC_SIZENS)";
-                if (value == "10023") return value + " (IDC_SIZEALL)";
-                if (value == "10025") return value + " (IDC_NO)";
-                if (value == "10027") return value + " (IDC_APPSTARTING)";
-                if (value == "10029") return value + " (IDC_HELP)";
+                switch (value)
+                {
+                    case "0"    : return "(none)";
+                    case "10011": return value + " (IDC_ARROW)";
+                    case "10013": return value + " (IDC_IBEAM)";
+                    case "10015": return value + " (IDC_WAIT)";
+                    case "10017": return value + " (IDC_CROSS)";
+                    case "10019": return value + " (IDC_UPARROW)";
+                    case "1001B": return value + " (IDC_SIZENWSE)";
+                    case "1001D": return value + " (IDC_SIZENESW)";
+                    case "1001F": return value + " (IDC_SIZEWE)";
+                    case "10021": return value + " (IDC_SIZENS)";
+                    case "10023": return value + " (IDC_SIZEALL)";
+                    case "10025": return value + " (IDC_NO)";
+                    case "10027": return value + " (IDC_APPSTARTING)";
+                    case "10029": return value + " (IDC_HELP)";
+                }
             }
             else if (Environment.OSVersion.Version.Major >= 6)
             {
                 // Hex handles for Windows Vista and above
-                if (value == "0")     return "(none)";
-                if (value == "10003") return value + " (IDC_ARROW)";
-                if (value == "10005") return value + " (IDC_IBEAM)";
-                if (value == "10007") return value + " (IDC_WAIT)";
-                if (value == "10009") return value + " (IDC_CROSS)";
-                if (value == "1000B") return value + " (IDC_UPARROW)";
-                if (value == "1000D") return value + " (IDC_SIZENWSE)";
-                if (value == "1000F") return value + " (IDC_SIZENESW)";
-                if (value == "10011") return value + " (IDC_SIZEWE)";
-                if (value == "10013") return value + " (IDC_SIZENS)";
-                if (value == "10015") return value + " (IDC_SIZEALL)";
-                if (value == "10017") return value + " (IDC_NO)";
-                if (value == "10019") return value + " (IDC_APPSTARTING)";
-                if (value == "1001B") return value + " (IDC_HELP)";
+                switch (value)
+                {
+                    case "0"    : return "(none)";
+                    case "10003": return value + " (IDC_ARROW)";
+                    case "10005": return value + " (IDC_IBEAM)";
+                    case "10007": return value + " (IDC_WAIT)";
+                    case "10009": return value + " (IDC_CROSS)";
+                    case "1000B": return value + " (IDC_UPARROW)";
+                    case "1000D": return value + " (IDC_SIZENWSE)";
+                    case "1000F": return value + " (IDC_SIZENESW)";
+                    case "10011": return value + " (IDC_SIZEWE)";
+                    case "10013": return value + " (IDC_SIZENS)";
+                    case "10015": return value + " (IDC_SIZEALL)";
+                    case "10017": return value + " (IDC_NO)";
+                    case "10019": return value + " (IDC_APPSTARTING)";
+                    case "1001B": return value + " (IDC_HELP)";
+                }
             }
 
             return value;
