@@ -76,6 +76,10 @@ namespace SharpFind
             public IntPtr hProcess;
         }
 
+        /// <summary>
+        /// Describes an entry from a list of the threads executing in the system
+        /// when a snapshot was taken.
+        /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
         public struct THREADENTRY32
         {
