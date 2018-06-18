@@ -261,17 +261,22 @@ namespace SharpFind
             while (value != 0)
             {
                 if (value >= 4)
+                {
                     // <GetWindowLongPtr> is used here, otherwise it won't work right
                     // Dealing with x68/x64 compatibility is really a pain in the ass
-                    CMB_WindowBytes.Items.Add("+" + i + "       " + hPrefix + Win32.GetWindowLongPtr(hWnd, (Win32.WindowLongIndex)i).ToString(hFormat));             
+                    var bytes = Win32.GetWindowLongPtr(hWnd, (Win32.WindowLongIndex)i).ToString(hFormat);
+                    CMB_WindowBytes.Items.Add("+" + i + "       " + hPrefix + bytes);
+                }
                 else
                     CMB_WindowBytes.Items.Add("+" + i + "       " + "(Unavailable)");
 
                 i += 4; // 0, 4, 8, 12, 16, etc
                 value = Math.Max(value -4, 0);
             }
+
             // Select the first index, if any
-            if (CMB_WindowBytes.Items.Count != 0) CMB_WindowBytes.SelectedIndex = 0;
+            if (CMB_WindowBytes.Items.Count != 0)
+                CMB_WindowBytes.SelectedIndex = 0;
         }
 
         #endregion
@@ -542,7 +547,7 @@ namespace SharpFind
             var isEnabled = Win32.IsWindowEnabled(hWnd) ? "enabled" : "disabled";
             var isVisible = Win32.IsWindowVisible(hWnd) ? "visible" : "hidden";
 
-            return $"{hPrefix + Win32.GetWindowLong(hWnd, Win32.WindowLongIndex.GWL_STYLE).ToString(hFormat)} ({isEnabled}, {isVisible})";
+            return $"{hPrefix + i.ToString(hFormat)} ({isEnabled}, {isVisible})";
         }
 
         private string GetWindowStylesEx(IntPtr hWnd)
@@ -581,7 +586,7 @@ namespace SharpFind
                 if ((i & WS_EX_WINDOWEDGE)          != 0) DumpStyleEx("WS_EX_WINDOWEDGE",          WS_EX_WINDOWEDGE.ToString("X8"));
             }
 
-            return hPrefix + Win32.GetWindowLong(hWnd, Win32.WindowLongIndex.GWL_EXSTYLE).ToString(hFormat);
+            return hPrefix + i.ToString(hFormat);
         }
 
         #endregion
@@ -616,17 +621,17 @@ namespace SharpFind
 
         private string GetClassStyles(IntPtr hWnd)
         {
-            var n = (int)GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_STYLE);
+            var value = (int)GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_STYLE);
 
             // Add the available class styles to the combo box
             CMB_ClassStyles.Items.Clear();
-            CMB_ClassStyles.Enabled = n != 0;
+            CMB_ClassStyles.Enabled = value != 0;
 
-            if (n != 0)
+            if (value != 0)
             {
                 foreach (var style in Enum.GetValues(typeof(Win32.ClassStyles)))
                 {
-                    if ((n & (int)style) != 0)
+                    if ((value & (int)style) != 0)
                         CMB_ClassStyles.Items.Add(style.ToString());
                 }
 
@@ -635,7 +640,7 @@ namespace SharpFind
                     CMB_ClassStyles.SelectedIndex = 0;
             }
 
-            return hPrefix + GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_STYLE).ToString(hFormat);
+            return hPrefix + value.ToString(hFormat);
         }
 
         private string GetClassBytes(IntPtr hWnd)
@@ -649,7 +654,10 @@ namespace SharpFind
             while (value != 0)
             {
                 if (value >= 4)
-                    CMB_ClassBytes.Items.Add("+" + i + "       " + hPrefix + GetClassLongPtr(hWnd, (Win32.ClassLongIndex)i).ToString(hFormat));
+                {
+                    var bytes = GetClassLongPtr(hWnd, (Win32.ClassLongIndex)i).ToString(hFormat);
+                    CMB_ClassBytes.Items.Add("+" + i + "       " + hPrefix + bytes);
+                }
                 else
                     CMB_ClassBytes.Items.Add("+" + i + "       " + "(Unavailable)");
 
@@ -660,7 +668,7 @@ namespace SharpFind
             if (CMB_ClassBytes.Items.Count != 0)
                 CMB_ClassBytes.SelectedIndex = 0;
 
-            return GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_CBCLSEXTRA).ToString();
+            return value.ToString();
         }
 
         private static string GetClassAtom(IntPtr hWnd)
@@ -782,8 +790,8 @@ namespace SharpFind
                 case "30": n = 30; return n - 1 + " (COLOR_MENUBAR)";
                 case "31": n = 31; return n - 1 + " (COLOR_FORM)";
                 default:
-                    // <GetClassLongPtr> sometimes reutrns "FFFFFFFF" before the actual value
-                    value = hPrefix + Win32.GetClassLongPtr32(hWnd, Win32.ClassLongIndex.GCL_HBRBACKGROUND).ToString("X");
+                    // GetClassLongPtr() sometimes reutrns "FFFFFFFF" before the actual value
+                    value = hPrefix + Win32.GetClassLongPtr32(hWnd, Win32.ClassLongIndex.GCL_HBRBACKGROUND).ToString("X8");
                     break;
             }
 
