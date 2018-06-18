@@ -11,6 +11,10 @@ using System;
 
 namespace SharpFind.Classes
 {
+    /// <summary>
+    /// A class containing methods used to highlight windows via their
+    /// target handles.
+    /// </summary>
     public class WindowHighlighter
     {
         /// <summary>

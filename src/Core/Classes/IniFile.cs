@@ -11,6 +11,10 @@ using System;
 
 namespace SharpFind.Classes
 {
+    /// <summary>
+    /// A class used to read and write application settings via .ini
+    /// configuration file.
+    /// </summary>
     public class IniFile
     {
         /// <summary>
