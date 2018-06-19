@@ -202,12 +202,12 @@ namespace SharpFind
             Win32.GetWindowRect(hWnd, out wRect);
             var winState = Win32.IsZoomed(hWnd) ? " (maximized)" : string.Empty;
 
-            return string.Format("({2},{3}) - ({4},{5}), {0} x {1}{6}", wRect.right  - wRect.left,
-                                                                        wRect.bottom - wRect.top,
-                                                                        wRect.left,
+            return string.Format("({0},{1}) - ({2},{3}), {4} x {5}{6}", wRect.left,
                                                                         wRect.top,
                                                                         wRect.right,
                                                                         wRect.bottom,
+                                                                        wRect.right - wRect.left,
+                                                                        wRect.bottom - wRect.top,
                                                                         winState);
         }
 
@@ -225,12 +225,24 @@ namespace SharpFind
 
         private static string GetClientRect(IntPtr hWnd)
         {
-            Win32.RECT cRect;
+            Win32.RECT cRect, wRect;
+            Win32.POINT pt;
+
             Win32.GetClientRect(hWnd, out cRect);
-            return string.Format("({2},{3}) - ({4},{5}), {0} x {1}", cRect.right  - cRect.left,
-                                                                     cRect.bottom - cRect.top,
-                                                                     cRect.left,
-                                                                     cRect.top,
+
+            pt.X = cRect.left;
+            pt.Y = cRect.top;
+
+            Win32.MapWindowPoints(hWnd, IntPtr.Zero, ref pt, 2);
+
+            Win32.GetWindowRect(hWnd, out wRect);
+            var absoluteX = pt.X - wRect.left;
+            var absoluteY = pt.Y - wRect.top;
+
+            return string.Format("({0},{1}) - ({2},{3}), {4} x {5}", absoluteX,
+                                                                     absoluteY,
+                                                                     cRect.right + absoluteX,
+                                                                     cRect.bottom + absoluteY,
                                                                      cRect.right,
                                                                      cRect.bottom);
         }
