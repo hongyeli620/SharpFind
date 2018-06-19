@@ -177,14 +177,14 @@ namespace SharpFind
 
         #region General
 
-        private static string GetWindowText(IntPtr hWnd)
+        private string GetWindowText(IntPtr hWnd)
         {
             var sb = new StringBuilder(256);
             Win32.GetWindowText(hWnd, sb, 256);
             return sb.ToString();
         }
 
-        private static string GetWindowClass(IntPtr hWnd)
+        private string GetWindowClass(IntPtr hWnd)
         {
             var sb = new StringBuilder(256);
             Win32.GetClassName(hWnd, sb, 256);
@@ -196,7 +196,7 @@ namespace SharpFind
             return value;
         }
 
-        private static string GetWindowRect(IntPtr hWnd)
+        private string GetWindowRect(IntPtr hWnd)
         {
             Win32.RECT wRect;
             Win32.GetWindowRect(hWnd, out wRect);
@@ -212,7 +212,7 @@ namespace SharpFind
                                  winState);
         }
 
-        private static string GetRestoredRect(IntPtr hWnd)
+        private string GetRestoredRect(IntPtr hWnd)
         {
             var wp = new Win32.WINDOWPLACEMENT();
             Win32.GetWindowPlacement(hWnd, ref wp);
@@ -225,7 +225,7 @@ namespace SharpFind
                                  wp.rcNormalPosition.bottom - wp.rcNormalPosition.top);
         }
 
-        private static string GetClientRect(IntPtr hWnd)
+        private string GetClientRect(IntPtr hWnd)
         {
             Win32.RECT cRect, wRect;
             Win32.POINT pt;
@@ -250,17 +250,17 @@ namespace SharpFind
                                  cRect.bottom);
         }
 
-        private static string GetInstanceHandle(IntPtr hWnd)
+        private string GetInstanceHandle(IntPtr hWnd)
         {
             return hPrefix + Win32.GetWindowLong(hWnd, Win32.WindowLongIndex.GWL_HINSTANCE).ToString(hFormat);
         }
 
-        private static string GetControlId(IntPtr hWnd)
+        private string GetControlId(IntPtr hWnd)
         {
             return hPrefix + Win32.GetWindowLong(hWnd, Win32.WindowLongIndex.GWL_ID).ToString(hFormat);
         }
 
-        private static string GetUserData(IntPtr hWnd)
+        private string GetUserData(IntPtr hWnd)
         {
             return hPrefix + Win32.GetWindowLong(hWnd, Win32.WindowLongIndex.GWL_USERDATA).ToString(hFormat);
         }
@@ -615,7 +615,7 @@ namespace SharpFind
                                      new IntPtr(Win32.GetClassLongPtr32(hWnd, nIndex));
         }
 
-        private static string GetClassName(IntPtr hWnd)
+        private string GetClassName(IntPtr hWnd)
         {
             var sb = new StringBuilder(256);
             Win32.GetClassName(hWnd, sb, 256);
@@ -686,29 +686,29 @@ namespace SharpFind
             return value.ToString();
         }
 
-        private static string GetClassAtom(IntPtr hWnd)
+        private string GetClassAtom(IntPtr hWnd)
         {
             return hPrefix + GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCW_ATOM).ToString("X4");
         }
 
-        private static string GetWindowBytes(IntPtr hWnd)
+        private string GetWindowBytes(IntPtr hWnd)
         {
             return GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_CBWNDEXTRA).ToString();
         }
 
-        private static string GetIconHandle(IntPtr hWnd)
+        private string GetIconHandle(IntPtr hWnd)
         {
             var value = hPrefix + GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_HICON).ToString(hFormat);
             return value == "00000000" ? "(none)" : value;
         }
 
-        private static string GetIconHandleSM(IntPtr hWnd)
+        private string GetIconHandleSM(IntPtr hWnd)
         {
             var value = hPrefix + Win32.GetClassLongPtr32(hWnd, Win32.ClassLongIndex.GCL_HICONSM).ToString(hFormat);
             return value == "00000000" ? "(none)" : value;
         }
 
-        private static string GetCursorHandle(IntPtr hWnd)
+        private string GetCursorHandle(IntPtr hWnd)
         {
             var value = GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_HCURSOR).ToString("X");
 
@@ -758,7 +758,7 @@ namespace SharpFind
             return value;
         }
 
-        private static string GetBackgroundBrush(IntPtr hWnd)
+        private string GetBackgroundBrush(IntPtr hWnd)
         {
             var value = GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_HBRBACKGROUND).ToString();
             int n;
@@ -820,7 +820,7 @@ namespace SharpFind
         #endregion
         #region Process
 
-        private static string GetModuleName(IntPtr hWnd)
+        private string GetModuleName(IntPtr hWnd)
         {
             var pid = 0;
             Win32.GetWindowThreadProcessId(hWnd, ref pid);
@@ -829,7 +829,7 @@ namespace SharpFind
             return process.MainModule.ModuleName;
         }
 
-        private static string GetModulePath(IntPtr hWnd)
+        private string GetModulePath(IntPtr hWnd)
         {
             var pid = 0;
             Win32.GetWindowThreadProcessId(hWnd, ref pid);
@@ -838,7 +838,7 @@ namespace SharpFind
             return process.MainModule.FileName;
         }
 
-        private static string GetProcessIdEx(IntPtr hWnd)
+        private string GetProcessIdEx(IntPtr hWnd)
         {
             var pid = 0;
             Win32.GetWindowThreadProcessId(hWnd, ref pid);
@@ -847,7 +847,7 @@ namespace SharpFind
             return hPrefix + process.Id.ToString(hFormat) + " (" + process.Id + ")";
         }
 
-        private static int GetProcessId(IntPtr hWnd)
+        private int GetProcessId(IntPtr hWnd)
         {
             var pid = 0;
             Win32.GetWindowThreadProcessId(hWnd, ref pid);
@@ -856,7 +856,7 @@ namespace SharpFind
             return process.Id;
         }
 
-        private static string GetThreadId(IntPtr hWnd)
+        private string GetThreadId(IntPtr hWnd)
         {
             var pid = 0;
             return hPrefix + Win32.GetWindowThreadProcessId(hWnd, ref pid).ToString(hFormat) +
