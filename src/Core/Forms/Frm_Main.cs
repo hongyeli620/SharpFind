@@ -80,6 +80,7 @@ namespace SharpFind
         private IntPtr hPreviousWindow;
         private IntPtr hWnd;
         private IntPtr hWndOld;
+        private int targetPID;
 
         // Hexadecimal prefix and format
         private static string hPrefix = "";
@@ -843,6 +844,7 @@ namespace SharpFind
             var pid = 0;
             Win32.GetWindowThreadProcessId(hWnd, ref pid);
             var process = Process.GetProcessById(pid);
+            targetPID = pid;
 
             return hPrefix + process.Id.ToString(hFormat) + " (" + process.Id + ")";
         }
@@ -1082,35 +1084,6 @@ namespace SharpFind
                     WindowHighlighter.Refresh(hPreviousWindow);
                     hPreviousWindow = IntPtr.Zero;
                 }
-            }
-            isCapturing = captured;
-        }
-
-        private void HandleMouseMovement()
-        {
-            if (!isCapturing) return;
-            try
-            {
-                hWnd = Win32.WindowFromPoint(Cursor.Position);
-
-                // Prevent retrieving information about the program itself, just like Spy++
-                var pid = GetProcessId(hWnd);
-                if (Win32.GetCurrentProcessId() == pid)
-                {
-                    isHandleNull = true;
-                    Text = appName;
-                    return;
-                }
-
-                isHandleNull = false;
-
-                if (hPreviousWindow != IntPtr.Zero && hPreviousWindow != hWnd)
-                    WindowHighlighter.Refresh(hPreviousWindow);
-
-                if (hWnd == IntPtr.Zero)
-                    return;
-
-                hPreviousWindow = hWnd;
 
                 // General Information tab
                 TB_WindowCaption.Text  = GetWindowText(hWnd);
@@ -1145,7 +1118,39 @@ namespace SharpFind
                 TB_ModulePath.Text     = GetModulePath(hWnd);
                 TB_ProcessID.Text      = GetProcessIdEx(hWnd);
                 TB_ThreadID.Text       = GetThreadId(hWnd);
-                TB_PriorityClass.Text  = GetPriorityClass(Process.GetProcessById(pid).Handle);
+                TB_PriorityClass.Text  = GetPriorityClass(Process.GetProcessById(targetPID).Handle);
+            }
+
+            isCapturing = captured;
+        }
+
+        private void HandleMouseMovement()
+        {
+            if (!isCapturing) return;
+            try
+            {
+                hWnd = Win32.WindowFromPoint(Cursor.Position);
+
+                // Prevent retrieving information about the program itself, just like Spy++
+                var pid = GetProcessId(hWnd);
+                if (Win32.GetCurrentProcessId() == pid)
+                {
+                    isHandleNull = true;
+                    Text = appName;
+                    return;
+                }
+
+                isHandleNull = false;
+
+                if (hPreviousWindow != IntPtr.Zero && hPreviousWindow != hWnd)
+                    WindowHighlighter.Refresh(hPreviousWindow);
+
+                if (hWnd == IntPtr.Zero)
+                    return;
+
+                hPreviousWindow = hWnd;
+
+
 
                 Text = appName + " - " + hPrefix + hWnd.ToString(hFormat);
 
