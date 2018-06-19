@@ -834,6 +834,33 @@ namespace SharpFind
         public static extern IntPtr LoadCursor(IntPtr hInstance, int lpCursorName);
 
         /// <summary>
+        /// Converts a set of points from a coordinate space relative to one window to
+        /// a coordinate space relative to another window.
+        /// </summary>
+        /// 
+        /// <param name="hwndFrom">
+        /// A handle to the window from which points are converted.
+        /// </param>
+        /// 
+        /// <param name="hwndTo">
+        /// A handle to the window to which points are converted.
+        /// </param>
+        /// 
+        /// <param name="lpPoints">
+        /// A pointer to an array of POINT structures that contain the set of points
+        /// to be converted.
+        /// </param>
+        /// 
+        /// <param name="cPoints">
+        /// The number of POINT structures in the array pointed to by the
+        /// <c>lpPoints</c> parameter.
+        /// </param>
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern int MapWindowPoints(IntPtr hwndFrom, IntPtr hwndTo, 
+                                                 ref POINT lpPoints, 
+                                                 [MarshalAs(UnmanagedType.U4)] int cPoints);
+
+        /// <summary>
         /// The OffsetRect function moves the specified rectangle by the
         /// specified offsets.
         /// </summary>
