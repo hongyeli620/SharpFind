@@ -1085,40 +1085,7 @@ namespace SharpFind
                     hPreviousWindow = IntPtr.Zero;
                 }
 
-                // General Information tab
-                TB_WindowCaption.Text  = GetWindowText(hWnd);
-                TB_WindowHandle.Text   = hPrefix + hWnd.ToString(hFormat) + " (" + hWnd.ToInt32() + ")";
-                TB_Class.Text          = GetWindowClass(hWnd);
-                TB_Style.Text          = GetWindowStyles(hWnd);
-                TB_Rectangle.Text      = GetWindowRect(hWnd);
-                TB_RestoredRect.Text   = GetRestoredRect(hWnd);
-                TB_ClientRect.Text     = GetClientRect(hWnd);
-                TB_InstanceHandle.Text = GetInstanceHandle(hWnd);
-                TB_ControlID.Text      = GetControlId(hWnd);
-                TB_UserData.Text       = GetUserData(hWnd);
-                GetWindowBytesCombo(hWnd);
-
-                //Styles tab
-                TB_WindowStyles.Text   = TB_Style.Text.Split('(')[0].TrimEnd();
-                TB_ExtendedStyles.Text = GetWindowStylesEx(hWnd);
-
-                // Class tab
-                TB_ClassName.Text      = GetClassName(hWnd);
-                TB_ClassStyles.Text    = GetClassStyles(hWnd);
-                TB_ClassBytes.Text     = GetClassBytes(hWnd);
-                TB_ClassAtom.Text      = GetClassAtom(hWnd);
-                TB_WindowBytes.Text    = GetWindowBytes(hWnd);
-                TB_IconHandle.Text     = GetIconHandle(hWnd);
-                TB_IconHandleSM.Text   = GetIconHandleSM(hWnd);
-                TB_CursorHandle.Text   = GetCursorHandle(hWnd);
-                TB_BkgndBrush.Text     = GetBackgroundBrush(hWnd);
-
-                // Process tab
-                TB_ModuleName.Text     = GetModuleName(hWnd);
-                TB_ModulePath.Text     = GetModulePath(hWnd);
-                TB_ProcessID.Text      = GetProcessIdEx(hWnd);
-                TB_ThreadID.Text       = GetThreadId(hWnd);
-                TB_PriorityClass.Text  = GetPriorityClass(Process.GetProcessById(targetPID).Handle);
+                RetrieveWindowInfo(hWnd);
             }
 
             isCapturing = captured;
@@ -1149,9 +1116,6 @@ namespace SharpFind
                     return;
 
                 hPreviousWindow = hWnd;
-
-
-
                 Text = appName + " - " + hPrefix + hWnd.ToString(hFormat);
 
                 // The flickering shall not pass
@@ -1167,6 +1131,44 @@ namespace SharpFind
                 Cursor.Current = _cursorDefault;
                 PB_Tool.Image = Resources.finder_in;
             }
+        }
+
+        private void RetrieveWindowInfo(IntPtr hWnd)
+        {
+            // General Information tab
+            TB_WindowCaption.Text  = GetWindowText(hWnd);
+            TB_WindowHandle.Text   = hPrefix + hWnd.ToString(hFormat) + " (" + hWnd.ToInt32() + ")";
+            TB_Class.Text          = GetWindowClass(hWnd);
+            TB_Style.Text          = GetWindowStyles(hWnd);
+            TB_Rectangle.Text      = GetWindowRect(hWnd);
+            TB_RestoredRect.Text   = GetRestoredRect(hWnd);
+            TB_ClientRect.Text     = GetClientRect(hWnd);
+            TB_InstanceHandle.Text = GetInstanceHandle(hWnd);
+            TB_ControlID.Text      = GetControlId(hWnd);
+            TB_UserData.Text       = GetUserData(hWnd);
+            GetWindowBytesCombo(hWnd);
+
+            //Styles tab
+            TB_WindowStyles.Text   = TB_Style.Text.Split('(')[0].TrimEnd();
+            TB_ExtendedStyles.Text = GetWindowStylesEx(hWnd);
+
+            // Class tab
+            TB_ClassName.Text      = GetClassName(hWnd);
+            TB_ClassStyles.Text    = GetClassStyles(hWnd);
+            TB_ClassBytes.Text     = GetClassBytes(hWnd);
+            TB_ClassAtom.Text      = GetClassAtom(hWnd);
+            TB_WindowBytes.Text    = GetWindowBytes(hWnd);
+            TB_IconHandle.Text     = GetIconHandle(hWnd);
+            TB_IconHandleSM.Text   = GetIconHandleSM(hWnd);
+            TB_CursorHandle.Text   = GetCursorHandle(hWnd);
+            TB_BkgndBrush.Text     = GetBackgroundBrush(hWnd);
+
+            // Process tab
+            TB_ModuleName.Text     = GetModuleName(hWnd);
+            TB_ModulePath.Text     = GetModulePath(hWnd);
+            TB_ProcessID.Text      = GetProcessIdEx(hWnd);
+            TB_ThreadID.Text       = GetThreadId(hWnd);
+            TB_PriorityClass.Text  = GetPriorityClass(Process.GetProcessById(targetPID).Handle);
         }
 
         #endregion
