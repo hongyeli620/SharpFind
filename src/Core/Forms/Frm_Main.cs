@@ -1071,7 +1071,7 @@ namespace SharpFind
                 Cursor.Current = _cursorDefault;
                 PB_Tool.Image = Resources.finder_in;
 
-                if (TB_WindowHandle.Text != "" && isHandleNull == false)
+                if (hWnd != IntPtr.Zero && isHandleNull == false)
                 {
                     PNL_Bottom.Visible = true;
                     Height = formHeightExtended;
@@ -1114,7 +1114,7 @@ namespace SharpFind
 
                 // General Information tab
                 TB_WindowCaption.Text  = GetWindowText(hWnd);
-                TB_WindowHandle.Text   = hPrefix + hWnd.ToInt32().ToString(hFormat) + " (" + hWnd.ToInt32() + ")";
+                TB_WindowHandle.Text   = hPrefix + hWnd.ToString(hFormat) + " (" + hWnd.ToInt32() + ")";
                 TB_Class.Text          = GetWindowClass(hWnd);
                 TB_Style.Text          = GetWindowStyles(hWnd);
                 TB_Rectangle.Text      = GetWindowRect(hWnd);
@@ -1147,7 +1147,7 @@ namespace SharpFind
                 TB_ThreadID.Text       = GetThreadId(hWnd);
                 TB_PriorityClass.Text  = GetPriorityClass(Process.GetProcessById(pid).Handle);
 
-                Text = appName + " - " + TB_WindowHandle.Text.Split('(')[0].TrimEnd();
+                Text = appName + " - " + hPrefix + hWnd.ToString(hFormat);
 
                 // The flickering shall not pass
                 if (hWndOld == hWnd)
