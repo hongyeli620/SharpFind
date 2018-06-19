@@ -202,25 +202,27 @@ namespace SharpFind
             Win32.GetWindowRect(hWnd, out wRect);
             var winState = Win32.IsZoomed(hWnd) ? " (maximized)" : string.Empty;
 
-            return string.Format("({0},{1}) - ({2},{3}), {4} x {5}{6}", wRect.left,
-                                                                        wRect.top,
-                                                                        wRect.right,
-                                                                        wRect.bottom,
-                                                                        wRect.right - wRect.left,
-                                                                        wRect.bottom - wRect.top,
-                                                                        winState);
+            return string.Format("({0},{1}) - ({2},{3}), {4} x {5}{6}", 
+                                 wRect.left,
+                                 wRect.top,
+                                 wRect.right,
+                                 wRect.bottom,
+                                 wRect.right - wRect.left,
+                                 wRect.bottom - wRect.top,
+                                 winState);
         }
 
         private static string GetRestoredRect(IntPtr hWnd)
         {
             var wp = new Win32.WINDOWPLACEMENT();
             Win32.GetWindowPlacement(hWnd, ref wp);
-            return string.Format("({0},{1}) - ({2},{3}), {4} x {5}", wp.rcNormalPosition.left,
-                                                                     wp.rcNormalPosition.top,
-                                                                     wp.rcNormalPosition.right,
-                                                                     wp.rcNormalPosition.bottom,
-                                                                     wp.rcNormalPosition.right  - wp.rcNormalPosition.left,
-                                                                     wp.rcNormalPosition.bottom - wp.rcNormalPosition.top);
+            return string.Format("({0},{1}) - ({2},{3}), {4} x {5}", 
+                                 wp.rcNormalPosition.left,
+                                 wp.rcNormalPosition.top,
+                                 wp.rcNormalPosition.right,
+                                 wp.rcNormalPosition.bottom,
+                                 wp.rcNormalPosition.right  - wp.rcNormalPosition.left,
+                                 wp.rcNormalPosition.bottom - wp.rcNormalPosition.top);
         }
 
         private static string GetClientRect(IntPtr hWnd)
@@ -239,12 +241,13 @@ namespace SharpFind
             var absoluteX = pt.X - wRect.left;
             var absoluteY = pt.Y - wRect.top;
 
-            return string.Format("({0},{1}) - ({2},{3}), {4} x {5}", absoluteX,
-                                                                     absoluteY,
-                                                                     cRect.right + absoluteX,
-                                                                     cRect.bottom + absoluteY,
-                                                                     cRect.right,
-                                                                     cRect.bottom);
+            return string.Format("({0},{1}) - ({2},{3}), {4} x {5}", 
+                                 absoluteX,
+                                 absoluteY,
+                                 cRect.right + absoluteX,
+                                 cRect.bottom + absoluteY,
+                                 cRect.right,
+                                 cRect.bottom);
         }
 
         private static string GetInstanceHandle(IntPtr hWnd)
