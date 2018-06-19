@@ -697,7 +697,7 @@ namespace SharpFind
         {
             var value = GetClassLongPtr(hWnd, Win32.ClassLongIndex.GCL_HCURSOR).ToString("X");
 
-            if (Environment.OSVersion.Version.Major <= 5.1)
+            if (Environment.OSVersion.Version.Major < 6)
             {
                 // Hex handles for Windows XP and below
                 switch (value)
