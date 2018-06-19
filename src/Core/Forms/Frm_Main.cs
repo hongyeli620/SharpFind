@@ -1098,6 +1098,7 @@ namespace SharpFind
                 if (Win32.GetCurrentProcessId() == pid)
                 {
                     isHandleNull = true;
+                    Text = appName;
                     return;
                 }
 
