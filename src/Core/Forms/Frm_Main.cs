@@ -1076,6 +1076,7 @@ namespace SharpFind
                 if (hWnd != IntPtr.Zero && isHandleNull == false)
                 {
                     PNL_Bottom.Visible = true;
+                    RetrieveWindowInfo(hWnd);
                     Height = formHeightExtended;
                 }
 
@@ -1084,8 +1085,6 @@ namespace SharpFind
                     WindowHighlighter.Refresh(hPreviousWindow);
                     hPreviousWindow = IntPtr.Zero;
                 }
-
-                RetrieveWindowInfo(hWnd);
             }
 
             isCapturing = captured;
